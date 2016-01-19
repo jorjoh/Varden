@@ -26,14 +26,8 @@
                     </li>
                 </ul>
             </nav>
-            <div class="container_15"></div>
-            <div class="grid_15" style=" background-color: red;
-    width: 50px;
-    height: 50px;
-">
-
-            </div>
             <h1 class="intro">Velkommen til administreringssiden til Onlinebildearkiv</h1>
+            <div class="content"></div>
         </body>
 
         <footer>
