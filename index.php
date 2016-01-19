@@ -2,7 +2,7 @@
     <html>
         <head>
             <title>Varden.no - Online Bildearkiv</title>
-            <link rel="stylesheet" type="text/css" href="style.css">
+            <link rel="stylesheet" type="text/css" href="style/style.css">
         </head>
         <body>
             <a href="administrator/index.php">Administrator</a>
