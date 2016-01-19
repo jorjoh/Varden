@@ -5,6 +5,6 @@
             <link rel="stylesheet" type="text/css" href="style.css">
         </head>
         <body>
-            <p>Her kommer online bildearkiv til Varden</p>
+            <p>Her kommer online bildearkiv for varden</p>
         </body>
     </html>
