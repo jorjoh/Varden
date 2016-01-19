@@ -11,7 +11,7 @@
     <html>
         <head>
             <title>Online Bildearkiv -admin</title>
-         <link rel="stylesheet" type="text/css" href="Custom/styleBackend.css">
+         <link rel="stylesheet" type="text/css" href="style/styleBackend.css">
 
         </head>
         <body>
