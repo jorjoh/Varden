@@ -3,8 +3,11 @@
         <head>
             <title>Varden.no - Online Bildearkiv</title>
             <link rel="stylesheet" type="text/css" href="style.css">
+            <a href="administrator/backendForside.php"> backendForside</a>
         </head>
         <body>
             <p>Her kommer online bildearkiv til Varden</p>
         </body>
+        <footer>
+        </footer>
     </html>

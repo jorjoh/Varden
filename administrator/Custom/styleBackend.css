@@ -1,0 +1,29 @@
+body{
+    background: url('../../img/bildegalleriBackend.svg');
+    width: 1200px;
+}
+
+/* Menu-system*/
+nav{
+    position: absolute;
+    width: 100%;
+    border-top: 2px solid #3d454d;
+    border-bottom: 2px solid #3d454d;
+    text-align: center;
+}
+
+nav ul{
+    margin: 0 auto;
+}
+/*første rad med meny-elementer*/
+nav ul li{
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+    font-size: 24pt;
+    border-left: 1px solid #bebebe;
+    margin-left: -11px;
+    padding: 10px;
+    font-family: "Comic Sans MS", "Segoe UI Light", "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+}
