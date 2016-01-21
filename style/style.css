@@ -3,9 +3,8 @@
 }
 
 body {
-    background-image: url('../img/background.svg');
+    background: url('../img/background.svg')no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .row:after {

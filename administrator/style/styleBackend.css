@@ -3,8 +3,7 @@
 }
 
 body{
-    background-image: url('../img/bildegalleriBackend.svg');
-    background-repeat: no-repeat;
+    background: url('../img/bildegalleriBackend.svg') no-repeat;
     background-size: cover;
 }
 
