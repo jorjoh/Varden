@@ -17,18 +17,24 @@
         </head>
         <body>
             <img src="../img/vardenlogo.PNG">
-            <nav class="menuHandler">
-                <ul>
-                    <li><a href="../index.php">Forside</a></li>
-                    <li>
-                        <a href="#">Last opp bilder</a>
-                    </li>
-                    <li><a href="#">Forslag</a>
-                    </li>
-                </ul>
-            </nav>
-            <h1 class="intro">Velkommen til administreringssiden til Onlinebildearkiv</h1>
-            <div class="content"></div>
+            <div class="row">
+                <nav id="menuHandler">
+                    <ul>
+                        <li><a href="../index.php">Forside</a></li>
+                        <li>
+                            <a href="#">Last opp bilder</a>
+                        </li>
+                        <li><a href="#">Forslag</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="intro">Velkommen til administreringssiden til Onlinebildearkiv</h1>
+                    <div class="content"></div>
+                </div>
+            </div>
         </body>
 
         <footer>
