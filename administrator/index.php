@@ -14,7 +14,6 @@
          <link rel="stylesheet" type="text/css" href="style/styleBackend.css">
             <link rel="icon" type="image/png" href="../img/VA-fav-icon-152.png">
 
-
         </head>
         <body>
             <img src="../img/vardenlogo.PNG">
