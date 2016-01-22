@@ -20,7 +20,7 @@
                 <div class="col-12">
                     <h1 class="intro">Velkommen til administreringssiden til Onlinebildearkiv</h1>
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-10">
                             <nav id="nav">
                                 <li class="current"><a href="../index.php">Hjem</a></li>
                                 <li><a href="#">Last opp bilde</a>

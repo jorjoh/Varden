@@ -137,6 +137,7 @@ h1.intro{
     height: 200px;
     max-width: 1200px;
     border: solid 3px black;
+    z-index: -1000;
 }
 
 #nav {
@@ -273,6 +274,7 @@ h1.intro{
     height: 0;
 }
 #nav {
+    z-index: 1000;
     display: inline-block;
 }
 html[xmlns] #nav {
