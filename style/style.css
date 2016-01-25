@@ -3,7 +3,7 @@
 }
 
 html {
-    background: url(../img/background.svg) no-repeat center center fixed;
+    background: no-repeat,url('../img/background.svg'),url('../img/background.png');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

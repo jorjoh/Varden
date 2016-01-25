@@ -3,9 +3,13 @@
 }
 
 body{
-    background: url('../img/bildegalleriBackend.svg') no-repeat;
+    background: no-repeat,url('../img/bildegalleriBackend.svg'),url('../img/bildegalleriBackend.png');
     background-size: cover;
     font: normal .8em/1.5em Arial, Helvetica, sans-serif;
+    -o-background-size: 100%;
+
+
+
 }
 
 .row:after {
@@ -144,9 +148,9 @@ h1.intro{
     margin: 0;
     padding: 7px 6px 0;
     line-height: 100%;
-    border-radius: 2em;
+    border-radius: 0.3em;
 
-    -webkit-border-radius: 2em;
+    -webkit-border-radius: 0.3em;
     -moz-border-radius: 2em;
 
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
