@@ -3,11 +3,8 @@
 }
 
 html {
-    background: no-repeat,url('../img/background.svg'),url('../img/background.png');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: none,url('../img/background.svg') no-repeat,url('../img/background.png') no-repeat;
+    text-align: center;
 }
 
 .row:after {
@@ -127,4 +124,9 @@ html {
     .col-12 {
         width: 100%;
     }
+}
+
+#title {
+    font-size: 45pt;
+    font-family: "Bookman Old Style", "Arial Black", "Serif";
 }
