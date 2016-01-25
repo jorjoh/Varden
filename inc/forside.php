@@ -1,7 +1,1 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: roed
- * Date: 25.01.2016
- * Time: 13.51
- */
+<p>Dette er innholdet på forsiden</p>

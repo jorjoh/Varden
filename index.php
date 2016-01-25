@@ -7,10 +7,17 @@
             <link rel="icon" type="image/png" href="img/VA-fav-icon-152.png">
         </head>
         <body>
-            <div class="row">
-                <div class="col-12">
-                    <h1>Online Bildearkiv - Varden.not</h1>
-                </div>
-            </div>
+            <h1 class="col-12" id="#title">Online bildearkiv for Varden</h1>
+            <nav class="col-12">
+                <ul>
+                    <li>Menypunkt 1</li>
+                </ul>
+            </nav>
+            <article class="col-12">
+                <?php include('inc/hoved.php'); ?>
+            </article>
+            <footer>
+                <p>Copyright stuff her</p>
+            </footer>
         </body>
     </html>
