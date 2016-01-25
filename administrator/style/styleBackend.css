@@ -3,13 +3,10 @@
 }
 
 body{
-    background: no-repeat,url('../img/bildegalleriBackend.svg'),url('../img/bildegalleriBackend.png');
+    background: none,url('../img/bildegalleriBackend.svg')no-repeat,url('../img/bildegalleriBackend.png') no-repeat;
     background-size: cover;
     font: normal .8em/1.5em Arial, Helvetica, sans-serif;
     -o-background-size: 100%;
-
-
-
 }
 
 .row:after {
@@ -135,13 +132,7 @@ body{
 h1.intro{
     position: relative;
     /*margin-top: 9%;*/
-}
-.content{
-    position: relative;
-    height: 200px;
-    max-width: 1200px;
-    border: solid 3px black;
-    z-index: -1000;
+    font-size: 24pt;
 }
 
 #nav {
@@ -286,4 +277,31 @@ html[xmlns] #nav {
 }
 * html #nav {
     height: 1%;
+}
+
+#contentIntro {
+    position: relative;
+    height: 300px;
+    max-width: 600px;
+    border: solid 3px black;
+    z-index: -1000;
+}
+#statisticContent {
+    position: relative;
+    height: 300px;
+    max-width: 600px;
+    border: solid 3px black;
+    z-index: -1000;
+    margin-left: 410px;
+
+}
+#contentGraph {
+    position: relative;
+    height: 300px;
+    max-width: 600px;
+    border: solid 3px black;
+    z-index: -1000;
+    background-color: pink;
+
+    margin-top: 10px;
 }
