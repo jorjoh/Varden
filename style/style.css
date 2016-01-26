@@ -4,7 +4,6 @@
 
 html {
     background: none,url('../img/background.svg') no-repeat,url('../img/background.png') no-repeat;
-    background-size: cover;
     text-align: center;
     font-family: "Arial", Verdana, sans-serif;
 }
@@ -138,12 +137,13 @@ html {
 }
 
 #searchInput {
-    margin-top: -50px;
+    margin-top: -15px;
     padding: 10px;
     font-size: 24pt;
     border-radius: 4px;
     box-shadow: 5px 5px 10px #888888;
     border: none;
+    color: #888888;
 }
 
 input[type=submit] {

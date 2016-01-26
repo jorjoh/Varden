@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="85" height="89" viewBox="0 0 85 89">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        filter: url(#color-overlay-1);
+      }
+    </style>
+
+    <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#b9b9b9"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+      <feBlend in2="SourceGraphic" result="solidFill"/>
+    </filter>
+  </defs>
+  <g>
+    <g>
+      <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE8AAABPCAMAAACd6mi0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAATlBMVEUAAAAAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAAADzCnusAAAAGHRSTlMAJGyPdR036qEizqz71QLc7ceeF7g1Ti0gyYdsAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAGVJREFUWMPt2cERgkAAxdCgqMiKIAps/5UCPfyLM0kBr4EAzeWaqb1xdH/UWN0T+hxXa4FX0ht4J7k66unp6enp6enp6enp6enp6enp6enp/anHlPQ+UJLeDN9fjivnEGBZQ22wA3EdOwvHDsK/AAAAAElFTkSuQmCC" x="2" y="5" width="79" height="79"/>
+      <path d="M60.052,56.384 L55.857,60.582 L47.414,52.139 C45.182,54.268 41.949,55.518 38.424,55.518 C30.367,55.518 23.837,48.988 23.837,40.931 C23.837,32.874 30.367,26.343 38.424,26.343 C46.478,26.343 53.009,32.874 53.012,40.931 C53.012,43.291 52.451,45.520 51.226,47.558 L60.052,56.384 ZM38.424,32.277 C33.650,32.277 29.770,36.160 29.770,40.931 C29.770,45.700 33.653,49.582 38.424,49.582 C43.193,49.582 47.078,45.703 47.078,40.931 C47.078,36.157 43.193,32.277 38.424,32.277 Z" class="cls-1"/>
+    </g>
+    <path d="M-335.522,14.427 L-332.528,14.427 L-332.528,68.330 L-335.522,68.330 L-335.522,14.427 Z" class="cls-2"/>
+  </g>
+</svg>
