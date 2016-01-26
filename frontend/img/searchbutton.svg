@@ -1,27 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="85" height="89" viewBox="0 0 85 89">
-  <defs>
-    <style>
-      .cls-1, .cls-2 {
-        fill: #fff;
-        fill-rule: evenodd;
-      }
-
-      .cls-2 {
-        filter: url(#color-overlay-1);
-      }
-    </style>
-
-    <filter id="color-overlay-1" filterUnits="userSpaceOnUse">
-      <feFlood flood-color="#b9b9b9"/>
-      <feComposite operator="in" in2="SourceGraphic"/>
-      <feBlend in2="SourceGraphic" result="solidFill"/>
-    </filter>
-  </defs>
-  <g>
-    <g>
-      <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE8AAABPCAMAAACd6mi0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAATlBMVEUAAAAAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAAADzCnusAAAAGHRSTlMAJGyPdR036qEizqz71QLc7ceeF7g1Ti0gyYdsAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAGVJREFUWMPt2cERgkAAxdCgqMiKIAps/5UCPfyLM0kBr4EAzeWaqb1xdH/UWN0T+hxXa4FX0ht4J7k66unp6enp6enp6enp6enp6enp6enp/anHlPQ+UJLeDN9fjivnEGBZQ22wA3EdOwvHDsK/AAAAAElFTkSuQmCC" x="2" y="5" width="79" height="79"/>
-      <path d="M60.052,56.384 L55.857,60.582 L47.414,52.139 C45.182,54.268 41.949,55.518 38.424,55.518 C30.367,55.518 23.837,48.988 23.837,40.931 C23.837,32.874 30.367,26.343 38.424,26.343 C46.478,26.343 53.009,32.874 53.012,40.931 C53.012,43.291 52.451,45.520 51.226,47.558 L60.052,56.384 ZM38.424,32.277 C33.650,32.277 29.770,36.160 29.770,40.931 C29.770,45.700 33.653,49.582 38.424,49.582 C43.193,49.582 47.078,45.703 47.078,40.931 C47.078,36.157 43.193,32.277 38.424,32.277 Z" class="cls-1"/>
-    </g>
-    <path d="M-335.522,14.427 L-332.528,14.427 L-332.528,68.330 L-335.522,68.330 L-335.522,14.427 Z" class="cls-2"/>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-263 352 85 89" style="enable-background:new -263 352 85 89;" xml:space="preserve" width="85" height="90">
+<style type="text/css">
+	.st0{fill:none;enable-background:new    ;}
+	.st1{fill:#FFFFFF;}
+</style>
+<g>
+	<g>
+		
+			<image style="overflow:visible;" width="79" height="79" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE8AAABPCAMAAACd6mi0AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAATlBMVEUAAAAAnMsAnMsAnMsA
+nMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsAnMsA
+nMsAnMsAAADzCnusAAAAGHRSTlMAJGyPdR036qEizqz71QLc7ceeF7g1Ti0gyYdsAAAAAWJLR0QA
+iAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAGVJREFUWMPt2cERgkAAxdCgqMiKIAps/5UCPfyL
+M0kBr4EAzeWaqb1xdH/UWN0T+hxXa4FX0ht4J7k66unp6enp6enp6enp6enp6enp6enp/anHlPQ+
+UJLeDN9fjivnEGBZQ22wA3EdOwvHDsK/AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -261 357)">
+		</image>
+		<path class="st0" d="z"/>
+		<path class="st1" d="M-202.9,408.4l-4.2,4.2l-8.4-8.4c-2.2,2.1-5.5,3.4-9,3.4c-8.1,0-14.6-6.5-14.6-14.6s6.5-14.6,14.6-14.6
+			c8.1,0,14.6,6.5,14.6,14.6c0,2.4-0.6,4.6-1.8,6.6L-202.9,408.4z M-224.6,384.3c-4.8,0-8.7,3.9-8.7,8.7c0,4.8,3.9,8.7,8.7,8.7
+			c4.8,0,8.7-3.9,8.7-8.7C-215.9,388.2-219.8,384.3-224.6,384.3z"/>
+	</g>
+	<path class="st1" d="M-598.5,366.4h3v53.9h-3V366.4z"/>
+</g>
 </svg>
