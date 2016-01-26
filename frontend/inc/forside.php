@@ -8,10 +8,13 @@
     </p>
 </div>
 <div class="row">
-    <p class="col-12">
     <form method="post" name="searchfield" id="searchfield">
-        <input type="text" name="searchInput" id="searchInput" autofocus="autofocus" placeholder="Søk her for å finne bilde..." required />
-        <input type="image" name="search" id="search" src="img/searchbutton.svg"/>
+        <div class="col-8">
+            <input type="text" name="searchInput" id="searchInput" autofocus="autofocus" placeholder="Søk her for å finne bilde..." required />
+        </div>
+        <div class="col-4">
+            <input type="image" name="search" id="search" src="img/searchbutton.svg"/>
+        </div>
         <br>
         <br>
         <input type="checkbox" name="news" id="news"> Nyheter
@@ -19,5 +22,4 @@
         <input type="checkbox" name="sport" id="sport"> Sport
         <input type="checkbox" name="places" id="places"> Steder <br>
     </form>
-    </p>
 </div>
