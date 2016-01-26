@@ -4,7 +4,9 @@
 
 html {
     background: none,url('../img/background.svg') no-repeat,url('../img/background.png') no-repeat;
+    background-size: cover;
     text-align: center;
+    font-family: "Arial", Verdana, sans-serif;
 }
 
 .row:after {
@@ -127,6 +129,23 @@ html {
 }
 
 #title {
-    font-size: 45pt;
-    font-family: "Bookman Old Style", "Arial Black", "Serif";
+    font-size: 30pt;
+    font-family: "Bookman Old Style", Arial Black, serif;
+}
+
+#introTxt {
+    margin-top: -50px;
+}
+
+#searchInput {
+    margin-top: -50px;
+    padding: 10px;
+    font-size: 24pt;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px #888888;
+    border: none;
+}
+
+input[type=submit] {
+    padding: 10px;
 }

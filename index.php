@@ -8,9 +8,7 @@
         </head>
         <body>
             <nav class="col-12">
-                <ul>
-                    <li>Menybaren klistrer vi til toppen!</li>
-                </ul>
+                <p>Menybaren klistrer vi til toppen</p>
             </nav>
             <article class="col-12">
                 <?php include('inc/hoved.php'); ?>
