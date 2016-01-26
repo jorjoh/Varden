@@ -301,7 +301,5 @@ html[xmlns] #nav {
     max-width: 600px;
     border: solid 3px black;
     z-index: -1000;
-    background-color: pink;
-
     margin-top: 10px;
 }
