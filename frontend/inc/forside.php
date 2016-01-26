@@ -9,10 +9,9 @@
 </div>
 <div class="row">
     <p class="col-12">
-    <img src="img/searchbutton.svg">
     <form method="post" name="searchfield" id="searchfield">
         <input type="text" name="searchInput" id="searchInput" autofocus="autofocus" placeholder="Søk her for å finne bilde..." required />
-        <input type="image" name="search" id="search">
+        <input type="image" name="search" id="search" src="img/searchbutton.svg"/>
         <br>
         <br>
         <input type="checkbox" name="news" id="news"> Nyheter
