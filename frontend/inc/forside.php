@@ -19,3 +19,6 @@
         <input type="checkbox" name="places" id="places"> Steder <br>
     </form>
 </div>
+<div class="row">
+    <h1 class="col-12" id="mostpictures">Mest viste bilder</h1>
+</div>

@@ -9,9 +9,12 @@ html {
     font-family: "Arial", Verdana, sans-serif;
 }
 
+h1 {
+    font-family: "Bookman Old Style", Arial Black, serif;
+}
+
 #title {
     font-size: 30pt;
-    font-family: "Bookman Old Style", Arial Black, serif;
 }
 
 #introTxt {
@@ -32,4 +35,8 @@ input[type="submit"] {
     border: none;
     margin-left: -90px;
     background: url(../img/searchbutton.svg);
+}
+
+#mostpictures {
+    margin-top: 200px;
 }
