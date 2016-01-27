@@ -3,6 +3,7 @@
         <head>
             <title>Varden.no - Online Bildearkiv</title>
             <meta charset="UTF-8">
+            <link rel="stylesheet" type="text/css" href="style/screen.css">
             <link rel="stylesheet" type="text/css" href="style/style.css">
             <link rel="icon" type="image/png" href="img/VA-fav-icon-152.png">
         </head>
