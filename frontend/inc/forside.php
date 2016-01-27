@@ -7,10 +7,10 @@
         Dette er over halvparten av Vardens fotosamling som består av totalt 90 000 fotografier.
     </p>
 </div>
-<div class="row col-12">
+<div class="row">
     <form method="post" name="searchfield" id="searchfield">
-        <input type="text" name="searchInput" id="searchInput" autofocus="autofocus" placeholder="Søk her for å finne bilde..." required />
-        <input type="submit" name="search" id="search" src="img/searchbutton.svg"/>
+        <input type="text" name="searchInput" id="searchInput" autofocus="autofocus" placeholder="Søk her..." required />
+        <input type="submit" name="search" id="search" src="img/searchbutton.svg" value=" "/>
         <br>
         <br>
         <input type="checkbox" name="news" id="news"> Nyheter

@@ -4,6 +4,7 @@
 
 html {
     background: none,url('../img/background.svg') no-repeat,url('../img/background.png') no-repeat;
+    background-size: 100% auto;
     text-align: center;
     font-family: "Arial", Verdana, sans-serif;
 }
@@ -30,6 +31,5 @@ input[type="submit"] {
     width: 85px;
     border: none;
     margin-left: -90px;
-    font-size: 0;
     background: url(../img/searchbutton.svg);
 }
