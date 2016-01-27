@@ -1,7 +1,7 @@
 <!doctype html>
 <html xml:lang="no" lang="no">
 <head>
-    <title>{{=site_name}} &mdash; {{=title}}</title>
+    <title>Agderposten &mdash; Agderposten</title>
 
     <meta name="robots" content="noarchive">
 
@@ -135,7 +135,7 @@
         }
 
         .Header, .Tortilla {
-            position: relative
+            position: relative;
         }
 
         .Footer-content strong, .Header-actions-link, .Header-menu-button, .Menu-list-item, .Menu-list-item--1, .Menu-list-item--2, .Menu-list-item--3, .Menu-list-item--4, .Menu-list-item--5, .Menu-list-item--updated, .Menu-list-item--user, .Menu-search-input, body {
@@ -231,7 +231,7 @@
             background-color: rgba(232, 223, 209, .6)
         }
 
-        ::-webkit-selection {
+        ::-moz-selection {
             background-color: rgba(232, 223, 209, .6)
         }
 
@@ -929,7 +929,9 @@
         .Content {
             min-height: 965px;
             margin: auto;
-            position: relative
+            position: relative;
+            background: url(img/background.svg) no-repeat;
+            background-size: contain;
         }
 
         .Share {
@@ -1079,6 +1081,7 @@
 
     <link rel="canonical" href="{{=url}}"/>
     <link rel="shortlink" href="{{=url}}"/>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
 
     <meta name="description" content="{{=description}}"/>
     <meta name="twitter:description" content="{{=description}}">
@@ -1164,7 +1167,7 @@
 </head>
 
 <body class="is--loggedOut not--touch">
-<div class="Tortilla env--{{=environment}}">
+<div class="Tortilla env--varden">
     <input type="checkbox" id="Menu-checkbox" class="Menu-checkbox">
 
     <header class="Header">
@@ -1175,17 +1178,17 @@
                 </menu>
 
                 <h1 class="Header-logo">
-                    <a data-action="back" data-back="header" href="/">{{=site_name}}</a>
+                    <a data-action="back" data-back="header" href="/">Online Bildearkiv</a>
                 </h1>
             </div>
 
             <div class="Header-information">
                 <p class="Header-information-category">
-                    {{=title}}
+                    Varden
                 </p>
 
                 <p class="Header-information-title">
-                    {{=title}}
+                    Bildearkiv
                 </p>
             </div>
 
@@ -1224,10 +1227,6 @@
     <nav class="Menu">
         <h1 class="Menu-title">Navigasjon</h1>
 
-        <form action="/søk" method="get" class="Menu-search">
-            <input class="Menu-search-input" name="q" type="text" placeholder="Søk i arkivet...">
-        </form>
-
         <h2 class="Menu-heading">Undersider</h2>
 
         <ul class="Menu-list">
@@ -1260,7 +1259,22 @@
     </nav>
 
     <main class="Content">
-        {{=content}}
+            <h1 id="title">Velkommen til Vardens <br> digitale bildearkiv</h1>
+            <p id="introTxt">
+                Du kan nå søke i rundt 25 000 bilder via vårt bildearkiv på nett. <br>
+                Dette er over halvparten av Vardens fotosamling som består av totalt 90 000 fotografier.
+            </p>
+            <form method="post" name="searchfield" id="searchfield">
+                <input type="text" name="searchInput" id="searchInput" autofocus="autofocus" placeholder="Søk her..." required />
+                <input type="submit" name="search" id="search" src="img/searchbutton.svg" value=" "/>
+                <br>
+                <br>
+                <label><input type="checkbox" name="news" id="news"> Nyheter </label>
+                <input type="checkbox" name="culture" id="culture"> Kultur
+                <input type="checkbox" name="sport" id="sport"> Sport
+                <input type="checkbox" name="places" id="places"> Steder <br>
+            </form>
+            <h1 id="mostpictures">Mest viste bilder</h1>
     </main>
 
     <footer class="Footer">
@@ -1278,7 +1292,13 @@
             <strong>Redaktør:</strong> {{=eic}}<br/>
             <strong>Administrerende direktør:</strong> {{=ceo}}<br/><br/>
 
-            <span>Kopibeskyttet &copy; {{=site_name}} 2014</span>
+            <span>Kopibeskyttet &copy; Agderposten
+                <script>
+                    var date=new Date();
+                    var year = date.getFullYear();
+                    document.write(year);
+                </script>
+            </span>
 
             <a href="/" data-action="back" data-back="footer" class="Footer-logo">{{=site_name}}</a>
         </p>
