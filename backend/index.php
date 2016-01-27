@@ -12,7 +12,10 @@
         <head>
             <title>Online Bildearkiv - adminpanel</title>
             <link rel="stylesheet" type="text/css" href="style/styleBackend.css">
+            <link rel="stylesheet" type="text/css" href="style/style.css">
             <link rel="icon" type="image/png" href="../frontend/img/VA-fav-icon-152.png">
+            <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+            <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
         </head>
         <body>
             <img src="img/vardenlogo.PNG">
