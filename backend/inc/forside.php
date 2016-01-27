@@ -1,7 +1,54 @@
+<script src="script/Chart.js"></script>
+<body>
+<div id="canvas-holder" style="width:30%">
+    <canvas id="chart-area" width="300" height="300" style="border: solid black 1px"> </canvas>
+</div>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="/backend/script/semiCricleDonut.js"></script>
+<script>
+
+    var polarData = [
+        {
+            value: 250,
+            color:"#F7464A",
+            highlight: "#FF5A5E",
+            label: "Red"
+        },
+        {
+            value: 50,
+            color: "#46BFBD",
+            highlight: "#5AD3D1",
+            label: "Green"
+        },
+        {
+            value: 100,
+            color: "#FDB45C",
+            highlight: "#FFC870",
+            label: "Yellow"
+        },
+        {
+            value: 40,
+            color: "#949FB1",
+            highlight: "#A8B3C5",
+            label: "Grey"
+        },
+        {
+            value: 120,
+            color: "#4D5360",
+            highlight: "#616774",
+            label: "Dark Grey"
+        }
+
+    ];
+
+    window.onload = function(){
+        var ctx = document.getElementById("chart-area").getContext("2d");
+        window.myPolarArea = new Chart(ctx).PolarArea(polarData, {
+            responsive:true
+        });
+    };
+
+</script>
+</body>
 
 
 <div class="row">
@@ -12,63 +59,5 @@
 
     <div class="col-4" id="contentGraph">
 
-
     </div>
 </div>
-
-
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; position:relative;  margin: 0 auto">heigit</div>
-<script>
-    $(function () {
-        $("#container").highcharts({
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: 0,
-                plotShadow: false
-            },
-            title: {
-                text: 'Browser<br>shares<br>2015',
-                align: 'center',
-                verticalAlign: 'middle',
-                y: 40
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    dataLabels: {
-                        enabled: true,
-                        distance: -50,
-                        style: {
-                            fontWeight: 'bold',
-                            color: 'white',
-                            textShadow: '0px 1px 2px black'
-                        }
-                    },
-                    startAngle: -90,
-                    endAngle: 90,
-                    center: ['50%', '75%']
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Browser share',
-                innerSize: '50%',
-                data: [
-                    ['Firefox',   10.38],
-                    ['IE',       56.33],
-                    ['Chrome', 30.03],
-                    ['Safari',    4.77],
-                    ['Opera',     0.91],
-                    {
-                        name: 'Proprietary or Undetectable',
-                        y: 0.2,
-                        dataLabels: {
-                            enabled: false
-                        }
-                    }
-                ]
-            }]
-        });
-    });</script>
