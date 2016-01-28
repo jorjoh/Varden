@@ -175,11 +175,16 @@ html[xmlns] #nav {
     margin-left: 410px;
 
 }
-#contentGraph {
+#contentGraph{
     position: relative;
+    display:inline;
     height: 300px;
     max-width: 600px;
     border: solid 3px black;
     z-index: -1000;
     margin-top: 10px;
+
+}
+#userInfo{
+    display: inline;
 }

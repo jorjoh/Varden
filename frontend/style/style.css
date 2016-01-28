@@ -5,6 +5,9 @@
 html {
     text-align: center;
 }
+#ContentText{
+    padding:100px;
+}
 
 .test {
     margin-top: 100px;
