@@ -11,6 +11,7 @@
 </div>
 <div class="row">
     <div class="col-4" id="contentGraph">
+        <h2> Topp 10 forespørsler - behandlet uke <?php include("functions/datePicker.php"); ?></h2>
         <div id="canvas-holder" style="width:50%">
             <canvas id="chart-area" width="600" height="600"> </canvas>
         </div>

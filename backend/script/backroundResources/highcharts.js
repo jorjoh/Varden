@@ -525,7 +525,7 @@
             defaultSeriesType: "line",
             ignoreHiddenSeries: !0,
             spacing: [10, 10, 15, 10],
-            backgroundColor: "#FFFFFF",
+            backgroundColor: "",
             plotBorderColor: "#C0C0C0",
             resetZoomButton: {theme: {zIndex: 20}, position: {align: "right", x: -10, y: 10}}
         },
@@ -626,17 +626,8 @@
                 pointerEvents: "none",
                 whiteSpace: "nowrap"
             }
-        },
-        credits: {
-            enabled: !0,
-            text: "",
-            href: "http://www.highcharts.com",
-            position: {align: "right", x: -10, verticalAlign: "bottom", y: -5},
-            style: {
-                cursor: "pointer", color: "#909090",
-                fontSize: "9px"
-            }
         }
+
     };
     var ba = O.plotOptions, ea = ba.line;
     Fb();
