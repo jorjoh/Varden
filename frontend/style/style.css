@@ -6,6 +6,10 @@ html {
     text-align: center;
 }
 
+.test {
+    margin-top: 100px;
+}
+
 #title {
     font-family: "Bookman Old Style", Arial Black, serif;
     font-size: 30pt;
@@ -13,7 +17,6 @@ html {
 
 #introTxt {
     margin-top: 20px;
-    font-size: 12pt;
 }
 
 input[type="text"] {
@@ -34,10 +37,10 @@ input[type="submit"] {
 }
 
 #mostpictures {
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 input[type=checkbox] {
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
 }

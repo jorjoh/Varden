@@ -13,10 +13,10 @@
         <input type="submit" name="search" id="search" src="img/searchbutton.svg" value=" "/>
         <br>
         <br>
-        <input type="checkbox" name="news" id="news"> Nyheter
-        <input type="checkbox" name="culture" id="culture"> Kultur
-        <input type="checkbox" name="sport" id="sport"> Sport
-        <input type="checkbox" name="places" id="places"> Steder <br>
+        <input type="checkbox" name="news" id="news" value="Nyheter"> Nyheter
+        <input type="checkbox" name="culture" id="culture" value="Kultur"> Kultur
+        <input type="checkbox" name="sport" id="sport" value="Sport"> Sport
+        <input type="checkbox" name="places" id="places" value="Steder"> Steder <br>
     </form>
 </div>
 <div class="row">
