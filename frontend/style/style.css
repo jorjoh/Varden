@@ -3,25 +3,21 @@
 }
 
 html {
-    background: none,url('../img/background.svg') no-repeat,url('../img/background.png') no-repeat;
-    background-size: 100% auto;
     text-align: center;
-    font-family: "Arial", Verdana, sans-serif;
-}
-
-h1 {
-    font-family: "Bookman Old Style", Arial Black, serif;
 }
 
 #title {
+    font-family: "Bookman Old Style", Arial Black, serif;
     font-size: 30pt;
 }
 
 #introTxt {
-    margin-top: -50px;
+    margin-top: 20px;
+    font-size: 12pt;
 }
 
 input[type="text"] {
+    margin-top: 20px;
     padding: 18px 20px 32px 22px;
     font-size: 24pt;
     border-radius: 4px;
@@ -39,4 +35,9 @@ input[type="submit"] {
 
 #mostpictures {
     margin-top: 200px;
+}
+
+input[type=checkbox] {
+    height: 20px;
+    width: 20px;
 }
