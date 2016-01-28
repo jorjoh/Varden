@@ -10,6 +10,7 @@
 <!DOCTYPE html>
     <html>
         <head>
+            <meta charset="UTF-8">
             <title>Online Bildearkiv - adminpanel</title>
             <link rel="stylesheet" type="text/css" href="style/styleBackend.css">
             <link rel="stylesheet" type="text/css" href="style/style.css">
