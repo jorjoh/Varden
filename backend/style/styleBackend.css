@@ -188,3 +188,6 @@ html[xmlns] #nav {
 #userInfo{
     display: inline;
 }
+#titleChartGraph{
+    margin-left: 1040px;
+}
