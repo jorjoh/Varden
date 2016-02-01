@@ -10,6 +10,7 @@
         <h2>Hei $user, velkommen til backend-administreringverktøy</h2>
         <h3>Her kommer det vel litt mer statestikk</h3>
     </div>
+
     <div class="col-8" style="  width:400px; margin-left: 450px ">
         <h2>Antall forespørsler behnadlet denne uken </h2>
         <div id="container" style="margin: 0 auto; padding: 0; border: solid black 2px; width:550px; height: 360px"> <h1>TEST</h1></div>
