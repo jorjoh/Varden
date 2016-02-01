@@ -11,7 +11,7 @@
 </div>
 <div class="row">
     <div class="col-4" id="contentGraph">
-        <h2> Topp 10 forespørsler - behandlet denne uken <?php include("functions/datePicker.php"); ?></h2>
+        <h2> Topp 10 forespørsler - behandlet uke <?php include("functions/datePicker.php"); ?></h2>
         <h3 id="userInfo">Brukernavn</h3>
         <ul>
             <li>Bruker 1</li>
