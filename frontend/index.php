@@ -928,7 +928,6 @@
         }
 
         .Content {
-            padding-top: 150px;
             min-height: 965px;
 
             position: relative;
