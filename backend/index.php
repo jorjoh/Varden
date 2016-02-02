@@ -31,10 +31,8 @@
             <div class="row">
                 <div class="col-10">
                     <nav id="nav">
-                        <li class="current"><a href="../frontend/index.php">Hjem</a></li>
-                        <li><a href="#">Last opp bilde</a>
-                            <ul>
-                                <li><a href="#">Last opp et bilde</a>
+                        <li class="current"><a href="?side=forside">Hjem</a></li>
+                        <li><a href="?side=lastOppBilde"#">Last opp et bilde</a>
                                     <ul>
                                         <li><a href="#">Samling</a></li>
                                         <li><a href="#">Jørgen</a></li>
@@ -42,7 +40,7 @@
                                         <li><a href="#">Nok en under-element</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Last opp flere bilder</a>
+                                <li><a href="#">Nytt punkt på menyen</a>
                                     <ul>
                                         <li><a href="#">Dette er en my undermeny</a></li>
                                     </ul>
