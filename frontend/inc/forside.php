@@ -26,3 +26,11 @@
         <h1 class="col-12" id="mostpictures">Mest viste bilder</h1>
     </div>
 </div>
+<div id="abonnement">
+    <div id="text">
+        <h2 style="text-align: left;">Digital tilgang</h2>
+        <p>Få full tilgang til vårt bildearkiv ut året for kun 79kr,-
+            <a href="#" id="orderButton">Bestill her</a>
+        </p>
+    </div>
+</div>
