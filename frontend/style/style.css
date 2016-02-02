@@ -6,11 +6,8 @@ html {
     text-align: center;
 }
 
-#ContentText{
-    padding: 0;
-}
-
 #title {
+    padding-top: 150px;
     font-family: "Bookman Old Style", Arial Black, serif;
     font-size: 30pt;
 }
