@@ -22,6 +22,20 @@
                 <img src="inc/uploading.gif" alt="uploading......"/>
             </div>
         </form>
-        <div id="images_preview">Her kommer bilder</div>
+
     </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h4 id="imagePreview">Bilde</h4>
+        <h4 id="imagePreview">Tittel</h4>
+        <h4 id="imagePreview">Fotograf</h4>
+        <h4 id="imagePreview">Dato</h4>
+        <h4 id="imagePreview">Sted</h4>
+        <div id="images_preview">Her kommer bilder</div>
+
+    </div>
+    <input type="button" name="avbryt" id="avbryt" value="Avbryt" style="padding: 5px 5px; border-radius: 10px"/>
+    <input type="button" name="godkjenn" id="godkjenn" value="Godkjenn" style="padding: 5px 5px; border-radius: 10px"/>
 </div>
