@@ -1,9 +1,9 @@
 <script src="script/Chart.js"></script>
 <script src="script/semiDounutChart.js"></script>
-<script src="script/backroundResources/highcharts.js"></script>
-<script src="script/backroundResources/exporting.js"></script>
+<script src="script/backgroundResources/highcharts.js"></script>
+<script src="script/backgroundResources/exporting.js"></script>
 <script src="script/chartGraph.js"></script>
-<script src="script/backroundResources/canvasjs.min.js"></script>
+<script src="script/backgroundResources/canvasjs.min.js"></script>
 
 <div class="row">
     <div class="col-4" id="contentIntro">
