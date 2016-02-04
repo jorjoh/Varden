@@ -209,3 +209,14 @@ h4#imagePreview{
     display: inline-block;
     padding:10px 10px;
 }
+
+.image-upload input{
+    display: none;
+}
+.image-upload img{
+    width: 80px;
+    cursor: pointer;
+}
+input#images{
+
+}

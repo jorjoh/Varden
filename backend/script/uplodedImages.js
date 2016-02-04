@@ -18,3 +18,28 @@ $(document).ready(function(){
         }).submit();
     });
 });
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#images').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#testimg1").change(function(){
+    readURL(this);
+});
+
+function PreviewImage() {
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("testimg1").files[0]);
+
+    oFReader.onload = function (oFREvent) {
+        document.getElementById("testimg1").src = oFREvent.target.result;
+    };
+};

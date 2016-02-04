@@ -16,7 +16,14 @@
         <form method="post" name="multiple_upload_form" id="multiple_upload_form" enctype="multipart/form-data" action="inc/upload.php">
             <input type="hidden" name="image_form_submit" value="1">
             <label>Choose Image</label>
-            <input type="file" name="images[]" id="images" multiple >
+
+            <div class="image-upload">
+                <label for="images">
+                    <img src="http://goo.gl/pB9rpQ"/>
+                </label>
+                <input type="file" name="images[]" id="images" style="border: dashed 5px; 10px; height: 200px; width: 300px; text-align: center;" multiple>
+            </div>
+
             <div class="uploading none">
                 <label>&nbsp;</label>
                 <img src="inc/uploading.gif" alt="uploading......"/>
