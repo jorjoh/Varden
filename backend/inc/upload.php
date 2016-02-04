@@ -21,30 +21,37 @@ if($_POST['image_form_submit'] == 1) {
 
     /* Hvis bildene skal vises men ikke lastes opp*/
 
-        $images_arr = array();
-        foreach ($_FILES['images']['name'] as $key => $val) {
-            //Viser bilder uten å lagre dem --->
-            $extra_info = getimagesize($_FILES['images']['tmp_name'][$key]);
-            $images_arr[] = "data:" . $extra_info["mime"] . ";base64," . base64_encode(file_get_contents($_FILES['images']['tmp_name'][$key]));
-        }
+    $images_arr = array();
+    foreach ($_FILES['images']['name'] as $key => $val) {
+        //Viser bilder uten å lagre dem --->
+        $extra_info = getimagesize($_FILES['images']['tmp_name'][$key]);
+        $images_arr[] = "data:" . $extra_info["mime"] . ";base64," . base64_encode(file_get_contents($_FILES['images']['tmp_name'][$key]));
+    }
 
 
+    {
         if (!empty($images_arr)) {
             //echo ("Dette er images_arr" + $images_arr);
             $count = 0;
             foreach ($images_arr as $image_src) {
                 $count++ ?>
                 <ul class="">
-                    <li id="image_li_<?php echo $count; ?>" class="">
-                        <a href="javascript:void(0);" style="float:none;" class=""><img src="<?php echo $image_src; ?>"alt=""></a>
-                    </li>
-                </ul>
-                <?php
+                <li id="image_li_<?php echo $count;
+            } ?>" class="">
+            <a href="javascript:void(0);" style="float:none;" class=""><img src="<?php echo $image_src; ?>" alt=""></a>
+            </li>
+            </ul>
+            <?php
 
-            }
-           // echo ("Antall bilder lastet opp:".$count);
         }
+        echo("Antall bilder lastet opp:" . $count);
+
     }
+}
+function countPicture($conut)
+{
+    echo $conut;
+}
 
 ?>
 
