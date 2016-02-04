@@ -42,7 +42,7 @@ if($_POST['image_form_submit'] == 1) {
                 <?php
 
             }
-            echo ("Antall bilder lastet opp:".$count);
+           // echo ("Antall bilder lastet opp:".$count);
         }
     }
 

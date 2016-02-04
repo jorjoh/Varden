@@ -5,7 +5,7 @@
  * Date: 02.02.2016
  * Time: 08:51
  */
-
+include "/functions/datePicker.php";
 ?>
 <script type="text/javascript" src="script/backgroundResources/jquery.min.js"></script>
 <script type="text/javascript" src="script/backgroundResources/jquery.form.js"></script>
@@ -35,12 +35,26 @@
 
 <div class="row">
     <div class="col-12">
-        <h4 id="imagePreview">Bilde</h4>
-        <h4 id="imagePreview">Tittel</h4>
-        <h4 id="imagePreview">Fotograf</h4>
-        <h4 id="imagePreview">Dato</h4>
-        <h4 id="imagePreview">Sted</h4>
-        <div id="images_preview">Her kommer bilder</div>
+        <?php for($i=0; $i<5; $i++){
+          ?>  <table>
+            <tr>
+                <th>Bilde</th>
+                <th>Tittel</th>
+                <th>Fotograf</th>
+                <th>Dato</th>
+                <th>Sted</th>
+            </tr>
+            <tr>
+                <td><div id="images_preview" style="width: 30px; height: 30px;"></div></td>
+                <td>Fint bilde</td>
+                <td> Erik</td>
+                <td><?php getdateTime(); ?></td>
+                <td>Borre,Horten</td>
+            </tr>
+        </table> <?php
+        } ?>
+
+
 
     </div>
     <input type="button" name="avbryt" id="avbryt" value="Avbryt" style="padding: 5px 5px; border-radius: 10px"/>
