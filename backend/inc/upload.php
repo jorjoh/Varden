@@ -38,7 +38,7 @@ if($_POST['image_form_submit'] == 1) {
                 <ul class="">
                 <li id="image_li_<?php echo $count;
             } ?>" class="">
-            <a href="javascript:void(0);" style="float:none;" class=""><img src="<?php echo $image_src; ?>" alt=""></a>
+            <a href="javascript:void(0);" style="float:none;" class=""><img src="<?php echo $image_src; ?>" alt="" style="width: 150px; height: 150px;"></a>
             </li>
             </ul>
             <?php

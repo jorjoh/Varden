@@ -49,9 +49,9 @@
                                 <li><a href="#">Beste Web BildeGalleri</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Historikk</a>
+                        <li><a href="#">Forslag</a>
                             <ul>
-                                <li><a href="#">Team</a>
+                                <li><a href="?side=historikk">Historikk</a>
                                     <ul>
                                         <li><a href="#">Sub-Level Item</a></li>
                                         <li><a href="#">Sub-Level Item</a>
