@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Drag&amp;Drop opplasting</h1>
-<form class="dropzone" id="myForm" enctype="multipart/form-data"></form>
+<form action="" class="dropzone" id="myForm" enctype="multipart/form-data"></form>
 <button id="upload">Last opp</button>
 <script>
     Dropzone.autoDiscover = false;
@@ -16,7 +16,7 @@
     var myDropzone = new Dropzone("#myForm", {
         url: "upload.php",
         autoProcessQueue: false,
-        paramName: 'upload'
+        paramName: 'photos'
     });
 
     $('#upload').click(function () {
