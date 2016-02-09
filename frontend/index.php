@@ -1077,8 +1077,7 @@
         }
     </style>
 
-    <script type="text/javascript"
-            src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
     <meta name="title" content="{{=title}}">
 
     <link rel="canonical" href="{{=url}}"/>
@@ -2012,4 +2011,9 @@
 {{=tns_scripts}}
 
 </body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/custom.js"></script>
+
 </html>

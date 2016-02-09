@@ -112,3 +112,60 @@ input[type=checkbox]:checked + label:before {
     background: linear-gradient(to bottom,  #008cdb 78%,#006894 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008cdb', endColorstr='#006894',GradientType=0 );
 }
+
+/* -- ISOTOPE AREA START -- */
+
+.container {
+    margin-left: 8%;
+}
+
+.portfolio_filter ul{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.portfolio_filter ul li{
+    display: inline-block;
+    position: relative;
+    padding-right: 25px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+.portfolio_filter ul li:before{
+    position: absolute;
+    content: "/";
+    right: 0;
+    top: 0;
+}
+.portfolio_filter ul li:last-child {
+    padding-right: 0;
+}
+.portfolio_filter ul li:last-child:before {
+    display: none;
+}
+.portfolio_filter ul li.active {
+    color: #549DD9;
+}
+.portfolio_filter ul li:first-child {
+    margin-left: 0;
+}
+.portfolio_items {
+    margin-left: -10px;
+    margin-top: 25px;
+}
+.single_item {
+    margin-left: 10px;
+    float: left;
+    width: 277px;
+    margin-bottom: 10px;
+}
+.single_item img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* -- ISOTOPE AREA END -- */
