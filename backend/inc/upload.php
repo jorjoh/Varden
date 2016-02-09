@@ -10,7 +10,7 @@ if($_POST['image_form_submit'] == 1) {
 
     /*
     foreach ($_FILES['images']['name'] as $key => $val) {
-        //upload and stored images
+        //uploads and stored images
         $target_dir = "C:/wamp/www/Varden/backend/inc/uploads/";
         $target_file = $target_dir . $_FILES['images']['name'][$key];
         if (move_uploaded_file($_FILES['images']['tmp_name'][$key], $target_file)) {

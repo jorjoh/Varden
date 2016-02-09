@@ -220,7 +220,7 @@
             };
         }
 
-        // are there files to upload?
+        // are there files to uploads?
 
         // [value] (issue #113), also see comment:
         // https://github.com/malsup/form/commit/588306aedba1de01388032d5f42a60159eea9228#commitcomment-2180219
@@ -311,7 +311,7 @@
             });
 
             if (options.uploadProgress) {
-                // workaround because jqXHR does not expose upload property
+                // workaround because jqXHR does not expose uploads property
                 s.xhr = function() {
                     var xhr = $.ajaxSettings.xhr();
                     if (xhr.upload) {
@@ -400,7 +400,7 @@
                 setRequestHeader: function() {},
                 abort: function(status) {
                     var e = (status === 'timeout' ? 'timeout' : 'aborted');
-                    log('aborting upload... ' + e);
+                    log('aborting uploads... ' + e);
                     this.aborted = 1;
 
                     try { // #214, #257
@@ -504,7 +504,7 @@
                 s.extraData[csrf_param] = csrf_token;
             }
 
-            // take a breath so that pending repaints get some cpu time before the upload starts
+            // take a breath so that pending repaints get some cpu time before the uploads starts
             function doSubmit() {
                 // make sure form attrs are set
                 var t = $form.attr2('target'),
@@ -729,7 +729,7 @@
                 }
 
                 if (xhr.aborted) {
-                    log('upload aborted');
+                    log('uploads aborted');
                     status = null;
                 }
 

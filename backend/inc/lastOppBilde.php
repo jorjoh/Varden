@@ -6,7 +6,7 @@
  * Time: 08:51
  */
 include "/functions/datePicker.php";
-include "inc/upload.php";
+include "inc/uploads.php";
 ?>
 <script type="text/javascript" src="script/backgroundResources/jquery.min.js"></script>
 <script type="text/javascript" src="script/backgroundResources/jquery.form.js"></script>
