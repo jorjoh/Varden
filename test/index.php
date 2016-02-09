@@ -14,9 +14,7 @@
     Dropzone.autoDiscover = false;
 
     var myDropzone = new Dropzone("#myForm", {
-        url: "upload.php",
-        autoProcessQueue: false,
-        paramName: 'photos'
+        autoProcessQueue: false
     });
 
     $('#upload').click(function () {
