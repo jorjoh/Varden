@@ -28,6 +28,7 @@ $(document).ready(function() {
     var $grid = $('.portfolio_items').imagesLoaded( function() {
         $grid.isotope({
             itemSelector: '.single_item',
+            layoutMode: 'fitRows',
             percentPosition: true,
             masonry: {
                 columnWidth: '.grid-sizer'
