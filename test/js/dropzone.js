@@ -114,11 +114,11 @@
     Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
 
     Dropzone.prototype.defaultOptions = {
-      url: 'upload.php',
+      url: "upload.php",
       method: "post",
       withCredentials: false,
       parallelUploads: 100,
-      uploadMultiple: false,
+      uploadMultiple: true,
       maxFilesize: 256,
       paramName: "file",
       createImageThumbnails: true,
@@ -127,6 +127,7 @@
       thumbnailHeight: 120,
       filesizeBase: 1000,
       maxFiles: null,
+      filesizeBase: 1000,
       params: {},
       clickable: true,
       ignoreHiddenFiles: true,
@@ -134,7 +135,7 @@
       acceptedMimeTypes: null,
       autoProcessQueue: true,
       autoQueue: true,
-      addRemoveLinks: true,
+      addRemoveLinks: false,
       previewsContainer: null,
       capture: null,
       dictDefaultMessage: "Drop files here to upload",
