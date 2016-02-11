@@ -24,7 +24,7 @@
                     <div class="category_items">
                         <div class="grid-sizer"></div>
                         <?php
-                        $antall = 101;
+                        $antall = 301;
                         for ($i = 0; $i < $antall; $i++) {
                             $random = rand(50, 300);
                             $categoryID = rand(0, 3);
@@ -32,7 +32,7 @@
 
                             echo "
                                         <div class='single_pictures $category[$categoryID]'>
-                                            <img src='http://placehold.it/$random.x100'>
+                                            <img class='lazy' data-original='http://placehold.it/$random.x100' width='$random' height='100'>
                                         </div>
                                     ";
                         }
