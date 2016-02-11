@@ -116,7 +116,8 @@ input[type=checkbox]:checked + label:before {
 /* -- ISOTOPE AREA START -- */
 
 .container {
-    margin-left: 8%;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .portfolio_filter ul{
@@ -160,6 +161,9 @@ input[type=checkbox]:checked + label:before {
 .single_item {
     display:inline-block;
     position: relative;
+}
+.single_item img {
+    padding: 2px;
 }
 .single_item:after {
     content:'';

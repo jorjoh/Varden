@@ -4,11 +4,6 @@
 $(document).ready(function() {
     // ================== ISOTOPE =====================
 
-    /*$('.portfolio_items').isotope({
-        itemSelector: '.single_item',
-        layoutMode: 'fitRows'
-    });*/
-
     $('.portfolio_filter li').click(function() {
         $(".portfolio_filter li").removeClass("active");
         $(this).addClass("active");

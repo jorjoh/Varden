@@ -25,7 +25,7 @@
                         <div class="portfolio_items">
                             <div class="grid-sizer"></div>
                             <?php
-                                $antall = 21;
+                                $antall = 101;
                                 for ($i = 0; $i < $antall; $i++) {
                                     $random = rand(50, 300);
                                     $categoryID = rand(0, 3);
