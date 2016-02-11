@@ -120,7 +120,7 @@ input[type=checkbox]:checked + label:before {
     margin: 0 auto;
 }
 
-.portfolio_filter ul{
+.category_filter ul{
     text-align: center;
     font-size: 18px;
     font-weight: 700;
@@ -129,43 +129,43 @@ input[type=checkbox]:checked + label:before {
     padding: 0;
     list-style: none;
 }
-.portfolio_filter ul li{
+.category_filter ul li{
     display: inline-block;
     position: relative;
     padding-right: 25px;
     margin-left: 25px;
     cursor: pointer;
 }
-.portfolio_filter ul li:before{
+.category_filter ul li:before{
     position: absolute;
     content: "/";
     right: 0;
     top: 0;
 }
-.portfolio_filter ul li:last-child {
+.category_filter ul li:last-child {
     padding-right: 0;
 }
-.portfolio_filter ul li:last-child:before {
+.category_filter ul li:last-child:before {
     display: none;
 }
-.portfolio_filter ul li.active {
+.category_filter ul li.active {
     color: #549DD9;
 }
-.portfolio_filter ul li:first-child {
+.category_filter ul li:first-child {
     margin-left: 0;
 }
-.portfolio_items {
+.category_items {
     margin-left: -10px;
     margin-top: 25px;
 }
-.single_item {
+.single_pictures {
     display:inline-block;
     position: relative;
 }
-.single_item img {
+.single_pictures img {
     padding: 2px;
 }
-.single_item:after {
+.single_pictures:after {
     content:'';
     top: 0;
     left: 0;
@@ -177,8 +177,10 @@ input[type=checkbox]:checked + label:before {
     opacity: 0;
 }
 
-.single_item:hover:after {
-    opacity: 0.5;
+.single_pictures:hover:after {
+    opacity: 0.75;
     background: rgba(0, 200, 255, 0.75);
+    -webkit-transition: opacity .25s ease;
+    -moz-transition: opacity .25s ease;
 }
 /* -- ISOTOPE AREA END -- */

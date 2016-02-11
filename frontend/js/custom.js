@@ -4,12 +4,12 @@
 $(document).ready(function() {
     // ================== ISOTOPE =====================
 
-    $('.portfolio_filter li').click(function() {
-        $(".portfolio_filter li").removeClass("active");
+    $('.category_filter li').click(function() {
+        $(".category_filter li").removeClass("active");
         $(this).addClass("active");
 
         var selector = $(this).attr('data-filter');
-        $(".portfolio_items").isotope({
+        $(".category_items").isotope({
             filter: selector,
             animationOptions: {
                 duration: 750,
@@ -20,9 +20,9 @@ $(document).ready(function() {
         return false;
     });
 
-    var $grid = $('.portfolio_items').imagesLoaded( function() {
+    var $grid = $('.category_items').imagesLoaded( function() {
         $grid.isotope({
-            itemSelector: '.single_item',
+            itemSelector: '.single_pictures',
             layoutMode: 'fitRows',
             percentPosition: true,
             masonry: {
