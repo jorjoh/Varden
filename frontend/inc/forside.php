@@ -10,7 +10,14 @@
 <?php include('searchfield.php'); ?>
 <div class="row">
     <h1 class="col-12" id="mostpictures">Mest viste bilder</h1>
+    <img src="http://placehold.it/170x150">
+    <img src="http://placehold.it/170x150">
+    <img src="http://placehold.it/170x150">
+    <img src="http://placehold.it/170x150">
+    <img src="http://placehold.it/170x150">
 </div>
+
+<br>
 
 <div id="abonnement">
     <div id="text">
