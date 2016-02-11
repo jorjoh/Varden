@@ -23,30 +23,21 @@
                             </ul>
                         </div>
                         <div class="portfolio_items">
-                            <div class="single_item web-design">
-                                <img src="http://placehold.it/600x600" alt="600x600">
-                            </div>
-                            <div class="single_item graphic">
-                                <img src="http://placehold.it/600x600" alt="600x600">
-                            </div>
-                            <div class="single_item web-design">
-                                <img src="http://placehold.it/600x600" alt="600x600">
-                            </div>
-                            <div class="single_item photography">
-                                <img src="http://placehold.it/600x600" alt="600x600">
-                            </div>
-                            <div class="single_item graphic">
-                                <img src="http://placehold.it/600x600" alt="600x600">
-                            </div>
-                            <div class="single_item motion-video">
-                                <img src="http://placehold.it/600x600" alt="600x600">
-                            </div>
-                            <div class="single_item web-design">
-                                <img src="http://placehold.it/600x600" alt="600x600">
-                            </div>
-                            <div class="single_item web-design">
-                                <img src="http://placehold.it/600x600" alt="600x600">
-                            </div>
+                            <div class="grid-sizer"></div>
+                            <?php
+                                $antall = 21;
+                                for ($i = 0; $i < $antall; $i++) {
+                                    $random = rand(50, 300);
+                                    $categoryID = rand(0, 3);
+                                    $category = array("web-design", "graphic", "photography", "motion-video");
+
+                                    echo "
+                                        <div class='single_item $category[$categoryID]'>
+                                            <img src='http://placehold.it/$random.x100'>
+                                        </div>
+                                    ";
+                                }
+                            ?>
                         </div>
                     </div>
                 </section>

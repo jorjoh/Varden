@@ -4,10 +4,10 @@
 $(document).ready(function() {
     // ================== ISOTOPE =====================
 
-    $('.portfolio_items').isotope({
+    /*$('.portfolio_items').isotope({
         itemSelector: '.single_item',
         layoutMode: 'fitRows'
-    });
+    });*/
 
     $('.portfolio_filter li').click(function() {
         $(".portfolio_filter li").removeClass("active");
@@ -23,6 +23,16 @@ $(document).ready(function() {
             }
         });
         return false;
+    });
+
+    var $grid = $('.portfolio_items').imagesLoaded( function() {
+        $grid.isotope({
+            itemSelector: '.single_item',
+            percentPosition: true,
+            masonry: {
+                columnWidth: '.grid-sizer'
+            }
+        });
     });
 
 });
