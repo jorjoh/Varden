@@ -9,7 +9,7 @@
             <br>
             <br>
             <div style="width: 60%; height: 450px; margin: 0 auto; background: #e6eef1;">
-                <div style="float: left; width: 60%; height: 450px; background: #FF0000;"></div>
+                <img class="lazy" style="float: left;" data-original="http://placehold.it/450x450">
                 <br>
                 <p style="float: right; margin-right: 100px;">Her kommer bildeinfo</p>
             </div>
