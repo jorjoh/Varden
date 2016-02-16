@@ -15,10 +15,10 @@
                     <div class="category_filter text-uppercase">
                         <ul>
                             <li class="active" data-filter="*">Alle</li>
-                            <li data-filter=".web-design">Kategori 1</li>
-                            <li data-filter=".graphic">Kategori 2</li>
-                            <li data-filter=".photography">Kategori 3</li>
-                            <li data-filter=".motion-video">Kategori 4</li>
+                            <li data-filter=".category1">Kategori 1</li>
+                            <li data-filter=".category2">Kategori 2</li>
+                            <li data-filter=".category3">Kategori 3</li>
+                            <li data-filter=".category4">Kategori 4</li>
                         </ul>
                     </div>
                     <div class="category_items">
@@ -28,7 +28,7 @@
                         for ($i = 0; $i < $antall; $i++) {
                             $random = rand(50, 300);
                             $categoryID = rand(0, 3);
-                            $category = array("web-design", "graphic", "photography", "motion-video");
+                            $category = array("category1", "category2", "category3", "category4");
 
                             echo "
                                         <div class='single_pictures $category[$categoryID]'>
