@@ -36,52 +36,57 @@
 
 
 <!--Område som enkeltbilder vises-->
-<div class="table table-striped files" id="previews">
+<div class="table table-striped files" id="previews" >
 
-    <div id="template" class="file-row">
+    <div id="template" class="file-row" style="border: solid 1px black; position: relative; top: 10px;">
 
         <!-- This is used as the file preview template -->
         <!--Div-tag som styler hele thumbnail-preview visningen-->
         <div style="position:relative; top: 15px; height: 130px ">
-            <div style="border: solid 1px black; width: 300px; position: relative; left: 90px;">
+            <div style="border: solid 1px black; width: 122px; position: relative; left: 90px;">
             <span class="preview"><img data-dz-thumbnail/></span>
         </div>
             <!--div-tag som styler 'name' til filen som lastes opp-->
-        <div style="border: solid 1px black; width: 300px; left: 300px; bottom: 120px; position: relative;">
+        <div style="border: solid 1px black; width: 300px; left: 400px; bottom: 122px; position: relative;">
             <p class="name" data-dz-name></p>
             <strong class="error text-danger" data-dz-errormessage></strong>
         </div>
 
             <!--Progressbar -->
-        <div style="border: solid 1px black; width: 150px; left: 700px; bottom: 150px; position: relative;">
+        <div style="border: solid 1px black; width: 150px; left: 800px; bottom: 150px; position: relative;">
             <p class="size" data-dz-size></p>
 
+            <!-- Selve progressbaren-->
             <div class="progress">
                 <div class="progress-bar progress-bar-success" id="test" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress>
                 </div>
             </div>
-
-        </div>
-            <!--Knapper med funksjonalitet som legges til hvert enkeltbilde-->
-
-                <button data-dz-remove id="cancel2" class="btn btn-warning cancel" style="left: 773px;bottom: 223px; position: relative;">
+            <!--Knapp som sletter enkeltbilde i køen-->
+            <button data-dz-remove id="cancel2" class="btn btn-warning cancel" style=" position: relative;">
                 <i class="glyphicon glyphicon-ban-circle"></i>
                 Cancel</button>
+        </div>
+
         </div>
     </div>
 
 </div>
 
 <script>
+    // Deklarerer variabel som plukker opp div-taggen template som skal brukes i visning av opplastende filer
     var previewNode = document.querySelector("div#template");
     previewNode.id = "";
 
+    // Ting som jeg ikke helt forstår
     var previewTemplate = previewNode.parentNode.innerHTML;
     previewNode.parentNode.removeChild(previewNode);
 
+    //Sørger for at ikke queue'n blir kjørt automatisk før 'go'-knappen er trykket
     Dropzone.autoDiscover = false;
+    //Sperre som gjør at opplastningsfunksjonen kun tar imot bilder og ikke dokumenter.. Btw .svg filer fungerer også
     var acceptedFileTypes = "image/*";
 
+    //Deklarerer selve dropzonen og definerer noen variabler fra bibiloteket til dropzone
     var myDropzone = new Dropzone(document.body, {
         url: 'uploads.php',
         autoProcessQueue: false,
@@ -95,16 +100,12 @@
 
     });
 
+    //Registrerer knappentrykk og kjører kode
     $('#upload').click(function () {
+       //Prosesserer køen
         myDropzone.processQueue();
 
-        // File upload Progress
-        myDropzone.on("totaluploadprogress", function(progress) {
-            console.log("progress ", progress + " Fremgang");
-            $(".roller").width(progress + '%');
-
-        });
-
+        //'Success'-event som kan høres på og kjøres kode etter alle filer er akseptert
         myDropzone.on("success", function(file,responseText){
             console.log(file);
             var txt = document.getElementById("txt");
@@ -113,16 +114,16 @@
         });
     });
 
-
+    //Avbyrt-knapp som sletter hele køen
     $('#cancel').click(function () {
         myDropzone.removeAllFiles();
     });
 
-
+    // Funksjon som setter en forsinkelse på hendelsen removeAllFiles
     function removeContentDelay() {
         timeoutID = window.setTimeout(removeAllFilesAfterDelay,2000);
     }
-
+    // Fuksjon som tømmer køen etter perdefinert tid i funksjonen removeContentDelay
     function removeAllFilesAfterDelay(){
         myDropzone.removeAllFiles();
     }
