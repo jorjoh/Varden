@@ -13,7 +13,7 @@
 
 <h1>Drag&amp;Drop opplasting</h1>
 <form action="" method="post" class="dropzone" id="myForm" enctype="multipart/form-data">
-    <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push here!</h4>
+    <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push this button!</h4>
 </form>
 
     <div id="actions" class="row">
@@ -54,11 +54,17 @@
             <!--Progressbar -->
         <div style="border: solid 1px black; width: 150px; left: 700px; bottom: 150px; position: relative;">
             <p class="size" data-dz-size></p>
-            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
-            </div>
-        </div>
 
+           <!-- <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+            </div>-->
+
+
+        </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" id="test" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress>
+                </div>
+            </div>
 
             <!--Knapper med funksjonalitet som legges til hvert enkeltbilde-->
 
@@ -70,7 +76,9 @@
 
 </div>
 
+
 <script>
+
     var previewNode = document.querySelector("div#template");
     previewNode.id = "";
 
@@ -90,14 +98,25 @@
         headers: {"MyAppname-Service-Type": "Dropzone"},
         acceptedFiles: acceptedFileTypes,
         clickable:".fileinput-button"
+
     });
+
+
 
     $('#upload').click(function () {
         myDropzone.processQueue();
+        myDropzone.on("success", function(file,responseText){
+            console.log(file);
+            var txt = document.getElementById("txt");
+            txt.innerHTML = responseText;
+
+            this.on("queuecomplete", function (file) {
+                alert("Alle filer er lastet opp");
+                myDropzone.removeAllFiles();
+            });
 
 
-
-
+        });
     });
 
     $('#cancel').click(function () {
@@ -106,14 +125,3 @@
  </script>
 </body>
 </html>
-
-
-
-    
-
-    
-    
-    
-    
-    
-
