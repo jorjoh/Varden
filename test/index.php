@@ -51,21 +51,17 @@
             <p class="name" data-dz-name></p>
             <strong class="error text-danger" data-dz-errormessage></strong>
         </div>
+
             <!--Progressbar -->
         <div style="border: solid 1px black; width: 150px; left: 700px; bottom: 150px; position: relative;">
             <p class="size" data-dz-size></p>
 
-           <!-- <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
-            </div>-->
-
-
-        </div>
             <div class="progress">
                 <div class="progress-bar progress-bar-success" id="test" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress>
                 </div>
             </div>
 
+        </div>
             <!--Knapper med funksjonalitet som legges til hvert enkeltbilde-->
 
                 <button data-dz-remove id="cancel2" class="btn btn-warning cancel" style="left: 773px;bottom: 223px; position: relative;">
@@ -76,9 +72,7 @@
 
 </div>
 
-
 <script>
-
     var previewNode = document.querySelector("div#template");
     previewNode.id = "";
 
@@ -101,27 +95,37 @@
 
     });
 
-
-
     $('#upload').click(function () {
         myDropzone.processQueue();
+
+        // File upload Progress
+        myDropzone.on("totaluploadprogress", function(progress) {
+            console.log("progress ", progress + " Fremgang");
+            $(".roller").width(progress + '%');
+
+        });
+
         myDropzone.on("success", function(file,responseText){
             console.log(file);
             var txt = document.getElementById("txt");
             txt.innerHTML = responseText;
-
-            this.on("queuecomplete", function (file) {
-                alert("Alle filer er lastet opp");
-                myDropzone.removeAllFiles();
-            });
-
-
+            removeContentDelay();
         });
     });
+
 
     $('#cancel').click(function () {
         myDropzone.removeAllFiles();
     });
+
+
+    function removeContentDelay() {
+        timeoutID = window.setTimeout(removeAllFilesAfterDelay,2000);
+    }
+
+    function removeAllFilesAfterDelay(){
+        myDropzone.removeAllFiles();
+    }
  </script>
 </body>
 </html>
