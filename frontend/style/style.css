@@ -182,5 +182,6 @@ input[type=checkbox]:checked + label:before {
     background: rgba(0, 200, 255, 0.75);
     -webkit-transition: opacity .25s ease;
     -moz-transition: opacity .25s ease;
+    z-index: 1;
 }
 /* -- ISOTOPE AREA END -- */
