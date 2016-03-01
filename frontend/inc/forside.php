@@ -7,7 +7,11 @@
         Dette er over halvparten av Vardens fotosamling som består av totalt 90 000 fotografier. tes test test
     </p>
 </div>
-<?php include('searchfield.php'); ?>
+<div class="row">
+    <?php
+        include('searchfield.php');
+    ?>
+</div>
 <div class="row">
     <h1 id="mostpictures">Mest viste bilder</h1>
     <img src="http://placehold.it/170x150">

@@ -1,4 +1,4 @@
-<form method="post" name="searchfield" id="searchfield">
+<form method="post" action="?side=resultat" name="searchfield" id="searchfield">
     <input type="text" name="searchInput" id="searchInput" autofocus="autofocus" placeholder="Søk her..." required/>
     <input type="submit" name="search" id="search" src="img/searchbutton.svg" value=" "/>
     <br>
