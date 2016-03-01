@@ -7,6 +7,8 @@ body{
     background-size: cover;
     font: normal .8em/1.5em Arial, Helvetica, sans-serif;
     -o-background-size: 100%;
+    margin-right: -1px;
+
 }
 
 h1.intro{
