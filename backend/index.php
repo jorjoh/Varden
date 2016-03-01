@@ -25,7 +25,9 @@
                 <h1 class="intro">Velkommen til administreringssiden til Onlinebildearkiv</h1>
 
             </div>
-            <div class="col-4"><h2> <img src="img/userPicture.JPG" width="50" height="50"> $fullName</h2></div>
+            <div class="col-4">
+                <img src="img/userPicture.JPG" width="35px" height="30px"> <h2>$fullName</h2>
+            </div>
 
         </div>
             <div class="row">

@@ -12,66 +12,74 @@
 <p id="txt"></p>
 
 <h1>Drag&amp;Drop opplasting</h1>
-<form action="" method="post" class="dropzone" id="myForm" enctype="multipart/form-data">
-    <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push this button!</h4>
-</form>
 
-    <div id="actions" class="row">
-    <!-- Knappene -->
-    <span class="btn btn-success fileinput-button dz-clickable"/>
-    <i class="glyphicon glyphicon-plus"></i>
-    <span>Legg til filer</span>
-    </span>
+    <div class="col-12">
+        <form action="" method="post" class="dropzone" id="myForm" enctype="multipart/form-data">
+            <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push this button!</h4>
+        </form>
+    </div>
 
-    <button type="submit" id="upload" class="btn btn-primary start">
-        <i class="glyphicon glyphicon-upload"></i>
-        Last opp
-    </button>
+    <div class="row">
+        <div class="col-4">
+            <div id="actions" class="row">
+            <!-- Knappene -->
+            <span class="btn btn-success fileinput-button dz-clickable"/>
+            <i class="glyphicon glyphicon-plus"></i>
+            <span>Legg til filer</span>
+            </span>
+
+            <button type="submit" id="upload" class="btn btn-primary start">
+                <i class="glyphicon glyphicon-upload"></i>
+                Last opp
+            </button>
 
 
-    <button data-dz-remove id="cancel" class="btn btn-warning cancel">
-        <i class="glyphicon glyphicon-ban-circle"></i>
-        Cancel</button>
-</div>
-
-
-<!--Område som enkeltbilder vises-->
-<div class="table table-striped files" id="previews" >
-
-    <div id="template" class="file-row" style="border: solid 1px #f9f9f9; position: relative; top: 10px; background-color: #f9f9f9">
-
-        <!-- This is used as the file preview template -->
-        <!--Div-tag som styler hele thumbnail-preview visningen-->
-        <div style="position:relative; top: 15px; height: 130px ">
-            <div style=" width: 122px; position: relative; left: 90px;">
-            <span class="preview"><img data-dz-thumbnail/></span>
-        </div>
-            <!--div-tag som styler 'name' til filen som lastes opp-->
-        <div style="width: 300px; left: 400px; bottom: 122px; position: relative;">
-            <p class="name" data-dz-name></p>
-
-            <strong class="error text-danger" data-dz-errormessage></strong>
-        </div>
-
-            <!--Progressbar -->
-        <div style="width: 150px; left: 800px; bottom: 150px; position: relative;">
-            <p class="size" data-dz-size></p>
-
-            <!-- Selve progressbaren-->
-            <div class="progress">
-                <div class="progress-bar progress-bar-success" id="test" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress>
-                </div>
-            </div>
-            <!--Knapp som sletter enkeltbilde i køen-->
-            <button data-dz-remove id="cancel2" class="btn btn-warning cancel" style=" position: relative;">
+            <button data-dz-remove id="cancel" class="btn btn-warning cancel">
                 <i class="glyphicon glyphicon-ban-circle"></i>
                 Cancel</button>
-        </div>
-
+            </div>
         </div>
     </div>
 
-</div>
+
+<!--Område som enkeltbilder vises-->
+    <div class="row">
+        <div class="col-6">
+            <div class="table table-striped files" id="previews" >
+                <div id="template" class="file-row" style="border: solid 1px #f9f9f9; position: relative; top: 10px; background-color: #f9f9f9">
+                    <!-- This is used as the file preview template -->
+                    <!--Div-tag som styler hele thumbnail-preview visningen-->
+                    <div style="position:relative; top: 15px; height: 130px ">
+                        <div style=" width: 122px; position: relative; left: 90px;">
+                        <span class="preview"><img data-dz-thumbnail/></span>
+                    </div>
+                        <!--div-tag som styler 'name' til filen som lastes opp-->
+                    <div style="width: 300px; left: 400px; bottom: 122px; position: relative;">
+                        <p class="name" data-dz-name></p>
+
+                        <strong class="error text-danger" data-dz-errormessage></strong>
+                    </div>
+
+                        <!--Progressbar -->
+                    <div style="width: 150px; left: 800px; bottom: 150px; position: relative;">
+                        <p class="size" data-dz-size></p>
+
+                        <!-- Selve progressbaren-->
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" id="test" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress>
+                            </div>
+                        </div>
+                        <!--Knapp som sletter enkeltbilde i køen-->
+                        <button data-dz-remove id="cancel2" class="btn btn-warning cancel" style=" position: relative;">
+                            <i class="glyphicon glyphicon-ban-circle"></i>
+                            Cancel</button>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script>
     // Deklarerer variabel som plukker opp div-taggen template som skal brukes i visning av opplastende filer
