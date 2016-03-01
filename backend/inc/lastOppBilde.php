@@ -84,6 +84,7 @@
         </div>
     </div>
 
+
 <script>
     // Deklarerer variabel som plukker opp div-taggen template som skal brukes i visning av opplastende filer
     var previewNode = document.querySelector("div#template");
@@ -145,3 +146,6 @@
  </script>
 </body>
 </html>
+
+
+
