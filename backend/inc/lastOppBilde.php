@@ -11,8 +11,11 @@
 
 <p id="txt"></p>
 
-<h1>Drag&amp;Drop opplasting</h1>
-
+<div class="row">
+    <div class="col-5">
+        <h1>Drag&amp;Drop opplasting</h1>
+    </div>
+</div>
     <div class="col-12">
         <form action="" method="post" class="dropzone" id="myForm" enctype="multipart/form-data">
             <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push this button!</h4>
