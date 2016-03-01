@@ -652,6 +652,17 @@
             }
         }
 
+        @media (max-width: 700px) {
+            a#orderButton {
+                position: relative;
+                margin-top: 10px;
+                width: 100%;
+            }
+            input#searchInput {
+                width: 70%;
+            }
+        }
+
         .Header-actions-item, .Header-actions-item--share {
             text-transform: capitalize;
             margin-left: 7px
