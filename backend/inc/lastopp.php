@@ -9,7 +9,7 @@
         "IMAGETYPE_BMP",
     );
 
-$image = "IMG_20160107_103521.jpg";
+$image = "IMG_2016.jpg";
 $exif = exif_read_data($image, 0, true);
 foreach ($exif as $key => $section) {
     foreach ($section as $name => $val) {
