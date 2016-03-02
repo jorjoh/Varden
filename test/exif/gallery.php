@@ -34,6 +34,26 @@
                     closedir($dh);
                 }
             }
+
+            //Gyldige filformater på bildene som lastes opp. Brukes til validering ved opplasting av bilder
+            $validImageType = array(
+                1 => "GIF",
+                2 => "JPEG",
+                3 => "PNG",
+                4 => "SWF",
+                5 => "PSD",
+                6 => "BMP",
+                7 => "TIFF",
+                8 => "TIFF"
+            );
+
+            $imagetype = exif_imagetype("mario.png");
+            if(array_key_exists($imagetype, $validImageType)) {
+                echo "Image type is: " . $validImageType[$imagetype];
+            }
+            else {
+                echo "Not a valid image type";
+            }
             ?>
         </table>
     </body>
