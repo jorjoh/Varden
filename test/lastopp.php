@@ -7,15 +7,16 @@
  */
 
 
-$image = "http://i2.cdn.turner.com/cnnnext/dam/assets/150324154025-14-internet-cats-restricted-super-169.jpeg";
+$image = "DSC_8962.jpg";
 
-$exif = exif_read_data($image, 0, true);
-foreach ($exif as $key => $section) {
-    foreach ($section as $name => $val) {
-        echo "$key.$name: $val\n";
+    $exif = exif_read_data($image, 0, true);
+    foreach ($exif as $key => $section) {
+        foreach ($section as $name => $val) {
+            echo "$key.$name: $val\n";
+            echo "<br/>";
+        }
     }
-}
-echo "hei";
+
 
 
 

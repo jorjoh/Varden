@@ -16,14 +16,14 @@
         <h1>Drag&amp;Drop opplasting</h1>
     </div>
 </div>
-    <div class="col-12">
+    <div class="col-7">
         <form action="" method="post" class="dropzone" id="myForm" enctype="multipart/form-data">
             <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push this button!</h4>
         </form>
     </div>
 
     <div class="row">
-        <div class="col-4">
+        <div class="col-6">
             <div id="actions" class="row">
             <!-- Knappene -->
             <span class="btn btn-success fileinput-button dz-clickable"/>

@@ -17,6 +17,24 @@
             <link rel="icon" type="image/png" href="../frontend/img/VA-fav-icon-152.png">
             <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
             <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+            <script>
+                $(function () {
+                    var pull = $('#pull');
+                    menu = $('nav ul');
+                    menuHeight = menu.height();
+
+                    $(pull).on('click', function (e) {
+                        e.preventDefault();
+                        menu.slideToggle();
+                    });
+                });
+                $(window).resize(function () {
+                    var w = $(window).width();
+                    if (w > 320 && menu.is(':hidden')) {
+                        menu.removeAttr('style');
+                    }
+                });
+            </script>
         </head>
         <body>
         <div class="row">
@@ -34,54 +52,17 @@
 
         </div>
             <div class="row">
-                <div class="col-10">
-                    <nav id="nav">
-                        <li class="current"><a href="?side=forside">Hjem</a></li>
-                        <li><a href="?side=lastOppBilde"#">Last opp et bilde</a>
-                                    <ul>
-                                        <li><a href="#">Samling</a></li>
-                                        <li><a href="#">Jørgen</a></li>
-                                        <li><a href="#">Erik</a></li>
-                                        <li><a href="#">Nok en under-element</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Nytt punkt på menyen</a>
-                                    <ul>
-                                        <li><a href="#">Dette er en my undermeny</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">IconDock</a></li>
-                                <li><a href="#">Beste Web BildeGalleri</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Forslag</a>
-                            <ul>
-                                <li><a href="?side=historikk">Historikk</a>
-                                    <ul>
-                                        <li><a href="#">Sub-Level Item</a></li>
-                                        <li><a href="#">Sub-Level Item</a>
-                                            <ul>
-                                                <li><a href="#">Sub-Level Item</a></li>
-                                                <li><a href="#">Sub-Level Item</a></li>
-                                                <li><a href="#">Sub-Level Item</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Sub-Level Item</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Historikk bilder</a></li>
-                                <li><a href="#">Test statestikk</a></li>
-                                <li><a href="#">Popcorn</a>
-                                    <ul>
-                                        <li><a href="#">Sub-Level Item</a></li>
-                                        <li><a href="#">Sub-Level Item</a></li>
-                                        <li><a href="#">Sub-Level Item</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Om</a></li>
-                        <li><a href="#">Kontakt oss</a></li>
+                <div class="col-12">
+                    <nav class="clearfix">
+                        <ul class="clearfix">
+                            <li><a href="?side=forside">Hjem</a></li>
+                            <li><a href="?side=lastOppBilde">Last opp</a></li>
+                            <li><a href="#">Menyelement med langt navn</a></li>
+                            <li><a href="#">Beste Web BildeGalleri</a></li>
+                            <li><a href="#">Forslag</a></li>
+                            <li><a href="#">Om</a></li>
+                        </ul>
+                        <a href="#" id="pull">Menu</a>
                     </nav>
                 </div>
             </div>
