@@ -47,7 +47,7 @@
                 8 => "TIFF"
             );
 
-            $imagetype = exif_imagetype("mario.png");
+            $imagetype = exif_imagetype("IMG_4595.jpg");
             if(array_key_exists($imagetype, $validImageType)) {
                 echo "Image type is: " . $validImageType[$imagetype];
             }

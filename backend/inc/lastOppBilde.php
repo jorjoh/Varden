@@ -22,29 +22,6 @@
         </form>
     </div>
 
-    <div class="row">
-        <div class="col-6">
-            <div id="actions" class="row">
-            <!-- Knappene -->
-            <span class="btn btn-success fileinput-button dz-clickable"/>
-            <i class="glyphicon glyphicon-plus"></i>
-            <span>Legg til filer</span>
-            </span>
-
-            <button type="submit" id="upload" class="btn btn-primary start">
-                <i class="glyphicon glyphicon-upload"></i>
-                Last opp
-            </button>
-
-
-            <button data-dz-remove id="cancel" class="btn btn-warning cancel">
-                <i class="glyphicon glyphicon-ban-circle"></i>
-                Cancel</button>
-            </div>
-        </div>
-    </div>
-
-
 <!--Område som enkeltbilder vises-->
     <div class="row">
         <div class="col-6">
@@ -83,6 +60,29 @@
             </div>
         </div>
     </div>
+
+
+<div class="row">
+    <div class="col-6">
+        <div id="actions" class="row">
+            <!-- Knappene -->
+            <span class="btn btn-success fileinput-button dz-clickable"/>
+            <i class="glyphicon glyphicon-plus"></i>
+            <span>Legg til filer</span>
+            </span>
+
+            <button type="submit" id="upload" class="btn btn-primary start">
+                <i class="glyphicon glyphicon-upload"></i>
+                Last opp
+            </button>
+
+
+            <button data-dz-remove id="cancel" class="btn btn-warning cancel">
+                <i class="glyphicon glyphicon-ban-circle"></i>
+                Cancel</button>
+        </div>
+    </div>
+</div>
 
 
 <script>
