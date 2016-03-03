@@ -182,13 +182,13 @@ nav a#pull {
     }
     nav a#pull:after {
         content:"";
-        background: url('navicon.png') no-repeat;
+        background: url('../img/nav-icon.png') no-repeat;
         width: 30px;
         height: 30px;
         display: inline-block;
         position: absolute;
         right: 15px;
-        top: 10px;
+        top: 5px;
     }
 
 }
