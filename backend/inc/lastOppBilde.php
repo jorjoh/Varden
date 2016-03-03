@@ -18,10 +18,11 @@
 </div>
     <div class="col-7">
         <form action="" method="post" class="dropzone" id="myForm" enctype="multipart/form-data">
+            <!-- Drag and drop felt med knapp som henter opp uforsker -->
             <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push this button!</h4>
         </form>
     </div>
-
+ 
 <!--Område som enkeltbilder vises-->
     <div class="row">
         <div class="col-6">
@@ -66,23 +67,25 @@
     <div class="col-6">
         <div id="actions" class="row">
             <!-- Knappene -->
+            <!-- Legg til filer -->
             <span class="btn btn-success fileinput-button dz-clickable"/>
             <i class="glyphicon glyphicon-plus"></i>
             <span>Legg til filer</span>
             </span>
-
+            <!-- Denne knappen starter selve opplastningsfunksjonen-->
             <button type="submit" id="upload" class="btn btn-primary start">
                 <i class="glyphicon glyphicon-upload"></i>
                 Last opp
             </button>
 
-
+            <!-- Denne knappen fjerner elementer i køen-->
             <button data-dz-remove id="cancel" class="btn btn-warning cancel">
                 <i class="glyphicon glyphicon-ban-circle"></i>
                 Cancel</button>
         </div>
     </div>
 </div>
+
 
 
 <script>
