@@ -22,7 +22,7 @@
             <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push this button!</h4>
         </form>
     </div>
- 
+
 <!--Område som enkeltbilder vises-->
     <div class="row">
         <div class="col-6">
@@ -35,9 +35,20 @@
                         <span class="preview"><img data-dz-thumbnail/></span>
                     </div>
                         <!--div-tag som styler 'name' til filen som lastes opp-->
-                    <div style="width: 300px; left: 400px; bottom: 122px; position: relative;">
-                        <p class="name" data-dz-name></p>
-
+                    <div style="width: 600px; left: 300px; bottom: 122px; position: relative;">
+                        <!-- <p class="name" data-dz-name></p> -->
+                        <table>
+                            <tr>
+                                <th style="padding-right: 10px;">Tittel på bilde</th>
+                                <th style="padding-right: 10px;">Fotograf</th>
+                                <th style="padding-right: 10px;">Marker alle</th>
+                            </tr>
+                            <tr>
+                                <td style="padding-right: 10px;" ><input type="text" name="pictureTitle" id="pictureTitle"></td>
+                                <td style="padding-right: 10px;"><input type="text" name="photographer" id="photographer"></td>
+                                <td style="text-align: center; padding-right: 10px;"><input type="checkbox" name="samePhotograph" id="samePhotograph" value="check"></td>
+                            </tr>
+                        </table>
                         <strong class="error text-danger" data-dz-errormessage></strong>
                     </div>
 
