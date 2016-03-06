@@ -12,7 +12,7 @@
         <head>
             <meta charset="UTF-8">
             <title>Online Bildearkiv - adminpanel</title>
-            <link rel="stylesheet" type="text/css" href="style/styleBackend.css">
+            <link rel="stylesheet" type="text/css" href="style/stylebackend.css">
             <link rel="stylesheet" type="text/css" href="style/style.css">
             <link rel="icon" type="image/png" href="../frontend/img/VA-fav-icon-152.png">
             <script src="http://code.jquery.com/jquery-1.9.1.js"></script>

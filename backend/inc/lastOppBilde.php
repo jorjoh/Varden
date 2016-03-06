@@ -25,53 +25,48 @@
 
 <!--Område som enkeltbilder vises-->
     <div class="row">
-        <div class="col-6">
+        <div class="col-8">
             <div class="table table-striped files" id="previews" >
-                <div id="template" class="file-row" style="border: solid 1px #f9f9f9; position: relative; top: 10px; background-color: #f9f9f9">
+                <div id="template" class="file-row" style="border: solid 1px #f9f9f9; position: relative; top: 10px; left: 10px; background-color: #f9f9f9">
                     <!-- This is used as the file preview template -->
                     <!--Div-tag som styler hele thumbnail-preview visningen-->
-                    <div style="position:relative; top: 15px; height: 130px ">
-                        <div style=" width: 122px; position: relative; left: 90px;">
-                        <span class="preview"><img data-dz-thumbnail/></span>
-                    </div>
+                        <span class="preview" style="float: left; padding: 10px; 0 5px 20px;"><img data-dz-thumbnail/></span>
                         <!--div-tag som styler 'name' til filen som lastes opp-->
-                    <div style="width: 600px; left: 300px; bottom: 122px; position: relative;">
                         <!-- <p class="name" data-dz-name></p> -->
                         <table>
                             <tr>
                                 <th style="padding-right: 10px;">Tittel på bilde</th>
                                 <th style="padding-right: 10px;">Fotograf</th>
-                                <th style="padding-right: 10px;">Marker alle</th>
                             </tr>
                             <tr>
-                                <td style="padding-right: 10px;" ><input type="text" name="pictureTitle" id="pictureTitle"></td>
-                                <td style="padding-right: 10px;"><input type="text" name="photographer" id="photographer"></td>
-                                <td style="text-align: center; padding-right: 10px;"><input type="checkbox" name="samePhotograph" id="samePhotograph" value="check"></td>
+                                <td style="padding: 5px 10px 20px 0;" ><input type="text" name="pictureTitle" id="pictureTitle"></td>
+                                <td style="padding: 5px 10px 20px 0;"><input type="text" name="photographer" id="photographer"></td>
+                                <td style="text-align: center; padding: 5px 10px 20px 0;"><input type="checkbox" name="samePhotograph" id="samePhotograph"> Samme fotograf som forrige bilde</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Selve progressbaren-->
+                                    <div class="progress" style="width: 150px;">
+                                        <div class="progress-bar progress-bar-success" id="test" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress></div>
+                                    </div>
+                                </td>
+                                <td style="margin-top: 100px;">
+                                    <!--Knapp som sletter enkeltbilde i køen-->
+                                    <button style="margin-left: 20px; data-dz-remove id="cancel2" class="btn btn-warning cancel">
+                                        <i class="glyphicon glyphicon-ban-circle"></i>
+                                        Cancel
+                                    </button>
+                                </td>
                             </tr>
                         </table>
                         <strong class="error text-danger" data-dz-errormessage></strong>
-                    </div>
-
-                        <!--Progressbar -->
-                    <div style="width: 150px; left: 800px; bottom: 150px; position: relative;">
-                        <p class="size" data-dz-size></p>
-
-                        <!-- Selve progressbaren-->
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" id="test" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress>
-                            </div>
-                        </div>
-                        <!--Knapp som sletter enkeltbilde i køen-->
-                        <button data-dz-remove id="cancel2" class="btn btn-warning cancel" style=" position: relative;">
-                            <i class="glyphicon glyphicon-ban-circle"></i>
-                            Cancel</button>
+                        <!-- Henter ut filstørrelsen på bilde -->
+                        <p class="size" style="clear: both; padding-left: 20px;" data-dz-size></p>
                     </div>
 
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
 
 <div class="row">
