@@ -55,6 +55,7 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="clearfix">
+                        <a href="#" id="pull">Menu</a>
                         <ul class="clearfix">
                             <li><a href="?side=forside">Hjem</a></li>
                             <li><a href="?side=lastOppBilde">Last opp</a></li>
@@ -63,7 +64,6 @@
                             <li><a href="#">Forslag</a></li>
                             <li><a href="#">Om</a></li>
                         </ul>
-                        <a href="#" id="pull">Menu</a>
                     </nav>
                 </div>
             </div>
