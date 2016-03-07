@@ -7,15 +7,64 @@
  */
 
 
-$image = "DSC_8962.jpg";
+$image = "IMG_3646.JPG";
 
-    $exif = exif_read_data($image, 0, true);
+    /*$exif = exif_read_data($image, IFD0, true);
     foreach ($exif as $key => $section) {
         foreach ($section as $name => $val) {
             echo "$key.$name: $val\n";
             echo "<br/>";
+
         }
     }
+*/
+
+$divStyle = ' background-color:#E8E8E3;
+            padding:10px;
+            color:#000;
+            font-size:16px;
+            width:100%;
+            overflow:hidden;';
+
+function cameraUsed($image){
+
+    if((isset($image)) and (file_exists($image))){
+        $exif_ifd0 = read_exif_data($image,'IFD0',0);
+        $exif_exif = read_exif_data($image,'EXIF',0);
+
+
+    }
+    $notFound = "Unavalilable";
+
+    //Make
+    if(array_key_exists('Make',$exif_ifd0)){
+        $camMake = $exif_ifd0['Make'];
+
+    }
+    else{
+        $camMake = $notFound;
+    }
+    //Model
+    if(array_key_exists('Model',$exif_ifd0)){
+        $camModel = $exif_ifd0['Model'];
+    }
+
+    //Returns arrays
+    $return = array();
+    $return['Make'] = $camMake;
+    $return['Model'] = $camModel;
+    return $return;
+}
+
+$camera = cameraUsed($image);
+echo '<div style = "' . $divStyle . '">
+    Info returned by <b>exif_read_data('.$image.', Exif-information)</b>
+    <br /><br />
+        <pre>';
+print_r("Camera Used:".$camera['Make'] . " " .$camera['Model']);
+echo '</pre>
+        </div>';
+//echo "Camera Used:".$camera['Make'];
 
 
 
