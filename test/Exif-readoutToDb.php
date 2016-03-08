@@ -454,7 +454,7 @@ function exifDetails($image)
 $camera = cameraUsed($image);
 $exifComputed = imageDetails($image);
 $exifExifinfo = exifDetails($image);
-if($camera != false && $exifComputed != false || $exifExifinfo != false) {
+if($camera != false && $exifComputed != false && $exifExifinfo != false) {
 echo '<div style = "' . $divStyle . '">
     Info returned by <b>exif_read_data(' . $image . ', Exif-information)</b>
     <br /><br />
@@ -486,10 +486,8 @@ print_r("ExposureTime:" . $exifExifinfo['ExposureTime'] . "<br/>");
 print_r("FNumber:" . $exifExifinfo['FNumber'] . "<br/>");
 print_r("ExposureProgram:" . $exifExifinfo['ExposureProgram'] . "<br/>");
 print_r("ISOSpeedRatings:" . $exifExifinfo['ISOSpeedRatings'] . "<br/>");
-print_r("ISOSpeedRatings:".$exifExifinfo['ISOSpeedRatings']. "<br/>");
 print_r("ExifVersion:".$exifExifinfo['ExifVersion']. "<br/>");
 print_r("DateTimeOriginal:".$exifExifinfo['DateTimeOriginal']. "<br/>");
-print_r("ISOSpeedRatings:".$exifExifinfo['ISOSpeedRatings']. "<br/>");
 print_r("ExifVersion:".$exifExifinfo['ExifVersion']. "<br/>");
 print_r("DateTimeOriginal:".$exifExifinfo['DateTimeOriginal']. "<br/>");
 print_r("DateTimeDigitized:".$exifExifinfo['DateTimeDigitized']. "<br/>");
