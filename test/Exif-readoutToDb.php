@@ -8,7 +8,7 @@
 
 
 $image = "IMG_3646.JPG";
-$notFound = "null";
+$notfound = "null";
 /*
     $exif = exif_read_data($image, IFD0, true);
     foreach ($exif as $key => $section) {
@@ -27,83 +27,131 @@ $divStyle = ' background-color:#E8E8E3;
             width:100%;
             overflow:hidden;';
 
+function imageFile($image){
+    if((isset($image)) and file_exists($image)){
+        $exif_file = exif_read_data($image,'FILE',0);
+
+        global $notfound;
+
+        //FileName
+        if(array_key_exists('FileName',$exif_file)){
+            $filename = $exif_file['FileName'];
+        }
+        else{
+            $filename = $notfound;
+        }
+        if(array_key_exists('FileDatTime',$exif_file)){
+            $filedatetime = $exif_file['FileDateTime'];
+        }
+        else{
+            $filedatetime = $notfound;
+        }
+        if(array_key_exists('FileSize',$exif_file)){
+            $filesize = $exif_file['FileSize'];
+        }
+        else{
+            $filesize = $notfound;
+        }
+        if(array_key_exists('FileType',$exif_file)){
+            $filetype = $exif_file['FileType'];
+        }
+        else{
+            $filetype = $notfound;
+        }
+        if(array_key_exists('MimeType', $exif_file)){
+            $minmetype = $exif_file['MimeType'];
+        }
+        else{
+            $minmetype = $notfound;
+        }
+
+    }
+    //Returns arrays
+    $return = array();
+    $return['FileName'] = $filename;
+    $return['FileDateTime'] = $filedatetime;
+    $return['FileSize'] = $filesize;
+    $return['FileType'] = $filetype;
+    $return['MimeType'] = $minmetype;
+    return $return;
+}
 function cameraUsed($image)
 {
 
     if ((isset($image)) and (file_exists($image))) {
         $exif_ifd0 = exif_read_data($image, 'IFD0', 0);
 
-        global $notFound;
+        global $notfound;
 
         //Make
         if (array_key_exists('Make', $exif_ifd0)) {
-            $camMake = $exif_ifd0['Make'];
+            $cammake = $exif_ifd0['Make'];
         } else {
-            $camMake = $notFound;
+            $cammake = $notfound;
         }
         //Model
         if (array_key_exists('Model', $exif_ifd0)) {
-            $camModel = $exif_ifd0['Model'];
-        } else $camModel = $notFound;
+            $cammodel = $exif_ifd0['Model'];
+        } else $cammodel = $notfound;
         //Orientation
         if (array_key_exists('Orientation', $exif_ifd0)) {
-            $imgOrentation = $exif_ifd0['Orientation'];
-        } else $imgOrentation = $notFound;
+            $imgorentation = $exif_ifd0['Orientation'];
+        } else $imgorentation = $notfound;
         //XResolution
         if (array_key_exists('XResolution', $exif_ifd0)) {
-            $XResolution = $exif_ifd0['XResolution'];
+            $xresolution = $exif_ifd0['XResolution'];
         } else {
-            $XResolution = $notFound;
+            $xresolution = $notfound;
         }
         //YResolution
         if (array_key_exists('YResolution', $exif_ifd0)) {
-            $YResolution = $exif_ifd0['YResolution'];
+            $yresolution = $exif_ifd0['YResolution'];
         } else {
-            $YResolution = $notFound;
+            $yresolution = $notfound;
         }
         //ResolutionUnit
         if (array_key_exists('ResolutionUnit', $exif_ifd0)) {
-            $resolutionUnit = $exif_ifd0['ResolutionUnit'];
+            $resolutionunit = $exif_ifd0['ResolutionUnit'];
         } else {
-            $resolutionUnit = $notFound;
+            $resolutionunit = $notfound;
         }
         //Software
         if (array_key_exists('Software', $exif_ifd0)) {
             $software = $exif_ifd0['Software'];
         } else {
-            $software = $notFound;
+            $software = $notfound;
         }
         //DateTime
         if (array_key_exists('DateTime', $exif_ifd0)) {
-            $dateTime = $exif_ifd0['DateTime'];
+            $datetime = $exif_ifd0['DateTime'];
         } else {
-            $dateTime = $notFound;
+            $datetime = $notfound;
         }
         //YCbCrPositioning
         if (array_key_exists('YCbCrPositioning', $exif_ifd0)) {
-            $yCbCrPositioning = $exif_ifd0['YCbCrPositioning'];
+            $ycbcrpositioning = $exif_ifd0['YCbCrPositioning'];
         } else {
-            $yCbCrPositioning = $notFound;
+            $ycbcrpositioning = $notfound;
         }
         //Exif_IFD_Pointer
         if (array_key_exists('Exif_IFD_Pointer', $exif_ifd0)) {
-            $exif_IFD_Pointer = $exif_ifd0['Exif_IFD_Pointer'];
+            $exif_ifd_pointer = $exif_ifd0['Exif_IFD_Pointer'];
         } else {
-            $exif_IFD_Pointer = $notFound;
+            $exif_ifd_pointer = $notfound;
         }
 
         //Returns arrays
         $return = array();
-        $return['Make'] = $camMake;
-        $return['Model'] = $camModel;
-        $return['Orientation'] = $imgOrentation;
-        $return['Xresolution'] = $XResolution;
-        $return['Yresolution'] = $YResolution;
-        $return['ResolutionUnit'] = $resolutionUnit;
+        $return['Make'] = $cammake;
+        $return['Model'] = $cammodel;
+        $return['Orientation'] = $imgorentation;
+        $return['Xresolution'] = $xresolution;
+        $return['Yresolution'] = $yresolution;
+        $return['ResolutionUnit'] = $resolutionunit;
         $return['Software'] = $software;
-        $return['DateTime'] = $dateTime;
-        $return['YCbCrPositioning'] = $yCbCrPositioning;
-        $return['Exif_IFD_Pointer'] = $exif_IFD_Pointer;
+        $return['DateTime'] = $datetime;
+        $return['YCbCrPositioning'] = $ycbcrpositioning;
+        $return['Exif_IFD_Pointer'] = $exif_ifd_pointer;
         return $return;
     }
     else {
@@ -115,38 +163,38 @@ function imageDetails($image)
 {
 
     if ((isset($image)) and (file_exists($image))) {
-        $exifComputed = exif_read_data($image, 'IFD0', 0);
-        global $notFound;
+        $exifcomputed = exif_read_data($image, 'IFD0', 0);
+        global $notfound;
 
-        if (array_key_exists('html', $exifComputed['COMPUTED'])) {
-            $html = $exifComputed['COMPUTED']['html'];
+        if (array_key_exists('html', $exifcomputed['COMPUTED'])) {
+            $html = $exifcomputed['COMPUTED']['html'];
         } else {
-            $html = $notFound;
+            $html = $notfound;
         }
-        if (array_key_exists('Height', $exifComputed['COMPUTED'])) {
-            $height = $exifComputed['COMPUTED']['Height'];
+        if (array_key_exists('Height', $exifcomputed['COMPUTED'])) {
+            $height = $exifcomputed['COMPUTED']['Height'];
         } else {
-            $height = $exifComputed;
+            $height = $exifcomputed;
         }
-        if (array_key_exists('Width', $exifComputed['COMPUTED'])) {
-            $width = $exifComputed['COMPUTED']['Width'];
+        if (array_key_exists('Width', $exifcomputed['COMPUTED'])) {
+            $width = $exifcomputed['COMPUTED']['Width'];
         } else {
-            $width = $notFound;
+            $width = $notfound;
         }
-        if (array_key_exists('IsColor', $exifComputed['COMPUTED'])) {
-            $isColor = $exifComputed['COMPUTED']['IsColor'];
+        if (array_key_exists('IsColor', $exifcomputed['COMPUTED'])) {
+            $iscolor = $exifcomputed['COMPUTED']['IsColor'];
         } else {
-            $isColor = $notFound;
+            $iscolor = $notfound;
         }
-        if (array_key_exists('ByteOrderMotorola', $exifComputed['COMPUTED'])) {
-            $byteOrderMotorola = $exifComputed['COMPUTED']['ByteOrderMotorola'];
+        if (array_key_exists('ByteOrderMotorola', $exifcomputed['COMPUTED'])) {
+            $byteordermotorola = $exifcomputed['COMPUTED']['ByteOrderMotorola'];
         } else {
-            $byteOrderMotorola = $notFound;
+            $byteordermotorola = $notfound;
         }
-        if (array_key_exists('ApertureFNumber', $exifComputed['COMPUTED'])) {
-            $apertureFNumber = $exifComputed['COMPUTED']['ApertureFNumber'];
+        if (array_key_exists('ApertureFNumber', $exifcomputed['COMPUTED'])) {
+            $aperturefnumber = $exifcomputed['COMPUTED']['ApertureFNumber'];
         } else {
-            $apertureFNumber = $notFound;
+            $aperturefnumber = $notfound;
         }
 
         //Returns arrays
@@ -154,9 +202,9 @@ function imageDetails($image)
         $return['html'] = $html;
         $return['COMPUTED']['Height'] = $height;
         $return['Width'] = $width;
-        $return['IsColor'] = $isColor;
-        $return['ByteOrderMotorola'] = $byteOrderMotorola;
-        $return['ApertureFNumber'] = $apertureFNumber;
+        $return['IsColor'] = $iscolor;
+        $return['ByteOrderMotorola'] = $byteordermotorola;
+        $return['ApertureFNumber'] = $aperturefnumber;
         return $return;
     }
     else {
@@ -167,281 +215,281 @@ function imageDetails($image)
 function exifDetails($image)
 {
     if ((isset($image)) and (file_exists($image))) {
-        $exifInfo = exif_read_data($image, 'EXIF', 0);
-        global $notFound;
+        $exifinfo = exif_read_data($image, 'EXIF', 0);
+        global $notfound;
 
-        if (array_key_exists('ExposureTime', $exifInfo)) {
-            $exposureTime = $exifInfo['ExposureTime'];
+        if (array_key_exists('ExposureTime', $exifinfo)) {
+            $exposuretime = $exifinfo['ExposureTime'];
         } else {
-            $exposureTime = $notFound;
+            $exposuretime = $notfound;
         }
-        if (array_key_exists('FNumber', $exifInfo)) {
-            $fNumber = $exifInfo['FNumber'];
+        if (array_key_exists('FNumber', $exifinfo)) {
+            $fnumber = $exifinfo['FNumber'];
         } else {
-            $fNumber = $notFound;
+            $fnumber = $notfound;
         }
-        if (array_key_exists('ExposureProgram', $exifInfo)) {
-            $exposureProgram = $exifInfo['ExposureProgram'];
+        if (array_key_exists('ExposureProgram', $exifinfo)) {
+            $exposureprogram = $exifinfo['ExposureProgram'];
         } else {
-            $exposureProgram = $notFound;
+            $exposureprogram = $notfound;
         }
-        if(array_key_exists('ISOSpeedRatings',$exifInfo)){
-            $iSOSpeedRatings = $exifInfo['ISOSpeedRatings'];
+        if(array_key_exists('ISOSpeedRatings',$exifinfo)){
+            $isospeedratings = $exifinfo['ISOSpeedRatings'];
         }
         else {
-            $iSOSpeedRatings = $notFound;
+            $isospeedratings = $notfound;
         }
-        if(array_key_exists('ExifVersion',$exifInfo)){
-            $exifVersion = $exifInfo['ExifVersion'];
-        }
-        else{
-            $exifVersion = $notFound;
-        }
-        if(array_key_exists('DateTimeOriginal',$exifInfo)){
-            $dateTimeOriginal = $exifInfo['DateTimeOriginal'];
+        if(array_key_exists('ExifVersion',$exifinfo)){
+            $exifversion = $exifinfo['ExifVersion'];
         }
         else{
-            $dateTimeOriginal = $notFound;
+            $exifversion = $notfound;
         }
-        if(array_key_exists('DateTimeDigitized',$exifInfo)){
-            $dateTimeDigitized = $exifInfo['DateTimeDigitized'];
-        }
-        else{
-            $dateTimeDigitized = $notFound;
-        }
-        if(array_key_exists('ComponentsConfiguration',$exifInfo)){
-            $componentsConfiguration = $exifInfo['ComponentsConfiguration'];
+        if(array_key_exists('DateTimeOriginal',$exifinfo)){
+            $datetimeoriginal = $exifinfo['DateTimeOriginal'];
         }
         else{
-            $componentsConfiguration = $notFound;
+            $datetimeoriginal = $notfound;
         }
-        if(array_key_exists('CompressedBitsPerPixel',$exifInfo)){
-            $compressedBitsPerPixel = $exifInfo['CompressedBitsPerPixel'];
-        }
-        else{
-            $compressedBitsPerPixel = $notFound;
-        }
-        if(array_key_exists('ExposureBiasValue',$exifInfo)){
-            $exposureBiasValue = $exifInfo['ExposureBiasValue'];
+        if(array_key_exists('DateTimeDigitized',$exifinfo)){
+            $datetimedigitized = $exifinfo['DateTimeDigitized'];
         }
         else{
-            $exposureBiasValue = $notFound;
+            $datetimedigitized = $notfound;
         }
-        if(array_key_exists('MaxApertureValue',$exifInfo)){
-            $maxApertureValue = $exifInfo['MaxApertureValue'];
-        }
-        else{
-            $maxApertureValue = $exifInfo;
-        }
-        if(array_key_exists('MeteringMode',$exifInfo)){
-            $meteringMode = $exifInfo['MeteringMode'];
+        if(array_key_exists('ComponentsConfiguration',$exifinfo)){
+            $componentsconfiguration = $exifinfo['ComponentsConfiguration'];
         }
         else{
-            $meteringMode = $notFound;
+            $componentsconfiguration = $notfound;
         }
-        if(array_key_exists('LightSource',$exifInfo)){
-            $lightSource = $exifInfo['LightSource'];
-        }
-        else{
-            $lightSource = $notFound;
-        }
-        if(array_key_exists('Flash',$exifInfo)){
-            $flash = $exifInfo['Flash'];
+        if(array_key_exists('CompressedBitsPerPixel',$exifinfo)){
+            $compressedbitsperpixel = $exifinfo['CompressedBitsPerPixel'];
         }
         else{
-            $flash = $notFound;
+            $compressedbitsperpixel = $notfound;
         }
-        if(array_key_exists('FocalLength',$exifInfo)){
-            $focalLength = $exifInfo['FocalLength'];
-        }
-        else{
-            $focalLength = $notFound;
-        }
-        if(array_key_exists('UserComment',$exifInfo)){
-            $userComment = $exifInfo['UserComment'];
+        if(array_key_exists('ExposureBiasValue',$exifinfo)){
+            $exposurebiasvalue = $exifinfo['ExposureBiasValue'];
         }
         else{
-            $userComment = $notFound;
+            $exposurebiasvalue = $notfound;
         }
-        if(array_key_exists('SubSecTime',$exifInfo)){
-            $subSecTime = $exifInfo['SubSecTime'];
-        }
-        else{
-            $subSecTime = $notFound;
-        }
-        if(array_key_exists('SubSecTimeOriginal',$exifInfo)){
-            $subSecTimeOriginal = $exifInfo['SubSecTimeOriginal'];
+        if(array_key_exists('MaxApertureValue',$exifinfo)){
+            $maxaperturevalue = $exifinfo['MaxApertureValue'];
         }
         else{
-            $subSecTimeOriginal = $notFound;
+            $maxaperturevalue = $exifinfo;
         }
-        if(array_key_exists('SubSecTimeDigitized',$exifInfo)){
-            $subSecTimeDigitized = $exifInfo['SubSecTimeDigitized'];
-        }
-        else{
-            $subSecTimeDigitized = $notFound;
-        }
-        if(array_key_exists('FlashPixVersion',$exifInfo)){
-            $flashPixVersion = $exifInfo['FlashPixVersion'];
+        if(array_key_exists('MeteringMode',$exifinfo)){
+            $meteringmode = $exifinfo['MeteringMode'];
         }
         else{
-            $flashPixVersion = $notFound;
+            $meteringmode = $notfound;
         }
-        if(array_key_exists('ColorSpace',$exifInfo)){
-            $colorSpace = $exifInfo['ColorSpace'];
-        }
-        else{
-            $colorSpace = $notFound;
-        }
-        if(array_key_exists('ExifImageWidth',$exifInfo)){
-            $exifImageWidth = $exifInfo['ExifImageWidth'];
+        if(array_key_exists('LightSource',$exifinfo)){
+            $lightsource = $exifinfo['LightSource'];
         }
         else{
-            $exifImageWidth = $notFound;
+            $lightsource = $notfound;
         }
-        if(array_key_exists('ExifImageLength', $exifInfo)){
-            $exifImageLength = $exifInfo['ExifImageLength'];
-        }
-        else{
-            $exifImageLength = $notFound;
-        }
-        if(array_key_exists('InteroperabilityOffset',$exifInfo)){
-            $interoperabilityOffset = $exifInfo['InteroperabilityOffset'];
+        if(array_key_exists('Flash',$exifinfo)){
+            $flash = $exifinfo['Flash'];
         }
         else{
-            $interoperabilityOffset = $notFound;
+            $flash = $notfound;
         }
-        if(array_key_exists('SensingMethod',$exifInfo)){
-            $sensingMethod = $exifInfo['SensingMethod'];
-        }
-        else{
-            $sensingMethod = $notFound;
-        }
-        if(array_key_exists('FileSource',$exifInfo)){
-            $fileSource = $exifInfo['FileSource'];
+        if(array_key_exists('FocalLength',$exifinfo)){
+            $focallength = $exifinfo['FocalLength'];
         }
         else{
-            $fileSource = $notFound;
+            $focallength = $notfound;
         }
-        if(array_key_exists('SceneType',$exifInfo)){
-            $sceneType = $exifInfo['SceneType'];
-        }
-        else{
-            $sceneType = $notFound;
-        }
-        if(array_key_exists('CFAPattern',$exifInfo)){
-            $cFAPattern = $exifInfo['CFAPattern'];
+        if(array_key_exists('UserComment',$exifinfo)){
+            $usercomment = $exifinfo['UserComment'];
         }
         else{
-            $cFAPattern = $notFound['CFAPattern'];
+            $usercomment = $notfound;
         }
-        if(array_key_exists('CustomRendered',$exifInfo)){
-            $customRendered = $exifInfo['CustomRendered'];
-        }
-        else{
-            $customRendered = $notFound;
-        }
-        if(array_key_exists('ExposureMode',$exifInfo)){
-            $exposureMode = $exifInfo['ExposureMode'];
+        if(array_key_exists('SubSecTime',$exifinfo)){
+            $subsectime = $exifinfo['SubSecTime'];
         }
         else{
-            $exposureMode = $notFound;
+            $subsectime = $notfound;
         }
-        if(array_key_exists('WhiteBalance',$exifInfo)){
-            $whiteBalance = $exifInfo['WhiteBalance'];
+        if(array_key_exists('SubSecTimeOriginal',$exifinfo)){
+            $subsectimeoriginal = $exifinfo['SubSecTimeOriginal'];
         }
         else{
-            $whiteBalance =  $notFound;
+            $subsectimeoriginal = $notfound;
         }
-        if(array_key_exists('DigitalZoomRatio',$exifInfo)){
-            $digitalZoomRatio = $exifInfo['DigitalZoomRatio'];
+        if(array_key_exists('SubSecTimeDigitized',$exifinfo)){
+            $subsectimedigitized = $exifinfo['SubSecTimeDigitized'];
+        }
+        else{
+            $subsectimedigitized = $notfound;
+        }
+        if(array_key_exists('FlashPixVersion',$exifinfo)){
+            $flashpixversion = $exifinfo['FlashPixVersion'];
+        }
+        else{
+            $flashpixversion = $notfound;
+        }
+        if(array_key_exists('ColorSpace',$exifinfo)){
+            $colorspace = $exifinfo['ColorSpace'];
+        }
+        else{
+            $colorspace = $notfound;
+        }
+        if(array_key_exists('ExifImageWidth',$exifinfo)){
+            $exifimagewidth = $exifinfo['ExifImageWidth'];
+        }
+        else{
+            $exifimagewidth = $notfound;
+        }
+        if(array_key_exists('ExifImageLength', $exifinfo)){
+            $exifimagelength = $exifinfo['ExifImageLength'];
+        }
+        else{
+            $exifimagelength = $notfound;
+        }
+        if(array_key_exists('InteroperabilityOffset',$exifinfo)){
+            $interoperabilityoffset = $exifinfo['InteroperabilityOffset'];
+        }
+        else{
+            $interoperabilityoffset = $notfound;
+        }
+        if(array_key_exists('SensingMethod',$exifinfo)){
+            $sensingmethod = $exifinfo['SensingMethod'];
+        }
+        else{
+            $sensingmethod = $notfound;
+        }
+        if(array_key_exists('FileSource',$exifinfo)){
+            $filesource = $exifinfo['FileSource'];
+        }
+        else{
+            $filesource = $notfound;
+        }
+        if(array_key_exists('SceneType',$exifinfo)){
+            $scenetype = $exifinfo['SceneType'];
+        }
+        else{
+            $scenetype = $notfound;
+        }
+        if(array_key_exists('CFAPattern',$exifinfo)){
+            $cFAPattern = $exifinfo['CFAPattern'];
+        }
+        else{
+            $cFAPattern = $notfound['CFAPattern'];
+        }
+        if(array_key_exists('CustomRendered',$exifinfo)){
+            $customrendered = $exifinfo['CustomRendered'];
+        }
+        else{
+            $customrendered = $notfound;
+        }
+        if(array_key_exists('ExposureMode',$exifinfo)){
+            $exposuremode = $exifinfo['ExposureMode'];
+        }
+        else{
+            $exposuremode = $notfound;
+        }
+        if(array_key_exists('WhiteBalance',$exifinfo)){
+            $whitebalance = $exifinfo['WhiteBalance'];
+        }
+        else{
+            $whitebalance =  $notfound;
+        }
+        if(array_key_exists('DigitalZoomRatio',$exifinfo)){
+            $digitalzoomratio = $exifinfo['DigitalZoomRatio'];
         }
         else {
-            $digitalZoomRatio = $exifInfo['DigitalZoomRatio'];
+            $digitalzoomratio = $exifinfo['DigitalZoomRatio'];
         }
-        if(array_key_exists('FocalLengthIn35mmFilm',$exifInfo)){
-            $focalLengthIn35mmFilm = $exifInfo['FocalLengthIn35mmFilm'];
-        }
-        else{
-            $focalLengthIn35mmFilm = $notFound;
-        }
-        if(array_key_exists('SceneCaptureType',$exifInfo)){
-            $sceneCaptureType = $exifInfo['SceneCaptureType'];
+        if(array_key_exists('FocalLengthIn35mmFilm',$exifinfo)){
+            $focallengthin35mmfilm = $exifinfo['FocalLengthIn35mmFilm'];
         }
         else{
-            $sceneCaptureType = $notFound;
+            $focallengthin35mmfilm = $notfound;
         }
-        if(array_key_exists('GainControl',$exifInfo)){
-            $gainControl = $exifInfo['GainControl'];
-        }
-        else{
-            $gainControl = $notFound;
-        }
-        if(array_key_exists('Contrast',$exifInfo)){
-            $contrast = $exifInfo['Contrast'];
+        if(array_key_exists('SceneCaptureType',$exifinfo)){
+            $scenecapturetype = $exifinfo['SceneCaptureType'];
         }
         else{
-            $contrast = $notFound;
+            $scenecapturetype = $notfound;
         }
-        if(array_key_exists('Saturation',$exifInfo)){
-            $saturation = $exifInfo['Saturation'];
-        }
-        else{
-            $saturation = $notFound;
-        }
-        if(array_key_exists('Sharpness',$exifInfo)){
-            $sharpness = $exifInfo['Sharpness'];
+        if(array_key_exists('GainControl',$exifinfo)){
+            $gaincontrol = $exifinfo['GainControl'];
         }
         else{
-            $sharpness = $notFound;
+            $gaincontrol = $notfound;
         }
-        if(array_key_exists('SubjectDistanceRange',$exifInfo)){
-            $subjectDistanceRange = $exifInfo['SubjectDistanceRange'];
+        if(array_key_exists('Contrast',$exifinfo)){
+            $contrast = $exifinfo['Contrast'];
         }
         else{
-            $subjectDistanceRange = $notFound;
+            $contrast = $notfound;
+        }
+        if(array_key_exists('Saturation',$exifinfo)){
+            $saturation = $exifinfo['Saturation'];
+        }
+        else{
+            $saturation = $notfound;
+        }
+        if(array_key_exists('Sharpness',$exifinfo)){
+            $sharpness = $exifinfo['Sharpness'];
+        }
+        else{
+            $sharpness = $notfound;
+        }
+        if(array_key_exists('SubjectDistanceRange',$exifinfo)){
+            $subjectdistancerange = $exifinfo['SubjectDistanceRange'];
+        }
+        else{
+            $subjectdistancerange = $notfound;
         }
         //Returns arrays
         $return = array();
-        $return['ExposureTime'] = $exposureTime;
-        $return['FNumber'] = $fNumber;
-        $return['ExposureProgram'] = $exposureProgram;
-        $return['ISOSpeedRatings'] = $iSOSpeedRatings;
-        $return['ExifVersion'] = $exifVersion;
-        $return['DateTimeOriginal'] = $dateTimeOriginal;
-        $return['DateTimeDigitized'] = $dateTimeDigitized;
-        $return['ComponentsConfiguration'] = $componentsConfiguration;
-        $return['CompressedBitsPerPixel'] = $compressedBitsPerPixel;
-        $return['ExposureBiasValue'] = $exposureBiasValue;
-        $return['MaxApertureValue'] = $maxApertureValue;
-        $return['MeteringMode'] = $meteringMode;
-        $return['LightSource'] = $lightSource;
+        $return['ExposureTime'] = $exposuretime;
+        $return['FNumber'] = $fnumber;
+        $return['ExposureProgram'] = $exposureprogram;
+        $return['ISOSpeedRatings'] = $isospeedratings;
+        $return['ExifVersion'] = $exifversion;
+        $return['DateTimeOriginal'] = $datetimeoriginal;
+        $return['DateTimeDigitized'] = $datetimedigitized;
+        $return['ComponentsConfiguration'] = $componentsconfiguration;
+        $return['CompressedBitsPerPixel'] = $compressedbitsperpixel;
+        $return['ExposureBiasValue'] = $exposurebiasvalue;
+        $return['MaxApertureValue'] = $maxaperturevalue;
+        $return['MeteringMode'] = $meteringmode;
+        $return['LightSource'] = $lightsource;
         $return['Flash'] = $flash;
-        $return['FocalLength'] = $focalLength;
-        $return['UserComment'] = $userComment;
-        $return['SubSecTime'] = $subSecTime;
-        $return['SubSecTimeOriginal'] = $subSecTimeOriginal;
-        $return['SubSecTimeDigitized'] = $subSecTimeDigitized;
-        $return['FlashPixVersion'] = $flashPixVersion;
-        $return['ColorSpace'] = $colorSpace;
-        $return['ExifImageWidth'] = $exifImageWidth;
-        $return['ExifImageLength'] = $exifImageLength;
-        $return['InteroperabilityOffset'] = $interoperabilityOffset;
-        $return['SensingMethod'] = $sensingMethod;
-        $return['FileSource'] = $fileSource;
-        $return['SceneType'] = $sceneType;
+        $return['FocalLength'] = $focallength;
+        $return['UserComment'] = $usercomment;
+        $return['SubSecTime'] = $subsectime;
+        $return['SubSecTimeOriginal'] = $subsectimeoriginal;
+        $return['SubSecTimeDigitized'] = $subsectimedigitized;
+        $return['FlashPixVersion'] = $flashpixversion;
+        $return['ColorSpace'] = $colorspace;
+        $return['ExifImageWidth'] = $exifimagewidth;
+        $return['ExifImageLength'] = $exifimagelength;
+        $return['InteroperabilityOffset'] = $interoperabilityoffset;
+        $return['SensingMethod'] = $sensingmethod;
+        $return['FileSource'] = $filesource;
+        $return['SceneType'] = $scenetype;
         $return['CFAPattern'] = $cFAPattern;
-        $return['CustomRendered'] = $customRendered;
-        $return['ExposureMode'] = $exposureMode;
-        $return['WhiteBalance'] = $whiteBalance;
-        $return['DigitalZoomRatio'] = $digitalZoomRatio;
-        $return['FocalLengthIn35mmFilm'] = $focalLengthIn35mmFilm;
-        $return['SceneCaptureType'] = $sceneCaptureType;
-        $return['GainControl'] = $gainControl;
+        $return['CustomRendered'] = $customrendered;
+        $return['ExposureMode'] = $exposuremode;
+        $return['WhiteBalance'] = $whitebalance;
+        $return['DigitalZoomRatio'] = $digitalzoomratio;
+        $return['FocalLengthIn35mmFilm'] = $focallengthin35mmfilm;
+        $return['SceneCaptureType'] = $scenecapturetype;
+        $return['GainControl'] = $gaincontrol;
         $return['Contrast'] = $contrast;
         $return['Saturation'] = $saturation;
         $return['Sharpness'] = $sharpness;
-        $return['SubjectDistanceRange'] = $subjectDistanceRange;
+        $return['SubjectDistanceRange'] = $subjectdistancerange;
         return $return;
 
     }
@@ -451,22 +499,32 @@ function exifDetails($image)
 
 }
 
+$exiffile = imageFile($image);
 $camera = cameraUsed($image);
-$exifComputed = imageDetails($image);
-$exifExifinfo = exifDetails($image);
-if($camera != false && $exifComputed != false && $exifExifinfo != false) {
+$exifcomputed = imageDetails($image);
+$exifexifinfo = exifDetails($image);
+if($camera != false && $exifcomputed != false && $exifexifinfo != false) {
 echo '<div style = "' . $divStyle . '">
     Info returned by <b>exif_read_data(' . $image . ', Exif-information)</b>
     <br /><br />
         <pre>';
+
+print_r("----------------------------------------"."<br/>");
+print_r("FILE:" . "<br/>");
+print_r("FileName: ".$exiffile['FileName']."<br/>");
+print_r("FileDateTime: ".$exiffile['FileDateTime']."<br/>");
+print_r("FileSize: ".$exiffile['FileSize']."<br/>");
+print_r("FileType: ".$exiffile['FileType']."<br/>");
+print_r("MimeType: ".$exiffile['MimeType']."<br/>");
+
 print_r("----------------------------------------"."<br/>");
 print_r("COMPUTED:" . "<br/>");
-print_r("HTML: " . $exifComputed['html'] . "<br/>");
-print_r("Height: " . $exifComputed['COMPUTED']['Height'] . "<br/>");
-print_r("Width: " . $exifComputed['Width'] . "<br/>");
-print_r("IsColor: " . $exifComputed['IsColor'] . "<br/>");
-print_r("ByteOrderMotorola: " . $exifComputed['ByteOrderMotorola'] . "<br/>");
-print_r("ApertureFNumber: " . $exifComputed['ApertureFNumber'] . "<br/>");
+print_r("HTML: " . $exifcomputed['html'] . "<br/>");
+print_r("Height: " . $exifcomputed['COMPUTED']['Height'] . "<br/>");
+print_r("Width: " . $exifcomputed['Width'] . "<br/>");
+print_r("IsColor: " . $exifcomputed['IsColor'] . "<br/>");
+print_r("ByteOrderMotorola: " . $exifcomputed['ByteOrderMotorola'] . "<br/>");
+print_r("ApertureFNumber: " . $exifcomputed['ApertureFNumber'] . "<br/>");
 
 print_r("----------------------------------------"."<br/>");
 print_r("IFD0:" . "<br/>");
@@ -482,47 +540,47 @@ print_r("Exif_IFD_Pointer:" . $camera['Exif_IFD_Pointer'] . "<br/>");
 
 print_r("----------------------------------------"."<br/>");
 print_r("EXIF-Info:" . "<br/>");
-print_r("ExposureTime:" . $exifExifinfo['ExposureTime'] . "<br/>");
-print_r("FNumber:" . $exifExifinfo['FNumber'] . "<br/>");
-print_r("ExposureProgram:" . $exifExifinfo['ExposureProgram'] . "<br/>");
-print_r("ISOSpeedRatings:" . $exifExifinfo['ISOSpeedRatings'] . "<br/>");
-print_r("ExifVersion:".$exifExifinfo['ExifVersion']. "<br/>");
-print_r("DateTimeOriginal:".$exifExifinfo['DateTimeOriginal']. "<br/>");
-print_r("ExifVersion:".$exifExifinfo['ExifVersion']. "<br/>");
-print_r("DateTimeOriginal:".$exifExifinfo['DateTimeOriginal']. "<br/>");
-print_r("DateTimeDigitized:".$exifExifinfo['DateTimeDigitized']. "<br/>");
-print_r("ComponentsConfiguration:".$exifExifinfo['ComponentsConfiguration']. "<br/>");
-print_r("CompressedBitsPerPixel:".$exifExifinfo['CompressedBitsPerPixel']. "<br/>");
-print_r("ExposureBiasValue:".$exifExifinfo['ExposureBiasValue']. "<br/>");
-print_r("MaxApertureValue:".$exifExifinfo['MaxApertureValue']. "<br/>");
-print_r("MeteringMode:".$exifExifinfo['MeteringMode']. "<br/>");
-print_r("LightSource:".$exifExifinfo['LightSource']. "<br/>");
-print_r("Flash:".$exifExifinfo['Flash']. "<br/>");
-print_r("FocalLength:".$exifExifinfo['FocalLength']. "<br/>");
-print_r("UserComment:".$exifExifinfo['UserComment']. "<br/>");
-print_r("SubSecTime:".$exifExifinfo['SubSecTime']. "<br/>");
-print_r("SubSecTimeOriginal:".$exifExifinfo['SubSecTimeOriginal']. "<br/>");
-print_r("SubSecTimeDigitized:".$exifExifinfo['SubSecTimeDigitized']. "<br/>");
-print_r("FlashPixVersion:".$exifExifinfo['FlashPixVersion']. "<br/>");
-print_r("ColorSpace:".$exifExifinfo['ColorSpace']. "<br/>");
-print_r("ExifImageWidth:".$exifExifinfo['ExifImageWidth']. "<br/>");
-print_r("ExifImageLength:".$exifExifinfo['ExifImageLength']. "<br/>");
-print_r("InteroperabilityOffset:".$exifExifinfo['InteroperabilityOffset']. "<br/>");
-print_r("SensingMethod:".$exifExifinfo['SensingMethod']. "<br/>");
-print_r("FileSource:".$exifExifinfo['FileSource']. "<br/>");
-print_r("SceneType:".$exifExifinfo['SceneType']. "<br/>");
-print_r("CFAPattern:".$exifExifinfo['CFAPattern']. "<br/>");
-print_r("CustomRendered:".$exifExifinfo['CustomRendered']. "<br/>");
-print_r("ExposureMode:".$exifExifinfo['ExposureMode']. "<br/>");
-print_r("WhiteBalance:".$exifExifinfo['WhiteBalance']. "<br/>");
-print_r("DigitalZoomRatio:".$exifExifinfo['DigitalZoomRatio']. "<br/>");
-print_r("FocalLengthIn35mmFilm:".$exifExifinfo['FocalLengthIn35mmFilm']. "<br/>");
-print_r("SceneCaptureType:".$exifExifinfo['SceneCaptureType']. "<br/>");
-print_r("GainControl:".$exifExifinfo['GainControl']. "<br/>");
-print_r("Contrast:".$exifExifinfo['Contrast']. "<br/>");
-print_r("Saturation:".$exifExifinfo['Saturation']. "<br/>");
-print_r("Sharpness:".$exifExifinfo['Sharpness']. "<br/>");
-print_r("SubjectDistanceRange:".$exifExifinfo['SubjectDistanceRange']. "<br/>");
+print_r("ExposureTime:" . $exifexifinfo['ExposureTime'] . "<br/>");
+print_r("FNumber:" . $exifexifinfo['FNumber'] . "<br/>");
+print_r("ExposureProgram:" . $exifexifinfo['ExposureProgram'] . "<br/>");
+print_r("ISOSpeedRatings:" . $exifexifinfo['ISOSpeedRatings'] . "<br/>");
+print_r("ExifVersion:".$exifexifinfo['ExifVersion']. "<br/>");
+print_r("DateTimeOriginal:".$exifexifinfo['DateTimeOriginal']. "<br/>");
+print_r("ExifVersion:".$exifexifinfo['ExifVersion']. "<br/>");
+print_r("DateTimeOriginal:".$exifexifinfo['DateTimeOriginal']. "<br/>");
+print_r("DateTimeDigitized:".$exifexifinfo['DateTimeDigitized']. "<br/>");
+print_r("ComponentsConfiguration:".$exifexifinfo['ComponentsConfiguration']. "<br/>");
+print_r("CompressedBitsPerPixel:".$exifexifinfo['CompressedBitsPerPixel']. "<br/>");
+print_r("ExposureBiasValue:".$exifexifinfo['ExposureBiasValue']. "<br/>");
+print_r("MaxApertureValue:".$exifexifinfo['MaxApertureValue']. "<br/>");
+print_r("MeteringMode:".$exifexifinfo['MeteringMode']. "<br/>");
+print_r("LightSource:".$exifexifinfo['LightSource']. "<br/>");
+print_r("Flash:".$exifexifinfo['Flash']. "<br/>");
+print_r("FocalLength:".$exifexifinfo['FocalLength']. "<br/>");
+print_r("UserComment:".$exifexifinfo['UserComment']. "<br/>");
+print_r("SubSecTime:".$exifexifinfo['SubSecTime']. "<br/>");
+print_r("SubSecTimeOriginal:".$exifexifinfo['SubSecTimeOriginal']. "<br/>");
+print_r("SubSecTimeDigitized:".$exifexifinfo['SubSecTimeDigitized']. "<br/>");
+print_r("FlashPixVersion:".$exifexifinfo['FlashPixVersion']. "<br/>");
+print_r("ColorSpace:".$exifexifinfo['ColorSpace']. "<br/>");
+print_r("ExifImageWidth:".$exifexifinfo['ExifImageWidth']. "<br/>");
+print_r("ExifImageLength:".$exifexifinfo['ExifImageLength']. "<br/>");
+print_r("InteroperabilityOffset:".$exifexifinfo['InteroperabilityOffset']. "<br/>");
+print_r("SensingMethod:".$exifexifinfo['SensingMethod']. "<br/>");
+print_r("FileSource:".$exifexifinfo['FileSource']. "<br/>");
+print_r("SceneType:".$exifexifinfo['SceneType']. "<br/>");
+print_r("CFAPattern:".$exifexifinfo['CFAPattern']. "<br/>");
+print_r("CustomRendered:".$exifexifinfo['CustomRendered']. "<br/>");
+print_r("ExposureMode:".$exifexifinfo['ExposureMode']. "<br/>");
+print_r("WhiteBalance:".$exifexifinfo['WhiteBalance']. "<br/>");
+print_r("DigitalZoomRatio:".$exifexifinfo['DigitalZoomRatio']. "<br/>");
+print_r("FocalLengthIn35mmFilm:".$exifexifinfo['FocalLengthIn35mmFilm']. "<br/>");
+print_r("SceneCaptureType:".$exifexifinfo['SceneCaptureType']. "<br/>");
+print_r("GainControl:".$exifexifinfo['GainControl']. "<br/>");
+print_r("Contrast:".$exifexifinfo['Contrast']. "<br/>");
+print_r("Saturation:".$exifexifinfo['Saturation']. "<br/>");
+print_r("Sharpness:".$exifexifinfo['Sharpness']. "<br/>");
+print_r("SubjectDistanceRange:".$exifexifinfo['SubjectDistanceRange']. "<br/>");
 
 echo '</pre>
         </div>';

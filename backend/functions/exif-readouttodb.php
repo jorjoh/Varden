@@ -33,63 +33,63 @@ function cameraUsed($image)
     if ((isset($image)) and (file_exists($image))) {
         $exif_ifd0 = exif_read_data($image, 'IFD0', 0);
 
-        global $notFound;
+        global $notfound;
 
         //Make
         if (array_key_exists('Make', $exif_ifd0)) {
             $camMake = $exif_ifd0['Make'];
         } else {
-            $camMake = $notFound;
+            $camMake = $notfound;
         }
         //Model
         if (array_key_exists('Model', $exif_ifd0)) {
             $camModel = $exif_ifd0['Model'];
-        } else $camModel = $notFound;
+        } else $camModel = $notfound;
         //Orientation
         if (array_key_exists('Orientation', $exif_ifd0)) {
             $imgOrentation = $exif_ifd0['Orientation'];
-        } else $imgOrentation = $notFound;
+        } else $imgOrentation = $notfound;
         //XResolution
         if (array_key_exists('XResolution', $exif_ifd0)) {
             $XResolution = $exif_ifd0['XResolution'];
         } else {
-            $XResolution = $notFound;
+            $XResolution = $notfound;
         }
         //YResolution
         if (array_key_exists('YResolution', $exif_ifd0)) {
             $YResolution = $exif_ifd0['YResolution'];
         } else {
-            $YResolution = $notFound;
+            $YResolution = $notfound;
         }
         //ResolutionUnit
         if (array_key_exists('ResolutionUnit', $exif_ifd0)) {
             $resolutionUnit = $exif_ifd0['ResolutionUnit'];
         } else {
-            $resolutionUnit = $notFound;
+            $resolutionUnit = $notfound;
         }
         //Software
         if (array_key_exists('Software', $exif_ifd0)) {
             $software = $exif_ifd0['Software'];
         } else {
-            $software = $notFound;
+            $software = $notfound;
         }
         //DateTime
         if (array_key_exists('DateTime', $exif_ifd0)) {
             $dateTime = $exif_ifd0['DateTime'];
         } else {
-            $dateTime = $notFound;
+            $dateTime = $notfound;
         }
         //YCbCrPositioning
         if (array_key_exists('YCbCrPositioning', $exif_ifd0)) {
             $yCbCrPositioning = $exif_ifd0['YCbCrPositioning'];
         } else {
-            $yCbCrPositioning = $notFound;
+            $yCbCrPositioning = $notfound;
         }
         //Exif_IFD_Pointer
         if (array_key_exists('Exif_IFD_Pointer', $exif_ifd0)) {
             $exif_IFD_Pointer = $exif_ifd0['Exif_IFD_Pointer'];
         } else {
-            $exif_IFD_Pointer = $notFound;
+            $exif_IFD_Pointer = $notfound;
         }
 
         //Returns arrays
@@ -116,12 +116,12 @@ function imageDetails($image)
 
     if ((isset($image)) and (file_exists($image))) {
         $exifComputed = exif_read_data($image, 'IFD0', 0);
-        global $notFound;
+        global $notfound;
 
         if (array_key_exists('html', $exifComputed['COMPUTED'])) {
             $html = $exifComputed['COMPUTED']['html'];
         } else {
-            $html = $notFound;
+            $html = $notfound;
         }
         if (array_key_exists('Height', $exifComputed['COMPUTED'])) {
             $height = $exifComputed['COMPUTED']['Height'];
@@ -131,22 +131,22 @@ function imageDetails($image)
         if (array_key_exists('Width', $exifComputed['COMPUTED'])) {
             $width = $exifComputed['COMPUTED']['Width'];
         } else {
-            $width = $notFound;
+            $width = $notfound;
         }
         if (array_key_exists('IsColor', $exifComputed['COMPUTED'])) {
             $isColor = $exifComputed['COMPUTED']['IsColor'];
         } else {
-            $isColor = $notFound;
+            $isColor = $notfound;
         }
         if (array_key_exists('ByteOrderMotorola', $exifComputed['COMPUTED'])) {
             $byteOrderMotorola = $exifComputed['COMPUTED']['ByteOrderMotorola'];
         } else {
-            $byteOrderMotorola = $notFound;
+            $byteOrderMotorola = $notfound;
         }
         if (array_key_exists('ApertureFNumber', $exifComputed['COMPUTED'])) {
             $apertureFNumber = $exifComputed['COMPUTED']['ApertureFNumber'];
         } else {
-            $apertureFNumber = $notFound;
+            $apertureFNumber = $notfound;
         }
 
         //Returns arrays
@@ -168,64 +168,64 @@ function exifDetails($image)
 {
     if ((isset($image)) and (file_exists($image))) {
         $exifInfo = exif_read_data($image, 'EXIF', 0);
-        global $notFound;
+        global $notfound;
 
         if (array_key_exists('ExposureTime', $exifInfo)) {
             $exposureTime = $exifInfo['ExposureTime'];
         } else {
-            $exposureTime = $notFound;
+            $exposureTime = $notfound;
         }
         if (array_key_exists('FNumber', $exifInfo)) {
             $fNumber = $exifInfo['FNumber'];
         } else {
-            $fNumber = $notFound;
+            $fNumber = $notfound;
         }
         if (array_key_exists('ExposureProgram', $exifInfo)) {
             $exposureProgram = $exifInfo['ExposureProgram'];
         } else {
-            $exposureProgram = $notFound;
+            $exposureProgram = $notfound;
         }
         if(array_key_exists('ISOSpeedRatings',$exifInfo)){
             $iSOSpeedRatings = $exifInfo['ISOSpeedRatings'];
         }
         else {
-            $iSOSpeedRatings = $notFound;
+            $iSOSpeedRatings = $notfound;
         }
         if(array_key_exists('ExifVersion',$exifInfo)){
             $exifVersion = $exifInfo['ExifVersion'];
         }
         else{
-            $exifVersion = $notFound;
+            $exifVersion = $notfound;
         }
         if(array_key_exists('DateTimeOriginal',$exifInfo)){
             $dateTimeOriginal = $exifInfo['DateTimeOriginal'];
         }
         else{
-            $dateTimeOriginal = $notFound;
+            $dateTimeOriginal = $notfound;
         }
         if(array_key_exists('DateTimeDigitized',$exifInfo)){
             $dateTimeDigitized = $exifInfo['DateTimeDigitized'];
         }
         else{
-            $dateTimeDigitized = $notFound;
+            $dateTimeDigitized = $notfound;
         }
         if(array_key_exists('ComponentsConfiguration',$exifInfo)){
             $componentsConfiguration = $exifInfo['ComponentsConfiguration'];
         }
         else{
-            $componentsConfiguration = $notFound;
+            $componentsConfiguration = $notfound;
         }
         if(array_key_exists('CompressedBitsPerPixel',$exifInfo)){
             $compressedBitsPerPixel = $exifInfo['CompressedBitsPerPixel'];
         }
         else{
-            $compressedBitsPerPixel = $notFound;
+            $compressedBitsPerPixel = $notfound;
         }
         if(array_key_exists('ExposureBiasValue',$exifInfo)){
             $exposureBiasValue = $exifInfo['ExposureBiasValue'];
         }
         else{
-            $exposureBiasValue = $notFound;
+            $exposureBiasValue = $notfound;
         }
         if(array_key_exists('MaxApertureValue',$exifInfo)){
             $maxApertureValue = $exifInfo['MaxApertureValue'];
@@ -237,121 +237,121 @@ function exifDetails($image)
             $meteringMode = $exifInfo['MeteringMode'];
         }
         else{
-            $meteringMode = $notFound;
+            $meteringMode = $notfound;
         }
         if(array_key_exists('LightSource',$exifInfo)){
             $lightSource = $exifInfo['LightSource'];
         }
         else{
-            $lightSource = $notFound;
+            $lightSource = $notfound;
         }
         if(array_key_exists('Flash',$exifInfo)){
             $flash = $exifInfo['Flash'];
         }
         else{
-            $flash = $notFound;
+            $flash = $notfound;
         }
         if(array_key_exists('FocalLength',$exifInfo)){
             $focalLength = $exifInfo['FocalLength'];
         }
         else{
-            $focalLength = $notFound;
+            $focalLength = $notfound;
         }
         if(array_key_exists('UserComment',$exifInfo)){
             $userComment = $exifInfo['UserComment'];
         }
         else{
-            $userComment = $notFound;
+            $userComment = $notfound;
         }
         if(array_key_exists('SubSecTime',$exifInfo)){
             $subSecTime = $exifInfo['SubSecTime'];
         }
         else{
-            $subSecTime = $notFound;
+            $subSecTime = $notfound;
         }
         if(array_key_exists('SubSecTimeOriginal',$exifInfo)){
             $subSecTimeOriginal = $exifInfo['SubSecTimeOriginal'];
         }
         else{
-            $subSecTimeOriginal = $notFound;
+            $subSecTimeOriginal = $notfound;
         }
         if(array_key_exists('SubSecTimeDigitized',$exifInfo)){
             $subSecTimeDigitized = $exifInfo['SubSecTimeDigitized'];
         }
         else{
-            $subSecTimeDigitized = $notFound;
+            $subSecTimeDigitized = $notfound;
         }
         if(array_key_exists('FlashPixVersion',$exifInfo)){
             $flashPixVersion = $exifInfo['FlashPixVersion'];
         }
         else{
-            $flashPixVersion = $notFound;
+            $flashPixVersion = $notfound;
         }
         if(array_key_exists('ColorSpace',$exifInfo)){
             $colorSpace = $exifInfo['ColorSpace'];
         }
         else{
-            $colorSpace = $notFound;
+            $colorSpace = $notfound;
         }
         if(array_key_exists('ExifImageWidth',$exifInfo)){
             $exifImageWidth = $exifInfo['ExifImageWidth'];
         }
         else{
-            $exifImageWidth = $notFound;
+            $exifImageWidth = $notfound;
         }
         if(array_key_exists('ExifImageLength', $exifInfo)){
             $exifImageLength = $exifInfo['ExifImageLength'];
         }
         else{
-            $exifImageLength = $notFound;
+            $exifImageLength = $notfound;
         }
         if(array_key_exists('InteroperabilityOffset',$exifInfo)){
             $interoperabilityOffset = $exifInfo['InteroperabilityOffset'];
         }
         else{
-            $interoperabilityOffset = $notFound;
+            $interoperabilityOffset = $notfound;
         }
         if(array_key_exists('SensingMethod',$exifInfo)){
             $sensingMethod = $exifInfo['SensingMethod'];
         }
         else{
-            $sensingMethod = $notFound;
+            $sensingMethod = $notfound;
         }
         if(array_key_exists('FileSource',$exifInfo)){
             $fileSource = $exifInfo['FileSource'];
         }
         else{
-            $fileSource = $notFound;
+            $fileSource = $notfound;
         }
         if(array_key_exists('SceneType',$exifInfo)){
             $sceneType = $exifInfo['SceneType'];
         }
         else{
-            $sceneType = $notFound;
+            $sceneType = $notfound;
         }
         if(array_key_exists('CFAPattern',$exifInfo)){
             $cFAPattern = $exifInfo['CFAPattern'];
         }
         else{
-            $cFAPattern = $notFound['CFAPattern'];
+            $cFAPattern = $notfound['CFAPattern'];
         }
         if(array_key_exists('CustomRendered',$exifInfo)){
             $customRendered = $exifInfo['CustomRendered'];
         }
         else{
-            $customRendered = $notFound;
+            $customRendered = $notfound;
         }
         if(array_key_exists('ExposureMode',$exifInfo)){
             $exposureMode = $exifInfo['ExposureMode'];
         }
         else{
-            $exposureMode = $notFound;
+            $exposureMode = $notfound;
         }
         if(array_key_exists('WhiteBalance',$exifInfo)){
             $whiteBalance = $exifInfo['WhiteBalance'];
         }
         else{
-            $whiteBalance =  $notFound;
+            $whiteBalance =  $notfound;
         }
         if(array_key_exists('DigitalZoomRatio',$exifInfo)){
             $digitalZoomRatio = $exifInfo['DigitalZoomRatio'];
@@ -363,43 +363,43 @@ function exifDetails($image)
             $focalLengthIn35mmFilm = $exifInfo['FocalLengthIn35mmFilm'];
         }
         else{
-            $focalLengthIn35mmFilm = $notFound;
+            $focalLengthIn35mmFilm = $notfound;
         }
         if(array_key_exists('SceneCaptureType',$exifInfo)){
             $sceneCaptureType = $exifInfo['SceneCaptureType'];
         }
         else{
-            $sceneCaptureType = $notFound;
+            $sceneCaptureType = $notfound;
         }
         if(array_key_exists('GainControl',$exifInfo)){
             $gainControl = $exifInfo['GainControl'];
         }
         else{
-            $gainControl = $notFound;
+            $gainControl = $notfound;
         }
         if(array_key_exists('Contrast',$exifInfo)){
             $contrast = $exifInfo['Contrast'];
         }
         else{
-            $contrast = $notFound;
+            $contrast = $notfound;
         }
         if(array_key_exists('Saturation',$exifInfo)){
             $saturation = $exifInfo['Saturation'];
         }
         else{
-            $saturation = $notFound;
+            $saturation = $notfound;
         }
         if(array_key_exists('Sharpness',$exifInfo)){
             $sharpness = $exifInfo['Sharpness'];
         }
         else{
-            $sharpness = $notFound;
+            $sharpness = $notfound;
         }
         if(array_key_exists('SubjectDistanceRange',$exifInfo)){
             $subjectDistanceRange = $exifInfo['SubjectDistanceRange'];
         }
         else{
-            $subjectDistanceRange = $notFound;
+            $subjectDistanceRange = $notfound;
         }
         //Returns arrays
         $return = array();
