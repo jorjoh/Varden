@@ -127,7 +127,7 @@
 
     //Registrerer knappentrykk og kjører kode
     $('#upload').click(function () {
-        var photographer = document.getElementById("photographer");
+        var photographer = document.getElementById("photographer").value;
         var melding = document.getElementById("melding");
         if(validate(photographer) == true) {
             //Prosesserer køen
