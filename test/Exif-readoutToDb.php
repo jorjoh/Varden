@@ -30,24 +30,28 @@ function imageFile($image){
         else{
             $filename = $notfound;
         }
+        //FileDateTime
         if(array_key_exists('FileDatTime',$exif_file)){
             $filedatetime = $exif_file['FileDateTime'];
         }
         else{
             $filedatetime = $notfound;
         }
+        //FileSize
         if(array_key_exists('FileSize',$exif_file)){
             $filesize = $exif_file['FileSize'];
         }
         else{
             $filesize = $notfound;
         }
+        //FileType
         if(array_key_exists('FileType',$exif_file)){
             $filetype = $exif_file['FileType'];
         }
         else{
             $filetype = $notfound;
         }
+        //MimeType
         if(array_key_exists('MimeType', $exif_file)){
             $minmetype = $exif_file['MimeType'];
         }
