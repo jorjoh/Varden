@@ -139,10 +139,10 @@
                 txt.innerHTML = responseText;
                 removeContentDelay();
             });
-            melding.innerHTML = "Bilde og fotograf " + photographer + " eksisterer";
+            melding.innerHTML = "Opplasting vellykket";
         }
         else {
-            melding.innerHTML = "Her skjedde det en feil";
+            melding.innerHTML = "Validering feilet";
         }
     });
 
