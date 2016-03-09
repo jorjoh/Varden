@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="style/dropzone.css"/>
     <script type="text/javascript" src="script/dropzone.min.js"></script>
     <script type="text/javascript" src="script/jquery.min.js"></script>
+    <script type="text/javascript" src="functions/validate.js"></script>
 </head>
 
 <body>
@@ -92,6 +93,8 @@
     </div>
 </div>
 
+<p id="melding"></p>
+
 
 
 <script>
@@ -124,16 +127,23 @@
 
     //Registrerer knappentrykk og kjører kode
     $('#upload').click(function () {
-       //Prosesserer køen
-        myDropzone.processQueue();
-
-        //'Success'-event som kan høres på og kjøres kode etter alle filer er akseptert
-        myDropzone.on("success", function(file,responseText){
-            console.log(file);
-            var txt = document.getElementById("txt");
-            txt.innerHTML = responseText;
-            removeContentDelay();
-        });
+        var photographer = document.getElementById("photographer");
+        var melding = document.getElementById("melding");
+        if(validate(photographer) == true) {
+            //Prosesserer køen
+            myDropzone.processQueue();
+            //'Success'-event som kan høres på og kjøres kode etter alle filer er akseptert
+            myDropzone.on("success", function(file,responseText){
+                console.log(file);
+                var txt = document.getElementById("txt");
+                txt.innerHTML = responseText;
+                removeContentDelay();
+            });
+            melding.innerHTML = "Bilde og fotograf " + photographer + " eksisterer";
+        }
+        else {
+            melding.innerHTML = "Her skjedde det en feil";
+        }
     });
 
     //Avbyrt-knapp som sletter hele køen
@@ -149,7 +159,6 @@
     function removeAllFilesAfterDelay(responseText){
         var txt = document.getElementById("txt");
         txt.innerHTML = ("<h3 style='position: relative;'>Successfully uploaded</h3>");
-
         myDropzone.removeAllFiles();
     }
  </script>
