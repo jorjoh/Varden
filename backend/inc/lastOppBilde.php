@@ -127,7 +127,7 @@
 
     //Registrerer knappentrykk og kjører kode
     $('#upload').click(function () {
-        var photographer = document.getElementById("photographer");
+        var photographer = document.getElementById("photographer").value;
         var melding = document.getElementById("melding");
         if(validate(photographer) == true) {
             //Prosesserer køen
@@ -139,10 +139,10 @@
                 txt.innerHTML = responseText;
                 removeContentDelay();
             });
-            melding.innerHTML = "Bilde og fotograf " + photographer + " eksisterer";
+            melding.innerHTML = "Opplasting vellykket";
         }
         else {
-            melding.innerHTML = "Her skjedde det en feil";
+            melding.innerHTML = "Validering feilet";
         }
     });
 
