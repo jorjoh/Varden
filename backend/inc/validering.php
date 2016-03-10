@@ -12,6 +12,6 @@
     include('functions/dbcon.php');
     include('functions/sqlfunctions.php');
 
-    insert($connect, $image, null);
+    insert($connect, $image);
 
 ?>
