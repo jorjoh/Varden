@@ -8,8 +8,8 @@
 
 
 
-function insert($dbconnect, $image) {
-    if($dbconnect == true) {
+function insert($TilkoblingTilDatabase, $image) {
+    if($TilkoblingTilDatabase == true) {
         echo "HURRA";
     }
     else {
