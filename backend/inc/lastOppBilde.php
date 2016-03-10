@@ -113,7 +113,7 @@
 
     //Deklarerer selve dropzonen og definerer noen variabler fra bibiloteket til dropzone
     var myDropzone = new Dropzone(document.body, {
-        url: 'inc/uploads.php',
+        url: 'inc/uploadForDB.php',
         autoProcessQueue: false,
         paramName: 'file',
         maxFiles:10,

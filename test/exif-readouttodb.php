@@ -60,7 +60,7 @@ function imageFile($image){
         }
 
     }
-    //Returns arrays
+    //Returns arrays -- se på udefined variabel
     $return = array();
     $return['FileName'] = $filename;
     $return['FileDateTime'] = $filedatetime;
