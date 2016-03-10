@@ -6,13 +6,13 @@
  * Time: 10.35
  */
 
-function select($dbconnect, $table, $columns) {
+function select($dbconnect, $table, $columnsArray) {
 
 }
 
-function insert($table, $dbconnect, $columns) {
-    for($i = 0; $i < count($columns); $i++) {
-        echo "Column = ".$columns[$i]."<br>";
+function insert($table, $dbconnect, $columnsArray) {
+    for($i = 0; $i < count($columnsArray); $i++) {
+        echo "Column = ".$columnsArray[$i]."<br>";
     }
 
     $targetDir = '../inc/uploads/';
@@ -29,11 +29,11 @@ function insert($table, $dbconnect, $columns) {
 
 }
 
-function update($dbconnect, $table) {
+function update($dbconnect, $table, $columnsArray) {
 
 }
 
-function delete($dbconnect, $table) {
+function delete($dbconnect, $table, $columnsArray) {
 
 }
 
