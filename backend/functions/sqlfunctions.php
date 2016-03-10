@@ -9,11 +9,16 @@
 
 
 function insert($dbconnect, $image) {
-    if($dbconnect == true) {
-        echo "HURRA";
-    }
-    else {
-        echo "Jørgen har ikke sendt med tilkoblingen til databasen :(";
+    $targetDir = '../inc/uploads/';
+    $fileName = $_FILES['file']['name'];
+    $targetfile = $targetDir . $fileName;
+
+    if (move_uploaded_file($_FILES['file']['tmp_name'], $targetfile)) {
+        //insert file information into db table
+        $sqlSetning = ("INSERT INTO images (filename, picturetext) VALUES ('".$fileName . "','". 'testdescription' ."')") or die("Bilde er sendt inn!");
+        mysqli_query($connect, $sqlSetning) or die(mysqli_errno($connect));
+        mysqli_close($connect);
+        echo "tilkobling fungerer HURRA";
     }
 }
 

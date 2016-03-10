@@ -7,7 +7,7 @@
  */
 
 $host = "localhost";
-$db = "bachelor";
+$db = "mydb";
 $user = "root";
 $password = "root";
 
