@@ -7,11 +7,8 @@
  */
 
 $host = "localhost";
-$db = "mydb";
+$db = "bachelor";
 $user = "root";
 $password = "root";
 
-$connect = (mysqli_connect($host,$user,$password,$db)) or die("Fikk ikke tilkobling til databasen");
-if($connect){
-    echo "Tilkobling opprettet...";
-}
+$connect = mysqli_connect($host,$user,$password,$db) or die("Fikk ikke tilkobling til databasen");

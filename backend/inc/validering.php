@@ -8,3 +8,10 @@
         "IMAGETYPE_PSD",
         "IMAGETYPE_BMP",
     );
+
+    include('functions/dbcon.php');
+    include('functions/sqlfunctions.php');
+
+    insert($connect, $image);
+
+?>
