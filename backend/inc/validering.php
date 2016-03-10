@@ -12,6 +12,8 @@
     include('functions/dbcon.php');
     include('functions/sqlfunctions.php');
 
-    insert($connect, $image);
+    $columns = array("Test1", "Test2", "Test3", "Test4");
+
+    insert($connect, null, $columns);
 
 ?>
