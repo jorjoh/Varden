@@ -40,9 +40,9 @@
                                 <th style="padding-right: 10px;">Fotograf</th>
                             </tr>
                             <tr>
-                                <td style="padding: 5px 10px 20px 0;" ><input type="text" name="pictureTitle" id="pictureTitle"></td>
+                                <td style="padding: 5px 10px 20px 0;" ><input type="text" name="pictureTitle" id="picturetitle"></td>
                                 <td style="padding: 5px 10px 20px 0;"><input type="text" name="photographer" id="photographer"></td>
-                                <td style="text-align: center; padding: 5px 10px 20px 0;"><input type="checkbox" name="samePhotograph" id="samePhotograph"> Samme fotograf som forrige bilde</td>
+                                <td style="text-align: center; padding: 5px 10px 20px 0;"><input type="checkbox" name="samePhotograph" id="samephotograph"> Samme fotograf som forrige bilde</td>
                             </tr>
                             <tr>
                                 <td>
@@ -128,8 +128,9 @@
     //Registrerer knappentrykk og kjører kode
     $('#upload').click(function () {
         var photographer = document.getElementById("photographer").value;
+        var picturetitle = document.getElementById("picturetitle").value;
         var melding = document.getElementById("melding");
-        if(validate(photographer) == true) {
+        if(validate(picturetitle, photographer) == true) {
             //Prosesserer køen
             myDropzone.processQueue();
             //'Success'-event som kan høres på og kjøres kode etter alle filer er akseptert
