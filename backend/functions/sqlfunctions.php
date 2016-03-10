@@ -6,14 +6,17 @@
  * Time: 10.35
  */
 
+function insert($dbconnect, $image) {
+    $targetDir = '../inc/uploads/';
+    $fileName = $_FILES['file']['name'];
+    $targetfile = $targetDir . $fileName;
 
-
-function insert($TilkoblingTilDatabase, $image) {
-    if($TilkoblingTilDatabase == true) {
-        echo "HURRA";
-    }
-    else {
-        echo "Jørgen har ikke sendt med tilkoblingen til databasen :(";
+    if (move_uploaded_file($_FILES['file']['tmp_name'], $targetfile)) {
+        //insert file information into db table
+        $sqlSetning = ("INSERT INTO images (filename, picturetext) VALUES ('".$fileName . "','". 'testdescription' ."')") or die("Bilde er sendt inn!");
+        mysqli_query($dbconnect, $sqlSetning) or die(mysqli_errno($dbconnect));
+        mysqli_close($dbconnect);
+        echo "tilkobling fungerer HURRA";
     }
 }
 
