@@ -6,7 +6,7 @@
  * Time: 10.35
  */
 
-function insert($dbconnect, $image, $test) {
+function insert($dbconnect, $image) {
     $targetDir = '../inc/uploads/';
     $fileName = $_FILES['file']['name'];
     $targetfile = $targetDir . $fileName;
