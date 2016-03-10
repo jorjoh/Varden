@@ -16,7 +16,7 @@ function insert($dbconnect, $image) {
         $sqlSetning = ("INSERT INTO images (filename, picturetext) VALUES ('".$fileName . "','". 'testdescription' ."')") or die("Bilde er sendt inn!");
         mysqli_query($dbconnect, $sqlSetning) or die(mysqli_errno($dbconnect));
         mysqli_close($dbconnect);
-        echo "tilkobling fungerer HURRA";
+        echo "tilkobling fungerer hurra";
     }
 }
 
