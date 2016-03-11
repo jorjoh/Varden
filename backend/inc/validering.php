@@ -12,8 +12,9 @@
     include('functions/dbcon.php');
     include('functions/sqlfunctions.php');
 
-    $columns = array("Test1", "Test2", "Test3", "Test4");
+    $columns = array("filename", "picturetext", "thumb_w", "thumb_h", "place_id", "url");
+    $values = array("test.jpg", "bilde her er tøft", 120, 120, 1141, "http://bilder2.varden.no/img/test.jpg");
 
-    insert($connect, null, $columns);
+    insert($connect, "images", $columns, $values);
 
 ?>

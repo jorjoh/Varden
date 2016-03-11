@@ -10,7 +10,9 @@ function select($dbconnect, $table, $columnsArray) {
 
 }
 
-function insert($table, $dbconnect, $columnsArray) {
+function insert($dbconnect, $table, $columnsArray, $valueArray) {
+
+    $sql = "INSERT INTO '$table' ($columnsArray) VALUES ($valueArray);";
 
 /*    $targetDir = '../inc/uploads/';
     $fileName = $_FILES['file']['name'];

@@ -71,7 +71,13 @@
                 </div>
             </div>
 
-
+    <?php
+        $tittel = $_POST["title"];
+        $fotograf = $_POST["photographer"];
+        $kolonner = array("$tittel", "$fotograf", "kolonne3",);
+        $verdier = array("kolonne1", "kolonne2", "kolonne3",);
+        insert($connect, "images", $kolonner, $verdier);
+    ?>
 <div class="row">
     <div class="col-6">
         <div id="actions" class="row">
