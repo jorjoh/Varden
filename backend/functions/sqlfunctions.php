@@ -11,11 +11,8 @@ function select($dbconnect, $table, $columnsArray) {
 }
 
 function insert($table, $dbconnect, $columnsArray) {
-    for($i = 0; $i < count($columnsArray); $i++) {
-        echo "Column = ".$columnsArray[$i]."<br>";
-    }
 
-    $targetDir = '../inc/uploads/';
+/*    $targetDir = '../inc/uploads/';
     $fileName = $_FILES['file']['name'];
     $targetfile = $targetDir . $fileName;
 
@@ -26,7 +23,7 @@ function insert($table, $dbconnect, $columnsArray) {
         mysqli_close($dbconnect);
         echo "tilkobling fungerer hurra";
     }
-
+*/
 }
 
 function update($dbconnect, $table, $columnsArray) {

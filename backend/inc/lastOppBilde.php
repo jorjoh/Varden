@@ -45,15 +45,13 @@
                                 <td style="text-align: center; padding: 5px 10px 20px 0;"><input type="checkbox" name="samePhotograph" id="samephotograph"> Samme fotograf som forrige bilde</td>
                             </tr>
                             <tr>
-                                <td>
-                                    <!-- Selve progressbaren-->
-                                    <div class="progress" style="width: 150px;">
-                                        <div class="progress-bar progress-bar-success" id="test" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress></div>
-                                    </div>
-                                </td>
+                                <th>Bildebeskrivelse:</th>
+                            </tr>
+                            <tr>
+                                <td><textarea name="description" id="description" style="padding: 5px 10px 20px 0;"></textarea></td>
                                 <td style="margin-top: 100px;">
                                     <!--Knapp som sletter enkeltbilde i køen-->
-                                    <button style="margin-left: 20px; data-dz-remove id="cancel2" class="btn btn-warning cancel">
+                                    <button style="margin-left: 20px;" data-dz-remove id="cancel2" class="btn btn-warning cancel">
                                         <i class="glyphicon glyphicon-ban-circle"></i>
                                         Cancel
                                     </button>
@@ -62,7 +60,11 @@
                         </table>
                         <strong class="error text-danger" data-dz-errormessage></strong>
                         <!-- Henter ut filstørrelsen på bilde -->
-                        <p class="size" style="clear: both; padding-left: 20px;" data-dz-size></p>
+                        <p class="size" style="clear: both; padding-left: 20px; margin-top: -20px;" data-dz-size></p>
+                        <!-- Selve progressbaren-->
+                        <div class="progress" style="width: 120px; margin-left: 10px;">
+                            <div class="progress-bar progress-bar-success" id="test" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress></div>
+                        </div>
                     </div>
 
                     </div>
