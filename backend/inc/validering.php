@@ -25,12 +25,14 @@ $execute = $_POST["execute"];
     "IMAGETYPE_BMP",
 );*/
 
-include('../functions/dbcon.php');
+
 include('functions/sqlfunctions.php');
 
-$table = "images";
+$table = "metainfo";
 $columns = array("filename", "picturetext", "thumb_w", "thumb_h", "place_id", "url");
 $values = array("test.jpg", "bilde her er tøft", 120, 120, 1141, "http://bilder2.varden.no/img/test.jpg");
+
+insert($connect, $table, "nei");
 
 // insert($connect, $table, $columns, $values);
 
@@ -41,7 +43,7 @@ $values = array("test.jpg", "bilde her er tøft", 120, 120, 1141, "http://bilder
 // ------------------------------
 // Jeg synes nå dette var en grei nok løsning. Uten at jeg har kikket driit mye på det må det vel gå an å bruke de arrayene også
 //-------------------------------
-if ($execute) {
+/*if ($execute) {
     if ($connect->connect_error) {
         die("Connection failed");
     } else {
@@ -69,10 +71,4 @@ if ($execute) {
         // Stenger databasetilkoblingen
         $connect->close();
     }
-}
-
-
-
-
-
-
+}*/

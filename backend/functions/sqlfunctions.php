@@ -10,9 +10,21 @@ function select($dbconnect, $table, $columnsArray) {
 
 }
 
-function insert($table, $columnsArray, $valueArray) {
+function insert($dbconnect, $table, $valueArray) {
 
-    $sql = "INSERT INTO '$table' ($columnsArray) VALUES ($valueArray);";
+    $columnsql = "DESCRIBE $table";
+    $columnsquery = mysqli_query($dbconnect, $columnsql);
+    $columns = mysqli_num_rows($columnsquery);
+    if($columns < 1) {
+        echo "Tabellen $table har ingen kolonner";
+    }
+    else {
+        for($i = 0; $i < $columns; $i++) {
+            $columnName = mysqli_fetch_array($columnsquery);
+            echo $columnName['Field']."<br>";
+        }
+    }
+    //$sql = "INSERT INTO '$table' ($columnsArray) VALUES ($valueArray);";
 
 
 /*    $targetDir = '../inc/uploads/';
