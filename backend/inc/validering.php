@@ -29,9 +29,6 @@ $execute = $_POST["execute"];
 include('functions/sqlfunctions.php');
 
 $table = "metainfo";
-$columns = array("filename", "picturetext", "thumb_w", "thumb_h", "place_id", "url");
-$values = array("test.jpg", "bilde her er tøft", 120, 120, 1141, "http://bilder2.varden.no/img/test.jpg");
-
 insert($connect, $table, "nei");
 
 // insert($connect, $table, $columns, $values);
