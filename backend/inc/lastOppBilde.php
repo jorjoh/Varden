@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="col-7">
-            <form action="" method="post" class="dropzone" id="myForm" enctype="multipart/form-data">
+            <form action="target.php" method="post" class="dropzone" id="myForm" enctype="multipart/form-data">
                 <!-- Drag and drop felt med knapp som henter opp uforsker -->
                 <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push this button!</h4>
             </form>
@@ -32,19 +32,17 @@
                         <!-- <p class="name" data-dz-name></p> -->
                         <table>
                             <tr>
-                                <th style="padding-right: 10px;">Tittel på bilde</th>
                                 <th style="padding-right: 10px;">Fotograf</th>
                             </tr>
                             <tr>
-                                <td style="padding: 5px 10px 20px 0;" ><input type="text" name="picturetitle" id="picturetitle"></td>
-                                <td style="padding: 5px 10px 20px 0;"><input type="text" name="photographer" id="photographer"></td>
+                                <td style="padding: 5px 10px 20px 0;"><input type="text" style="width: 350px;" name="photographer" id="photographer"></td>
                                 <td style="text-align: center; padding: 5px 10px 20px 0;"><input type="checkbox" name="samephotograph" id="samephotograph"> Samme fotograf som forrige bilde</td>
                             </tr>
                             <tr>
                                 <th>Bildebeskrivelse:</th>
                             </tr>
                             <tr>
-                                <td><textarea name="description" id="description" style="padding: 5px 10px 20px 0;"></textarea></td>
+                                <td><textarea name="description" id="description" style="width: 350px; height: 150px; padding: 5px 10px 20px 0;"></textarea></td>
                                 <td style="margin-top: 100px;">
                                     <!--Knapp som sletter enkeltbilde i køen-->
                                     <button style="margin-left: 20px;" data-dz-remove id="cancel2" class="btn btn-warning cancel">
@@ -108,7 +106,7 @@
 
             //Deklarerer selve dropzonen og definerer noen variabler fra bibiloteket til dropzone
             var myDropzone = new Dropzone(document.body, {
-                url: 'inc/uploadForDB.php',
+                url: 'inc/uploads.php',
                 autoProcessQueue: false,
                 paramName: 'file',
                 maxFiles:10,
@@ -157,17 +155,5 @@
                 myDropzone.removeAllFiles();
             }
          </script>
-        <?php
-            $title = $_POST["picturetitle"];
-            $photographer = $_POST["photographer"];
-            $picturetext = $_POST["description"];
-
-
-            echo "Title = " .$title."<br>";
-            echo "Photographer = " .$photographer."<br>";
-            echo "Picturetext = " .$picturetext."<br>";
-            echo "Samme fotograf = " .$photographer."<br>";
-
-        ?>
     </body>
 </html>
