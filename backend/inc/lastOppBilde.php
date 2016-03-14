@@ -54,7 +54,7 @@
                         </table>
                         <strong class="error text-danger" data-dz-errormessage></strong>
                         <!-- Henter ut filstørrelsen på bilde -->
-                        <p class="size" style="clear: both; padding-left: 20px; margin-top: -20px;" data-dz-size></p>
+                        <p class="size" style="clear: both; padding-left: 20px; margin-top: -120px;" data-dz-size></p>
                         <!-- Selve progressbaren-->
                         <div class="progress" style="width: 120px; margin-left: 10px;">
                             <div class="progress-bar progress-bar-success" id="test" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress></div>
