@@ -36,9 +36,9 @@
                                 <th style="padding-right: 10px;">Fotograf</th>
                             </tr>
                             <tr>
-                                <td style="padding: 5px 10px 20px 0;" ><input type="text" name="pictureTitle" id="picturetitle"></td>
+                                <td style="padding: 5px 10px 20px 0;" ><input type="text" name="picturetitle" id="picturetitle"></td>
                                 <td style="padding: 5px 10px 20px 0;"><input type="text" name="photographer" id="photographer"></td>
-                                <td style="text-align: center; padding: 5px 10px 20px 0;"><input type="checkbox" name="samePhotograph" id="samephotograph"> Samme fotograf som forrige bilde</td>
+                                <td style="text-align: center; padding: 5px 10px 20px 0;"><input type="checkbox" name="samephotograph" id="samephotograph"> Samme fotograf som forrige bilde</td>
                             </tr>
                             <tr>
                                 <th>Bildebeskrivelse:</th>
@@ -72,11 +72,11 @@
                     <!-- Knappene -->
                     <!-- Legg til filer -->
                     <span class="btn btn-success fileinput-button dz-clickable"/>
-                    <i class="glyphicon glyphicon-plus"></i>
-                    <span>Legg til filer</span>
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Legg til filer</span>
                     </span>
                     <!-- Denne knappen starter selve opplastningsfunksjonen-->
-                    <button type="submit" id="upload" class="btn btn-primary start">
+                    <button type="submit" name="submit" id="upload" class="btn btn-primary start">
                         <i class="glyphicon glyphicon-upload"></i>
                         Last opp
                     </button>
@@ -84,7 +84,8 @@
                     <!-- Denne knappen fjerner elementer i køen-->
                     <button data-dz-remove id="cancel" class="btn btn-warning cancel">
                         <i class="glyphicon glyphicon-ban-circle"></i>
-                        Cancel</button>
+                        Cancel
+                    </button>
                 </div>
             </div>
         </div>
@@ -116,7 +117,6 @@
                 headers: {"MyAppname-Service-Type": "Dropzone"},
                 acceptedFiles: acceptedFileTypes,
                 clickable:".fileinput-button"
-
             });
 
             //Registrerer knappentrykk og kjører kode
@@ -157,5 +157,17 @@
                 myDropzone.removeAllFiles();
             }
          </script>
+        <?php
+            $title = $_POST["picturetitle"];
+            $photographer = $_POST["photographer"];
+            $picturetext = $_POST["description"];
+
+
+            echo "Title = " .$title."<br>";
+            echo "Photographer = " .$photographer."<br>";
+            echo "Picturetext = " .$picturetext."<br>";
+            echo "Samme fotograf = " .$photographer."<br>";
+
+        ?>
     </body>
 </html>
