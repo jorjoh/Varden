@@ -1,3 +1,6 @@
+<?php
+    include('functions/dbcon.php');
+?>
 <!doctype html>
 <html xml:lang="no" lang="no">
 <head>
