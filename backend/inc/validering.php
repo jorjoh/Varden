@@ -28,8 +28,19 @@ $execute = $_POST["execute"];
 
 include('functions/sqlfunctions.php');
 
-$table = "metainfo";
-insert($connect, $table, "nei");
+$table = 'images';
+$filename = "bildetest.jpg";
+$picturetext = "Dette bilde er så tøft. Du har aldri opplevd noe lignende før";
+$url = "http://bilder.varden.no/bilder/bildetest.jpg";
+
+$insData = array(
+    'filename' => $filename,
+    'picturetext' => $picturetext,
+    'url' => $url,
+
+);
+
+insert($connect, $table, $insData);
 
 // insert($connect, $table, $columns, $values);
 

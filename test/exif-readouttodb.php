@@ -69,6 +69,7 @@ function imageFile($image){
     $return['MimeType'] = $minmetype;
     return $return;
 }
+
 function cameraUsed($image)
 {
 
