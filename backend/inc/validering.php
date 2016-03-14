@@ -29,9 +29,9 @@ $execute = $_POST["execute"];
 include('functions/sqlfunctions.php');
 
 $table = 'images';
-$filename = "bildetest.jpg";
-$picturetext = "Dette bilde er så tøft. Du har aldri opplevd noe lignende før";
-$url = "http://bilder.varden.no/bilder/bildetest.jpg";
+$filename = "jorgenstest.jpg";
+$picturetext = "JØRGEN ER BEST";
+$url = "http://bilder.varden.no/bilder/jorgenerbest.jpg";
 
 $insData = array(
     'filename' => $filename,

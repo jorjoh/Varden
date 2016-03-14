@@ -20,10 +20,6 @@ function insert($dbconnect, $table, $insertData) {
     mysqli_query($dbconnect, $sql) or die("FEIL");
     echo "Vellykket";
 
-
-    //$sql = "INSERT INTO '$table' ($columnsArray) VALUES ($valueArray);";
-
-
 /*    $targetDir = '../inc/uploads/';
     $fileName = $_FILES['file']['name'];
     $targetfile = $targetDir . $fileName;
