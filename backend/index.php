@@ -5,7 +5,11 @@
  * Date: 19.01.2016
  * Time: 09:17
  */
+
+// Inkluderer databasetilkobling, validering og sql funksjoner, slik at disse er tilgjengelig overalt i backend
 include ("../backend/functions/dbcon.php");
+include("../backend/functions/validering.php");
+include("../backend/functions/sqlfunctions.php");
 ?>
 
 <!DOCTYPE html>

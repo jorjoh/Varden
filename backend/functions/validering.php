@@ -1,21 +1,4 @@
-<html>
-<head>
-
-</head>
-<body>
-
-<form action="" id="sqlform" name="sqlform" method="post">
-    <input type="submit" name="execute" id="execute" value="Push me!"/>
-
-</form>
-
-</body>
-</html>
-
 <?php
-
-$execute = $_POST["execute"];
-
 //Gyldige filformater på bildene som lastes opp. Brukes til validering ved opplasting av bilder
 /*$validImageType = array(
     "IMAGETYPE_GIF",
@@ -26,7 +9,7 @@ $execute = $_POST["execute"];
 );*/
 
 
-include('functions/sqlfunctions.php');
+include('sqlfunctions.php');
 
 $table = 'images';
 $filename = "jorgenstest.jpg";
@@ -41,8 +24,6 @@ $insData = array(
 );
 
 insert($connect, $table, $insData);
-
-// insert($connect, $table, $columns, $values);
 
 //$sql = 'insert($connect,$table,$columns,$values)';
 // mysqli_query($connect,$sql);
