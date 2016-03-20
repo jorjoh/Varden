@@ -157,3 +157,35 @@
          </script>
     </body>
 </html>
+
+<?php
+
+    $uploaddir = "uploads/";
+    $table = 'images';
+    $filename = $_FILES["imageToUpload"]["name"];
+    $picturetext = $_POST["description"];
+    $url = $uploaddir . basename($_FILES['file']['name']);
+
+    $insDataToImages = array(
+    'filename' => $filename,
+    'picturetext' => $picturetext,
+    'url' => $url,
+
+    );
+
+/* Testkode for å sjekke muligheten for PHP og JavaScript validering.
+    Optimaliseres når ting er på plass */
+
+    $columns = implode(", ",array_keys($insDataToImages));
+    $escaped_values = array_map('mysql_real_escape_string', array_values($insDataToImages));
+    $values  = "'" . implode("', '", array_values($escaped_values)) . "'";
+
+    echo "Tabell = " . $table . "<br>
+        filnavn = ".$filename."<br>
+        picturetext = ".$picturetext."<br>
+        url = ".$url."<br>"
+    ;
+
+    //insert($connect, $table, $insDataToImages);
+
+?>
