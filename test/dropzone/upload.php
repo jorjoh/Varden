@@ -6,12 +6,12 @@
  * Time: 12:24
  */
 
-$var1 = $_POST["username"];
-$var2 = $_POST["text"];
+$var1 = $_POST["firstname"];
+$var2 = $_POST["lastname"];
 
 echo "Var1  = $var1 <br> Var 2 = $var2 <br>";
 
-$uploaddir = 'uploads/';
+/*$uploaddir = 'uploads/';
 $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
 if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
@@ -24,6 +24,6 @@ echo '<pre>';
 echo 'Here is some more debugging info:';
 print_r($_FILES);
 
-echo "</pre>";
+echo "</pre>";*/
 
 ?>
