@@ -63,7 +63,7 @@ include("../backend/functions/sqlfunctions.php");
                         <a href="#" id="pull">Menu</a>
                         <ul class="clearfix">
                             <li><a href="?side=forside">Hjem</a></li>
-                            <li><a href="?side=lastOppBilde">Last opp</a></li>
+                            <li><a href="?side=lastoppbilde">Last opp</a></li>
                             <li><a href="#">Menyelement med langt navn</a></li>
                             <li><a href="#">Beste Web BildeGalleri</a></li>
                             <li><a href="#">Forslag</a></li>
