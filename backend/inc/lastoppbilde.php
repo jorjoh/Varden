@@ -156,14 +156,13 @@
     }
 </script>
 </body>
-<footer>TEST</footer>
 </html>
 
 <?php
 
 $uploaddir = "uploads/";
 $table = 'images';
-$filename = $_FILES["imageToUpload"]["name"];
+$filename = $_FILES["file"]["name"];
 $picturetext = $_POST["description"];
 $url = $uploaddir . basename($_FILES['file']['name']);
 
