@@ -79,9 +79,9 @@
             <li><a href="">Se tidligere forslag</a></li>
           </ul>
         </div>
-        <article>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <?php include('inc/hoved.php'); ?>
-        </article>
+        </div>
       </div>
     </div>
 
