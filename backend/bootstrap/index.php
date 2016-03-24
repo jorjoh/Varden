@@ -32,8 +32,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Inkluderer jQuery biblioteket -->
-    <script src="js/jquery.min.js"></script>
+    <!-- Legger til DropZone biblioteket -->
+    <script src="js/dropzone.min.js"></script>
 </head>
 
 <body>

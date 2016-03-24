@@ -16,9 +16,9 @@
             </div>
             <div class="col-7">
                 <form action="target.php" method="post" class="dropzone" id="myForm" enctype="multipart/form-data">
-                    <!-- Drag and drop felt med knapp som henter opp uforsker -->
-                    <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push this button!</h4>
-                </form>
+            <!-- Drag and drop felt med knapp som henter opp uforsker -->
+            <h4>Drag Files here to upload or <span class="btn btn-success fileinput-button dz-clickable"/> push this button!</h4>
+            </form>
             </div>
             <!--Område som enkeltbilder vises-->
             <div class="row">
