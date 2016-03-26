@@ -1,0 +1,1 @@
+<p>Her kan vi hente ut thumbnail av bildene som er lastet opp, samt et skjema for å lagre informasjon vi ikke har i databasen fra før.</p>
