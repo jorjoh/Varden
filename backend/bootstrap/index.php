@@ -1,3 +1,7 @@
+<?php
+    include('inc/functions/dbcon.php');
+    include('inc/functions/sqlfunctions.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
