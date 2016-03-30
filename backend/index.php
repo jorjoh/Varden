@@ -1,81 +1,108 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Jørgen Johansen
- * Date: 19.01.2016
- * Time: 09:17
- */
-
-// Inkluderer databasetilkobling, validering og sql funksjoner, slik at disse er tilgjengelig overalt i backend
-include ("../backend/functions/dbcon.php");
-include("../backend/functions/validering.php");
-include("../backend/functions/sqlfunctions.php");
+    include('inc/functions/dbcon.php');
+    include('inc/functions/sqlfunctions.php');
 ?>
-
 <!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Online Bildearkiv - adminpanel</title>
-            <link rel="stylesheet" type="text/css" href="style/stylebackend.css">
-            <link rel="stylesheet" type="text/css" href="style/style.css">
-            <link rel="icon" type="image/png" href="../frontend/img/VA-fav-icon-152.png">
-            <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-            <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-            <script>
-                $(function () {
-                    var pull = $('#pull');
-                    menu = $('nav ul');
-                    menuHeight = menu.height();
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Sett inn favicon her -->
+    <link rel="icon" href="#">
 
-                    $(pull).on('click', function (e) {
-                        e.preventDefault();
-                        menu.slideToggle();
+    <title>Online Bildearkiv - Varden - Dashboard</title>
 
-                    });
-                });
-                $(window).resize(function () {
-                    var w = $(window).width();
-                    if (w > 320 && menu.is(':hidden')) {
-                        menu.removeAttr('style');
-                    }
-                });
-            </script>
-        </head>
-        <body>
-        <div class="row">
-            <div class="col-3">
-                <img src="img/vardenlogo.PNG">
-            </div>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- DropZone biblioteket -->
+    <script src="js/dropzone.min.js"></script>
+
+    <!-- jQuery biblioteket -->
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Online Bildearkiv - Administrator</a>
         </div>
-        <div class="row">
-            <div class="col-8">
-                <h1 class="intro">Velkommen til administreringssiden til Onlinebildearkiv</h1>
-            </div>
-            <div class="col-4">
-                <img src="img/userPicture.JPG" width="35px" height="30px"/> <h2>$fullName</h2>
-            </div>
-
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Innstillinger</a></li>
+                <li><a href="#">Profil</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Søk i dashboardet...">
+            </form>
         </div>
-            <div class="row">
-                <div class="col-12">
-                    <nav class="clearfix">
-                        <a href="#" id="pull">Menu</a>
-                        <ul class="clearfix">
-                            <li><a href="?side=forside">Hjem</a></li>
-                            <li><a href="?side=lastoppbilde">Last opp</a></li>
-                            <li><a href="#">Menyelement med langt navn</a></li>
-                            <li><a href="#">Beste Web BildeGalleri</a></li>
-                            <li><a href="#">Forslag</a></li>
-                            <li><a href="#">Om</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-           <article>
-               <?php include ("inc/hoved.php"); ?>
-           </article>
-        </body>
-        <footer>
-        </footer>
-    </html>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li style="text-align: center;"><strong>Generell</strong></li>
+                <li><a href="?side=forside">Oversikt <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Rapporter</a></li>
+                <li><a href="#">Analyser</a></li>
+                <li style="text-align: center;"><strong>Verktøy</strong></li>
+                <li><a href="#">Bildeinformasjon</a></li>
+                <li><a href="?side=lastoppbilder">Last opp bilder</a></li>
+                <li><a href="#">Endre Bilder</a></li>
+                <li><a href="#">Slett bilder</a></li>
+                <li style="text-align: center;"><strong>Forslag</strong></li>
+                <li><a href="#">Behandle innsendte forslag</a></li>
+                <li><a href="#">Se tidligere forslag</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <?php include('inc/hoved.php'); ?>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="dist/js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="assets/js/vendor/holder.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

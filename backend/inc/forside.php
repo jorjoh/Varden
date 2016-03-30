@@ -1,49 +1,145 @@
-<?php
-include("functions/datePicker.php");
-?>
-<script src="script/Chart.js"></script>
-<script src="script/semiDounutChart.js"></script>
-<script src="script/backgroundResources/highcharts.js"></script>
-<script src="script/backgroundResources/exporting.js"></script>
-<script src="script/chartGraph.js"></script>
-<script src="script/backgroundResources/canvasjs.min.js"></script>
+<h1 class="page-header">Oversikt uke - <?php echo date("W"); ?></h1>
 
-<div class="row">
-    <div class="col-4" id="contentIntro">
-        <h2>Hei $user, velkommen til backend-administreringverktøy</h2>
-        <h3>Her kommer det vel litt mer statestikk</h3>
+<div class="row placeholders">
+    <div class="col-xs-5 col-sm-5 placeholder">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"
+             height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+        <h4>Behandlede forslag</h4>
+        <span class="text-muted">Antall forslag behandlet denne uken</span>
     </div>
-
-    <div class="col-8" style="  width:400px; margin-left: 450px ">
-        <h2>Antall forespørsler behnadlet denne uken </h2>
-        <div id="container" style="margin: 0 auto; padding: 0; border: solid black 2px; width:550px; height: 360px"> <h1>TEST</h1></div>
+    <div class="col-xs-5 col-sm-5 placeholder">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"
+             height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+        <h4>Mest sett</h4>
+        <span class="text-muted">Mest viste bilde denne uken</span>
     </div>
 </div>
-<div class="row">
-    <div class="col-4" id="contentGraph">
-        <h2> Topp 10 forespørsler - behandlet uke <?php getWeekNumber(); ?></h2>
-        <h3 id="userInfo">Brukernavn</h3>
-        <ul>
-            <li>Bruker 1</li>
-            <li>Bruker 2</li>
-            <li>Bruker 3</li>
-        </ul>
-        <!--Disse kulepunkmenyene skal egentlig ligge horsontalt ved siden av hverandre-->
-        <h3 id="userInfo">Antall</h3>
-        <ul>
-            <li>50</li>
-            <li>18</li>
-            <li>4</li>
-        </ul>
-    </div>
 
-    <h1 id="titleChartGraph">Endringer dager/uker</h1>
-    <div class="col-8" style="border: solid black 1px; height: 360px; width: 550px; margin-left: 450px;r">
-        <div id="chartContainer" style="height: 300px; width:100%;">
-        </div>
-    </div>
+<h2 class="sub-header">Ubehandlede forslag</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Bildetittel</th>
+            <th>Innsendt av</th>
+            <th>Klokkeslett</th>
+            <th>Dato</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Lorem</td>
+            <td>ipsum</td>
+            <td>dolor</td>
+            <td>sit</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>amet</td>
+            <td>consectetur</td>
+            <td>adipiscing</td>
+            <td>elit</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Integer</td>
+            <td>nec</td>
+            <td>odio</td>
+            <td>Praesent</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>libero</td>
+            <td>Sed</td>
+            <td>cursus</td>
+            <td>ante</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>dapibus</td>
+            <td>diam</td>
+            <td>Sed</td>
+            <td>nisi</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Nulla</td>
+            <td>quis</td>
+            <td>sem</td>
+            <td>at</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>nibh</td>
+            <td>elementum</td>
+            <td>imperdiet</td>
+            <td>Duis</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>sagittis</td>
+            <td>ipsum</td>
+            <td>Praesent</td>
+            <td>mauris</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Fusce</td>
+            <td>nec</td>
+            <td>tellus</td>
+            <td>sed</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>augue</td>
+            <td>semper</td>
+            <td>porta</td>
+            <td>Mauris</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>massa</td>
+            <td>Vestibulum</td>
+            <td>lacinia</td>
+            <td>arcu</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>eget</td>
+            <td>nulla</td>
+            <td>Class</td>
+            <td>aptent</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>taciti</td>
+            <td>sociosqu</td>
+            <td>ad</td>
+            <td>litora</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>torquent</td>
+            <td>per</td>
+            <td>conubia</td>
+            <td>nostra</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>per</td>
+            <td>inceptos</td>
+            <td>himenaeos</td>
+            <td>Curabitur</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>sodales</td>
+            <td>ligula</td>
+            <td>in</td>
+            <td>libero</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
-<div id="canvas-holder" style="width:20%">
-    <canvas id="chart-area" width="600" height="600"> </canvas>
-</div>
-
