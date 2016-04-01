@@ -29,6 +29,7 @@
         </div>
         <strong class="error text-danger" data-dz-errormessage></strong>
         <br style="clear: both;">
+        <input type="text" name="photographer" id="photographer">
     </div>
 </div>
 
@@ -53,6 +54,7 @@
 </div>
 
 <p id="txt"></p>
+<p id="fotograf"></p>
 
 <script>
     // Deklarerer variabel som plukker opp div-taggen template som skal brukes i visning av opplastende filer
@@ -83,6 +85,11 @@
 
     //Registrerer knappentrykk og kjører kode
     $('#upload').click(function () {
+        myDropzone.on("sending", function(file, xhr, formData) {
+            var photographer = file.previewElement.querySelector("#photographer").value;
+            document.getElementById("fotograf").innerHTML = photographer;
+            formData.append("photographer", photographer);
+        });
         //Prosesserer køen
         myDropzone.processQueue();
         //'Success'-event som kan høres på og kjøres kode etter alle filer er akseptert
@@ -106,6 +113,9 @@
     // Fuksjon som tømmer køen etter perdefinert tid i funksjonen removeContentDelay
     function removeAllFilesAfterDelay(responseText){
         myDropzone.removeAllFiles();
-        window.location.href = "?side=lastoppbilder&action=pictureinfo";
     }
 </script>
+
+<?php
+    var_dump($_POST);
+?>

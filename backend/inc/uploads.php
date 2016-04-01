@@ -6,6 +6,8 @@
      * Time: 12:24
      */
 
+    $photographer = $_POST["photographer"];
+    echo "Fotograf = $photographer <br>";
     $uploaddir = 'uploads/';
     $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
