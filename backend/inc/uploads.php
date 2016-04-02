@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Jørgen Johansen
@@ -23,6 +24,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 {
     echo "RECEIVED ON SERVER: \n";
     echo "FILES: \n";
+
     print_r($_FILES);
     echo "\$_POST: \n";
     print_r($_POST);
