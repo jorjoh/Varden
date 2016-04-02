@@ -1,5 +1,5 @@
 <?php
-    include('inc/functions/dbcon.php');
+    include('functions/dbcon.php');
     include('inc/functions/sqlfunctions.php');
 ?>
 <!DOCTYPE html>

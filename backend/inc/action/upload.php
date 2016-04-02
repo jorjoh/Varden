@@ -2,11 +2,13 @@
 <h1 class="page-header">Last opp bilder</h1>
 
 <pre>
-    <form action="" method="post" class="dropzone" id="myForm" enctype="multipart/form-data">
+    <form  method="post" action="" class="dropzone" id="myform" name="myform" enctype="multipart/form-data">
         <!-- Drag and drop felt med knapp som henter opp uforsker -->
         <h4>Slipp bildene her eller <span class="btn btn-success fileinput-button dz-clickable"/> trykk her for å velge bilder!</h4>
+        <input type="text" id="beskrivelse" name="beskrivelse">
     </form>
 </pre>
+
 
 <div class="table table-striped files" id="previews">
     <div id="template" class="file-row" style="border: solid 1px #CCCCCC; position: relative; top: 10px; padding: 10px; background-color: #f9f9f9">
@@ -67,7 +69,8 @@
     Dropzone.autoDiscover = false;
     //Sperre som gjør at opplastningsfunksjonen kun tar imot bilder og ikke dokumenter.. Btw .svg filer fungerer også
     var acceptedFileTypes = "image/*";
-
+    var myForm= document.querySelector('form');
+    formData = new FormData(myForm);
     //Deklarerer selve dropzonen og definerer noen variabler fra bibiloteket til dropzone
     var myDropzone = new Dropzone(document.body, {
         url: 'inc/uploads.php',
@@ -78,8 +81,19 @@
         previewsContainer: "#previews",
         headers: {"MyAppname-Service-Type": "Dropzone"},
         acceptedFiles: acceptedFileTypes,
-        clickable:".fileinput-button"
+        clickable:".fileinput-button",
+
+
+        init: function() {
+            this.on("sending", function(file, xhr, formData){
+                formData.append("TESTFAEN", 777)
+            });
+                this.on("success", function(file, xhr){
+                    alert(file.xhr.response);
+                })
+        }
     });
+    var formData = new FormData();
 
     //Registrerer knappentrykk og kjører kode
     $('#upload').click(function () {
@@ -92,6 +106,7 @@
             txt.innerHTML = responseText;
             removeContentDelay();
         });
+
     });
 
     //Avbyrt-knapp som sletter hele køen
@@ -101,7 +116,7 @@
 
     // Funksjon som setter en forsinkelse på hendelsen removeAllFiles
     function removeContentDelay() {
-        timeoutID = window.setTimeout(removeAllFilesAfterDelay,2000);
+        timeoutID = window.setTimeout(removeAllFilesAfterDelay,8000);
     }
     // Fuksjon som tømmer køen etter perdefinert tid i funksjonen removeContentDelay
     function removeAllFilesAfterDelay(responseText){
