@@ -26,13 +26,16 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
     echo "FILES: \n";
 
     print_r($_FILES);
-    echo "\$_POST: \n";
+    echo "\$_POST: fra php filen \n";
     print_r($_POST);
 }
 
 $beskrivelse = isset($_POST['beskrivelse']) ? $_POST['beskrivelse'] : '';
+$photographer = ($_POST['photographer']);
 
-print("Følgende beskrivelse: " . $beskrivelse . " er registrert");
+echo ("Fotograf er: ".$photographer. "\n");
+
+//print("Følgende beskrivelse: " . $beskrivelse . " er registrert");
 
 
 echo "</pre>";

@@ -88,7 +88,7 @@
 
         init: function() {
             this.on("sending", function(file, xhr, formData){
-                formData.append("TESTFAEN", 777)
+                formData.append("TESTFAEN", 777, formData);
             });
                 this.on("success", function(file, xhr){
                     alert(file.xhr.response);
@@ -130,10 +130,8 @@
         myDropzone.removeAllFiles();
     }
 </script>
-<<<<<<< HEAD
-=======
+
 
 <?php
     var_dump($_POST);
 ?>
->>>>>>> ed607d332b953c2229b1c21ac3d57d5caec351e3
