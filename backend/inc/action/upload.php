@@ -5,7 +5,6 @@
     <form  method="post" action="" class="dropzone" id="myform" name="myform" enctype="multipart/form-data">
         <!-- Drag and drop felt med knapp som henter opp uforsker -->
         <h4>Slipp bildene her eller <span class="btn btn-success fileinput-button dz-clickable"/> trykk her for å velge bilder!</h4>
-        <input type="text" id="beskrivelse" name="beskrivelse">
     </form>
 </pre>
 
@@ -84,8 +83,7 @@
         headers: {"MyAppname-Service-Type": "Dropzone"},
         acceptedFiles: acceptedFileTypes,
         clickable:".fileinput-button",
-
-
+       //Sender informasjon fra inputfelter til uploads.php
         init: function() {
             this.on("sending", function(file, xhr, formData){
                 formData.append("TESTFAEN", 777, formData);
