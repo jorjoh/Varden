@@ -84,14 +84,7 @@
         acceptedFiles: acceptedFileTypes,
         clickable:".fileinput-button",
        //Sender informasjon fra inputfelter til uploads.php
-        init: function() {
-            this.on("sending", function(file, xhr, formData){
-                formData.append("TESTFAEN", 777, formData);
-            });
-                this.on("success", function(file, xhr){
-                    alert(file.xhr.response);
-                })
-        }
+
     });
     var formData = new FormData();
 
