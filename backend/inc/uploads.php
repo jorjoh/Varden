@@ -47,7 +47,7 @@ $insdatatocategory = array(
     'name' =>,
 );
 
-$imagedesgin = array(
+$insdatatoimagedesgin = array(
     'name' =>,
 );
 
@@ -86,4 +86,10 @@ $insdatatophysicallocation = array(
     "physicallocationcol" => ,
 );
 
+insert($connect, "camera", $insdatatocamera);
+insert($connect, "cateory", $insdatatocategory);
+insert($connect, "design", $insdatatoimagedesgin);
 insert($connect, "images", $insDataToImages);
+insert($connect, "metainfo", $insdatatometainfo);
+insert($connect, "photographers", $insdatattophotographers);
+insert($connect, "physicallocation", $insdatatophysicallocation);
