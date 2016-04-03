@@ -31,6 +31,7 @@
         <strong class="error text-danger" data-dz-errormessage></strong>
         <br style="clear: both;">
         <input type="text" name="photographer" id="photographer">
+        <textarea name="beskrivelse" id="beskrivelse"></textarea>
     </div>
 </div>
 
@@ -78,6 +79,7 @@
         autoProcessQueue: false,
         paramName: 'file',
         maxFiles:10,
+        maxFilesize: 1024,
         previewTemplate: previewTemplate,
         previewsContainer: "#previews",
         headers: {"MyAppname-Service-Type": "Dropzone"},
@@ -92,8 +94,9 @@
     $('#upload').click(function () {
         myDropzone.on("sending", function(file, xhr, formData) {
             var photographer = file.previewElement.querySelector("#photographer").value;
-            document.getElementById("fotograf").innerHTML = photographer;
+            var beskrivelse = file.previewElement.querySelector("#beskrivelse").value;
             formData.append("photographer", photographer);
+            formData.append("beskrivelse", beskrivelse);
         });
         //Prosesserer køen
         myDropzone.processQueue();
@@ -121,8 +124,3 @@
         myDropzone.removeAllFiles();
     }
 </script>
-
-
-<?php
-    var_dump($_POST);
-?>
