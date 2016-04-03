@@ -40,8 +40,12 @@ echo ("Beskrivelse er: ".$beskrivelse. "\n");
 echo ("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>");
 
 $insDataToImages = array(
-    'url' => $urlforimage,
-    'picturetext' => $beskrivelse,
+    'filename' => ,
+    'picturetext' => ,
+    'thumb_w' => ,
+    'thumb_h' => ,
+    'place_id' => ,
+    'url' => ,
 );
 
 insert($connect, "images", $insDataToImages);
