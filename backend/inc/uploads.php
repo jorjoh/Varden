@@ -8,8 +8,7 @@
  */
 
 
-if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
-{
+if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
     $uploaddir = 'uploads/';
     $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
@@ -30,14 +29,27 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 }
 
 //Viser url-stien til det aktuelle bilde
-$urlforimage = "inc/".$uploadfile;
+$urlforimage = "inc/" . $uploadfile;
 
 $beskrivelse = $_POST['beskrivelse'];
 $photographer = $_POST['photographer'];
 
-echo ("Fotograf er: ".$photographer. "\n");
-echo ("Beskrivelse er: ".$beskrivelse. "\n");
-echo ("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>");
+echo("Fotograf er: " . $photographer . "\n");
+echo("Beskrivelse er: " . $beskrivelse . "\n");
+echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>");
+
+$insdatatocamera = array(
+    'cameramaker' =>,
+    'cameramodel' =>,
+);
+
+$insdatatocategory = array(
+    'name' =>,
+);
+
+$imagedesgin = array(
+    'name' =>,
+);
 
 $insDataToImages = array(
     'filename' => ,
@@ -46,6 +58,32 @@ $insDataToImages = array(
     'thumb_h' => ,
     'place_id' => ,
     'url' => ,
+);
+$insdatatometainfo = array(
+    "capturedate" => ,
+    "w_original" => ,
+	"h_original" => ,
+	"imagetype" => ,
+	"resolution" => ,
+	"bit_dept" => ,
+	"uploaded" => ,
+	"exposure_time" => ,
+	"focal_length" => ,
+	"white_balance" => ,
+	"orientation" => ,
+	"iso_speed" => ,
+	"flash_state" => ,
+	"tags" => ,
+);
+$insdatattophotographers = array(
+    "firstname" =>,
+    "lastname" =>,
+);
+$insdatatophysicallocation = array(
+    "room" => ,
+    "drawer" => ,
+    "folder" => ,
+    "physicallocationcol" => ,
 );
 
 insert($connect, "images", $insDataToImages);
