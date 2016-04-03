@@ -32,9 +32,11 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
 $beskrivelse = $_POST['beskrivelse'];
 $photographer = $_POST['photographer'];
+$urlforimage = "inc/".$uploadfile;
 
 echo ("Fotograf er: ".$photographer. "\n");
-echo "Beskrivelse er: ".$beskrivelse. "\n";
+echo ("Beskrivelse er: ".$beskrivelse. "\n");
+echo ("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>");
 
 //print("Følgende beskrivelse: " . $beskrivelse . " er registrert");
 
