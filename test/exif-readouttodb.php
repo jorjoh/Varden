@@ -274,7 +274,7 @@ function exifDetails($image)
             $maxaperturevalue = $exifinfo['MaxApertureValue'];
         }
         else{
-            $maxaperturevalue = $exifinfo;
+            $maxaperturevalue = $notfound;
         }
         if(array_key_exists('MeteringMode',$exifinfo)){
             $meteringmode = $exifinfo['MeteringMode'];
@@ -376,7 +376,7 @@ function exifDetails($image)
             $cFAPattern = $exifinfo['CFAPattern'];
         }
         else{
-            $cFAPattern = $notfound['CFAPattern'];
+            $cFAPattern = $notfound;
         }
         if(array_key_exists('CustomRendered',$exifinfo)){
             $customrendered = $exifinfo['CustomRendered'];
@@ -400,7 +400,7 @@ function exifDetails($image)
             $digitalzoomratio = $exifinfo['DigitalZoomRatio'];
         }
         else {
-            $digitalzoomratio = $exifinfo['DigitalZoomRatio'];
+            $digitalzoomratio = $notfound;
         }
         if(array_key_exists('FocalLengthIn35mmFilm',$exifinfo)){
             $focallengthin35mmfilm = $exifinfo['FocalLengthIn35mmFilm'];
