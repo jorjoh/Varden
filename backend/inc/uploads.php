@@ -6,6 +6,7 @@
  * Date: 09.02.2016
  * Time: 12:24
  */
+include "../../test/exif-readouttodb.php";
 
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -39,7 +40,7 @@ echo("Beskrivelse er: " . $beskrivelse . "\n");
 echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>");
 
 $insdatatocamera = array(
-    'cameramaker' =>,
+    'cameramaker' => $camera['make'],
     'cameramodel' =>,
 );
 
