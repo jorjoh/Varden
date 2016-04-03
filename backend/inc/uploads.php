@@ -38,3 +38,10 @@ $photographer = $_POST['photographer'];
 echo ("Fotograf er: ".$photographer. "\n");
 echo ("Beskrivelse er: ".$beskrivelse. "\n");
 echo ("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>");
+
+$insDataToImages = array(
+    'url' => $urlforimage,
+    'picturetext' => $beskrivelse,
+);
+
+insert($connect, "images", $insDataToImages);
