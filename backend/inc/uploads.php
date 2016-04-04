@@ -77,7 +77,7 @@ $insdatatometainfo = array(
 );
 $insdatattophotographers = array(
     "firstname" => $photographer,
-    "lastname" =>$photographerlastname,
+    "lastname" =>$photographer, //Her burde vi legge tilrette for etternavn
 );
 $insdatatophysicallocation = array(
     "room" => "The archive",
