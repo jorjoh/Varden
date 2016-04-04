@@ -41,50 +41,49 @@ echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>
 
 $insdatatocamera = array(
     'cameramaker' => $camera['make'],
-    'cameramodel' =>,
+    'cameramodel' => $camera['model'],
 );
 
 $insdatatocategory = array(
-    'name' =>,
+    'name' => "Valgt kategori", // her kan vi har noen checkbokser vel?
 );
 
-$insdatatoimagedesgin = array(
-    'name' =>,
+$insdatatoimagedesgin = array(  //Motiv
+    'name' => "Bildets motiv",
 );
 
 $insDataToImages = array(
-    'filename' => ,
-    'picturetext' => ,
-    'thumb_w' => ,
-    'thumb_h' => ,
-    'place_id' => ,
-    'url' => ,
+    'filename' => $uploadfile,
+    'picturetext' => $beskrivelse,
+    'thumb_w' => "120",
+    'thumb_h' => "120",
+    'url' => $urlforimage
 );
 $insdatatometainfo = array(
-    "capturedate" => ,
-    "w_original" => ,
-	"h_original" => ,
-	"imagetype" => ,
-	"resolution" => ,
-	"bit_dept" => ,
-	"uploaded" => ,
-	"exposure_time" => ,
-	"focal_length" => ,
-	"white_balance" => ,
-	"orientation" => ,
-	"iso_speed" => ,
-	"flash_state" => ,
-	"tags" => ,
+    "capturedate" => $exifinfo["DateTimeOriginal"],
+    "w_original" => $exifcomputed['COMPUTED']['Width'],
+	"h_original" => $exifcomputed['COMPUTED']['Height'],
+	"imagetype" => $exif_file['MimeType'],
+	"resolution" => $exif_ifd0['XResolution'],
+	"bit_dept" => "Null", // hmm denne veriden ser ikke ut til å være her
+	"uploaded" => "var date = new Date; getDate",
+	"exposure_time" => $exifinfo['ExposureTime'],
+	"focal_length" => $exifinfo['FocalLength'],
+	"white_balance" => $exifinfo['WhiteBalance'],
+	"orientation" => $exif_ifdo['Orientation'],
+	"iso_speed" => $exifinfo['ISOSpeedRatings'],
+	"flash_state" => "True/false", //Akkurat det tror jeg ikke vi her
+	"tags" => "illustrasjonsbilde",
 );
 $insdatattophotographers = array(
-    "firstname" =>,
-    "lastname" =>,
+    "firstname" => $photographer,
+    "lastname" =>$photographerlastname,
 );
 $insdatatophysicallocation = array(
-    "room" => ,
-    "drawer" => ,
-    "folder" => ,
-    "physicallocationcol" => ,
+    "room" => "The archive",
+    "drawer" => "3",
+    "folder" => "34",
+    "physicallocationcol" => "Vardens arkiv",
 );
 
 insert($connect, "camera", $insdatatocamera);
