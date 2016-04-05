@@ -6,17 +6,19 @@
  * Time: 12:42
  */
 
+include ("../inc/uploads.php");
+$varabelfromuploads = $cur_image;
+echo " Dette er variabel fra uploads.php!: ".$varabelfromuploads;
 
-$image = "IMG_3646.JPG";
+$image = "IMG_3646.jpg";
+
 $notfound = "null";
-
 $divStyle = ' background-color:#E8E8E3;
             padding:10px;
             color:#000;
             font-size:16px;
             width:100%;
             overflow:hidden;';
-
 function imageFile($image){
     if((isset($image)) and file_exists($image)){
         $exif_file = exif_read_data($image,'FILE',0);
@@ -31,7 +33,7 @@ function imageFile($image){
             $filename = $notfound;
         }
         //FileDateTime
-        if(array_key_exists('FileDatTime',$exif_file)){
+        if(array_key_exists('FileDateTime',$exif_file)){
             $filedatetime = $exif_file['FileDateTime'];
         }
         else{

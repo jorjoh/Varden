@@ -1,13 +1,13 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: Jørgen Johansen
  * Date: 09.02.2016
  * Time: 12:24
  */
-include "../../test/exif-readouttodb.php";
+include ("../inc/exif-readouttodb.php");
 
+$cur_image = $_FILES['file']['name'];
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
     $uploaddir = 'uploads/';
@@ -27,7 +27,10 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
     echo "\$_POST: fra php filen \n";
     print_r($_POST);
     echo "</pre>";
+
+
 }
+
 
 //Viser url-stien til det aktuelle bilde
 $urlforimage = "inc/" . $uploadfile;
@@ -39,6 +42,7 @@ echo("Fotograf er: " . $photographer . "\n");
 echo("Beskrivelse er: " . $beskrivelse . "\n");
 echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>");
 
+/*------informasjon som skal inni arrayer i databasen*/
 $insdatatocamera = array(
     'cameramaker' => $camera['make'],
     'cameramodel' => $camera['model'],
@@ -60,18 +64,18 @@ $insDataToImages = array(
     'url' => $urlforimage
 );
 $insdatatometainfo = array(
-    "capturedate" => $exifinfo["DateTimeOriginal"],
+    "capturedate" => $exifexifinfo["DateTimeOriginal"],
     "w_original" => $exifcomputed['COMPUTED']['Width'],
 	"h_original" => $exifcomputed['COMPUTED']['Height'],
-	"imagetype" => $exif_file['MimeType'],
-	"resolution" => $exif_ifd0['XResolution'],
+	"imagetype" => $exiffile['MimeType'],
+	"resolution" =>$exifcomputed['XResolution'],
 	"bit_dept" => "Null", // hmm denne veriden ser ikke ut til å være her
 	"uploaded" => "var date = new Date; getDate",
-	"exposure_time" => $exifinfo['ExposureTime'],
-	"focal_length" => $exifinfo['FocalLength'],
-	"white_balance" => $exifinfo['WhiteBalance'],
-	"orientation" => $exif_ifdo['Orientation'],
-	"iso_speed" => $exifinfo['ISOSpeedRatings'],
+	"exposure_time" => $exifexifinfo['ExposureTime'],
+	"focal_length" => $exifexifinfo['FocalLength'],
+	"white_balance" => $exifexifinfo['WhiteBalance'],
+	"orientation" => $exifcomputed['Orientation'],
+	"iso_speed" => $exifexifinfo['ISOSpeedRatings'],
 	"flash_state" => "True/false", //Akkurat det tror jeg ikke vi her
 	"tags" => "illustrasjonsbilde",
 );
@@ -86,10 +90,17 @@ $insdatatophysicallocation = array(
     "physicallocationcol" => "Vardens arkiv",
 );
 
-insert($connect, "camera", $insdatatocamera);
+for($i = 0; $i <count($insdatatometainfo); $i++){
+    echo $insdatatometainfo[$i];
+    echo "dette er en melding fra foor-lopen";
+}
+
+/*------------ Slutt på funkjsonen */
+
+/*insert($connect, "camera", $insdatatocamera);
 insert($connect, "cateory", $insdatatocategory);
 insert($connect, "design", $insdatatoimagedesgin);
 insert($connect, "images", $insDataToImages);
 insert($connect, "metainfo", $insdatatometainfo);
 insert($connect, "photographers", $insdatattophotographers);
-insert($connect, "physicallocation", $insdatatophysicallocation);
+insert($connect, "physicallocation", $insdatatophysicallocation);*/
