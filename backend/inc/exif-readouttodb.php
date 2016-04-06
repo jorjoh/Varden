@@ -6,14 +6,14 @@
  * Time: 12:42
  */
 
-include ("../inc/uploads.php");
+//include ("../inc/uploads.php");
 $varabelfromuploads = $cur_image;
-echo " Dette er variabel fra uploads.php!: ".$varabelfromuploads;
+echo " Dette er bilde fra uploads.php! som er kommet til exif.php!: ".$varabelfromuploads;
 
-$image = "IMG_3646.jpg";
+$image = $varabelfromuploads;
 
 $notfound = "null";
-$divStyle = ' background-color:#E8E8E3;
+$divStyle = 'background-color:#E8E8E3;
             padding:10px;
             color:#000;
             font-size:16px;
@@ -582,7 +582,10 @@ print_r("SubjectDistanceRange:".$exifexifinfo['SubjectDistanceRange']. "<br/>");
 
 echo '</pre>
         </div>';
-//echo "Camera Used:".$camera['Make'];
+echo '<pre>';
+    echo "Camera Used:".$camera['Make']."<br/>";
+    echo ("FileType: ".$exiffile['FileType']."<br/>");
+    echo '</pre>';
 }
 
 ?>

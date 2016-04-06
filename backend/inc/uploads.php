@@ -5,8 +5,6 @@
  * Date: 09.02.2016
  * Time: 12:24
  */
-//include ("../inc/exif-readouttodb.php");
-
 
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -31,6 +29,9 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
 
 }
 $cur_image = $_FILES['file']['name'];
+include ("../inc/exif-readouttodb.php");
+
+echo "Dette er bilde som er i uploads.php:".$cur_image;
 
 //Viser url-stien til det aktuelle bilde
 $urlforimage = "inc/" . $uploadfile;
@@ -41,6 +42,7 @@ $photographer = $_POST['photographer'];
 echo("Fotograf er: " . $photographer . "\n");
 echo("Beskrivelse er: " . $beskrivelse . "\n");
 echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>");
+
 
 /*------informasjon som skal inni arrayer i databasen*/
 $insdatatocamera = array(
@@ -90,10 +92,10 @@ $insdatatophysicallocation = array(
     "physicallocationcol" => "Vardens arkiv",
 );
 
-for($i = 0; $i <count($insdatatometainfo); $i++){
+/*for($i = 0; $i <count($insdatatometainfo); $i++){
     echo $insdatatometainfo[$i];
     echo "dette er en melding fra foor-lopen";
-}
+}*/
 
 /*------------ Slutt på funkjsonen */
 
