@@ -12,26 +12,25 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
     $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
     if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-        echo "File is valid, and was successfully uploaded.\n HEEEI";
+        echo "File is valid, and was successfully uploaded.\n";
     } else {
         echo "Possible file uploads attack!\n";
     }
 
     echo "<pre>RECEIVED ON SERVER: \n";
     echo "FILES: \n";
-
     print_r($_FILES);
     echo "</pre><br><pre>";
     echo "\$_POST: fra php filen \n";
     print_r($_POST);
     echo "</pre>";
 
+    $cur_image = $uploadfile;
 
 }
-$cur_image = $_FILES['file']['name'];
-include ("../inc/exif-readouttodb.php");
+include("exif-infofrompicture.php");
 
-echo "Dette er bilde som er i uploads.php:".$cur_image;
+//echo "Dette er bilde som er i uploads.php:".$cur_image;
 
 //Viser url-stien til det aktuelle bilde
 $urlforimage = "inc/" . $uploadfile;
@@ -39,12 +38,14 @@ $urlforimage = "inc/" . $uploadfile;
 $beskrivelse = $_POST['beskrivelse'];
 $photographer = $_POST['photographer'];
 
-echo("Fotograf er: " . $photographer . "\n");
-echo("Beskrivelse er: " . $beskrivelse . "\n");
+echo("Fotograf er: " . $photographer . "<br/>");
+echo("Beskrivelse er: " . $beskrivelse . "<br/>");
 echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>");
 
 
+
 /*------informasjon som skal inni arrayer i databasen*/
+/*
 $insdatatocamera = array(
     'cameramaker' => $camera['make'],
     'cameramodel' => $camera['model'],
@@ -91,6 +92,7 @@ $insdatatophysicallocation = array(
     "folder" => "34",
     "physicallocationcol" => "Vardens arkiv",
 );
+*/
 
 /*for($i = 0; $i <count($insdatatometainfo); $i++){
     echo $insdatatometainfo[$i];
