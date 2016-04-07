@@ -46,7 +46,7 @@ function readoutexifinfo($cur_image){
             }
         }
     }
-    echo "Camera maker: ".$exif['IFD0']['maker'];
+    echo "Camera maker: ".$exif['IFD0']['Make'];
 }
 
 echo '<div style = "' . $divStyle . '">
