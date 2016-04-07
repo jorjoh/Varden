@@ -36,20 +36,23 @@ include("exif-infofrompicture.php");
 $urlforimage = "inc/" . $uploadfile;
 
 $beskrivelse = $_POST['beskrivelse'];
-$photographer = $_POST['photographer'];
+$photographer = explode(" ",$_POST['photographer']);
 
 echo("Fotograf er: " . $photographer . "<br/>");
 echo("Beskrivelse er: " . $beskrivelse . "<br/>");
-echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a>");
+echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a><br/>");
 
 
 
 /*------informasjon som skal inni arrayer i databasen*/
-/*
+
 $insdatatocamera = array(
-    'cameramaker' => $camera['make'],
-    'cameramodel' => $camera['model'],
+    'cameramaker' => $exif['Make'],
+    'cameramodel' => $exif['Model'],
 );
+print_r($insdatatocamera);
+/*echo "<br/>   array uploads ".$insdatatocamera['cameramaker']."<br/>";    //Debug linjer
+echo "<br/>   array uploads ".$insdatatocamera['cameramodel']."<br/>";*/
 
 $insdatatocategory = array(
     'name' => "Valgt kategori", // her kan vi har noen checkbokser vel?
@@ -67,44 +70,41 @@ $insDataToImages = array(
     'url' => $urlforimage
 );
 $insdatatometainfo = array(
-    "capturedate" => $exifexifinfo["DateTimeOriginal"],
-    "w_original" => $exifcomputed['COMPUTED']['Width'],
-	"h_original" => $exifcomputed['COMPUTED']['Height'],
-	"imagetype" => $exiffile['MimeType'],
-	"resolution" =>$exifcomputed['XResolution'],
-	"bit_dept" => "Null", // hmm denne veriden ser ikke ut til å være her
+    "capturedate" => $exif["DateTimeOriginal"],
+    "w_original" => $exif['COMPUTED']['Width'],
+	"h_original" => $exif['COMPUTED']['Height'],
+    "imagetype" => $exif['MimeType'],
+	"resolution" =>$exif['XResolution'],
+	"bit_depth" => "Null", // hmm denne veriden ser ikke ut til å være her
 	"uploaded" => "var date = new Date; getDate",
-	"exposure_time" => $exifexifinfo['ExposureTime'],
-	"focal_length" => $exifexifinfo['FocalLength'],
-	"white_balance" => $exifexifinfo['WhiteBalance'],
-	"orientation" => $exifcomputed['Orientation'],
-	"iso_speed" => $exifexifinfo['ISOSpeedRatings'],
-	"flash_state" => "True/false", //Akkurat det tror jeg ikke vi her
+	"exposure_time" => $exif['ExposureTime'],
+    "focal_length" => $exif['FocalLength'],
+	"white_balance" => $exif['WhiteBalance'],
+	"orientation" => $exif['Orientation'],
+	"iso_speed" => $exif['ISOSpeedRatings'],
+	"flash_state" => $exif['Flash'], //Akkurat det tror jeg ikke vi her
 	"tags" => "illustrasjonsbilde",
 );
+print_r($insdatatometainfo);
+
 $insdatattophotographers = array(
-    "firstname" => $photographer,
-    "lastname" =>$photographer, //Her burde vi legge tilrette for etternavn
+    "firstname" => $photographer[0],
+    "lastname" =>$photographer[1], //Her burde vi legge tilrette for etternavn
 );
+print_r($insdatattophotographers);
 $insdatatophysicallocation = array(
     "room" => "The archive",
-    "drawer" => "3",
+    "drawers" => "3",
     "folder" => "34",
     "physicallocationcol" => "Vardens arkiv",
 );
-*/
-
-/*for($i = 0; $i <count($insdatatometainfo); $i++){
-    echo $insdatatometainfo[$i];
-    echo "dette er en melding fra foor-lopen";
-}*/
 
 /*------------ Slutt på funkjsonen */
-
-/*insert($connect, "camera", $insdatatocamera);
-insert($connect, "cateory", $insdatatocategory);
-insert($connect, "design", $insdatatoimagedesgin);
+include ("functions/sqlfunctions.php");
+insert($connect, "camera", $insdatatocamera);
+insert($connect, "category", $insdatatocategory);
+insert($connect, "imagedesign", $insdatatoimagedesgin);
 insert($connect, "images", $insDataToImages);
-insert($connect, "metainfo", $insdatatometainfo);
+//insert($connect, "metainfo", $insdatatometainfo);
 insert($connect, "photographers", $insdatattophotographers);
-insert($connect, "physicallocation", $insdatatophysicallocation);*/
+insert($connect, "physicallocation", $insdatatophysicallocation);

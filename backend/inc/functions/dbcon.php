@@ -11,4 +11,11 @@ $db = "varden";
 $user = "root";
 $password = "0DfTAZ";
 
-$connect = mysqli_connect($host,$user,$password,$db) or die("Fikk ikke tilkobling til databasen");
+$connect = mysqli_connect($host,$user,$password,$db) or die("Fikk ikke tilkobling til databasen!!");
+
+if($connect){
+    echo "Du er tilkoblet";
+}
+else{
+    echo "du er ikke tilkoblet";
+}

@@ -5,21 +5,21 @@
  * Date: 10.03.2016
  * Time: 10.35
  */
-
+include ("dbcon.php");
 function select($dbconnect, $table, $columnsArray) {
 
 }
 
-function insert($dbconnect, $table, $insertData) {
+function insert($connect, $table, $insertData) {
 
     $columns = implode(", ",array_keys($insertData));
     $escaped_values = array_map('mysql_real_escape_string', array_values($insertData));
     $values  = "'" . implode("', '", array_values($escaped_values)) . "'";
     $sql = "INSERT INTO $table ($columns) VALUES ($values);";
-    echo "$sql";
-    mysqli_query($dbconnect, $sql) or die(mysqli_error($dbconnect));
+    echo "$sql"."<br/>";
+    mysqli_query($connect, $sql) or die(mysqli_error($connect));
     echo "Vellykket";
-
+    
 /*    $targetDir = '../inc/uploads/';
     $fileName = $_FILES['file']['name'];
     $targetfile = $targetDir . $fileName;
