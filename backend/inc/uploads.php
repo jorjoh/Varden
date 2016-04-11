@@ -98,6 +98,11 @@ $insdatatophysicallocation = array(
     "folder" => "34"
 );
 
+$curtime = new DateTime();
+$insdatalog = array(
+  "uploaded_time" => $curtime->format('Y-m-d H:i:s')
+);
+
 /*------------ Slutt på funkjsonen */
 include ("functions/sqlfunctions.php");
 insert($connect, "camera", $insdatatocamera);
@@ -107,3 +112,4 @@ insert($connect, "images", $insDataToImages);
 insert($connect, "photographers", $insdatattophotographers);
 insert($connect, "metainfo", $insdatatometainfo);
 insert($connect, "physicallocation", $insdatatophysicallocation);
+insert($connect, "log", $insdatalog);
