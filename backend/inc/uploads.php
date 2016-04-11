@@ -95,8 +95,7 @@ print_r($insdatattophotographers);
 $insdatatophysicallocation = array(
     "room" => "The archive",
     "drawers" => "3",
-    "folder" => "34",
-    "physicallocationcol" => "Vardens arkiv",
+    "folder" => "34"
 );
 
 /*------------ Slutt på funkjsonen */
@@ -105,6 +104,6 @@ insert($connect, "camera", $insdatatocamera);
 insert($connect, "category", $insdatatocategory);
 insert($connect, "imagedesign", $insdatatoimagedesgin);
 insert($connect, "images", $insDataToImages);
-//insert($connect, "metainfo", $insdatatometainfo);
 insert($connect, "photographers", $insdatattophotographers);
+insert($connect, "metainfo", $insdatatometainfo);
 insert($connect, "physicallocation", $insdatatophysicallocation);
