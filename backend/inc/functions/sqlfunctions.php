@@ -16,9 +16,9 @@ function insert($connect, $table, $insertData) {
     $escaped_values = array_map('mysql_real_escape_string', array_values($insertData));
     $values  = "'" . implode("', '", array_values($escaped_values)) . "'";
     $sql = "INSERT INTO $table ($columns) VALUES ($values);";
-    echo "$sql"."<br/>";
+    echo "<br/>$sql"."<br/>";
     mysqli_query($connect, $sql) or die(mysqli_error($connect));
-    echo "Vellykket";
+    echo "<br/> Vellykket <br/>";
     
 /*    $targetDir = '../inc/uploads/';
     $fileName = $_FILES['file']['name'];
