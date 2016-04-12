@@ -13,7 +13,7 @@ function select($dbconnect, $table, $columnsArray) {
 function insert($dbconnect, $table, $insertData) {
 
     $columns = implode(", ",array_keys($insertData));
-    $escaped_values = array_map('mysql_real_escape_string', array_values($insertData));
+    $escaped_values = array_map(array($dbconnect, 'real_escape_string'), array_values($insertData));
     $values  = "'" . implode("', '", array_values($escaped_values)) . "'";
     $sql = "INSERT INTO $table ($columns) VALUES ($values);";
     echo "<br/>$sql"."<br/>";
