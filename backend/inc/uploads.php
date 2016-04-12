@@ -36,9 +36,9 @@ include("exif-infofrompicture.php");
 $urlforimage = "inc/" . $uploadfile;
 
 $beskrivelse = $_POST['beskrivelse'];
-$photographer = explode(" ",$_POST['photographer']);
+$photographer = explode(" ", $_POST['photographer']);
 
-echo("Fotograf er: " . $photographer . "<br/>");
+echo("Fotograf er: " . $photographer[0] . "<br/>");
 echo("Beskrivelse er: " . $beskrivelse . "<br/>");
 echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a><br/>");
 
