@@ -1,11 +1,14 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: roed
- * Date: 26.01.2016
- * Time: 12.31
- */
+<!html doctype>
+<html>
+<head>
+	<title>WEB1000 - Innlevering 3</title>
 
-header("Location: frontend/index.php");
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
 
-?>
+<body>
+	<a href="./frontend/">Frontend</a>
+	<a href="./backend/">Admingrensesnitt</a>
+</body>
+</html>
