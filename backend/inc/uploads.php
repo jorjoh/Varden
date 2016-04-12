@@ -8,7 +8,7 @@
 
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-    $uploaddir = 'uploads/';
+    $uploaddir = '../../frontend/uploads/';
     $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
     if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
@@ -33,7 +33,7 @@ include("exif-infofrompicture.php");
 //echo "Dette er bilde som er i uploads.php:".$cur_image;
 
 //Viser url-stien til det aktuelle bilde
-$urlforimage = "inc/" . $uploadfile;
+$urlforimage = "varden/" . $uploadfile;
 
 $beskrivelse = $_POST['beskrivelse'];
 $photographer = explode(" ", $_POST['photographer']);
