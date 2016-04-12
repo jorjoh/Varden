@@ -6,18 +6,18 @@
  * Time: 10.35
  */
 include ("dbcon.php");
-function select($dbconnect, $table, $columnsArray) {
+function select($connect, $table, $columnsArray) {
 
 }
 
-function insert($dbconnect, $table, $insertData) {
+function insert($connect, $table, $insertData) {
 
     $columns = implode(", ",array_keys($insertData));
-    $escaped_values = array_map(array($dbconnect, 'real_escape_string'), array_values($insertData));
+    $escaped_values = array_map(array($connect, 'real_escape_string'), array_values($insertData));
     $values  = "'" . implode("', '", array_values($escaped_values)) . "'";
     $sql = "INSERT INTO $table ($columns) VALUES ($values);";
     echo "<br/>$sql"."<br/>";
-    mysqli_query($dbconnect, $sql) or die(mysqli_error($dbconnect));
+    mysqli_query($connect, $sql) or die(mysqli_error($connect));
     echo "<br/> Vellykket <br/>";
     
 /*    $targetDir = '../inc/uploads/';
@@ -35,11 +35,11 @@ function insert($dbconnect, $table, $insertData) {
 
 }
 
-function update($dbconnect, $table, $columnsArray) {
+function update($connect, $table, $columnsArray) {
 
 }
 
-function delete($dbconnect, $table, $columnsArray) {
+function delete($connect, $table, $columnsArray) {
 
 }
 

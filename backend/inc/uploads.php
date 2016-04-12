@@ -6,6 +6,10 @@
  * Time: 12:24
  */
 
+define('DEBUG', true);
+
+error_reporting(E_ALL);
+ini_set('display_errors', DEBUG ? 'On' : 'Off');
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
     $uploaddir = 'uploads/';
@@ -37,6 +41,7 @@ $urlforimage = "inc/" . $uploadfile;
 
 $beskrivelse = $_POST['beskrivelse'];
 $photographer = explode(" ",$_POST['photographer']);
+$curtime = new DateTime();
 
 echo("Fotograf er: " . $photographer . "<br/>");
 echo("Beskrivelse er: " . $beskrivelse . "<br/>");
@@ -76,7 +81,7 @@ $insdatatometainfo = array(
     "imagetype" => $exif['MimeType'],
 	"resolution" =>$exif['XResolution'],
 	"bit_depth" => "Null", // hmm denne veriden ser ikke ut til å være her
-	"uploaded" => "var date = new Date; getDate",
+	"uploaded" => $curtime->format('Y-m-d H:i:s'),
 	"exposure_time" => $exif['ExposureTime'],
     "focal_length" => $exif['FocalLength'],
 	"white_balance" => $exif['WhiteBalance'],
@@ -98,7 +103,7 @@ $insdatatophysicallocation = array(
     "folder" => "34"
 );
 
-$curtime = new DateTime();
+
 $insdatalog = array(
   "uploaded_time" => $curtime->format('Y-m-d H:i:s')
 );
