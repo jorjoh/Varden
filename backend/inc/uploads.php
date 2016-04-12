@@ -6,10 +6,6 @@
  * Time: 12:24
  */
 
-define('DEBUG', true);
-
-error_reporting(E_ALL);
-ini_set('display_errors', DEBUG ? 'On' : 'Off');
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
     $uploaddir = '../../frontend/uploads/';
@@ -40,12 +36,7 @@ include("exif-infofrompicture.php");
 $urlforimage = "varden/" . $uploadfile;
 
 $beskrivelse = $_POST['beskrivelse'];
-<<<<<<< HEAD
-$photographer = explode(" ",$_POST['photographer']);
-$curtime = new DateTime();
-=======
 $photographer = explode(" ", $_POST['photographer']);
->>>>>>> af5eddb71207f6b48450f971b7824376c04c812d
 
 echo("Fotograf er: " . $photographer[0] . "<br/>");
 echo("Beskrivelse er: " . $beskrivelse . "<br/>");
@@ -85,7 +76,7 @@ $insdatatometainfo = array(
     "imagetype" => $exif['MimeType'],
 	"resolution" =>$exif['XResolution'],
 	"bit_depth" => "Null", // hmm denne veriden ser ikke ut til å være her
-	"uploaded" => $curtime->format('Y-m-d H:i:s'),
+	"uploaded" => "var date = new Date; getDate",
 	"exposure_time" => $exif['ExposureTime'],
     "focal_length" => $exif['FocalLength'],
 	"white_balance" => $exif['WhiteBalance'],
@@ -107,7 +98,7 @@ $insdatatophysicallocation = array(
     "folder" => "34"
 );
 
-
+$curtime = new DateTime();
 $insdatalog = array(
   "uploaded_time" => $curtime->format('Y-m-d H:i:s')
 );
