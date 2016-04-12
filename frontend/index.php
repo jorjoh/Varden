@@ -1,5 +1,5 @@
 <?php
-    include('functions/dbcon.php');
+    include('inc/functions/dbcon.php');
 ?>
 <!doctype html>
 <html xml:lang="no" lang="no">
