@@ -402,7 +402,7 @@
             .Header-information {
                 background: 0 0;
                 text-align: center;
-                padding: .6em 1.2em 0;
+                padding: .4em 1.2em 0;
                 position: relative;
                 top: 0;
                 vertical-align: top;
@@ -942,7 +942,7 @@
 
         .Content {
             width: 100%;
-            height: 965px;
+            min-height: 965px;
             position: relative;
             top: -20px;
             background: url(img/background.svg) no-repeat;
