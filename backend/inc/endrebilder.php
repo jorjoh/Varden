@@ -13,7 +13,9 @@ include("functions/dbcon.php");    // kobler til databasen
 $sqlsetning = "SELECT * FROM images;";    // velger alt fra tabellen fag
 $sqlresultat = mysqli_query($connect, $sqlsetning) or die ("Ikke mulig å hente data");
 $antallRader = mysqli_num_rows($sqlresultat);
-
+echo ("<!-- MDL Spinner Component -->
+<div class=\"mdl-spinner mdl-js-spinner is-active\" style='left:300px'></div>
+");
 echo("<table class=\"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp\">");
 echo("<thead>");
 echo(" <tr>
@@ -56,12 +58,40 @@ echo("</table>");
     <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 
 
+<body>
+<button type="button" class="mdl-button show-modal">Show Modal</button>
+<dialog class="mdl-dialog">
+    <div class="mdl-dialog__content">
+        <p>
+            Allow this site to collect usage data to improve your experience?
+        </p>
+    </div>
+    <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+        <button type="button" class="mdl-button">Agree</button>
+        <button type="button" class="mdl-button close">Disagree</button>
+    </div>
+</dialog>
+<script>
+    var dialog = document.querySelector('dialog');
+    var showModalButton = document.querySelector('.show-modal');
+    if (dialog.showModal) {
+        
+    }
+    showModalButton.addEventListener('click', function() {
+        dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+        dialog.close();
+    });
+</script>
+</body>
+
 
     <script type="text/javascript">
         $('.slideshow_zoom').each(function() {
             var $link = $(this);
 
-            var $dialog = $('<img src="' + $link.attr('href') + '" />')
+            var $dialog = $('<img src="' + $link.attr('href') + '" style="height: 170px;!important; width: 150px;!important;"/>')
                 .dialog({
                     autoOpen: false,
                     resizeable: false,
@@ -85,6 +115,9 @@ echo("</table>");
 
 
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 
 
 <link rel="stylesheet" href="css/material.min.css"/>
