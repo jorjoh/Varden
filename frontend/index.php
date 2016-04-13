@@ -254,15 +254,14 @@
         }
 
         .can--fixed .Tortilla {
-            padding-top: 65px
+            padding-top: 83px
         }
 
         @media (min-width: 580px) {
             .can--fixed .Tortilla {
-                padding-top: 24px
+                padding-top: 43px
             }
         }
-
         .Header {
             -moz-backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
@@ -383,7 +382,7 @@
             text-overflow: ellipsis;
             padding: 1.2em;
             position: absolute;
-            top: 43px;
+            top: 45px;
             right: 0;
             bottom: 0;
             left: 0;
@@ -942,12 +941,13 @@
         }
 
         .Content {
-            min-height: 965px;
-
+            width: 100%;
+            height: 965px;
             position: relative;
+            top: -20px;
             background: url(img/background.svg) no-repeat;
-            background-size: contain;
-            background-position: top center;
+            background-size: cover;
+            background-position: center;
         }
 
         .Share {
