@@ -2,7 +2,7 @@
 <br>
 <div class="row">
     <div class="col-12">
-        <div style="width: 100%; background: #FFF;">
+        <div style="width: 100%; min-height: 800px; background: #FFF;">
             <br>
             <br>
             <div style="width: 950px; height: 150px; text-align: center; margin: 0 auto; background: #CCC;"><br><br>Annonse
@@ -24,7 +24,7 @@
                     <div class="category_items">
                         <div class="grid-sizer"></div>
                         <?php
-                        $antall = 300;
+                        $antall = 1;
                         for ($i = 0; $i < $antall; $i++) {
                             $random = rand(50, 300);
                             $categoryID = rand(0, 3);

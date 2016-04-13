@@ -1,4 +1,5 @@
 <?php
+    @ob_start();
     include('inc/functions/dbcon.php');
 ?>
 <!doctype html>
