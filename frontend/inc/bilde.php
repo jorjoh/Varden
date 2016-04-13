@@ -1,9 +1,13 @@
 <?php
 
-$id = $_GET['id'];
-if(empty($id)) {
-    header("Location: ?side=forside");
-    echo "Denne har ingen ID";
+$id = $_GET['id']; // Variabel som fanger opp ID nummeret til bilde og brukes i SQL spørringen
+$sql = "SELECT * FROM images WHERE id = $id;"; // SQL spørring som henter all informasjonen som ligger i image tabellen i databasen
+$result = mysqli_query($connect, $sql); // resultatet fra spørringen over
+$rows = mysqli_num_rows($result); // Teller antall rader som returneres fra resultatet
+
+// Hvis ikke ID'en er definert i URL eller det ikke finnes noen bilder med ID'en som er definert i URL'en
+if(empty($id) || $rows < 1) {
+    header("Location: ?side=forside"); // Send brukeren tilbake til forsiden
 }
 else {
     include('searchfield.php');
