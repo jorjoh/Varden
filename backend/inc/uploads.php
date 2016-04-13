@@ -37,6 +37,7 @@ $urlforimage = "varden/" . $uploadfile;
 
 $beskrivelse = $_POST['beskrivelse'];
 $photographer = explode(" ", $_POST['photographer']);
+$filename = basename($_FILES['file']['name']);
 
 echo("Fotograf er: " . $photographer[0] . "<br/>");
 echo("Beskrivelse er: " . $beskrivelse . "<br/>");
@@ -63,7 +64,7 @@ $insdatatoimagedesgin = array(  //Motiv
 );
 
 $insDataToImages = array(
-    'filename' => $uploadfile,
+    'filename' => $filename,
     'picturetext' => $beskrivelse,
     'thumb_w' => "120",
     'thumb_h' => "120",
