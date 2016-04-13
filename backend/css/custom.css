@@ -17,3 +17,26 @@ ul, ol {
     font-size: 14px;
     line-height: 20px;
 }
+.mdl-data-table th {
+    position: relative;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0;
+    height: 48px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, .54);
+    padding-bottom: 8px;
+    box-sizing: border-box;
+    text-align: left;
+}
+.mdl-data-table td {
+    position: relative;
+    height: 48px;
+    border-top: 1px solid rgba(0, 0, 0, .12);
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    padding: 12px 18px;
+    box-sizing: border-box;
+    text-align: left;
+}

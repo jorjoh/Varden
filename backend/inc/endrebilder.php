@@ -20,7 +20,7 @@ echo(" <tr>
         <th class=\\'mdl - data - table__cell--non - numeric\\'>Bilder(filename)</th>
         <th>Beskrivelse</th>
         <th>URL</th>
-        <th>Antall ganger vist</th>
+        <th style='text-align: right'>Antall ganger vist</th>
     </tr>");
 for ($r = 1; $r <= $antallRader; $r++) {
     $rad = mysqli_fetch_array($sqlresultat);
@@ -36,7 +36,7 @@ for ($r = 1; $r <= $antallRader; $r++) {
         <td class=\\'mdl - data - table__cell--non - numeric\\'>$filnavn</td>
         <td>$beskrivelse</td>
         <td><a href='$url'>Link til bilde</a> </td>
-        <td>$count</td>
+        <td style='text-align: right'>$count</td>
     </tr>
     </tbody>");
 
