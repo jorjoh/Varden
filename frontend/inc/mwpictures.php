@@ -1,5 +1,5 @@
 <?php
-    $sql = "SELECT id, url FROM images ORDER BY count DESC LIMIT 5;";
+    $sql = "SELECT id, url, thumb_h, thumb_w FROM images ORDER BY count DESC LIMIT 5;";
     $result = mysqli_query($connect, $sql) or die(mysqli_error($connect));
     $rows = mysqli_num_rows($result);
 
@@ -10,7 +10,9 @@
         $row = mysqli_fetch_array($result);
         $id = $row['id'];
         $url = $row['url'];
-        echo "<a href='$url'><img src='$url' style='height: 170px; width: 200px; margin-left: 5px;'></a>";
+        $height = $row['thumb_h']."px";
+        $width = $row['thumb_w']."px";
+        echo "<a href='$url'><img src='$url' style='height: $height; width: $width; margin-left: 5px;'></a>";
     }
     echo "</div>";
 ?>
