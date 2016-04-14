@@ -24,7 +24,7 @@
                     <div class="category_items">
                         <div class="grid-sizer"></div>
                         <?php
-                        $antall = 1;
+                        $antall = 40;
                         for ($i = 0; $i < $antall; $i++) {
                             $random = rand(50, 300);
                             $categoryID = rand(0, 3);

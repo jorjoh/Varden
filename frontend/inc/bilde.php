@@ -13,9 +13,13 @@ if(empty($id) || $rows < 1) {
     header("Location: ?side=forside"); // Send brukeren tilbake til forsiden
 }
 else {
+    // Øker $count / visning på bilde med 1 når bildet vises
     $count++;
+    // Oppdaterer count i databasen, for å kunne bruke den informasjonen til å vise frem mest viste bilder på forsiden
     $hitSQL = "UPDATE images SET count = $count WHERE id=$id;";
+    // Kjører spørringen til databasen og returnerer feilmelding hvis det ikke blir vellykket
     $updatehits = mysqli_query($connect, $hitSQL) or die('Kunne ikke oppdatere antall visninger på bildet');
+    // Inkluderer søkefeltet
     include('searchfield.php');
     echo "<br>
     <div class='row'>
