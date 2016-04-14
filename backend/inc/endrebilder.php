@@ -16,7 +16,7 @@ $antallRader = mysqli_num_rows($sqlresultat);
 echo ("<!-- MDL Spinner Component -->
 <div class=\"mdl-spinner mdl-js-spinner is-active\" style='left:300px'></div>
 ");
-echo("<table class=\"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp\">");
+echo("<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">");
 echo("<thead>");
 echo(" <tr>
         <th class=\\'mdl-data-table__cell--non-numeric\\'>Bilder(filename)</th>
@@ -75,7 +75,8 @@ echo("</table>");
     var dialog = document.querySelector('dialog');
     var showModalButton = document.querySelector('.show-modal');
     if (dialog.showModal) {
-        
+
+
     }
     showModalButton.addEventListener('click', function() {
         dialog.showModal();
