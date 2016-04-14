@@ -38,6 +38,7 @@ $urlforimage = "varden/" . $uploadfile;
 $beskrivelse = $_POST['beskrivelse'];
 $photographer = explode(" ", $_POST['photographer']);
 $filename = basename($_FILES['file']['name']);
+$curtime = new DateTime();
 
 echo("Fotograf er: " . $photographer[0] . "<br/>");
 echo("Beskrivelse er: " . $beskrivelse . "<br/>");
@@ -70,14 +71,15 @@ $insDataToImages = array(
     'thumb_h' => "120",
     'url' => $urlforimage
 );
+
 $insdatatometainfo = array(
     "capturedate" => $exif["DateTimeOriginal"],
     "w_original" => $exif['COMPUTED']['Width'],
 	"h_original" => $exif['COMPUTED']['Height'],
     "imagetype" => $exif['MimeType'],
 	"resolution" =>$exif['XResolution'],
-	"bit_depth" => "Null", // hmm denne veriden ser ikke ut til å være her
-	"uploaded" => "var date = new Date; getDate",
+	"bit_depth" => 0, // hmm denne veriden ser ikke ut til å være her
+	"uploaded" => $curtime->format("Y-m-d H:i:s"),
 	"exposure_time" => $exif['ExposureTime'],
     "focal_length" => $exif['FocalLength'],
 	"white_balance" => $exif['WhiteBalance'],
@@ -94,12 +96,11 @@ $insdatattophotographers = array(
 );
 print_r($insdatattophotographers);
 $insdatatophysicallocation = array(
-    "room" => "The archive",
-    "drawers" => "3",
-    "folder" => "34"
+    "room" => 0,
+    "drawers" => 3,
+    "folder" => 34
 );
 
-$curtime = new DateTime();
 $insdatalog = array(
   "uploaded_time" => $curtime->format('Y-m-d H:i:s')
 );
