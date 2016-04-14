@@ -31,9 +31,9 @@
                             $category = array("category1", "category2", "category3", "category4");
 
                             echo "
-                                        <div class='single_pictures $category[$categoryID]'>
-                                            <img class='lazy' data-original='http://placehold.it/$random.x100' width='$random' height='100'>
-                                        </div>
+                                    <div class='single_pictures $category[$categoryID]'>
+                                        <img class='lazy' data-original='http://placehold.it/$random.x100' width='$random' height='100'>
+                                    </div>
                                     ";
                         }
                         ?>
