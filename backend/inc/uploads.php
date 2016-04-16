@@ -39,10 +39,17 @@ $beskrivelse = $_POST['beskrivelse'];
 $photographer = explode(" ", $_POST['photographer']);
 $filename = basename($_FILES['file']['name']);
 $curtime = new DateTime();
+$size = exif_thumbnail($cur_image, $width, $height, $type);
 
 echo("Fotograf er: " . $photographer[0] . "<br/>");
 echo("Beskrivelse er: " . $beskrivelse . "<br/>");
 echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a><br/>");
+echo("<pre>
+        Dette er en test: <br>
+        Width: = $width <br>
+        Height = $height <br>
+    </pre>
+");
 
 
 

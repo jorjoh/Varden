@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link rel="icon" type="image/png" href="../frontend/img/VA-fav-icon-152.png">
     <style type="text/css">
         .Header, .Header-content {
@@ -2027,7 +2028,6 @@
 
 </body>
 
-<script src="js/jquery.min.js"></script>
 <script src="js/lazyload.js"></script>
 <script src="js/isotope.pkgd.min.js"></script>
 <script src="js/imagesloaded.pkgd.js"></script>
