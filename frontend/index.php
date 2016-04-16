@@ -1020,7 +1020,7 @@
             margin-top: 50px;
             padding: 15px 50px 50px;
             position: relative;
-            z-index: 3
+            z-index: 3;
         }
 
         .Footer:before {

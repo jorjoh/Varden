@@ -1,3 +1,4 @@
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBcTYUrPeY0gc7yupyDrETlmhNI2KEQ5Mo"></script>
 <script>
     $(document).ready(function() {
         $("#details").click(function() {
@@ -22,7 +23,7 @@ $id = intval($_GET['id']); // Variabel som fanger opp ID nummeret til bilde og b
 $sql = "
     SELECT 
       images.id, images.filename, images.picturetext, images.count, images.url, 
-      place.name, 
+      place.name, place.longitude, place.latitude,
       metainfo.w_original, metainfo.h_original, metainfo.imagetype, metainfo.resolution, metainfo.bit_depth, metainfo.exposure_time, metainfo.white_balance, metainfo.orientation, metainfo.iso_speed, metainfo.flash_state, metainfo.capturedate, 
       photographers.firstname, photographers.lastname
     FROM images
@@ -40,11 +41,11 @@ $rows = mysqli_num_rows($result); // Teller antall rader som returneres fra resu
 // Hvis ikke ID'en er definert i URL eller det ikke finnes noen bilder med ID'en som er definert i URL'en
 if(empty($id) || $rows < 1) {
     echo "<div class='row'>
-            <h2 style='background-color: #3c3c3c; position: relative; top: 200px; padding: 20px; color: #fff;'>
+            <p style='background: #ffffcc; position: relative; top: 200px; color: #FF0000; padding: 20px;'>
                 Kunne ikke finne ønsket bilde. Vennligst prøv igjen
                 <br>
                 Du vil bli sendt tilbake i løpet av 3 sekunder eller <a href='?side=forside'>trykk her for å gå til forsiden</a>!
-            </h2>
+            </p>
         </div>
     ";
     header("Refresh: 3; url=?side=forside");
@@ -55,7 +56,7 @@ else {
     $url = $row['url']; // Henter URL'en til bilde
     $filename = $row['filename']; // Henter bildenavnet
     $picturetext = $row['picturetext']; // Henter bildeteksten
-    $place = $row['name']; // Henter stedsnavnet bilde er tatt
+    $place = ucfirst($row['name']); // Henter stedsnavnet bilde er tatt
     $date = $row['capturedate']; // Henter datoen bilde er tatt
     $photographer = $row['firstname']." ".$row['lastname']; // Henter navnet på fotografen
     $w_original = $row["w_original"]; // Henter orginale bredden
@@ -68,6 +69,8 @@ else {
     $orientation = $row["orientation"]; // Henter retning på bilde
     $iso_speed = $row["iso_speed"]; // Henter ISO verdien
     $flash_state = $row["flash_state"]; // Henter statusen til blitsen
+    $longitude = $row['longitude']; // Henter longitude delen til GPS koordinatene for Google Maps
+    $latitude = $row['latitude']; // Henter latitude delen til GPS koordinatene for Google Maps
 
 
 // Sjekker om blitsen er utløst eller ikke og gir riktig tekst til blitsens innstillinger
@@ -90,6 +93,34 @@ else {
         default:
             $flashtext = "Picture does not have falsh capabilities";
     }
+?>
+
+<script type='text/javascript'>
+
+    var myCenter=new google.maps.LatLng((<?php echo $latitude ?>),(<?php echo $longitude ?>));
+
+    function initialize()
+    {
+        var mapProp = {
+            center:myCenter,
+            zoom:10,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+
+        var map=new google.maps.Map(document.getElementById('googleMap'),mapProp);
+
+        var marker=new google.maps.Marker({
+            position:myCenter,
+        });
+
+        marker.setMap(map);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<?php
+
     // Øker $count / visning på bilde med 1 når bildet vises
     $count++;
     // Oppdaterer count i databasen, for å kunne bruke den informasjonen til å vise frem mest viste bilder på forsiden
@@ -118,6 +149,7 @@ else {
                     <h2>Bildeinfo - $filename</h2>
                     <p style='text-align: left;'>$picturetext</p>
                     <br>
+                    <div id='googleMap' style='width:440px; height:350px; margin-bottom: 20px;'></div>
                     <p id='details' style='color: #0000FF; text-decoration: underline; cursor:pointer;'>------- Trykk her for detaljert bildeinfo -------</p>
                     <div id='exifbox' style='display: none; background-color: #ccc; padding: 10px; margin-top: 10px; text-align: left;'>
                         <strong>Exif-info</strong> <br>
