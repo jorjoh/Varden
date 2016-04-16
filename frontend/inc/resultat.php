@@ -19,7 +19,7 @@
                             $rows = mysqli_num_rows($result);
 
                             if($rows < 1) {
-                                echo "<p style='background: #f7ecb5; color: #FF0000; padding: 20px;'>Vi klarte dessverre ikke finne noen bilder på ditt søk! <br> Prøv med et annet søkeord</p>";
+                                echo "<p style='background: #ffffcc; color: #FF0000; padding: 20px;'>Vi klarte dessverre ikke finne noen bilder på ditt søk! <br> Prøv med et annet søkeord</p>";
                             }
                             else {
                                 echo '

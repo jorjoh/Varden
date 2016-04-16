@@ -39,15 +39,15 @@ $beskrivelse = $_POST['beskrivelse'];
 $photographer = explode(" ", $_POST['photographer']);
 $filename = basename($_FILES['file']['name']);
 $curtime = new DateTime();
-$size = exif_thumbnail($cur_image, $width, $height, $type);
+$size = exif_thumbnail($cur_image, $thumb_w, $thumb_h, $type);
 
 echo("Fotograf er: " . $photographer[0] . "<br/>");
 echo("Beskrivelse er: " . $beskrivelse . "<br/>");
 echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a><br/>");
 echo("<pre>
         Dette er en test: <br>
-        Width: = $width <br>
-        Height = $height <br>
+        Width: = $thumb_w <br>
+        Height = $thumb_h <br>
     </pre>
 ");
 
@@ -74,8 +74,8 @@ $insdatatoimagedesgin = array(  //Motiv
 $insDataToImages = array(
     'filename' => $filename,
     'picturetext' => $beskrivelse,
-    'thumb_w' => "120",
-    'thumb_h' => "120",
+    'thumb_w' => $thumb_w,
+    'thumb_h' => $thumb_h,
     'url' => $urlforimage
 );
 
@@ -92,7 +92,7 @@ $insdatatometainfo = array(
 	"white_balance" => $exif['WhiteBalance'],
 	"orientation" => $exif['Orientation'],
 	"iso_speed" => $exif['ISOSpeedRatings'],
-	"flash_state" => $exif['Flash'], //Akkurat det tror jeg ikke vi her
+	"flash_state" => $exif['Flash'],
 	"tags" => "illustrasjonsbilde",
 );
 print_r($insdatatometainfo);
