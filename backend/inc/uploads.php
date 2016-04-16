@@ -64,7 +64,7 @@ print_r($insdatatocamera);
 echo "<br/>   array uploads ".$insdatatocamera['cameramodel']."<br/>";*/
 
 $insdatatocategory = array(
-    'name' => "Valgt kategori", // her kan vi har noen checkbokser vel?
+    'name' => "Valgt kategori", // her kan vi har noen checkbokser vel? er ikke så lett å putte checkbokser inni her. Er nok bedre å ha dem på siden! :)
 );
 
 $insdatatoimagedesgin = array(  //Motiv
@@ -85,7 +85,7 @@ $insdatatometainfo = array(
 	"h_original" => $exif['COMPUTED']['Height'],
     "imagetype" => $exif['MimeType'],
 	"resolution" =>$exif['XResolution'],
-	"bit_depth" => 0, // hmm denne veriden ser ikke ut til å være her
+	"bit_depth" => 0, // hmm denne veriden ser ikke ut til å være her. Ser ut som den er satt til 0!
 	"uploaded" => $curtime->format("Y-m-d H:i:s"),
 	"exposure_time" => $exif['ExposureTime'],
     "focal_length" => $exif['FocalLength'],
@@ -99,7 +99,7 @@ print_r($insdatatometainfo);
 
 $insdatattophotographers = array(
     "firstname" => $photographer[0],
-    "lastname" =>$photographer[1], //Her burde vi legge tilrette for etternavn
+    "lastname" =>$photographer[1], //Her burde vi legge tilrette for etternavn, og etternavn er tilrettelagt her, men ikke i input boksene
 );
 print_r($insdatattophotographers);
 $insdatatophysicallocation = array(
