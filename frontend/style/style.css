@@ -38,6 +38,20 @@ input[type="submit"] {
     margin-top: 100px;
 }
 
+#box {
+    display: none;
+    background-color: #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+@media (max-width: 580px) {
+    #box {
+        width: 200%;
+    }
+}
+
 label {
     display: inline-block;
     cursor: pointer;

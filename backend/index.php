@@ -1,5 +1,5 @@
 <?php
-    date_default_timezone_get("Europ/Oslo");
+    date_default_timezone_get("Europa/Oslo");
     include('inc/functions/dbcon.php');
     include('inc/functions/sqlfunctions.php');
 ?>
