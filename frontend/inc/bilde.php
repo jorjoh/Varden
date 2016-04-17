@@ -135,7 +135,7 @@ else {
                her som vises uansett om du har adblock eller ikke
             </div> -->
             <br>
-            <div style='position: absolute; width: 60%; left: 20%; padding: 20px; background: #e6eef1;'>
+            <div style='position: relative; background: #e6eef1;'>
                 <div style='float: left; margin: 20px; width: 45%;'>
                     <img class='lazy' style='width: 100%;' data-original='$url'>
                     <div id='keywords' style='background-color: #ccc; padding: 10px; margin-top: 10px; text-align: left;'>

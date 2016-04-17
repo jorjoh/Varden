@@ -6,10 +6,24 @@
  * Time: 11:24
  */
 
-$xml=simplexml_load_file("postnummer.xml") or die("Error: Cannot create object");
+$xml= new DOMDocument();
+$xml->load("postnummer.xml");
 
-//print_r($xml);
-echo($xml->postcode[0]);
-//print_r($xml->location[1141]);
-//print_r($xml->coordinates);
+$x = $xml->documentElement;
+/*foreach($x->childNodes AS $item) {
+    if($item->nodeName == 'postcode') {
+        $nodeValue = explode(" ", $item->nodeValue)."<br>";
+        echo $nodeValue[$item];
+    }
+    //echo $item->nodeName . " = " . $item->nodeValue . "<br>";
+    //echo $item->city_district."<br>";
+}*/
+
+for($i = 0; $i < count($x->nodeValue); $i++) {
+    if($x->nodeName == 'postcode') {
+        $nodeValue = explode(" ", $x->nodeValue)."<br>";
+        echo $nodeValue[$i];
+    }
+}
+
 ?>

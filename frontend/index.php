@@ -1195,7 +1195,7 @@
                 </menu>
 
                 <h1 class="Header-logo">
-                    <a data-action="back" data-back="header" href="/">Online Bildearkiv</a>
+                    <a data-action="back" data-back="header" href="?side=forside">Online Bildearkiv</a>
                 </h1>
             </div>
 

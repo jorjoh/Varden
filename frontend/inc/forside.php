@@ -10,7 +10,7 @@
 ?>
 
 <br>
-
+<!--
 <div id="abonnement">
     <div id="text">
         <h2 style="text-align: left;">Digital tilgang</h2>
@@ -18,4 +18,4 @@
             <a href="#" id="orderButton">Bestill her</a>
         </p>
     </div>
-</div>
+</div> -->
