@@ -76,22 +76,22 @@ else {
 // Sjekker om blitsen er utløst eller ikke og gir riktig tekst til blitsens innstillinger
     switch ($flash_state) {
         case 9:
-            $flashtext = "On,Fired";
+            $flashtext = "På, utløst";
             break;
         case 16:
-            $flashtext = "Off, did not fire";
+            $flashtext = "Av, ikke utløst";
             break;
         case 24:
-            $flashtext = "Auto, did not fire";
+            $flashtext = "Auto, ikke utløst";
             break;
         case 25:
-            $flashtext = "Auto, fired";
+            $flashtext = "Auto, utløst";
             break;
         case 32:
-            $flashtext = "Hardware does not support flash";
+            $flashtext = "Av";
             break;
         default:
-            $flashtext = "Picture does not have falsh capabilities";
+            $flashtext = "Kamera har ikke blits muligheter";
     }
 ?>
 
@@ -141,8 +141,8 @@ else {
                     <div id='keywords' style='background-color: #ccc; padding: 10px; margin-top: 10px; text-align: left;'>
                         <strong>Nøkkelord</strong>
                         <p>Sted: $place</p>
-                        <p>Blinkskuddet ble tatt: $date</p>
-                        <p>Blinkskuddet ble tatt av: $photographer</p>
+                        <p>Bilde ble tatt: $date</p>
+                        <p>Bilde ble tatt av: $photographer</p>
                     </div>
                 </div>
                 <div style='float: left; width: 45%; margin-left: 25px; margin-top: 20px;'>
@@ -167,7 +167,7 @@ else {
                                 <td>$imagetype</td>
                             </tr>
                             <tr>
-                                <td>Oppløsning</td>
+                                <td>Oppløsning:</td>
                                 <td>$resolution</td>
                             </tr>
                             <tr>

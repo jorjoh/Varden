@@ -30,8 +30,8 @@
         </div>
         <strong class="error text-danger" data-dz-errormessage></strong>
         <br style="clear: both;">
-        <input type="text" name="photographer" id="photographer">
-        <textarea name="beskrivelse" id="beskrivelse"></textarea>
+        <input type="text" name="photographer" id="photographer" value="Varden">
+        <textarea name="beskrivelse" id="beskrivelse">Beskrivelse her</textarea>
     </div>
 </div>
 
@@ -78,7 +78,7 @@
         url: 'inc/uploads.php',
         autoProcessQueue: false,
         paramName: 'file',
-        maxFiles:10,
+        maxFiles:300,
         maxFilesize: 1024,
         previewTemplate: previewTemplate,
         previewsContainer: "#previews",
