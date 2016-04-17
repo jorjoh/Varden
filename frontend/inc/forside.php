@@ -1,7 +1,7 @@
 <h1 id="title">Velkommen til Vardens <br> digitale bildearkiv</h1>
 <p id="introTxt">
-    Du kan nå søke i rundt 25 000 bilder via vårt bildearkiv på nett. <br>
-    Dette er over halvparten av Vardens fotosamling som består av totalt 90 000 fotografier. tes test test
+    Du kan nå søke i rundt <strong>300</strong> bilder via vårt bildearkiv på nett. <br>
+    Bildearkivet vil få fler bilder etterhvert som løsningen blir ferdigstilt og er klar.
 </p>
 
 <?php
