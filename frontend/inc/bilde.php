@@ -54,7 +54,8 @@ else {
     $row = mysqli_fetch_array($result); // Henter kolonnene inn i egne array
     $count = $row['count']; // Henter antall visninger bilde har
     $url = $row['url']; // Henter URL'en til bilde
-    $filename = $row['filename']; // Henter bildenavnet
+    $filename = $row['filename']; // Henter bildenavnet til filen
+    $title = $row['title']; // Henter tittelen til bilde
     $picturetext = $row['picturetext']; // Henter bildeteksten
     $place = ucfirst($row['name']); // Henter stedsnavnet bilde er tatt
     $date = $row['capturedate']; // Henter datoen bilde er tatt
@@ -146,7 +147,7 @@ else {
                     </div>
                 </div>
                 <div style='float: left; width: 45%; margin-left: 25px; margin-top: 20px;'>
-                    <h2>Bildeinfo - $filename</h2>
+                    <h2>Bildeinfo - $title</h2>
                     <p style='text-align: left;'>$picturetext</p>
                     <br>
                     <div id='googleMap' style='width:100%; height:350px; margin-bottom: 20px;'></div>
