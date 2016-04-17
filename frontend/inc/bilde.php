@@ -149,7 +149,7 @@ else {
                     <h2>Bildeinfo - $filename</h2>
                     <p style='text-align: left;'>$picturetext</p>
                     <br>
-                    <div id='googleMap' style='width:440px; height:350px; margin-bottom: 20px;'></div>
+                    <div id='googleMap' style='width:100%; height:350px; margin-bottom: 20px;'></div>
                     <p id='details' style='color: #0000FF; text-decoration: underline; cursor:pointer;'>------- Trykk her for detaljert bildeinfo -------</p>
                     <div id='exifbox' style='display: none; background-color: #ccc; padding: 10px; margin-top: 10px; text-align: left;'>
                         <strong>Exif-info</strong> <br>
