@@ -1,6 +1,10 @@
 <?php
     @ob_start();
     include('inc/functions/dbcon.php');
+define('DEBUG', true);
+
+error_reporting(E_ALL);
+ini_set('display_errors', DEBUG ? 'off' : 'Off');
 ?>
 <!doctype html>
 <html xml:lang="no" lang="no">
