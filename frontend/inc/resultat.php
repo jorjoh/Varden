@@ -1,6 +1,6 @@
 <?php
     include('searchfield.php');
-    $searchtxt = $_POST['searchInput'];
+    $searchtxt = $_GET['sok'];
 ?>
 
 
