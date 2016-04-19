@@ -1,20 +1,20 @@
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBcTYUrPeY0gc7yupyDrETlmhNI2KEQ5Mo"></script>
 <script>
-    $(document).ready(function() {
-        $("#details").click(function() {
-            $("#box").slideToggle("slow", function() {
-                // Toggle function for å vise exif infoen
-            });
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '135395673189522',
+            xfbml      : true,
+            version    : 'v2.5'
         });
-    });
-</script>
+    };
 
-<style>
-    td:nth-of-type(even) {
-        position: relative;
-        left: 25px;
-    }
-</style>
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <?php
 
@@ -22,7 +22,7 @@ $id = intval($_GET['id']); // Variabel som fanger opp ID nummeret til bilde og b
 // SQL spørring som henter all relevant informasjonen til bilde i databasen fra respektive tabeller
 $sql = "
     SELECT 
-      images.id, images.filename, images.picturetext, images.count, images.url, 
+      images.id, images.filename, images.title, images.picturetext, images.count, images.url, 
       place.name, place.longitude, place.latitude,
       metainfo.w_original, metainfo.h_original, metainfo.imagetype, metainfo.resolution, metainfo.bit_depth, metainfo.exposure_time, metainfo.white_balance, metainfo.orientation, metainfo.iso_speed, metainfo.flash_state, metainfo.capturedate, 
       photographers.firstname, photographers.lastname
@@ -96,30 +96,6 @@ else {
     }
 ?>
 
-<script type='text/javascript'>
-
-    var myCenter=new google.maps.LatLng((<?php echo $latitude ?>),(<?php echo $longitude ?>));
-
-    function initialize()
-    {
-        var mapProp = {
-            center:myCenter,
-            zoom:10,
-            mapTypeId:google.maps.MapTypeId.ROADMAP
-        };
-
-        var map=new google.maps.Map(document.getElementById('googleMap'),mapProp);
-
-        var marker=new google.maps.Marker({
-            position:myCenter,
-        });
-
-        marker.setMap(map);
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-
 <?php
 
     // Øker $count / visning på bilde med 1 når bildet vises
@@ -136,70 +112,15 @@ else {
                her som vises uansett om du har adblock eller ikke
             </div> -->
             <br>
-            <div style='position: relative; background: #e6eef1;'>
-                <div style='float: left; margin: 20px; width: 45%;'>
-                    <img class='lazy' style='width: 100%;' data-original='$url'>
-                    <div id='keywords' style='background-color: #ccc; padding: 10px; margin-top: 10px; text-align: left;'>
-                        <strong>Nøkkelord</strong>
-                        <p>Sted: $place</p>
-                        <p>Bilde ble tatt: $date</p>
-                        <p>Bilde ble tatt av: $photographer</p>
-                    </div>
+            <div id='detail' style='background: #e6eef1; width: 80%; margin: 0 auto;'>
+                <img class='lazy' style='float: left; width: 60%;' data-original='$url'>
+                <div id='bildeinfo' style='float: left; text-align: left; margin: 20px 0 0 20px; width: 38%;'>
+                    <h2>$title</h2>
+                    <p>$picturetext</p>
+                    <p>(FOTO: $photographer)</p>
                 </div>
-                <div style='float: left; width: 45%; margin-left: 25px; margin-top: 20px;'>
-                    <h2>Bildeinfo - $title</h2>
-                    <p style='text-align: left;'>$picturetext</p>
-                    <br>
-                    <div id='googleMap' style='width:100%; height:350px; margin-bottom: 20px;'></div>
-                    <p id='details' style='color: #0000FF; text-decoration: underline; cursor:pointer;'>------- Trykk her for detaljert bildeinfo -------</p>
-                    <div id='box'>
-                        <strong>Exif-info</strong> <br>
-                        <table>
-                            <tr>
-                                <td>Bredde: </td>
-                                <td>$w_original</td>
-                            </tr>
-                            <tr>
-                                <td>Høyde: </td>
-                                <td>$h_original</td>
-                            </tr>
-                            <tr>
-                                <td>Filformat: </td>
-                                <td>$imagetype</td>
-                            </tr>
-                            <tr>
-                                <td>Oppløsning:</td>
-                                <td>$resolution</td>
-                            </tr>
-                            <tr>
-                                <td>Bit: </td>
-                                <td>$bit_depth</td>
-                            </tr>
-                            <tr>
-                                <td>Eksponeringstid: </td>
-                                <td>$exposure_time</td>
-                            </tr>
-                            <tr>
-                                <td>Hvitbalanse: </td>
-                                <td>$white_balance</td>
-                            </tr>
-                            <tr>
-                                <td>Retning: </td>
-                                <td>$orientation</td>
-                            </tr>
-                            <tr>
-                                <td>ISO verdi: </td>
-                                <td>$iso_speed</td>
-                            </tr>
-                            <tr>
-                                <td>Blits: </td>
-                                <td>$flashtext</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+                <br style='clear: both;'>
             </div>
-            <br style='clear: both;'>
         </div>
     ";
 }

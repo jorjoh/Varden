@@ -1,10 +1,12 @@
 <?php
     @ob_start();
     include('inc/functions/dbcon.php');
-define('DEBUG', true);
+    define('DEBUG', true);
 
-error_reporting(E_ALL);
-ini_set('display_errors', DEBUG ? 'off' : 'Off');
+    error_reporting(E_ALL);
+    ini_set('display_errors', DEBUG ? 'off' : 'Off');
+    ini_set('default_charset','UTF-8');
+    header('Content-type: text/html; charset=utf-8');
 ?>
 <!doctype html>
 <html xml:lang="no" lang="no">
@@ -12,8 +14,8 @@ ini_set('display_errors', DEBUG ? 'off' : 'Off');
     <title>Agderposten &mdash; Agderposten</title>
 
     <meta name="robots" content="noarchive">
-
     <meta charset="UTF-8">
+
     <meta name="viewport" content="initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -1119,14 +1121,14 @@ ini_set('display_errors', DEBUG ? 'off' : 'Off');
     <meta property="og:image" content="{{=image_url}}">
     <meta property="og:url" content="{{=url}}">
 
-    <meta name="twitter:title" content="{{=title}}">
-    <meta name="twitter:description" content="{{=description}}">
+    <meta name="twitter:title" content="Bildearkiv - Varden">
+    <meta name="twitter:description" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image:src" content="{{=image_url}}">
     <meta name="twitter:image:width" content="{{=image_width}}">
     <meta name="twitter:image:height" content="{{=image_height}}">
-    <meta name="twitter:site" content="@{{=environment}}">
-    <meta name="twitter:domain" content="http://www.{{=environment}}.no">
+    <meta name="twitter:site" content="@varden">
+    <meta name="twitter:domain" content="http://www.varden.no">
 
     {{=icons}}
 
@@ -1182,7 +1184,7 @@ ini_set('display_errors', DEBUG ? 'off' : 'Off');
             keyValues += ';kvagegroup=' + ageGroup;
         }
 
-        document.write("<scr" + "ipt charset=\"ISO-8859-1\" type=\"text/javascript\" src=\"http://adserver.adtech.de/multiad/3.0/1361/0/0/615/mode=multiad;cookie=info;grp=1424;plcids=4200618(size=980x150),4902824(size=980x150),4200614(size=180x500),4200598(size=180x500);key=bildeserier" + keyValues + "\"> </scr" + "ipt>");
+        document.write("<scr" + "ipt charset=\"UTF-8\" type=\"text/javascript\" src=\"http://adserver.adtech.de/multiad/3.0/1361/0/0/615/mode=multiad;cookie=info;grp=1424;plcids=4200618(size=980x150),4902824(size=980x150),4200614(size=180x500),4200598(size=180x500);key=bildeserier" + keyValues + "\"> </scr" + "ipt>");
         //]]>
     </script>
 </head>
@@ -1225,20 +1227,20 @@ ini_set('display_errors', DEBUG ? 'off' : 'Off');
                                 scrolling=no frameborder=0 style="border:none; overflow:hidden;"
                                 allowtransparency=true></iframe>
                         <iframe class=Share-twitter width=55 height=20
-                                src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer={{url}}&related={{=environment}}&size=m&text={{text}}&url={{url}}&via={{=environment}}"
-                                data-src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer={{url}}&related={{=environment}}&size=m&text={{text}}&url={{url}}&via={{=environment}}"
+                                src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer={{url}}&related=varden&size=m&text={{text}}&url={{url}}&via=varden"
+                                data-src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer={{url}}&related=varden&size=m&text={{text}}&url={{url}}&via=varden"
                                 scrolling=no frameborder=0 style="border:none; overflow:hidden;"
                                 allowtransparency=true></iframe>
                     </div>
                 </li>
 
                 <li class="Header-actions-item if--loggedOut">
-                    <a class="Header-actions-link" href="http://www.{{=environment}}.no/membership/login"
+                    <a class="Header-actions-link" href="http://www.varden.no/membership/login"
                        data-action="login" data-login="header">Logg inn</a>
                 </li>
 
                 <li class="Header-actions-item if--loggedIn">
-                    <a class="Header-actions-link content--screenName" href="https://minside.{{environment}}.no"
+                    <a class="Header-actions-link content--screenName" href="https://minside.varden.no"
                        data-action="login" data-login="header"></a>
                 </li>
             </ul>
@@ -1252,19 +1254,19 @@ ini_set('display_errors', DEBUG ? 'off' : 'Off');
 
         <ul class="Menu-list">
             <li class="Menu-list-item--updated if--loggedOut"><a href="/kjop-tilgang">Kjøp tilgang</a></li>
-            <li class="Menu-list-item if--loggedOut"><a href="http://www.{{=environment}}.no/membership/login">Logg
+            <li class="Menu-list-item if--loggedOut"><a href="http://www.varden.no/membership/login">Logg
                 inn</a></li>
             <li class="Menu-list-item--user if--loggedIn"><a class="content--screenName"
-                                                             href="https://minside.{{=environment}}.no">Min Side</a>
+                                                             href="https://minside.varden.no">Min Side</a>
             </li>
-            <li class="Menu-list-item"><a href="http://sideblikk.{{=environment}}.no/">Sideblikk</a></li>
+            <li class="Menu-list-item"><a href="http://sideblikk.varden.no/">Sideblikk</a></li>
         </ul>
 
         <h2 class="Menu-heading">Marked</h2>
 
         <ul class="Menu-list">
             <li class="Menu-list-item"><a href="/kundesenter">Kundesenter</a></li>
-            <li class="Menu-list-item"><a href="http://eavis.{{=environment}}.no/">eAvis</a></li>
+            <li class="Menu-list-item"><a href="http://eavis.varden.no/">eAvis</a></li>
             <li class="Menu-list-item"><a href="/kundesenter">Kontakt oss</a></li>
         </ul>
 
@@ -1286,8 +1288,8 @@ ini_set('display_errors', DEBUG ? 'off' : 'Off');
     <footer class="Footer">
         <ul class="Footer-links">
             <li class="Footer-links-item"><a href="/kundesenter">Kundesenter</a></li>
-            <li class="Footer-links-item"><a href="http://eavis.{{=environment}}.no">eAvis</a></li>
-            <li class="Footer-links-item"><a href="http://sideblikk.{{=environment}}.no/">Min Side</a></li>
+            <li class="Footer-links-item"><a href="http://eavis.varden.no">eAvis</a></li>
+            <li class="Footer-links-item"><a href="http://sideblikk.varden.no/">Min Side</a></li>
             <li class="Footer-links-item"><a href="/kundesenter">Annonser</a></li>
             <li class="Footer-links-item"><a href="http://www.pfu.no/simple.php">PFU</a></li>
             <li class="Footer-links-item"><a

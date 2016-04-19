@@ -1,6 +1,7 @@
-<form method="post" action="?side=resultat" name="searchfield" id="searchfield">
-    <input type="text" name="searchInput" id="searchInput" autofocus="autofocus" placeholder="Søk her..." required/>
-    <input type="submit" name="search" id="search" src="img/searchbutton.svg" value=" "/>
+<form method="get" action="?side=resultat" name="searchfield" id="searchfield">
+    <input type="hidden" name="side" value="resultat">
+    <input type="text" name="sok" id="sok" autofocus="autofocus" placeholder="Søk her..." required/>
+    <input type="submit" id="submit" src="img/searchbutton.svg" value=" "/>
     <br>
     <br>
     <input type="checkbox" name="news" id="news">

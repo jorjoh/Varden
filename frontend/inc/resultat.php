@@ -1,6 +1,6 @@
 <?php
     include('searchfield.php');
-    $searchtxt = $_POST['searchInput'];
+    $searchtxt = $_GET['sok'];
 ?>
 
 
@@ -12,7 +12,7 @@
                 <?php
 
                 if(!empty($searchtxt)) {
-                    $sql = "SELECT id, url, thumb_w FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%';";
+                    $sql = "SELECT id, thumb_url, thumb_w FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%';";
                     $result = mysqli_query($connect, $sql) or die("Kunne ikke sende spørring til DB ". mysqli_error($connect));
                     $rows = mysqli_num_rows($result);
 
@@ -41,7 +41,7 @@
                         for ($i = 0; $i < $rows; $i++) {
                             $row = mysqli_fetch_array($result);
                             $id = $row['id'];
-                            $url = $row['url'];
+                            $url = $row['thumb_url'];
                             $width = $row['thumb_w'];
                             $categoryID = rand(0, 3);
                             $category = array("nyheter", "kultur", "sport", "steder");
