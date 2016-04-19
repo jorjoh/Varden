@@ -1,8 +1,5 @@
 <meta charset="UTF-8">
 <?php
-ini_set('max_execution_time', 600); //300 seconds = 5 minutes
-include('images.php');
-
 $host = "localhost";
 $user = "root";
 $password = "0DfTAZ";
@@ -10,8 +7,12 @@ $db = "varden";
 
 $connect = mysqli_connect($host, $user, $password, $db) or die('Kunne ikke koble til databasen');
 
+mysqli_query($connect, "SET NAMES 'utf8'");
+ini_set('max_execution_time', 600); //300 seconds = 5 minutes
+include('images.php');
+
 foreach($images as $item) {
-    $url = "../../frontend/uploads/".$item['file'].".jpg";
+    $url = "../frontend/uploads/".$item['file'].".jpg";
     $newdate = date('Y-m-d H:i:s', $item['datenew']);
     $photograph = $item['photograph'];
 

@@ -1,10 +1,12 @@
 <?php
     @ob_start();
     include('inc/functions/dbcon.php');
-define('DEBUG', true);
+    define('DEBUG', true);
 
-error_reporting(E_ALL);
-ini_set('display_errors', DEBUG ? 'off' : 'Off');
+    error_reporting(E_ALL);
+    ini_set('display_errors', DEBUG ? 'off' : 'Off');
+    ini_set('default_charset','UTF-8');
+    header('Content-type: text/html; charset=utf-8');
 ?>
 <!doctype html>
 <html xml:lang="no" lang="no">
@@ -12,8 +14,8 @@ ini_set('display_errors', DEBUG ? 'off' : 'Off');
     <title>Agderposten &mdash; Agderposten</title>
 
     <meta name="robots" content="noarchive">
-
     <meta charset="UTF-8">
+
     <meta name="viewport" content="initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -1182,7 +1184,7 @@ ini_set('display_errors', DEBUG ? 'off' : 'Off');
             keyValues += ';kvagegroup=' + ageGroup;
         }
 
-        document.write("<scr" + "ipt charset=\"ISO-8859-1\" type=\"text/javascript\" src=\"http://adserver.adtech.de/multiad/3.0/1361/0/0/615/mode=multiad;cookie=info;grp=1424;plcids=4200618(size=980x150),4902824(size=980x150),4200614(size=180x500),4200598(size=180x500);key=bildeserier" + keyValues + "\"> </scr" + "ipt>");
+        document.write("<scr" + "ipt charset=\"UTF-8\" type=\"text/javascript\" src=\"http://adserver.adtech.de/multiad/3.0/1361/0/0/615/mode=multiad;cookie=info;grp=1424;plcids=4200618(size=980x150),4902824(size=980x150),4200614(size=180x500),4200598(size=180x500);key=bildeserier" + keyValues + "\"> </scr" + "ipt>");
         //]]>
     </script>
 </head>
