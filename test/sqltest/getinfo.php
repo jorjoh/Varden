@@ -8,5 +8,5 @@
 include ("varden_org.php");
 
 foreach($images as $value) {
-    print_r($images[0]["id"]."<br/>");
+    print_r($images["file"]["id"]."<br/>");
 }
