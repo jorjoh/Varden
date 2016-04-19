@@ -1121,8 +1121,8 @@
     <meta property="og:image" content="{{=image_url}}">
     <meta property="og:url" content="{{=url}}">
 
-    <meta name="twitter:title" content="{{=title}}">
-    <meta name="twitter:description" content="{{=description}}">
+    <meta name="twitter:title" content="Bildearkiv - Varden">
+    <meta name="twitter:description" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image:src" content="{{=image_url}}">
     <meta name="twitter:image:width" content="{{=image_width}}">

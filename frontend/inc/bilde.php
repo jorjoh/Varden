@@ -1,20 +1,20 @@
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBcTYUrPeY0gc7yupyDrETlmhNI2KEQ5Mo"></script>
 <script>
-    $(document).ready(function() {
-        FB.ui({
-            method: 'feed',
-            link: 'https://developers.facebook.com/docs/',
-            caption: 'An example caption',
-        }, function(response){});
-    });
-</script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '135395673189522',
+            xfbml      : true,
+            version    : 'v2.5'
+        });
+    };
 
-<style>
-    td:nth-of-type(even) {
-        position: relative;
-        left: 25px;
-    }
-</style>
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <?php
 

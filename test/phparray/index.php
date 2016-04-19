@@ -9,6 +9,7 @@ $connect = mysqli_connect($host, $user, $password, $db) or die('Kunne ikke koble
 
 mysqli_query($connect, "SET NAMES 'utf8'");
 ini_set('max_execution_time', 600); //300 seconds = 5 minutes
+ini_set('memory_limit', '-1');
 include('images.php');
 
 foreach($images as $item) {
