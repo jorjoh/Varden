@@ -13,6 +13,7 @@ include('images.php');
 
 foreach($images as $item) {
     $url = "../frontend/uploads/".$item['file'].".jpg";
+    $thumb_url = "../frontend/uploads/thumbnails/".$item['file'].".jpg";
     $newdate = date('Y-m-d H:i:s', $item['datenew']);
     $photograph = $item['photograph'];
 
@@ -52,7 +53,8 @@ foreach($images as $item) {
         'picturetext' => $item['info'],
         'thumb_w' => $item['w_thumb'],
         'thumb_h' => $item['h_thumb'],
-        'url' => $url
+        'url' => $url,
+        'thumb_url' => $thumb_url,
     );
 
     $insdatatometainfo = array(

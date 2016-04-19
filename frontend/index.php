@@ -1127,8 +1127,8 @@
     <meta name="twitter:image:src" content="{{=image_url}}">
     <meta name="twitter:image:width" content="{{=image_width}}">
     <meta name="twitter:image:height" content="{{=image_height}}">
-    <meta name="twitter:site" content="@{{=environment}}">
-    <meta name="twitter:domain" content="http://www.{{=environment}}.no">
+    <meta name="twitter:site" content="@varden">
+    <meta name="twitter:domain" content="http://www.varden.no">
 
     {{=icons}}
 
@@ -1227,20 +1227,20 @@
                                 scrolling=no frameborder=0 style="border:none; overflow:hidden;"
                                 allowtransparency=true></iframe>
                         <iframe class=Share-twitter width=55 height=20
-                                src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer={{url}}&related={{=environment}}&size=m&text={{text}}&url={{url}}&via={{=environment}}"
-                                data-src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer={{url}}&related={{=environment}}&size=m&text={{text}}&url={{url}}&via={{=environment}}"
+                                src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer={{url}}&related=varden&size=m&text={{text}}&url={{url}}&via=varden"
+                                data-src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer={{url}}&related=varden&size=m&text={{text}}&url={{url}}&via=varden"
                                 scrolling=no frameborder=0 style="border:none; overflow:hidden;"
                                 allowtransparency=true></iframe>
                     </div>
                 </li>
 
                 <li class="Header-actions-item if--loggedOut">
-                    <a class="Header-actions-link" href="http://www.{{=environment}}.no/membership/login"
+                    <a class="Header-actions-link" href="http://www.varden.no/membership/login"
                        data-action="login" data-login="header">Logg inn</a>
                 </li>
 
                 <li class="Header-actions-item if--loggedIn">
-                    <a class="Header-actions-link content--screenName" href="https://minside.{{environment}}.no"
+                    <a class="Header-actions-link content--screenName" href="https://minside.varden.no"
                        data-action="login" data-login="header"></a>
                 </li>
             </ul>
@@ -1254,19 +1254,19 @@
 
         <ul class="Menu-list">
             <li class="Menu-list-item--updated if--loggedOut"><a href="/kjop-tilgang">Kjøp tilgang</a></li>
-            <li class="Menu-list-item if--loggedOut"><a href="http://www.{{=environment}}.no/membership/login">Logg
+            <li class="Menu-list-item if--loggedOut"><a href="http://www.varden.no/membership/login">Logg
                 inn</a></li>
             <li class="Menu-list-item--user if--loggedIn"><a class="content--screenName"
-                                                             href="https://minside.{{=environment}}.no">Min Side</a>
+                                                             href="https://minside.varden.no">Min Side</a>
             </li>
-            <li class="Menu-list-item"><a href="http://sideblikk.{{=environment}}.no/">Sideblikk</a></li>
+            <li class="Menu-list-item"><a href="http://sideblikk.varden.no/">Sideblikk</a></li>
         </ul>
 
         <h2 class="Menu-heading">Marked</h2>
 
         <ul class="Menu-list">
             <li class="Menu-list-item"><a href="/kundesenter">Kundesenter</a></li>
-            <li class="Menu-list-item"><a href="http://eavis.{{=environment}}.no/">eAvis</a></li>
+            <li class="Menu-list-item"><a href="http://eavis.varden.no/">eAvis</a></li>
             <li class="Menu-list-item"><a href="/kundesenter">Kontakt oss</a></li>
         </ul>
 
@@ -1288,8 +1288,8 @@
     <footer class="Footer">
         <ul class="Footer-links">
             <li class="Footer-links-item"><a href="/kundesenter">Kundesenter</a></li>
-            <li class="Footer-links-item"><a href="http://eavis.{{=environment}}.no">eAvis</a></li>
-            <li class="Footer-links-item"><a href="http://sideblikk.{{=environment}}.no/">Min Side</a></li>
+            <li class="Footer-links-item"><a href="http://eavis.varden.no">eAvis</a></li>
+            <li class="Footer-links-item"><a href="http://sideblikk.varden.no/">Min Side</a></li>
             <li class="Footer-links-item"><a href="/kundesenter">Annonser</a></li>
             <li class="Footer-links-item"><a href="http://www.pfu.no/simple.php">PFU</a></li>
             <li class="Footer-links-item"><a
