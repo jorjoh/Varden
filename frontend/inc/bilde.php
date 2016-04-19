@@ -22,7 +22,7 @@ $id = intval($_GET['id']); // Variabel som fanger opp ID nummeret til bilde og b
 // SQL spørring som henter all relevant informasjonen til bilde i databasen fra respektive tabeller
 $sql = "
     SELECT 
-      images.id, images.filename, images.picturetext, images.count, images.url, 
+      images.id, images.filename, images.title, images.picturetext, images.count, images.url, 
       place.name, place.longitude, place.latitude,
       metainfo.w_original, metainfo.h_original, metainfo.imagetype, metainfo.resolution, metainfo.bit_depth, metainfo.exposure_time, metainfo.white_balance, metainfo.orientation, metainfo.iso_speed, metainfo.flash_state, metainfo.capturedate, 
       photographers.firstname, photographers.lastname
