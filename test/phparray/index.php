@@ -8,7 +8,7 @@ $db = "varden";
 $connect = mysqli_connect($host, $user, $password, $db) or die('Kunne ikke koble til databasen');
 
 mysqli_query($connect, "SET NAMES 'utf8'");
-ini_set('max_execution_time', 600); //300 seconds = 5 minutes
+ini_set('max_execution_time', 600); //600 seconds = 10 minutes
 ini_set('memory_limit', '-1');
 include('images.php');
 
