@@ -1,6 +1,16 @@
 <?php
     include('searchfield.php');
     $searchtxt = $_GET['sok'];
+    $page = $_GET['page'];
+    //En sjekk for at sidenr ikke er tomt
+    if(empty($page) || $page = 0) {
+        $page = 1;
+    }
+    else {
+        $page = $_GET['page'];
+    }
+    $per_page = 50; // Antall bilder per side
+    $start_from = ($page - 1) * $per_page; // Regner ut hvor den skal starte limiten i LIMIT delen i SQL setningen
 ?>
 
 
@@ -12,19 +22,41 @@
                 <?php
 
                 if(!empty($searchtxt)) {
-                    $sql = "SELECT id, thumb_url, thumb_w FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%';";
+                    $sql = "SELECT id, thumb_url, thumb_w FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT $start_from, $per_page;";
+                    $query = "SELECT count(id) AS nbr FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%';";
                     $result = mysqli_query($connect, $sql) or die("Kunne ikke sende spørring til DB ". mysqli_error($connect));
+                    $nbrresult = mysqli_query($connect, $query) or die ('Kunne ikke telle antall treff'. mysqli_error($connect));
                     $rows = mysqli_num_rows($result);
+                    $totalrows = mysqli_fetch_array($nbrresult);
+                    $nbrofrows = $totalrows['nbr'];
+                    $total_pages = ceil($nbrofrows / $per_page); // Runder av til nærmeste hele sidetallet
 
                     if($rows < 1) {
                         echo "<p style='background: #ffffcc; color: #FF0000; padding: 20px;'>Vi klarte dessverre ikke finne noen bilder på ditt søk! <br> Prøv med et annet søkeord</p>";
                     }
                     else {
+                        if($page == $total_pages) {
+                            echo '
+                                Ditt søk på "'.$searchtxt.'" ga '. $nbrofrows.' treff <br>
+                                Viser resultat: '.($start_from + 1). " - ".$nbrofrows.'  av totalt '. $nbrofrows .' bilder<br>
+                            ';
+                        }
+                        else if($page == 1) {
+                            echo '
+                                Ditt søk på "'.$searchtxt.'" ga '. $nbrofrows.' treff <br>
+                                Viser resultat: '.($start_from + 1) . " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder<br>
+                            ';
+                        }
+                        else {
+                            echo '
+                            Ditt søk på "'.$searchtxt.'" ga '. $nbrofrows.' treff <br>
+                            Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder<br>
+                            ';
+                        }
                         echo '
                         <!-- <div style="width: 950px; height: 150px; text-align: center; margin: 0 auto; background: #CCC;"><br><br>Annonse
                             her som vises uansett om du har adblock eller ikke
                         </div> -->
-                        Antall treff: '.$rows.'<br>
                         <br>
                         <div class="category_filter text-uppercase">
                             <ul>
@@ -35,16 +67,31 @@
                                 <li data-filter=".steder">Steder</li>
                             </ul>
                         </div>
+                        ';
+                        if($page == 1 && $total_pages > 1) {
+                            echo '<a href="?side=resultat&sok='.$searchtxt.'&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>';
+                        }
+                        else if($page == $total_pages && $total_pages > 1) {
+                            echo '<a href="?side=resultat&sok='.$searchtxt.'&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>';
+                        }
+                        else {
+                            if($total_pages > 1) {
+                                echo '<a href="?side=resultat&sok='.$searchtxt.'&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>
+                                <a href="?side=resultat&sok='.$searchtxt.'&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>
+                                ';
+                            }
+                        }
+
+                        echo '
                         <div class="category_items">
                             <div class="grid-sizer"></div>
                         ';
-                        for ($i = 0; $i < $rows; $i++) {
-                            $row = mysqli_fetch_array($result);
+                        $category = array("nyheter", "kultur", "sport", "steder");
+                        while($row = mysqli_fetch_array($result)) {
                             $id = $row['id'];
                             $url = $row['thumb_url'];
                             $width = $row['thumb_w'];
                             $categoryID = rand(0, 3);
-                            $category = array("nyheter", "kultur", "sport", "steder");
 
                             echo "
                             <a href='?side=bilde&id=$id'>
@@ -54,10 +101,12 @@
                             </a>
                             ";
                         }
+                        echo "
+                            </div>
+                        ";
                     }
                 }
                 ?>
-            </div>
         </div>
     </section>
 </div>
