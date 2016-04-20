@@ -1,20 +1,11 @@
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '135395673189522',
-            xfbml      : true,
-            version    : 'v2.5'
-        });
-    };
-
-    (function(d, s, id){
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
+        if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
         fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 <?php
 
@@ -73,6 +64,14 @@ else {
     $longitude = $row['longitude']; // Henter longitude delen til GPS koordinatene for Google Maps
     $latitude = $row['latitude']; // Henter latitude delen til GPS koordinatene for Google Maps
 
+    echo'
+        <meta property="og:title" content="'.$title.'">
+        <meta property="og:type" content="picture.photo">
+        <meta property="og:site_name" content="Varden - Bildegalleri">
+        <meta property="og:image" content="'.$url.'">
+        <meta property="og:url" content="http://134.213.218.27/">
+        <meta property="og:by" content="VARDEN">
+    ';
 
 // Sjekker om blitsen er utløst eller ikke og gir riktig tekst til blitsens innstillinger
     switch ($flash_state) {
@@ -118,6 +117,10 @@ else {
                     <h2>$title</h2>
                     <p>$picturetext</p>
                     <p>(FOTO: $photographer)</p>
+                    <br>
+                    <div class=\"fb-share-button\" data-href=\"http://134.213.218.27/frontend/?side=bilde&id=$id\" data-layout=\"button\" data-mobile-iframe=\"true\"></div>
+                    <a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://134.213.218.27/frontend/?side=bilde&id=$id\" data-text=\"Jeg fant dette bilde i arkivet til Varden. Sjekk ut arkivet du også!\" data-size=\"large\">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                 </div>
                 <br style='clear: both;'>
             </div>
