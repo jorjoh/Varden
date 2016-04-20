@@ -1,11 +1,16 @@
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+    !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+        if(!d.getElementById(id))
+        {
+            js=d.createElement(s);
+            js.id=id;
+            js.src=p+'://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js,fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
 
 <?php
 
@@ -64,14 +69,6 @@ else {
     $longitude = $row['longitude']; // Henter longitude delen til GPS koordinatene for Google Maps
     $latitude = $row['latitude']; // Henter latitude delen til GPS koordinatene for Google Maps
 
-    echo'
-        <meta property="og:title" content="'.$title.'">
-        <meta property="og:type" content="picture.photo">
-        <meta property="og:site_name" content="Varden - Bildegalleri">
-        <meta property="og:image" content="'.$url.'">
-        <meta property="og:url" content="http://134.213.218.27/">
-        <meta property="og:by" content="VARDEN">
-    ';
 
 // Sjekker om blitsen er utløst eller ikke og gir riktig tekst til blitsens innstillinger
     switch ($flash_state) {
@@ -117,12 +114,27 @@ else {
                     <h2>$title</h2>
                     <p>$picturetext</p>
                     <p>(FOTO: $photographer)</p>
-                    <br>
-                    <div class=\"fb-share-button\" data-href=\"http://134.213.218.27/frontend/?side=bilde&id=$id\" data-layout=\"button\" data-mobile-iframe=\"true\"></div>
-                    <a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://134.213.218.27/frontend/?side=bilde&id=$id\" data-text=\"Jeg fant dette bilde i arkivet til Varden. Sjekk ut arkivet du også!\" data-size=\"large\">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                </div>
+                    <br><br>
+                    <p>
+                       <a title=\"send to Facebook\" 
+                          href=\"http://www.facebook.com/sharer.php?s=100&p[title]=tittelenkommerher&p[summary]=etfintbildesomduikkefårtilgangtil&p[url]=erikroed.no&p[images][0]=YOUR_IMAGE_TO_SHARE_OBJECT\"
+                          target=\"_blank\">
+                          <span style='background: #00598c; padding: 20px; color: #FFF; border-radius: 3%;'>
+                            <img width=\"14\" height=\"14\" src=\"'icons/fb.gif\" alt=\"Facebook\" /> Del med venner på Facebook! 
+                          </span>
+                        </a>
+                    </p>
+                    <br><br>
+                    <p>
+                        <a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-dnt=\"true\">Del på Twitter</a>
+                    </p>
+                    </div>
                 <br style='clear: both;'>
+            </div>
+            <div id='slider' style='position: relative; top: 50px;'>
+                <p>Her skal det komme slider for bilder</p>
+                <br><br>
+                <a href='?side=resultat&sok=$searchtxt'><button id='orderButton'>Tilbake til søkeresultat</button></a>
             </div>
         </div>
     ";
