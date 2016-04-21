@@ -1,5 +1,6 @@
 <?php
     @ob_start();
+    session_start();
     include('inc/functions/dbcon.php');
     define('DEBUG', true);
 
@@ -668,7 +669,7 @@
                 margin-top: 10px;
                 width: 100%;
             }
-            input#searchInput {
+            input#sok {
                 width: 70%;
             }
         }
@@ -1105,6 +1106,9 @@
     <link rel="canonical" href="{{=url}}"/>
     <link rel="shortlink" href="{{=url}}"/>
     <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <link rel="stylesheet" href="style/horizontal.css">
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/ospb.css">
 
     <meta name="description" content="{{=description}}"/>
     <meta name="twitter:description" content="{{=description}}">
@@ -2037,7 +2041,10 @@
 <script src="js/lazyload.js"></script>
 <script src="js/isotope.pkgd.min.js"></script>
 <script src="js/imagesloaded.pkgd.js"></script>
-<script src="js/sly.js"></script>
+<script src="js/sly.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/horizontal.js"></script>
+<script src="js/vendor.js"></script>
+
 
 </html>

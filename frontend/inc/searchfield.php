@@ -13,3 +13,8 @@
     <input type="checkbox" name="places" id="places">
     <label for="places">Steder</label><br>
 </form>
+
+<?php
+    $_SESSION['searchtxt'] = $_GET['sok'];
+    $_SESSION['page'] = $_GET['page'];
+?>

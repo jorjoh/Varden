@@ -11,9 +11,24 @@
         }
     }(document, 'script', 'twitter-wjs');
 </script>
+<script src="../js/modernizr.js"></script>
+
+<style>
+    .frame { width: 100%; height: 160px; padding: 0; }
+    .frame .slidee { margin: 0; padding: 0; height: 100%; list-style: none; }
+    .frame .slidee li { float: left; margin: 0 5px 0 0; padding: 0; width: 120px; height: 100%; }
+
+    .scrollbar { width: 100%; height: 10px; }
+    .scrollbar .handle {
+        width: 100px; /* overriden if dynamicHandle: 1 */
+        height: 100%;
+        background: #222;
+    }
+</style>
 
 <?php
-
+$searchtxt = $_SESSION['searchtxt'];
+$page = $_SESSION['page'];
 $id = intval($_GET['id']); // Variabel som fanger opp ID nummeret til bilde og brukes i SQL spørringen - Må være et tall
 // SQL spørring som henter all relevant informasjonen til bilde i databasen fra respektive tabeller
 $sql = "
@@ -103,19 +118,19 @@ else {
     // Inkluderer søkefeltet
     include('searchfield.php');
     echo "<br>
-        <div style='width: 100%; min-height: 800px; padding: 20px; background: #FFF;'>
+        <div id='subpage-bg'>
             <!-- <div style='width: 950px; height: 150px; text-align: center; margin: 0 auto; background: #CCC;'><br><br>Annonse
                her som vises uansett om du har adblock eller ikke
             </div> -->
             <br>
-            <div id='detail' style='background: #e6eef1; width: 80%; margin: 0 auto;'>
-                <img class='lazy' style='float: left; width: 60%;' data-original='$url'>
-                <div id='bildeinfo' style='float: left; text-align: left; margin: 20px 0 0 20px; width: 38%;'>
+            <div id='details'>
+                <img class='lazy' id='picture' data-original='$url'>
+                <div id='bildeinfo'>
                     <h2>$title</h2>
                     <p>$picturetext</p>
                     <p>(FOTO: $photographer)</p>
                     <br><br>
-                    <p>
+<!--                    <p>
                        <a title=\"send to Facebook\" 
                           href=\"http://www.facebook.com/sharer.php?s=100&p[title]=tittelenkommerher&p[summary]=etfintbildesomduikkefårtilgangtil&p[url]=erikroed.no&p[images][0]=YOUR_IMAGE_TO_SHARE_OBJECT\"
                           target=\"_blank\">
@@ -127,15 +142,45 @@ else {
                     <br><br>
                     <p>
                         <a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-dnt=\"true\">Del på Twitter</a>
-                    </p>
+                    </p>-->
                     </div>
                 <br style='clear: both;'>
             </div>
-            <div id='slider' style='position: relative; top: 50px;'>
-                <p>Her skal det komme slider for bilder</p>
-                <br><br>
-                <a href='?side=resultat&sok=$searchtxt'><button id='orderButton'>Tilbake til søkeresultat</button></a>
+            <br>
+            <div class=\"wrap\">
+                <h2 style='color: #929292;'>Andre bilder fra samme resultat: </h2>
+                <p>Ikke klikkbar for øyeblikket</p>
+                <div class=\"frame\" id=\"centered\">
+                    <ul class=\"clearfix\">
+            
+            ";
+
+            $sql = "SELECT id, thumb_url FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT 0, 15;";
+            $result = mysqli_query($connect, $sql);
+
+            while($nextrow = mysqli_fetch_array($result)) {
+                $nextid = $nextrow['id'];
+                $nexturl = $nextrow['thumb_url'];
+                echo "<img src='$nexturl'>";
+            }
+
+            echo "
+                   </ul>
+                </div>
+                <br>
+                <div class=\"scrollbar\">
+                    <div class=\"handle\">
+                        <div class=\"mousearea\"></div>
+                    </div>
+                </div>
+            
+                <div class=\"controls center\">
+                    <button id='paginationbtn' class=\"btn prev\"> &lt; </button>
+                    <button id='paginationbtn' class=\"btn next\"> &gt; </button>
+                </div>
             </div>
+            <br><br>
+            <a href='?side=resultat&sok=$searchtxt&page=$page'><button id='orderButton'>Tilbake til søkeresultat</button></a>
         </div>
     ";
 }

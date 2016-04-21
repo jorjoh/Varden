@@ -15,7 +15,7 @@
 
 
 <br>
-<div style="width: 100%; min-height: 800px; background: #FFF;">
+<div id="subpage-bg">
     <section id="pictures" class="pictures_area">
         <div class="container">
             <br>
