@@ -20,14 +20,14 @@ echo "<h1> Oversikt over bilder som er tilgjengelig </h1>";
 
 //URL for bilder
 include("functions/dbcon.php");    // kobler til databasen
-$sqlsetning = "SELECT * FROM images LIMIT $start_from, $per_page;";    // velger alt fra tabellen images
+$sqlsetning = "SELECT thumb_url, thumb_w, filename, picturetext, url, count FROM images LIMIT $start_from, $per_page;";    // velger alt fra tabellen images
 $query = "SELECT count(id) AS nbr FROM images;";
 $sqlresultat = mysqli_query($connect, $sqlsetning) or die ("Ikke mulig å hente data");
 $nbrresult = mysqli_query($connect, $query) or die ('Kunne ikke telle antall treff'. mysqli_error($connect));
 $antallRader = mysqli_num_rows($sqlresultat);
 echo ("<!-- MDL Spinner Component -->
 
-<div class=\"mdl-spinner mdl-js-spinner is-active\" style='left:300px'></div>
+
 ");
 echo("<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">");
 echo("<thead>");
@@ -41,7 +41,7 @@ for ($r = 1; $r <= $antallRader; $r++) {
     $rad = mysqli_fetch_array($sqlresultat);
     $filnavn = $rad["filename"];
     $beskrivelse = $rad["picturetext"];
-    $url = $rad["url"];
+    $tumburl = $rad["thumb_url"];
     $count = $rad["count"];
     
 
@@ -51,7 +51,7 @@ for ($r = 1; $r <= $antallRader; $r++) {
     <tr>
         <td class=\\'mdl-data-table__cell--non-numeric\\'>$filnavn</td>
         <td>$beskrivelse</td>
-        <td><a href='$url' class='slideshow_zoom'>Link til bilde</a> </td>
+        <td><a href='$tumburl' class='slideshow_zoom'>Link til bilde</a> </td>
         <td style='text-align: right'>$count</td>
     </tr>
     </tbody>");
@@ -71,8 +71,8 @@ else if($page == $total_pages && $total_pages > 1) {
 }
 else {
     if($total_pages > 1) {
-        echo '<a href="?side=endrebilder&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>
-                                <a href="?side=endrebilder&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>
+        echo '<a href="?side=endrebilder&page='.($page - 1).'"><button style="position: absolute; left: 400px; bottom: 2%;" id="paginationbtn">&lt;</button></a>
+                                <a href="?side=endrebilder&page='.($page + 1).'"><button style="position: absolute; right: 700px; bottom:2%;" id="paginationbtn"> &gt; </button></a>
                                 ';
     }
 }
@@ -123,13 +123,13 @@ else {
         $('.slideshow_zoom').each(function() {
             var $link = $(this);
 
-            var $dialog = $('<img src="' + $link.attr('href') + '" style="height: 170px;!important; width: 150px;!important;"/>')
+            var $dialog = $('<img src="' + $link.attr('href') + '" style="height: 70px;!important; width: 150px;!important;"/>')
                 .dialog({
                     autoOpen: false,
                     resizeable: false,
                     modal: true,
-                    width: 800,
-                    height: 700,
+                    width: 700,
+                    height: 500,
                     closeOnEscape: true,
                     dialogClass: 'zoom'
                 });
