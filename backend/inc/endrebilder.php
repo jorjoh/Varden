@@ -6,14 +6,27 @@
  * Time: 20:29
  */
 
+$page = $_GET['page'];
+if(empty($page) || $page = 0) {
+    $page = 1;
+}
+else {
+    $page = $_GET['page'];
+}
+$per_page = 10; // Antall bilder per side
+$start_from = ($page - 1) * $per_page; // Regner ut hvor den skal starte limiten i LIMIT delen i SQL setningen
+
 echo "<h1> Oversikt over bilder som er tilgjengelig </h1>";
 
 //URL for bilder
 include("functions/dbcon.php");    // kobler til databasen
-$sqlsetning = "SELECT * FROM images;";    // velger alt fra tabellen fag
+$sqlsetning = "SELECT * FROM images LIMIT $start_from, $per_page;";    // velger alt fra tabellen images
+$query = "SELECT count(id) AS nbr FROM images;";
 $sqlresultat = mysqli_query($connect, $sqlsetning) or die ("Ikke mulig å hente data");
+$nbrresult = mysqli_query($connect, $query) or die ('Kunne ikke telle antall treff'. mysqli_error($connect));
 $antallRader = mysqli_num_rows($sqlresultat);
 echo ("<!-- MDL Spinner Component -->
+
 <div class=\"mdl-spinner mdl-js-spinner is-active\" style='left:300px'></div>
 ");
 echo("<table class=\"mdl-data-table mdl-js-data-table mdl-shadow--2dp\">");
@@ -30,6 +43,7 @@ for ($r = 1; $r <= $antallRader; $r++) {
     $beskrivelse = $rad["picturetext"];
     $url = $rad["url"];
     $count = $rad["count"];
+    
 
     echo("
     </thead>
@@ -42,9 +56,26 @@ for ($r = 1; $r <= $antallRader; $r++) {
     </tr>
     </tbody>");
 
-
 }
 echo("</table>");
+$totalrows = mysqli_fetch_array($nbrresult);
+$nbrofrows = $totalrows['nbr'];
+$total_pages = ceil($nbrofrows / $per_page);
+
+
+if($page == 1 && $total_pages > 1) {
+    echo '<a href="?side=endrebilder&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>';
+}
+else if($page == $total_pages && $total_pages > 1) {
+    echo '<a href="?side=endrebilder&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>';
+}
+else {
+    if($total_pages > 1) {
+        echo '<a href="?side=endrebilder&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>
+                                <a href="?side=endrebilder&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>
+                                ';
+    }
+}
 
 ?>
 
@@ -52,7 +83,7 @@ echo("</table>");
 
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
