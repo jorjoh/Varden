@@ -1,7 +1,7 @@
 <?php
     include('searchfield.php');
-    $searchtxt = $_GET['sok'];
-    $page = $_GET['page'];
+    $searchtxt = mysqli_real_escape_string($connect, htmlentities($_GET['sok']));
+    $page = intval($_GET['page']);
     //En sjekk for at sidenr ikke er tomt
     if(empty($page) || $page = 0) {
         $page = 1;
