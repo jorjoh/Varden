@@ -253,15 +253,3 @@ input[type=checkbox]:checked + label:before {
     /* -- Slutt på detaljvisning av bilde -- */
 
 }
-
-@media (max-width: 580px) {
-
-    /* -- Start på mest viste bilder -- */
-
-    #mwpictures {
-        padding-top: 10px;
-    }
-
-    /* -- Start på mest viste bilder -- */
-
-}

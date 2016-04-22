@@ -18,7 +18,7 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link rel="icon" type="image/png" href="../frontend/img/VA-fav-icon-152.png">
     <style type="text/css">
@@ -1098,17 +1098,24 @@
             margin-bottom: 30px;
             display: block
         }
+
+        .apiAdMarkerAbove .ads,
+        .apiAdMarkerAbove .ads > div {
+            min-height: 150px
+        }
+
+        .apiAdMarkerAbove .ads-inited {
+            min-height: 0px
+        }
     </style>
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
     <meta name="title" content="{{=title}}">
 
-    <link rel="canonical" href="{{=url}}"/>
-    <link rel="shortlink" href="{{=url}}"/>
+    <link rel="canonical" href="http://134.213.218.27/"/>
+    <link rel="shortlink" href="http://134.213.218.27/"/>
     <link rel="stylesheet" type="text/css" href="style/style.css" />
     <link rel="stylesheet" href="style/horizontal.css">
-    <link rel="stylesheet" href="style/normalize.css">
-    <link rel="stylesheet" href="style/ospb.css">
 
     <meta name="description" content="{{=description}}"/>
     <meta name="twitter:description" content="{{=description}}">
@@ -1133,67 +1140,69 @@
     <meta name="twitter:image:height" content="{{=image_height}}">
     <meta name="twitter:site" content="@varden">
     <meta name="twitter:domain" content="http://www.varden.no">
-
-    {{=icons}}
-
-    <script type="text/javascript">var ADTECH_showAd = function () {
-    }</script>
-
-    <script type="text/javascript">
-        var NP = NP || {}; //Global namespace
-        NP.ready = NP.ready || new Array();
-    </script>
-
-    <script type="text/javascript" src="/js/thirdparty/swfobject.js"></script>
-    <script type="text/javascript">
-        //<![CDATA[
-        var cookies;
-        function cxGetCookie(name) {
-            if (cookies) {
-                return cookies[name];
-            }
-            var c, C, i;
-
-            c = document.cookie.split('; ');
-            cookies = {};
-            for (i = c.length - 1; i >= 0; i--) {
-                C = c[i].split('=');
-                cookies[C[0]] = C[1];
-            }
-            return cookies[name];
-        }
-
-        var keyValues = '';
-        var domInterest0 = cxGetCookie('domInterest0');
-        var domInterest1 = cxGetCookie('domInterest1');
-        var domRegion0 = cxGetCookie('domRegion0');
-        var domRegion1 = cxGetCookie('domRegion1');
-        var domDeviceType0 = cxGetCookie('domDeviceType0');
-        var gender = cxGetCookie('gender');
-        var ageGroup = cxGetCookie('ageGroup');
-
-        if (domInterest0) {
-            keyValues += ';kvinterest=' + domInterest0 + (domInterest1 ? ':' + domInterest1 : '');
-        }
-        if (domRegion0) {
-            keyValues += ';kvregion=' + domRegion0 + (domRegion1 ? ':' + domRegion1 : '');
-        }
-        if (domDeviceType0) {
-            keyValues += ';kvdevicetype=' + domDeviceType0;
-        }
-        if (gender) {
-            keyValues += ';kvgender=' + gender;
-        }
-        if (ageGroup) {
-            keyValues += ';kvagegroup=' + ageGroup;
-        }
-
-        document.write("<scr" + "ipt charset=\"UTF-8\" type=\"text/javascript\" src=\"http://adserver.adtech.de/multiad/3.0/1361/0/0/615/mode=multiad;cookie=info;grp=1424;plcids=4200618(size=980x150),4902824(size=980x150),4200614(size=180x500),4200598(size=180x500);key=bildeserier" + keyValues + "\"> </scr" + "ipt>");
-        //]]>
-    </script>
 </head>
 
 <body class="is--loggedOut not--touch">
+
+{{=icons}}
+
+<script type="text/javascript">var ADTECH_showAd = function () {
+    }</script>
+
+<script type="text/javascript">
+    var NP = NP || {}; //Global namespace
+    NP.ready = NP.ready || new Array();
+</script>
+
+<script type="text/javascript" src="/js/thirdparty/swfobject.js"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    var cookies;
+    function cxGetCookie(name) {
+        if (cookies) {
+            return cookies[name];
+        }
+        var c, C, i;
+
+        c = document.cookie.split('; ');
+        cookies = {};
+        for (i = c.length - 1; i >= 0; i--) {
+            C = c[i].split('=');
+            cookies[C[0]] = C[1];
+        }
+        return cookies[name];
+    }
+
+    var keyValues = '';
+    var domInterest0 = cxGetCookie('domInterest0');
+    var domInterest1 = cxGetCookie('domInterest1');
+    var domRegion0 = cxGetCookie('domRegion0');
+    var domRegion1 = cxGetCookie('domRegion1');
+    var domDeviceType0 = cxGetCookie('domDeviceType0');
+    var gender = cxGetCookie('gender');
+    var ageGroup = cxGetCookie('ageGroup');
+
+    if (domInterest0) {
+        keyValues += ';kvinterest=' + domInterest0 + (domInterest1 ? ':' + domInterest1 : '');
+    }
+    if (domRegion0) {
+        keyValues += ';kvregion=' + domRegion0 + (domRegion1 ? ':' + domRegion1 : '');
+    }
+    if (domDeviceType0) {
+        keyValues += ';kvdevicetype=' + domDeviceType0;
+    }
+    if (gender) {
+        keyValues += ';kvgender=' + gender;
+    }
+    if (ageGroup) {
+        keyValues += ';kvagegroup=' + ageGroup;
+    }
+
+    document.write("<scr" + "ipt charset=\"UTF-8\" type=\"text/javascript\" src=\"http://adserver.adtech.de/multiad/3.0/1361/0/0/615/mode=multiad;cookie=info;grp=1424;plcids=4200618(size=980x150),4902824(size=980x150),4200614(size=180x500),4200598(size=180x500);key=bildeserier" + keyValues + "\"> </scr" + "ipt>");
+    //]]>
+</script>
+
+
 <div class="Tortilla env--varden">
     <input type="checkbox" id="Menu-checkbox" class="Menu-checkbox">
 
@@ -1226,15 +1235,13 @@
                     <div id=Header-sharing class=Share>
                         <button class=Share-close>Lukk</button>
                         <iframe class=Share-facebook width=43 height=20
-                                src="//www.facebook.com/plugins/share_button.php?href={{url}}&amp;layout=button&amp;appId=260291477395054&amp;locale=nb_NO"
-                                data-src="//www.facebook.com/plugins/share_button.php?href={{url}}&amp;layout=button&amp;appId=260291477395054&amp;locale=nb_NO"
-                                scrolling=no frameborder=0 style="border:none; overflow:hidden;"
-                                allowtransparency=true></iframe>
+                                src="//www.facebook.com/plugins/share_button.php?href=http://134.213.218.27/&amp;layout=button&amp;appId=260291477395054&amp;locale=nb_NO"
+                                data-src="//www.facebook.com/plugins/share_button.php?href=http://134.213.218.27/&amp;layout=button&amp;appId=260291477395054&amp;locale=nb_NO"
+                                style="border:none; overflow:hidden;"></iframe>
                         <iframe class=Share-twitter width=55 height=20
-                                src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer={{url}}&related=varden&size=m&text={{text}}&url={{url}}&via=varden"
-                                data-src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer={{url}}&related=varden&size=m&text={{text}}&url={{url}}&via=varden"
-                                scrolling=no frameborder=0 style="border:none; overflow:hidden;"
-                                allowtransparency=true></iframe>
+                                src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer=http://134.213.218.27/&related=varden&size=m&text=text&url=http://134.213.218.27/&via=varden"
+                                data-src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer=http://134.213.218.27/&related=varden&size=m&text=tekst&url=http://134.213.218.27/&via=varden"
+                                style="border:none; overflow:hidden;"></iframe>
                     </div>
                 </li>
 
@@ -1646,17 +1653,6 @@
 <script src="//cdn.agp.no/data/js/ads/gardr/host.js"></script>
 <script src="//cdn.agp.no/data/js/ads/gardr/host-config.js"></script>
 
-<style>
-    .apiAdMarkerAbove .ads,
-    .apiAdMarkerAbove .ads > div {
-        min-height: 150px
-    }
-
-    .apiAdMarkerAbove .ads-inited {
-        min-height: 0px
-    }
-</style>
-
 <script type="application/javascript">
     !function e(t, n, r) {
         function a(u, o) {
@@ -2036,8 +2032,6 @@
 
 {{=tns_scripts}}
 
-</body>
-
 <script src="js/lazyload.js"></script>
 <script src="js/isotope.pkgd.min.js"></script>
 <script src="js/imagesloaded.pkgd.js"></script>
@@ -2047,4 +2041,5 @@
 <script src="js/vendor.js"></script>
 
 
+</body>
 </html>
