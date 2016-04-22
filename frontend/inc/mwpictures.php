@@ -13,7 +13,7 @@
         $url = $row['thumb_url'];
         $height = $row['thumb_h']."px";
         $width = $row['thumb_w']."px";
-        echo "<a href='?side=bilde&id=$id'><img src='$url' id='mwpictures' alt='$filename' style='height: 150px; width: $width; margin-left: 5px;'></a>";
+        echo "<a href='?side=bilde&id=$id'><img src='$url' alt='$filename' style='height: 150px; width: $width; margin-left: 5px;'></a>";
     }
     echo "</div>";
 ?>

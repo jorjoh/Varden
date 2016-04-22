@@ -1098,6 +1098,15 @@
             margin-bottom: 30px;
             display: block
         }
+
+        .apiAdMarkerAbove .ads,
+        .apiAdMarkerAbove .ads > div {
+            min-height: 150px
+        }
+
+        .apiAdMarkerAbove .ads-inited {
+            min-height: 0px
+        }
     </style>
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -1644,17 +1653,6 @@
 <script src="//cdn.agp.no/data/js/ads/gardr/host.js"></script>
 <script src="//cdn.agp.no/data/js/ads/gardr/host-config.js"></script>
 
-<style>
-    .apiAdMarkerAbove .ads,
-    .apiAdMarkerAbove .ads > div {
-        min-height: 150px
-    }
-
-    .apiAdMarkerAbove .ads-inited {
-        min-height: 0px
-    }
-</style>
-
 <script type="application/javascript">
     !function e(t, n, r) {
         function a(u, o) {
@@ -2034,8 +2032,6 @@
 
 {{=tns_scripts}}
 
-</body>
-
 <script src="js/lazyload.js"></script>
 <script src="js/isotope.pkgd.min.js"></script>
 <script src="js/imagesloaded.pkgd.js"></script>
@@ -2045,4 +2041,5 @@
 <script src="js/vendor.js"></script>
 
 
+</body>
 </html>
