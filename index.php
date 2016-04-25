@@ -1,4 +1,5 @@
-<!html doctype>
+<?php ob_start(); ?>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Varden.no - Bildearkiv</title>

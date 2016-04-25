@@ -21,8 +21,8 @@ $subject = "Forslag til endnring av bilde: [id]";
 $extra = array(
 	"form_subject"	=> true,
 	"form_cc"		=> true,
-	"ip"			=> true,
-	"user_agent"	=> true
+	"ip"			=> false,
+	"user_agent"	=> false
 );
 
 // Process

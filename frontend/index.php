@@ -7,7 +7,7 @@
     error_reporting(E_ALL);
     ini_set('display_errors', DEBUG ? 'off' : 'Off');
     ini_set('default_charset','UTF-8');
-    header('Content-type: text/html; charset=utf-8');
+    //header('Content-type: text/html; charset=utf-8');
 ?>
 <!doctype html>
 <html xml:lang="no" lang="no">
