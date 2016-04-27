@@ -11,7 +11,6 @@
         }
     }(document, 'script', 'twitter-wjs');
 </script>
-<script src="../js/modernizr.js"></script>
 
 <style>
     .frame { width: 100%; height: 160px; padding: 0; }
@@ -23,6 +22,22 @@
         width: 100px; /* overriden if dynamicHandle: 1 */
         height: 100%;
         background: #222;
+    }
+
+    .left {
+        margin-top: 10%;
+        margin-left: 12.3%;
+    }
+
+    .right {
+        margin-top: 10%;
+        margin-right: 12.3%;
+    }
+
+    @media(max-width: 580px) {
+        #paginationbtn {
+            display: none;
+        }
     }
 </style>
 
@@ -57,13 +72,12 @@ $rows = mysqli_num_rows($result); // Teller antall rader som returneres fra resu
 
 // Hvis ikke ID'en er definert i URL eller det ikke finnes noen bilder med ID'en som er definert i URL'en
 if(empty($id) || $rows < 1) {
-    echo "<div class='row'>
-            <p style='background: #ffffcc; position: relative; top: 200px; color: #FF0000; padding: 20px;'>
-                Kunne ikke finne ønsket bilde. Vennligst prøv igjen
-                <br>
-                Du vil bli sendt tilbake i løpet av 3 sekunder eller <a href='?side=forside'>trykk her for å gå til forsiden</a>!
-            </p>
-        </div>
+    echo "
+        <p style='background: #ffffcc; position: relative; top: 200px; color: #FF0000; padding: 20px;'>
+            Kunne ikke finne ønsket bilde. Vennligst prøv igjen
+            <br>
+            Du vil bli sendt tilbake i løpet av 3 sekunder eller <a href='?side=forside'>trykk her for å gå til forsiden</a>!
+        </p>
     ";
     header("Refresh: 3; url=?side=forside");
 }
@@ -122,15 +136,34 @@ else {
     // Kjører spørringen til databasen og returnerer feilmelding hvis det ikke blir vellykket
     $updatehits = mysqli_query($connect, $hitSQL) or die('Kunne ikke oppdatere antall visninger på bildet');
     // Inkluderer søkefeltet
+
+
+    $sqlnext = "SELECT id FROM images WHERE picturetext LIKE '%$searchquery%' OR filename LIKE '%$searchquery%' ORDER BY RAND() LIMIT 1;";
+    $resultnext = mysqli_query($connect, $sqlnext);
+    $nextpicture = mysqli_fetch_array($resultnext);
+    $next = $nextpicture['id'];
+
+    echo "<div style='padding-top: 7%;'";
     include('searchfield.php');
     echo "<br>
-        <div id='subpage-bg'>
-            <!-- <div style='width: 950px; height: 150px; text-align: center; margin: 0 auto; background: #CCC;'><br><br>Annonse
-               her som vises uansett om du har adblock eller ikke
+        <div id='subpage-bg' style='padding-top: 40px;'>
+             <!-- <div style='width: 950px; height: 150px; text-align: center; margin: 0 auto; background: #CCC; color: #666666;'>
+                <br><br><br>
+                Banner 950x150
             </div> -->
             <br>
-            <div id='paginationbtn' style='float: left; margin-top: 10%; margin-left: 12.3%;'><p style='margin-top: 15px;'>&lt;</p></div>
-            <div id='paginationbtn' style='float: right; margin-top: 10%; margin-right: 12.3%;'><p style='margin-top: 15px;'>&gt;</p></div>
+            <!-- start paginering -->
+            <a onclick='window.history.back()'>
+                <div id='paginationbtn' class='left' style='float: left;'>
+                    <p style='margin-top: 15px;'>&lt;</p>
+                </div>
+            </a>
+            <a href='?side=bilde&id=$next'>
+                <div id='paginationbtn' class='right' style='float: right;'>
+                    <p style='margin-top: 15px;'>&gt;</p>
+                </div>
+            </a>
+            <!-- slutt paginering -->
             <div id='details'>
                 <img class='lazy' id='picture' data-original='$url'>
                 <div id='bildeinfo'>

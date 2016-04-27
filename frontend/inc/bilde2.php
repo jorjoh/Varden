@@ -8,7 +8,7 @@
         });
     });
 </script>
-
+<script src="../js/modernizr.js"></script>
 <style>
     td:nth-of-type(even) {
         position: relative;
@@ -40,13 +40,12 @@ $rows = mysqli_num_rows($result); // Teller antall rader som returneres fra resu
 
 // Hvis ikke ID'en er definert i URL eller det ikke finnes noen bilder med ID'en som er definert i URL'en
 if(empty($id) || $rows < 1) {
-    echo "<div class='row'>
-            <p style='background: #ffffcc; position: relative; top: 200px; color: #FF0000; padding: 20px;'>
-                Kunne ikke finne ønsket bilde. Vennligst prøv igjen
-                <br>
-                Du vil bli sendt tilbake i løpet av 3 sekunder eller <a href='?side=forside'>trykk her for å gå til forsiden</a>!
-            </p>
-        </div>
+    echo "
+        <p style='background: #ffffcc; position: relative; top: 200px; color: #FF0000; padding: 20px;'>
+            Kunne ikke finne ønsket bilde. Vennligst prøv igjen
+            <br>
+            Du vil bli sendt tilbake i løpet av 3 sekunder eller <a href='?side=forside'>trykk her for å gå til forsiden</a>!
+        </p>
     ";
     header("Refresh: 3; url=?side=forside");
 }
@@ -236,3 +235,7 @@ else {
     <button id='paginationbtn' class=\"btn next\"> &gt; </button>
 </div>
 </div>
+
+<script src="../js/horizontal.js"></script>
+<script src="../js/vendor.js"></script>
+<script src="../js/sly.min.js"></script>

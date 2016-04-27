@@ -14,6 +14,8 @@ input[type="text"] {
     border-radius: 4px;
     box-shadow: 5px 5px 10px #888888;
     border: none;
+    font-family: arial, helvetica, tahoma, sans-serif;
+    font-weight: bold;
 }
 
 input[type="submit"] {
@@ -235,8 +237,22 @@ input[type=checkbox]:checked + label:before {
         width: 80%;
     }
 
+    #details {
+        width: 90%;
+    }
+
     .wrap {
         display: none;
+    }
+
+    #paginationbtn {
+        display: none;
+    }
+
+    #btn {
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
     }
 
     /* -- Slutt på detaljvisning av bilde -- */
