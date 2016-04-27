@@ -13,14 +13,16 @@
 
 <?php
     include('searchfield.php');
+    echo "<div id='mostpicturesbg'>";
     include('mwpictures.php');
 ?>
 <!--
-<div id="abonnement">
-    <div id="text">
-        <h2 style="text-align: left;">Digital tilgang</h2>
-        <p>Få full tilgang til vårt bildearkiv ut året for kun 79kr,-
-            <a href="#" id="orderButton">Bestill her</a>
-        </p>
-    </div>
-</div> -->
+    <div id="abonnement">
+        <div id="text">
+            <h2 style="text-align: left; font-family: 'FlamaFont Slab', 'Roboto Slab', georgia, serif; font-weight: 600; font-size: 25pt;">Digital tilgang</h2>
+            <p style="font-family: FlamaFont, Roboto, helvetica, arial, sans-serif;">Få full tilgang til vårt bildearkiv ut året for kun 79kr,-
+                <a href="#" id="btn" style="padding: 0 30px;">Bestill her</a>
+            </p>
+        </div>
+    </div> -->
+</div>

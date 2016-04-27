@@ -4,7 +4,6 @@
     $rows = mysqli_num_rows($result);
 
     echo "
-    <div id='mostpicturesbg'>
         <h2 class='Article-heading-2' style='font-family: FlamaFont Slab, Roboto Slab, georgia, serif; color: #737373; font-size: 20pt; font-weight: 600; margin-top: 100px; padding: 20px;'>Mest viste bilder</h2>
     ";
     for($i = 0; $i < $rows; $i++) {
@@ -16,5 +15,5 @@
         $width = $row['thumb_w']."px";
         echo "<a href='?side=bilde&id=$id'><img src='$url' alt='$filename' style='height: 150px; width: $width; margin-left: 5px;'></a>";
     }
-    echo "</div>";
+    echo "<br>";
 ?>

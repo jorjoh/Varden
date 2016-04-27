@@ -664,12 +664,12 @@
         }
 
         @media (max-width: 700px) {
-            a#orderButton {
+            a#btn {
                 position: relative;
                 margin-top: 10px;
                 width: 100%;
             }
-            input#sok {
+            input#search {
                 width: 70%;
             }
         }
@@ -1307,8 +1307,7 @@
         </ul>
 
         <p class="Footer-content">
-            <strong>Redaktør:</strong> {{=eic}}<br/>
-            <strong>Administrerende direktør:</strong> {{=ceo}}<br/><br/>
+            <strong>Redaktør:</strong> Tom Erik Thorsen<br><br>
 
             <span>Kopibeskyttet &copy; Agderposten
                 <script>
@@ -1318,7 +1317,7 @@
                 </script>
             </span>
 
-            <a href="/" data-action="back" data-back="footer" class="Footer-logo">{{=site_name}}</a>
+            <a href="/" data-action="back" data-back="footer" class="Footer-logo">Varden.no</a>
         </p>
     </footer>
 </div>

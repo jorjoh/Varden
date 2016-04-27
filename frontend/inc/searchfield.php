@@ -13,8 +13,6 @@
     <label for="sport">Sport</label>
     <input type="checkbox" name="places" id="places">
     <label for="places">Steder</label><br>
-    <input type="checkbox" name="people" id="people">
-    <label for="people">Personer</label>
 </form>
 
 <?php
