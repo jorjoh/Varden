@@ -664,10 +664,13 @@
         }
 
         @media (max-width: 700px) {
-            a#btn {
+            #btn {
                 position: relative;
                 margin-top: 10px;
-                width: 100%;
+                width: 85%;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                border-radius: 0;
             }
             input#search {
                 width: 70%;
@@ -1109,41 +1112,41 @@
     </style>
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <meta name="title" content="{{=title}}">
+    <meta name="title" content="Online Bildearkiv">
 
     <link rel="canonical" href="http://134.213.218.27/"/>
     <link rel="shortlink" href="http://134.213.218.27/"/>
     <link rel="stylesheet" type="text/css" href="style/style.css" />
     <link rel="stylesheet" href="style/horizontal.css">
 
-    <meta name="description" content="{{=description}}"/>
-    <meta name="twitter:description" content="{{=description}}">
-    <meta name="author" content="{{=author}}">
-    <meta name="application-name" content="{{=site_name}}">
+    <meta name="description" content="Online bildearkiv for Varden"/>
+    <meta name="twitter:description" content="Online bildearkiv for Varden">
+    <meta name="author" content="varden.no">
+    <meta name="application-name" content="varden.no">
 
-    <meta property="article:published_time" content="{{=date}}">
-    <meta property="article:modified_time" content="{{=date}}">
-    <meta property="article:tag" content="{{=tag}}">
+    <meta property="article:published_time" content="27.04.2016 12:00:00">
+    <meta property="article:modified_time" content="27:04:2016 12:17:00">
+    <meta property="article:tag" content="bildearkiv, varden, foto, bilder, arkiv">
 
-    <meta property="og:title" content="{{=title}}">
-    <meta property="og:type" content="{{=page_type}}">
-    <meta property="og:site_name" content="{{=site_name}}">
-    <meta property="og:image" content="{{=image_url}}">
-    <meta property="og:url" content="{{=url}}">
+    <meta property="og:title" content="Online bildearkiv for Varden">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="varden.no">
+    <meta property="og:image" content="http://134.213.218.27/?side=bilde&id=1">
+    <meta property="og:url" content="http://134.213.218.27/">
 
     <meta name="twitter:title" content="Bildearkiv - Varden">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content="Bildearkiv for Varden. Her kan du bla igjennom bildearkivet til Varden">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:image:src" content="{{=image_url}}">
-    <meta name="twitter:image:width" content="{{=image_width}}">
-    <meta name="twitter:image:height" content="{{=image_height}}">
+    <meta name="twitter:image:src" content="http://134.213.218.27/?side=bilde&id=1">
+    <meta name="twitter:image:width" content="500">
+    <meta name="twitter:image:height" content="500">
     <meta name="twitter:site" content="@varden">
     <meta name="twitter:domain" content="http://www.varden.no">
 </head>
 
 <body class="is--loggedOut not--touch">
 
-{{=icons}}
+<!-- {{=icons}} -->
 
 <script type="text/javascript">var ADTECH_showAd = function () {
     }</script>
@@ -1341,7 +1344,7 @@
         logUrl += '&referrer=' + referrer;
     }
 
-    document.write('<img src="' + logUrl + '" />');
+    //document.write('<img src="' + logUrl + '" />');
 })();
 </script>
 
@@ -1646,8 +1649,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-{{=ga_script}}
-{{=fb_script}}
+<!-- {{=ga_script}}
+{{=fb_script}} -->
 
 <script type="text/javascript" src="http://cdn.agp.no/data/js/advert.js"></script>
 <script type="text/javascript">
@@ -2037,15 +2040,12 @@
     }, {}, [7]);
 </script>
 
-{{=tns_scripts}}
+<!-- {{=tns_scripts}} -->
 
 <script src="js/lazyload.js"></script>
 <script src="js/isotope.pkgd.min.js"></script>
 <script src="js/imagesloaded.pkgd.js"></script>
-<script src="js/sly.min.js"></script>
 <script src="js/custom.js"></script>
-<script src="js/horizontal.js"></script>
-<script src="js/vendor.js"></script>
 
 
 </body>
