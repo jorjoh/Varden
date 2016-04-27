@@ -1,3 +1,4 @@
+<div style="padding-top: 7%;"
 <?php
     $searchquery = $_SESSION['searchtxt'];
     include('searchfield.php');
@@ -38,19 +39,19 @@
                     else {
                         if($page == $total_pages) {
                             echo '
-                                Ditt søk på "'.$searchtxt.'" ga '. $nbrofrows.' treff <br>
+                                Ditt søk etter "'.$searchtxt.'" ga '. $nbrofrows.' resultater <br>
                                 Viser resultat: '.($start_from + 1). " - ".$nbrofrows.'  av totalt '. $nbrofrows .' bilder<br>
                             ';
                         }
                         else if($page == 1) {
                             echo '
-                                Ditt søk på "'.$searchtxt.'" ga '. $nbrofrows.' treff <br>
+                                Ditt søk etter "'.$searchtxt.'" ga '. $nbrofrows.' resultater <br>
                                 Viser resultat: '.($start_from + 1) . " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder<br>
                             ';
                         }
                         else {
                             echo '
-                            Ditt søk på "'.$searchtxt.'" ga '. $nbrofrows.' treff <br>
+                            Ditt søk etter "'.$searchtxt.'" ga '. $nbrofrows.' resultater <br>
                             Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder<br>
                             ';
                         }
@@ -70,15 +71,15 @@
                         </div>
                         ';
                         if($page == 1 && $total_pages > 1) {
-                            echo '<a href="?side=resultat&sok='.$searchtxt.'&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>';
+                            echo '<a href="?side=resultat&query='.$searchtxt.'&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>';
                         }
                         else if($page == $total_pages && $total_pages > 1) {
-                            echo '<a href="?side=resultat&sok='.$searchtxt.'&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>';
+                            echo '<a href="?side=resultat&query='.$searchtxt.'&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>';
                         }
                         else {
                             if($total_pages > 1) {
-                                echo '<a href="?side=resultat&sok='.$searchtxt.'&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>
-                                <a href="?side=resultat&sok='.$searchtxt.'&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>
+                                echo '<a href="?side=resultat&query='.$searchtxt.'&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>
+                                <a href="?side=resultat&query='.$searchtxt.'&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>
                                 ';
                             }
                         }

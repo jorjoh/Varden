@@ -14,7 +14,7 @@
     <input type="checkbox" name="places" id="places">
     <label for="places">Steder</label><br>
 </form>
-
+<br>
 <?php
     $_SESSION['searchtxt'] = mysqli_real_escape_string($connect, $_GET['query']);
     $_SESSION['page'] = intval($_GET['page']);

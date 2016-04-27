@@ -205,3 +205,34 @@ else {
 }
 
 ?>
+
+<div class=\"wrap\">
+    <h2 class='Article-heading-2' style='font-family: FlamaFont Slab, Roboto Slab, georgia, serif; color: #737373; font-size: 20pt; font-weight: 600; margin-top: 100px; padding: 20px;'>Andre bilder fra samme resultat: </h2>
+    <p>Ikke klikkbar for øyeblikket</p>
+    <div class=\"frame\" id=\"centered\">
+        <ul class=\"clearfix\">
+            <?php
+            $sql = "SELECT id, thumb_url FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT 0, 15;";
+            $result = mysqli_query($connect, $sql);
+
+            while($nextrow = mysqli_fetch_array($result)) {
+            $nextid = $nextrow['id'];
+            $nexturl = $nextrow['thumb_url'];
+            echo "<img src='$nexturl'>";
+            }
+
+            ?>
+        </ul>
+    </div>
+    <br>
+    <div class=\"scrollbar\">
+        <div class=\"handle\">
+            <div class=\"mousearea\"></div>
+        </div>
+    </div>
+
+    <div class=\"controls center\">
+    <button id='paginationbtn' class=\"btn prev\"> &lt; </button>
+    <button id='paginationbtn' class=\"btn next\"> &gt; </button>
+</div>
+</div>

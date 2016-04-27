@@ -39,7 +39,8 @@ $sql = "
       images.id, images.filename, images.title, images.picturetext, images.count, images.url, 
       place.name, place.longitude, place.latitude,
       metainfo.w_original, metainfo.h_original, metainfo.imagetype, metainfo.resolution, metainfo.bit_depth, metainfo.exposure_time, metainfo.white_balance, metainfo.orientation, metainfo.iso_speed, metainfo.flash_state, metainfo.capturedate, 
-      photographers.firstname, photographers.lastname
+      photographers.firstname, photographers.lastname,
+      category.name AS titlename
     FROM images
     JOIN metainfo
     ON images.id = metainfo.id
@@ -47,6 +48,8 @@ $sql = "
     ON images.id = photographers.id
     JOIN place
     ON images.place_id = place.id
+    JOIN category
+    ON images.id = category.id
     WHERE images.id = $id;
 ";
 $result = mysqli_query($connect, $sql) or die('Kunne ikke hente bildet fra DB - '.mysqli_error($connect)); // resultatet fra spørringen over
@@ -69,7 +72,7 @@ else {
     $count = $row['count']; // Henter antall visninger bilde har
     $url = $row['url']; // Henter URL'en til bilde
     $filename = $row['filename']; // Henter bildenavnet til filen
-    $title = $row['title']; // Henter tittelen til bilde
+    $title = $row['titlename']; // Henter tittelen til bilde
     $picturetext = $row['picturetext']; // Henter bildeteksten
     $place = ucfirst($row['name']); // Henter stedsnavnet bilde er tatt
     $date = $row['capturedate']; // Henter datoen bilde er tatt
@@ -126,14 +129,17 @@ else {
                her som vises uansett om du har adblock eller ikke
             </div> -->
             <br>
+            <div id='paginationbtn' style='float: left; margin-top: 10%; margin-left: 12.3%;'><p style='margin-top: 15px;'>&lt;</p></div>
+            <div id='paginationbtn' style='float: right; margin-top: 10%; margin-right: 12.3%;'><p style='margin-top: 15px;'>&gt;</p></div>
             <div id='details'>
                 <img class='lazy' id='picture' data-original='$url'>
                 <div id='bildeinfo'>
                     <h2>$title</h2>
+                    <br>
                     <p>$picturetext</p>
                     <p>(FOTO: $photographer)</p>
                     <br><br>
-<!--                    <p>
+<!--                <p>
                        <a title=\"send to Facebook\" 
                           href=\"http://www.facebook.com/sharer.php?s=100&p[title]=tittelenkommerher&p[summary]=etfintbildesomduikkefårtilgangtil&p[url]=erikroed.no&p[images][0]=YOUR_IMAGE_TO_SHARE_OBJECT\"
                           target=\"_blank\">
@@ -150,40 +156,9 @@ else {
                 <br style='clear: both;'>
             </div>
             <br>
-            <div class=\"wrap\">
-                <h2 style='color: #929292;'>Andre bilder fra samme resultat: </h2>
-                <p>Ikke klikkbar for øyeblikket</p>
-                <div class=\"frame\" id=\"centered\">
-                    <ul class=\"clearfix\">
-            
-            ";
-
-            $sql = "SELECT id, thumb_url FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT 0, 15;";
-            $result = mysqli_query($connect, $sql);
-
-            while($nextrow = mysqli_fetch_array($result)) {
-                $nextid = $nextrow['id'];
-                $nexturl = $nextrow['thumb_url'];
-                echo "<img src='$nexturl'>";
-            }
-
-            echo "
-                   </ul>
-                </div>
-                <br>
-                <div class=\"scrollbar\">
-                    <div class=\"handle\">
-                        <div class=\"mousearea\"></div>
-                    </div>
-                </div>
-            
-                <div class=\"controls center\">
-                    <button id='paginationbtn' class=\"btn prev\"> &lt; </button>
-                    <button id='paginationbtn' class=\"btn next\"> &gt; </button>
-                </div>
-            </div>
-            <br><br>
-            <a href='?side=resultat&query=$searchquery&page=$page'><button id='orderButton'>Tilbake til søkeresultat</button></a>
+            <br>
+            <br>
+            <a href='?side=resultat&query=$searchquery&page=$page' id='btn' style='padding: 0 20px;'>Tilbake til søkeresultat</a>
         </div>
     ";
 }
