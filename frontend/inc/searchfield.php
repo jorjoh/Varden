@@ -1,4 +1,3 @@
-<?php $searchquery = $_SESSION['searchtxt']; ?>
 <form method="get" action="?side=resultat" name="searchfield" id="searchfield">
     <input type="hidden" name="side" value="resultat">
     <input type="text" name="query" id="search" autofocus="autofocus" placeholder="Søk her..." required/>
@@ -16,6 +15,6 @@
 </form>
 <br>
 <?php
-    $_SESSION['searchtxt'] = mysqli_real_escape_string($connect, $_GET['query']);
-    $_SESSION['page'] = intval($_GET['page']);
+    //$_SESSION['searchtxt'] = mysqli_real_escape_string($connect, $_GET['query']);
+    //$_SESSION['page'] = intval($_GET['page']);
 ?>

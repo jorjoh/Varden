@@ -1,6 +1,6 @@
-<div style="padding-top: 7%;"
+<div style="padding-top: 7%;"></div>
 <?php
-    $searchquery = $_SESSION['searchtxt'];
+    //$searchquery = $_SESSION['searchtxt'];
     include('searchfield.php');
     $searchtxt = mysqli_real_escape_string($connect, $_GET['query']);
     $page = intval($_GET['page']);
@@ -70,19 +70,6 @@
                             </ul>
                         </div>
                         ';
-                        if($page == 1 && $total_pages > 1) {
-                            echo '<a href="?side=resultat&query='.$searchtxt.'&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>';
-                        }
-                        else if($page == $total_pages && $total_pages > 1) {
-                            echo '<a href="?side=resultat&query='.$searchtxt.'&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>';
-                        }
-                        else {
-                            if($total_pages > 1) {
-                                echo '<a href="?side=resultat&query='.$searchtxt.'&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>
-                                <a href="?side=resultat&query='.$searchtxt.'&page='.($page + 1).'"><button style="position: absolute; right: 25px; top: 40%;" id="paginationbtn"> &gt; </button></a>
-                                ';
-                            }
-                        }
 
                         echo '
                         <div class="category_items">
@@ -111,4 +98,7 @@
                 ?>
         </div>
     </section>
+    <br style="clear: both;">
+    <br>
+    <a href="?side=resultat&query=<?php echo $searchtxt; ?>&page=<?php echo ($page+1); ?>" id="btn" style="padding: 0 50px;">Se flere</a>
 </div>
