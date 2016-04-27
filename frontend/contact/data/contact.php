@@ -138,12 +138,14 @@ function smcf_send($name, $email, $subject, $message, $cc) {
 		// you need to enable mb_encode_mimeheader or risk 
 		// getting emails that are not UTF-8 encoded
 	}
+
+	$headers .= "From: no-reply@134.213.218.27\n";
 	$headers .= "MIME-Version: 1.0\n";
 	$headers .= "Content-type: text/plain; charset=utf-8\n";
 	$headers .= "Content-Transfer-Encoding: quoted-printable\n";
 
 	// Send email
-	@mail($to, $subject, $body, $headers) or 
+	@mail($to, $subject, $body, $headers, "-f no-reply@134.213.218.27") or
 		die("Beklager, men det har dessverre skjedd en feil. \n Vi jobber med å rette opp i feilen. Prøv igjen senere");
 }
 
