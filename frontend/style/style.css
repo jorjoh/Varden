@@ -6,16 +6,6 @@ html {
     text-align: center;
 }
 
-#title {
-    padding-top: 150px;
-    font-family: "Bookman Old Style", Arial Black, serif;
-    font-size: 30pt;
-}
-
-#introTxt {
-    margin-top: 20px;
-}
-
 input[type="text"] {
     width: 40%;
     margin-top: 20px;
@@ -43,10 +33,6 @@ input[type="submit"] {
     font-size: 50pt;
     color: #fff;
     border: none;
-}
-
-#mostpictures {
-    margin-top: 100px;
 }
 
 #box {
@@ -135,6 +121,11 @@ input[type=checkbox]:checked + label:before {
     width: 100%;
     min-height: 800px;
     background: #FFF;
+}
+
+#mostpicturesbg {
+    width: 100%;
+    background: #fff;
 }
 
 /* -- ISOTOPE AREA START -- */

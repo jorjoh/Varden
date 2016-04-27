@@ -3,8 +3,9 @@
     $result = mysqli_query($connect, $sql) or die(mysqli_error($connect));
     $rows = mysqli_num_rows($result);
 
-    echo "<div class='row'>
-        <h1 id='mostpictures'>Mest viste bilder</h1>
+    echo "
+    <div id='mostpicturesbg'>
+        <h2 class='Article-heading-2' style='font-family: FlamaFont Slab, Roboto Slab, georgia, serif; color: #737373; font-size: 20pt; font-weight: 600; margin-top: 100px; padding: 20px;'>Mest viste bilder</h2>
     ";
     for($i = 0; $i < $rows; $i++) {
         $row = mysqli_fetch_array($result);

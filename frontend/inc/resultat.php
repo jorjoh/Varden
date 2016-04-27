@@ -1,13 +1,14 @@
 <?php
+    $searchquery = $_SESSION['searchtxt'];
     include('searchfield.php');
-    $searchtxt = $_GET['sok'];
+    $searchtxt = mysqli_real_escape_string($connect, $_GET['query']);
     $page = intval($_GET['page']);
     //En sjekk for at sidenr ikke er tomt
     if(empty($page) || $page = 0) {
         $page = 1;
     }
     else {
-        $page = $_GET['page'];
+        $page = intval($_GET['page']);
     }
     $per_page = 50; // Antall bilder per side
     $start_from = ($page - 1) * $per_page; // Regner ut hvor den skal starte limiten i LIMIT delen i SQL setningen

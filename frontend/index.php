@@ -951,7 +951,6 @@
 
         .Content {
             width: 100%;
-            min-height: 965px;
             position: relative;
             top: -20px;
             background: url(img/background.svg) no-repeat;
