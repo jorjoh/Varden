@@ -15,19 +15,19 @@ $divStyle = 'background-color:#E8E8E3;
             overflow:hidden;';
 $image = "IMG_3646.JPG";
 
-echo "test1.jpg:<br />\n";
+//echo "test1.jpg:<br />\n";
 $exif = exif_read_data($cur_image, 'IFD0');
 echo $exif===false ? "No header data found.<br />\n" : "Image contains headers<br />\n";
 
 
 
-echo "test1.jpg:<br />\n";
-function readoutexifinfo($cur_image){
-    $exif = exif_read_data($cur_image, 0, true);
+//echo "test1.jpg:<br />\n";
+function readoutexifinfo($cur_image){   // funksjon som tar det akutelle bilde å leser ut exif-informasjonen 
+    $exif = exif_read_data($cur_image, 0, true);    
     foreach ($exif as $key => $section) {   // $key IFD0; COMPUTED, ANY TAG, EXIF etc.
-        foreach ($section as $name => $val) {
+        foreach ($section as $name => $val) {   // Foreach som sjekker gjennom alle felter etter exif-informasjon
             if($key == "ANY_TAG"){
-                echo $key.':'.$name.': '.$val."<br/>";
+                echo $key.':'.$name.': '.$val."<br/>";  // Skriver ut informasjonen slik at vi ser det er noe der
             }
             if($key == "FILE"){
                 echo $key.':'.$name.': '.$val."<br/>";
@@ -46,7 +46,7 @@ function readoutexifinfo($cur_image){
             }
         }
     }
-    echo "Camera maker: ".$exif['IFD0']['Make'];
+   // echo "Camera maker: ".$exif['IFD0']['Make'];
 }
 
 echo '<div style = "' . $divStyle . '">
