@@ -105,7 +105,7 @@
             console.log(file);
             var txt = document.getElementById("txt");
             txt.innerHTML = responseText;
-            removeContentDelay();
+            removeContentDelay(); // Setter en forsinkelse på siden slik at innholdet oppfattes av brukeren før det forsvinner
         });
 
     });
