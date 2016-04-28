@@ -1117,7 +1117,6 @@
     <link rel="canonical" href="http://134.213.218.27/"/>
     <link rel="shortlink" href="http://134.213.218.27/"/>
     <link rel="stylesheet" type="text/css" href="style/style.css" />
-    <link rel="stylesheet" href="style/horizontal.css">
 
     <meta name="description" content="Online bildearkiv for Varden"/>
     <meta name="twitter:description" content="Online bildearkiv for Varden">
@@ -1333,7 +1332,7 @@
         </p>
     </footer>
 </div>
-<script type="text/javascript" src="/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/membership.min.js"></script>
 
 <script type='text/javascript'>(function () {

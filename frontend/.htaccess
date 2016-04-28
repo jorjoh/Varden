@@ -1,4 +1,0 @@
-Options +FollowSymLinks
-RewriteEngine on
-RewriteRule index/side/(.*)/id/(.*)/ index.php?side=$1&id=$2
-RewriteRule index/side/(.*)/id/(.*) index.php?side=$1&id=$2

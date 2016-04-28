@@ -12,13 +12,6 @@ $nbr = mysqli_num_rows($numresult);
     <html>
     <head>
         <title>Infinite scroll - test</title>
-        <style>
-            .loader {
-                position: fixed;
-                bottom: 0;
-                left: 450px;
-            }
-        </style>
     </head>
     <body>
         <div class="images">
@@ -31,31 +24,32 @@ $nbr = mysqli_num_rows($numresult);
             ?>
         </div>
         <div class="loader">
-            <img src="../../frontend/uploads/loader.gif">
+            <button id="more">Click me</button>
         </div>
         <div class="messages"></div>
         <script src="../../frontend/js/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
-                $('.loader').hide();
                 var load = 0;
                 var nbr = <?php echo $nbr; ?>;
-                $(window).scroll(function() {
-                    if($(window).scrollTop() == $(document).height() - $(window).height()) {
-                        $('.loader').show();
+                if (load * 2 > nbr) {
+                    $('.messages').text = "Ingen flere bilder";
+                    $('.loader').hide();
+                } else {
+                    $('#more').click(function () {
                         load++;
-                        if(load * 2 > nbr) {
-                            $('.messages').text = "Ingen flere bilder";
-                            $('.loader').hide();
-                        }
-                        else {
-                            $.post("ajax.php", {load:load}, function(data) {
+                        $.ajax({
+                                method: 'POST',
+                                url: 'ajax.php',
+                                data: {
+                                    load: load,
+                                }
+                            })
+                            .done(function (data) {
                                 $('.images').append(data);
-                                $('.loader').hide();
                             });
-                        }
-                    }
-                });
+                    });
+                }
             });
         </script>
     </body>

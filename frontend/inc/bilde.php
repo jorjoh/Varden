@@ -42,11 +42,7 @@
 </style>
 
 <?php
-$page = $_SESSION['page'];
 $searchquery = $_SESSION['searchtxt'];
-if($page == 0) {
-    $page = 1;
-}
 $id = intval($_GET['id']); // Variabel som fanger opp ID nummeret til bilde og brukes i SQL spørringen - Må være et tall
 // SQL spørring som henter all relevant informasjonen til bilde i databasen fra respektive tabeller
 $sql = "
@@ -191,7 +187,7 @@ else {
             <br>
             <br>
             <br>
-            <a href='?side=resultat&query=$searchquery&page=$page' id='btn' style='padding: 0 20px;'>Tilbake til søkeresultat</a>
+            <a href='?side=resultat&query=$searchquery' id='btn' style='padding: 0 20px;'>Tilbake til søkeresultat</a>
         </div>
     ";
 }
