@@ -92,7 +92,13 @@
                         }
                         echo "
                             </div>
+                            <br style='clear: both;'>
+                            <br>
                         ";
+                    }
+
+                    if($page < $total_pages) {
+                        echo "<a href='?side=resultat&query=$searchtxt&page=".($page + 1)."' id='btn' style='padding: 0 50px;'>Se flere</a>";
                     }
                 }
                 ?>
@@ -100,5 +106,4 @@
     </section>
     <br style="clear: both;">
     <br>
-    <a href="?side=resultat&query=<?php echo $searchtxt; ?>&page=<?php echo ($page+1); ?>" id="btn" style="padding: 0 50px;">Se flere</a>
 </div>
