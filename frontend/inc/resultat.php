@@ -85,11 +85,10 @@
                             $(document).ready(function() {
                                 var load = 0;
                                 var nbr = <?php echo $nbrofrows; ?>;
-                                var per_page = <?php echo $per_page; ?>;
+                                var queryword = "<?php echo $searchtxt; ?>";
                                 if (load * 2 > nbr) {
                                     $('.loader').hide();
                                 } else {
-                                    $('.messages').innerHTML = "load = " + load;
                                     $('#btn').click(function () {
                                         load++;
                                         $.ajax({
@@ -97,11 +96,11 @@
                                                 url: 'inc/functions/ajax.php',
                                                 data: {
                                                     load: load,
-                                                    searchtxt: 'falkum',
-                                                }
+                                                    searchtxt: queryword
+                                                },
                                             })
                                             .done(function (data) {
-                                                $('.pictures_area').append(data).imagesLoaded();
+                                                $('.pictures_area').append(data);
                                             });
                                     });
                                 }
@@ -117,5 +116,4 @@
     <div class='loader'>
         <a id='btn' style='padding: 0 50px;'>Se flere</a>
     </div>
-    <p class="messages">Denne må endre seg</p>
 </div>

@@ -121,6 +121,7 @@ input[type=checkbox]:checked + label:before {
     -moz-border-radius: 5%;
     border-radius: 5%;
     background: #008cdb;
+    cursor: pointer;
 }
 
 #subpage-bg {
