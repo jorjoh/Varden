@@ -31,6 +31,8 @@ $(document).ready(function() {
         });
     });
 
+
+    // ================== LAZYLOADING =====================
     $('img.lazy').lazyload();
 
 });

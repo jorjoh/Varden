@@ -1,39 +1,56 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: roed
- * Date: 20.04.2016
- * Time: 16.00
- */
+require_once('../../frontend/inc/functions/dbcon.php');
 
+$sql = "SELECT * FROM images LIMIT 0,2;";
+$count = "SELECT * FROM images;";
+$result = mysqli_query($connect, $sql);
+$numresult = mysqli_query($connect, $count);
+$nbr = mysqli_num_rows($numresult);
 ?>
 
-<link rel="stylesheet" href="horizontal.css">
-<script src="modernizr.js"></script>
-
-<div class="wrap">
-    <div class="scrollbar">
-        <div class="handle">
-            <div class="mousearea"></div>
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Infinite scroll - test</title>
+    </head>
+    <body>
+        <div class="images">
+            <?php
+                while($row = mysqli_fetch_array($result)) {
+                    ?>
+                    <p><img src="../../frontend/uploads/<?php echo $row['filename']; ?>.jpg" height="500" width="500"></p>
+                <?php
+                }
+            ?>
         </div>
-    </div>
-
-    <div class="frame" id="centered">
-        <ul class="clearfix">
-            <li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
-            <li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li>
-            <li>19</li><li>20</li><li>21</li><li>22</li><li>23</li><li>24</li><li>25</li><li>26</li><li>27</li>
-            <li>28</li><li>29</li>
-        </ul>
-    </div>
-
-    <div class="controls center">
-        <button class="btn prev"><i class="icon-chevron-left"></i> prev</button>
-        <button class="btn next">next <i class="icon-chevron-right"></i></button>
-    </div>
-</div>
-
-<script src="jquery.min.js"></script>
-<script src="vendor.js"></script>
-<script src="sly.min.js"></script>
-<script src="horizontal.js"></script>
+        <div class="loader">
+            <button id="more">Click me</button>
+        </div>
+        <div class="messages"></div>
+        <script src="../../frontend/js/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var load = 0;
+                var nbr = <?php echo $nbr; ?>;
+                if (load * 2 > nbr) {
+                    $('.messages').text = "Ingen flere bilder";
+                    $('.loader').hide();
+                } else {
+                    $('#more').click(function () {
+                        load++;
+                        $.ajax({
+                                method: 'POST',
+                                url: 'ajax.php',
+                                data: {
+                                    load: load,
+                                }
+                            })
+                            .done(function (data) {
+                                $('.images').append(data);
+                            });
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
