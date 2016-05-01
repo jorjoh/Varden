@@ -5,7 +5,7 @@
                 <h2 class="mdl-card__title-text">Online Bildearkiv</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                <form action="#">
+                <form action="#" method="post">
                     <div class="mdl-textfield mdl-js-textfield">
                         <input class="mdl-textfield__input" type="text" id="username" />
                         <label class="mdl-textfield__label" for="username">Username</label>
@@ -14,11 +14,12 @@
                         <input class="mdl-textfield__input" type="password" id="userpass" />
                         <label class="mdl-textfield__label" for="userpass">Password</label>
                     </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" name="login">Log in</button>
+                    </div>
                 </form>
             </div>
-            <div class="mdl-card__actions mdl-card--border">
-                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in</button>
-            </div>
+
         </div>
     </main>
 </div>
@@ -31,3 +32,11 @@
 
 <link rel="stylesheet" href="../css/material.min.css"/>
 <link rel="stylesheet" href="../css/custom.css"/>
+
+<?php
+$login = $_POST['login'];
+if($login){
+    echo "<p style='background-color: #689f38'>hallo</p>";
+}
+
+?>
