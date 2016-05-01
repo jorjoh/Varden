@@ -8,26 +8,26 @@
     "IMAGETYPE_BMP",
 );
 */
-include_once ("dbcon.php");
 
-function validatelogon($username, $password){
-  $sql ="SELECT username, password FORM user WHERE username = '$username';";
-  $result = mysqli_query($connect, $sql) or die("Fant ikke bruker");
-  $row= mysqli_fetch_array($result);
+function validatelogon($username, $pass){
+    include_once ("dbcon.php");
+
+    $sql ="SELECT username, password FROM user WHERE username = '$username';";
+    $result = mysqli_query($connect, $sql) or die("Fant ikke bruker");
+    $row = mysqli_fetch_array($result);
   
-  if (mysqli_num_rows($result) < 1){
-      return false;
-  }
-    else{
-        if(empty($password)){
+    if (mysqli_num_rows($result) < 1){
+        return false;
+    }
+    else if(empty($pass)){
             return false;
-        }
-        else{
-            if($password == $row['password'] ){
-                return true;
-            }
+    }
+    else{
+        if($pass == $row['password'] ){
+            return true;
         }
     }
 
+    return null;
 }
 ?>

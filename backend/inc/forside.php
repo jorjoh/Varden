@@ -1,5 +1,26 @@
 <h1 class="page-header">Oversikt uke - <?php echo date("W"); ?></h1>
 
+<?php
+if($user) {
+    echo "Hei på deg $user";
+}
+else {
+    echo "Du er ikke logget inn";
+}
+?>
+
+<form method="post" action="">
+    <input type="submit" name="logout" value="logg ut">
+</form>
+
+<?php
+    if(isset($_POST['logout'])) {
+        @ob_start();
+        session_destroy();
+        header('Location: login.php');
+    }
+?>
+
 <div class="row placeholders">
     <div class="col-xs-5 col-sm-5 placeholder">
         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"

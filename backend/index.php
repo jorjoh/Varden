@@ -1,9 +1,15 @@
 <?php
+    @session_start();
     date_default_timezone_get("Europa/Oslo");
     include('inc/functions/dbcon.php');
     include('inc/functions/sqlfunctions.php');
-?>
-<!DOCTYPE html>
+    $user = $_SESSION['username'];
+    if(empty($user)) {
+        header('Location: login.php');
+    }
+    else {
+        echo '
+            <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -26,7 +32,7 @@
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!-- Just for debugging purposes. Don\'t actually copy these 2 lines! -->
     <!--[if lt IE 9]>
     <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
@@ -90,7 +96,9 @@
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <?php include('inc/hoved.php'); ?>
+            ';
+            include('inc/hoved.php');
+        echo '
         </div>
     </div>
 </div>
@@ -99,11 +107,15 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script>window.jQuery || document.write(\'<script src="assets/js/vendor/jquery.min.js"><\/script>\')</script>
 <script src="dist/js/bootstrap.min.js"></script>
-<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<!-- Just to make our placeholder images work. Don\'t actually copy the next line! -->
 <script src="assets/js/vendor/holder.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
+
+        ';
+    }
+?>
