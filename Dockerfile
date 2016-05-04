@@ -16,7 +16,7 @@ MAINTAINER Jørgen Johansen
 
 # Installs git
 # Clone our private GitHub Repository
-RUN git clone https://github.com/jorjoh/Varden.git
+RUN git clone https://github.com/jorjoh/Varden.git /varden \
 
 # Bundle app source
 COPY / /var/www/html/
