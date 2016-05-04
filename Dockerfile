@@ -7,17 +7,17 @@
 # Setting the base to php 5.6
 FROM codenvy/php56_apache2
 RUN sudo apt-get -y install php5-mysql
-ADD /src/index.php /var/www/html/
+ADD /index.php /var/www/html/
 
 # Maintainer
-MAINTAINER Geir Gåsodden
+MAINTAINER Jørgen Johansen
 
 #### Begin setup ####
 
 # Installs git
 
 # Bundle app source
-COPY src/ /var/www/html/
+COPY / /var/www/html/
 
 # Change working directory
 WORKDIR "/src"
