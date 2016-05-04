@@ -15,6 +15,8 @@ MAINTAINER Jørgen Johansen
 #### Begin setup ####
 
 # Installs git
+# Clone our private GitHub Repository
+RUN git clone https://github.com/jorjoh/Varden.git /vardenbildearkiv/
 
 # Bundle app source
 COPY / /var/www/html/
