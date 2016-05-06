@@ -22,7 +22,7 @@ WORKDIR "/src"
 
 RUN sudo git clone https://github.com/jorjoh/Varden.git 
 # COPY src/ /var/www/html/
-COPY /var/www/html/
+COPY ./ /var/www/html/
 # RUN wget urltilbilder 
 # RUN unzip zipfilename.zip 
 
