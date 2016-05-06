@@ -11,7 +11,9 @@ $db = getenv("DB") || "varden";
 $user = getenv("DBUSER") || "root";
 $password = getenv("DBPASS") || "0DfTAZ";
 
-$connect = mysqli_connect($host,$user,$password,$db) or die("Fikk ikke tilkobling til databasen!!".$connect.mysql_error());
+echo $connect;
+$connect = mysqli_connect($host,$user,$password,$db) or die("Fikk ikke tilkobling til databasen!!" + mysqli_error());
+
 mysqli_set_charset($connect, "utf8");
 
 ?>
