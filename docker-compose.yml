@@ -3,16 +3,15 @@ webserver:
   ports:
     - "80:80"
   links:
+
    - mysqldb
-  environment:
-    DBHOST: mysqldb
-    DB: varden
-    DBUSER: root
-    DBPASS: password
+
 mysqldb:
  image: mysql
  environment:
   MYSQL_ROOT_PASSWORD: password
   MYSQL_DATABASE: varden
+ ports:
+   - 3306:3306
  volumes:
-   - ./db-dump:/docker-entrypoint-initdb.d
+   - ./dbdump:/docker-entrypoint-initdb.d
