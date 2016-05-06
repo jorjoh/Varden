@@ -12,7 +12,7 @@ $user = getenv("DBUSER") || "root";
 $password = getenv("DBPASS") || "0DfTAZ";
 
 echo $connect;
-$connect = mysqli_connect($host,$user,$password,$db) or die("Fikk ikke tilkobling til databasen!!" + mysqli_error());
+$connect = mysqli_connect($host,$user,$password,$db) or die("Fikk ikke tilkobling til databasen!!" + mysqli_error($connect));
 
 mysqli_set_charset($connect, "utf8");
 
