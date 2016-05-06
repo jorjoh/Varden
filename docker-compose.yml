@@ -4,9 +4,15 @@ webserver:
     - "80:80"
   links:
    - mysqldb
+  environment:
+    DBHOST: mysqldb
+    DB: varden
+    DBUSER: root
+    DBPASS: password
 mysqldb:
  image: mysql
  environment:
-  
   MYSQL_ROOT_PASSWORD: password
   MYSQL_DATABASE: varden
+ volumes:
+   - ./db-dump:/docker-entrypoint-initdb.d
