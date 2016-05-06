@@ -193,3 +193,14 @@ else {
 }
 
 ?>
+
+<script>
+    $(window).keydown(function(e) {
+        if(e.keyCode == 39) {
+            window.location.href = "?side=bilde&id=<?php echo $next;?>";
+        }
+        if(e.keyCode == 37) {
+            window.history.back();
+        }
+    });
+</script>

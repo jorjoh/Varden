@@ -11,7 +11,7 @@
     else {
         $page = intval($_GET['page']);
     }
-    $per_page = 50; // Antall bilder per side
+    $per_page = 100; // Antall bilder per side
     $start_from = ($page - 1) * $per_page; // Regner ut hvor den skal starte limiten i LIMIT delen i SQL setningen
 ?>
 
@@ -42,6 +42,7 @@
                                 her som vises uansett om du har adblock eller ikke
                             </div> -->
                             <br>
+                            <p>'.$start_from.'</p>
                             <p>Ditt søk etter "'.$searchtxt.'" ga '. $nbrofrows.' resultater </p><br>
                             <div class="category_filter text-uppercase">
                                 <ul>
@@ -83,14 +84,16 @@
                         ?>
                         <script>
                             $(document).ready(function() {
-                                var load = 0;
+                                var load = 100;
                                 var nbr = <?php echo $nbrofrows; ?>;
+                                var increment = <?php echo $per_page; ?>;
                                 var queryword = "<?php echo $searchtxt; ?>";
                                 if (load * 2 > nbr) {
                                     $('.loader').hide();
                                 } else {
                                     $('#btn').click(function () {
-                                        load++;
+                                        load+=100;
+                                        $('.test').text("load = " + load + " nbr = " + nbr);
                                         $.ajax({
                                                 method: 'POST',
                                                 url: 'inc/functions/ajax.php',
@@ -100,7 +103,8 @@
                                                 },
                                             })
                                             .done(function (data) {
-                                                $('.pictures_area').append(data);
+                                                $('.category_items').append(data);
+                                                $('.category_items').isotope('reloadItems').isotope({sortBy: 'original-order'});
                                             });
                                     });
                                 }
@@ -116,4 +120,5 @@
     <div class='loader'>
         <a id='btn' style='padding: 0 50px;'>Se flere</a>
     </div>
+    <p class="test">BYTT DA</p>
 </div>
