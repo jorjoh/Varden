@@ -20,9 +20,9 @@ MAINTAINER Jørgen
 # Change working directory
 WORKDIR "/src"
 
-# RUN sudo git clone https://github.com/jorjoh/Varden.git 
-COPY src/ /var/www/html/
-# /var/www/html/
+RUN sudo git clone https://github.com/jorjoh/Varden.git 
+# COPY src/ /var/www/html/
+/var/www/html/
 # RUN wget urltilbilder 
 # RUN unzip zipfilename.zip 
 
