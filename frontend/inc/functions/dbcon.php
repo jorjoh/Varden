@@ -7,9 +7,9 @@
  */
 
 $host = "localhost";
-$db = "varden";
+$db = "mysqldb";
 $user = "root";
-$password = "0DfTAZ";
+$password = "password";
 
 $connect = mysqli_connect($host,$user,$password,$db) or die("Fikk ikke tilkobling til databasen!!");
 
