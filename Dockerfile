@@ -1,3 +1,10 @@
+###########################################################
+#
+# Dockerfile for Varden
+#
+###########################################################
+
+
 # Setting the base to php 5.6
 FROM codenvy/php56_apache2
 RUN sudo apt-get update
@@ -17,7 +24,7 @@ WORKDIR "/src"
 COPY src/ /var/www/html/
 # /var/www/html/
 # RUN wget urltilbilder 
-# RUN unzip zipfilename.zip
+# RUN unzip zipfilename.zip 
 
 # Env variables
 ENV SERVER_PORT 80
