@@ -13,7 +13,7 @@ RUN sudo apt-get -y install php5-mysql git wget zip
 ADD dbdump/varden_dump.sql /docker-entrypoint-initdb.d
 
 # Maintainer
-MAINTAINER Jørgen
+MAINTAINER Jørgen Johansen
 
 #### Begin setup ####
 
