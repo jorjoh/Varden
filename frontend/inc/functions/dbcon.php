@@ -6,8 +6,8 @@
  * Time: 10:26
  */
 
-$host = "localhost";
-$db = "mysqldb";
+$host = "mysqldb";
+$db = "varden";
 $user = "root";
 $password = "password";
 
