@@ -6,4 +6,4 @@ php:
   - 5.6
 
 script:
-  - phpunit --bootstrap index.php --debug --coverage-text test
+  - phpunit --bootstrap frontend/index.php --debug --coverage-text test
