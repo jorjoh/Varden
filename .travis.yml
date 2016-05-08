@@ -4,6 +4,11 @@ php:
   - 5.4
   - 5.5
   - 5.6
-
+services:
+  - mysql
+  
+before_script:
+  - mysql -e "create database IF NOT EXISTS varden;" -uroot
+  - mysql -u root -p varden < varden_dump.sql
 script:
   - phpunit --bootstrap frontend/index.php --debug --coverage-text test
