@@ -6,3 +6,6 @@ php:
 
 before_install:
   - cd php
+  
+script:
+  - phpunit --bootstrap src/autoload.php --debug --coverage-text test
