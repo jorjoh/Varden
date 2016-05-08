@@ -8,7 +8,7 @@ services:
   - mysql
   
 before_script:
-  - mysql -e "create database IF NOT EXISTS varden;" -uroot -p root
+  - mysql -e "create database IF NOT EXISTS varden;" -uroot -proot
   - mysql -u root -proot varden < varden_dump.sql
 script:
   - phpunit --bootstrap frontend/index.php --debug --coverage-text test
