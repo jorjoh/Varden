@@ -16,7 +16,6 @@ ADD dbdump/varden_dump.sql /docker-entrypoint-initdb.d
 MAINTAINER Jørgen Johansen
 
 #### Begin setup ####
-
 # Change working directory
 WORKDIR "/src"
 
