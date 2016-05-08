@@ -21,7 +21,7 @@ WORKDIR "/src"
 
 # RUN sudo git clone https://github.com/jorjoh/Varden.git 
 COPY ./ /var/www/html/
-RUN sudo wget http://http://jorgenjohansen.no/vardenbilder/uploads.zip
+RUN sudo wget http://jorgenjohansen.no/vardenbilder/uploads.zip
 # ADD uploads.zip /var/html/www/frontend/
 RUN sudo unzip uploads.zip -d /var/www/html/frontend/
 
