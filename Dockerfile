@@ -4,7 +4,6 @@
 #
 ###########################################################
 
-
 # Setting the base to php 5.6
 FROM codenvy/php56_apache2
 RUN sudo apt-get update
