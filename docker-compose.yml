@@ -1,4 +1,5 @@
 webserver:
+  restart: always
   image: jorjoh/varden
   ports:
     - "80:80"
@@ -6,6 +7,7 @@ webserver:
    - mysqldb
 
 mysqldb:
+ restart: always
  image: mysql
  environment:
   MYSQL_ROOT_PASSWORD: password
