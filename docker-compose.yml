@@ -1,9 +1,8 @@
 webserver:
-  build: .
+  image: jorjoh/varden
   ports:
     - "80:80"
   links:
-
    - mysqldb
 
 mysqldb:
