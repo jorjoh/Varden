@@ -18,7 +18,7 @@ MAINTAINER Jørgen Johansen
 # Change working directory
 WORKDIR "/src"
 
-# RUN sudo git clone https://github.com/jorjoh/Varden.git 
+RUN sudo git clone https://github.com/jorjoh/Varden.git 
 COPY ./ /var/www/html/
 RUN sudo wget http://jorgenjohansen.no/vardenbilder/uploads.zip
 # ADD uploads.zip /var/html/www/frontend/
