@@ -4,7 +4,7 @@
     $number = mysqli_fetch_array($result);
     $numberOfPictures = $number['number'];
 ?>
-<h1 class="Article-heading-1" style="padding-top: 150px; font-size: 40pt; font-family: 'FlamaFont Slab', 'Roboto Slab', georgia, serif;">Velkommen til Vardens <br> digitale bildearkiv</h1>
+<h1 class="Article-heading-1" style="color:#FF0000; padding-top: 150px; font-size: 40pt; font-family: 'FlamaFont Slab', 'Roboto Slab', georgia, serif;">Velkommen til Vardens <br> digitale bildearkiv</h1>
 <h1>Test heading</h1>
 <h1>Shipyardtestremove</h1>
 <br>
