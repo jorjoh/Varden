@@ -105,6 +105,7 @@
                                             .done(function (data) {
                                                 $('.category_items').append(data);
                                                 $('.category_items').isotope('reloadItems').isotope({sortBy: 'original-order'});
+                                                $('img.lazy').lazyload();
                                             });
                                     });
                                 }

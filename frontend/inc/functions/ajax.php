@@ -22,7 +22,7 @@ while($row = mysqli_fetch_array($result)) {
     ?>
     <a href="?side=bilde&id=<?php echo $id; ?>">
         <div class="single_pictures <?php echo $category[$categoryID]; ?>">
-            <img class="lazy" src="<?php echo $url; ?>" width="<?php echo $width; ?>" height="100">
+            <img class="lazy" data-original="<?php echo $url; ?>" width="<?php echo $width; ?>" height="100">
         </div>
     </a>
     <?php
