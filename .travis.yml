@@ -10,4 +10,4 @@ before_script:
   - mysql -e "create database IF NOT EXISTS varden;" -uroot
   - mysql -uroot varden < varden_dump.sql
 script:
-  - phpunit --bootstrap frontend/index.php --debug --coverage-all test
+  - phpunit --bootstrap frontend/index.php --debug --coverage-text test
