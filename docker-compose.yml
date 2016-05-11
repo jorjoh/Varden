@@ -1,6 +1,7 @@
 webserver:
   restart: always
   image: jorjoh/varden
+  pull: always
   ports:
     - "80:80"
   links:
