@@ -84,16 +84,14 @@
                         ?>
                         <script>
                             $(document).ready(function() {
-                                var load = 100;
+                                var load = 50;
                                 var nbr = <?php echo $nbrofrows; ?>;
-                                var increment = <?php echo $per_page; ?>;
                                 var queryword = "<?php echo $searchtxt; ?>";
-                                if (load * 2 > nbr) {
+                                if (load > nbr) {
                                     $('.loader').hide();
                                 } else {
                                     $('#btn').click(function () {
-                                        load+=100;
-                                        $('.test').text("load = " + load + " nbr = " + nbr);
+                                        load += 50;
                                         $.ajax({
                                                 method: 'POST',
                                                 url: 'inc/functions/ajax.php',
@@ -109,6 +107,7 @@
                                             });
                                     });
                                 }
+                                $('.test').text("load = " + load + " nbr = " + nbr);
                             });
                         </script>
                         <?php

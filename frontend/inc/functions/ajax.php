@@ -10,7 +10,7 @@ require_once('dbcon.php');
 //$per_page = intval($_POST['per_page']);
 $searchtxt = $_POST['searchtxt'];
 $load = htmlentities(strip_tags($_POST['load']));
-$sql = "SELECT id, thumb_url, thumb_w FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT $load, 100;";
+$sql = "SELECT id, thumb_url, thumb_w FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT $load, 50;";
 $result = mysqli_query($connect, $sql) or die('Her skjedde det en feil! '. mysqli_error($connect));
 
 $category = array("nyheter", "kultur", "sport", "steder");

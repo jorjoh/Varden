@@ -286,7 +286,7 @@
             box-sizing: border-box;
             -moz-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .05), 0 2px 4px 0 rgba(0, 0, 0, .02), 0 1px 0 0 rgba(0, 0, 0, .05);
             -webkit-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .05), 0 2px 4px 0 rgba(0, 0, 0, .02), 0 1px 0 0 rgba(0, 0, 0, .05);
-            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .05), 0 2px 4px 0 rgba(0, 0, 0, .02), 0 1px 0 0 rgba(0, 0, 0, .05)
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .05), 0 2px 4px 0 rgba(0, 0, 0, .02), 0 1px 0 0 rgba(0, 0, 0, .05);
         }
 
         .env--agderposten .Header {
@@ -323,7 +323,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 10
+            z-index: 100;
         }
 
         .Header-content {
@@ -599,7 +599,8 @@
             text-decoration: none;
             cursor: pointer;
             padding: 6px 9px;
-            display: block
+            display: block;
+            z-index: 1000;
         }
 
         .env--agderposten .Header-actions-link, .env--agderposten .Header-menu-button {
