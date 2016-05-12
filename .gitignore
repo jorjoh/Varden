@@ -34,7 +34,7 @@ frontend/uploads/
 *.ipr
 *.iws
 backend/functions/dbcon.php
-frontend/inc/functions/dbcon.php
+
 
 ## Plugin-specific files:
 
