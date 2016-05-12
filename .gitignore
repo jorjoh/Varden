@@ -13,7 +13,7 @@ frontend/uploads/
 # .idea/tasks.xml
 # .idea/dictionaries
 # backend/functions/dbcon.php
-# frontend/functions/dbcon.php
+# frontend/inc/functions/dbcon.php
 
 
 # Sensitive or high-churn files:
@@ -34,7 +34,7 @@ frontend/uploads/
 *.ipr
 *.iws
 backend/functions/dbcon.php
-frontend/functions/dbcon.php
+frontend/inc/functions/dbcon.php
 
 ## Plugin-specific files:
 
