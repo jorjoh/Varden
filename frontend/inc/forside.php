@@ -5,7 +5,7 @@
     $numberOfPictures = $number['number'];
 ?>
 <h1 class="Article-heading-1" style="color:#FF0000; padding-top: 150px; font-size: 40pt; font-family: 'FlamaFont Slab', 'Roboto Slab', georgia, serif;">Velkommen til Vardens <br> digitale bildearkiv</h1>
-<h1>Test heading AUTO test2</h1>
+<h1>Test heading AUTODEPLOY</h1>
 <h1>Shipyardtestcontiniousdeploymenttestnewserver</h1>
 <h2>Test heading2</h2>
 <br>
