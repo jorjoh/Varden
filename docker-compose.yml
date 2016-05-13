@@ -1,6 +1,6 @@
 webserver:
   restart: always
-  image: jorjoh/varden
+  image: jorjoh/varden:bildearkiv
   ports:
     - "80:80"
   links:
