@@ -3,7 +3,8 @@
 Online Bildearkiv for Varden
 
 # Docker
-docker pull jorjoh/varden
+Pull image:
+<pre>docker pull jorjoh/varden</pre>
 
-# Run
-docker-compose build && docker-compose up -d
+# Bygg image and run
+<pre> docker-compose build && docker-compose up -d </pre>
