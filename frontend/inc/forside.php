@@ -4,10 +4,7 @@
     $number = mysqli_fetch_array($result);
     $numberOfPictures = $number['number'];
 ?>
-<h1 class="Article-heading-1" style="color:#FF0000; padding-top: 150px; font-size: 40pt; font-family: 'FlamaFont Slab', 'Roboto Slab', georgia, serif;">Velkommen til Vardens <br> digitale bildearkiv</h1>
-<h1>Test heading AUTODEPLOY</h1>
-<h1>Shipyardtestcontiniousdeploymenttestnewserver18.05.16ÆÆÆframtid</h1>
-<h2>Heading test 2</h2>
+<h1 class="Article-heading-1" style="padding-top: 150px; font-size: 40pt; font-family: 'FlamaFont Slab', 'Roboto Slab', georgia, serif;">Velkommen til Vardens <br> digitale bildearkiv</h1>
 <br>
 <p class="Article-header-entering" style="font-family: FlamaFont, Roboto, helvetica, arial, sans-serif;">
     Du kan nå søke i <strong><?php echo $numberOfPictures ?></strong> bilder via vårt bildearkiv på nett. <br>
