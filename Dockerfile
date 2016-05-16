@@ -28,5 +28,5 @@ RUN sudo unzip uploads.zip -d /var/www/html/frontend/
 ENV SERVER_PORT 80
 
 # Expose 3000
-EXPOSE 80
+EXPOSE 8000
 
