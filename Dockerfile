@@ -25,8 +25,8 @@ RUN sudo wget http://jorgenjohansen.no/vardenbilder/uploads.zip
 RUN sudo unzip uploads.zip -d /var/www/html/frontend/
 
 # Env variables
-ENV SERVER_PORT 8000
+ENV SERVER_PORT 3000
 
 # Expose 3000
-EXPOSE 8000
+EXPOSE 3000
 
