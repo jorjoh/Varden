@@ -8,7 +8,7 @@
 
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-    $uploaddir = '/frontend/uploads/';
+    $uploaddir = '../../frontend/uploads/';
     $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
     if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
