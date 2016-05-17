@@ -2,7 +2,7 @@ webserver:
   restart: always
   image: jorjoh/varden:latest
   ports:
-    - "3000:3000"
+    - "80:80
   links:
    - mysqldb
 
