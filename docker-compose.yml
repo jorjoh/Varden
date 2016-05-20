@@ -1,11 +1,13 @@
 webserver:
   restart: always
-  image: jorjoh/varden:latest
+  build: .
   ports:
-    - "80:80
+    - "80:80"
   links:
    - mysqldb
-
+   - elasticsearch
+  volumes:
+    - ./uploads:/var/www/html/frontend/uploads
 mysqldb:
  restart: always
  image: mysql
@@ -13,6 +15,10 @@ mysqldb:
   MYSQL_ROOT_PASSWORD: password
   MYSQL_DATABASE: varden
  ports:
-   - 3306:3306
+   - "3306:3306"
  volumes:
    - ./dbdump:/docker-entrypoint-initdb.d
+elasticsearch:
+  image: elasticsearch
+  ports:
+    - "9200:9200"
