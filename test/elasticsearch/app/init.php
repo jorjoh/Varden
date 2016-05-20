@@ -9,5 +9,5 @@
 require_once 'vendor/autoload.php';
 
 $es = new Elasticsearch\Client([
-    'hosts' => ['127.0.0.1:9200']
+    'hosts' => ['134.213.218.27:9200']
 ]);
