@@ -33,6 +33,7 @@ frontend/uploads/
 ## File-based project format:
 *.ipr
 *.iws
+frontend/functions/dbcon.php
 backend/functions/dbcon.php
 
 
