@@ -1,18 +1,9 @@
 <div style="padding-top: 7%;"></div>
 <?php
-    //$searchquery = $_SESSION['searchtxt'];
+    require_once('app/init.php');
     include('searchfield.php');
-    $searchtxt = mysqli_real_escape_string($connect, $_GET['query']);
-    $page = intval($_GET['page']);
-    //En sjekk for at sidenr ikke er tomt
-    if(empty($page) || $page = 0) {
-        $page = 1;
-    }
-    else {
-        $page = intval($_GET['page']);
-    }
+    $searchtxt = mysqli_real_escape_string($connect, $_GET['q']);
     $per_page = 100; // Antall bilder per side
-    $start_from = ($page - 1) * $per_page; // Regner ut hvor den skal starte limiten i LIMIT delen i SQL setningen
 ?>
 
 
@@ -24,14 +15,35 @@
                 <?php
 
                     if(!empty($searchtxt)) {
-                        $sql = "SELECT images.id, images.thumb_url, images.thumb_w, category.name FROM images JOIN category ON images.id = category.id WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT $start_from, $per_page;";
+                        $esquery = $es->search([
+                           'body' => [
+                               'query' => [
+                                   'bool' => [
+                                       'should' => [
+                                           'match' => ['title' => $searchtxt]
+                                       ]
+                                   ]
+                               ]
+                           ]
+                        ]);
+
+                        if($esquery['hits']['total'] >= 1) {
+                            $esresults = $esquery['hits']['hits'];
+                        }
+
+                        if(isset($esresults)) {
+                            echo "Ditt søkeord fikk følgende treff: <br>";
+                            foreach($esresults as $r) {
+                                echo $r['_source']['title']."<br>";
+                            }
+                        }
+                        $sql = "SELECT images.id, images.thumb_url, images.thumb_w, category.name FROM images JOIN category ON images.id = category.id WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT 0, $per_page;";
                         $query = "SELECT count(id) AS nbr FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%';";
                         $result = mysqli_query($connect, $sql) or die("Kunne ikke sende spørring til DB ". mysqli_error($connect));
                         $nbrresult = mysqli_query($connect, $query) or die ('Kunne ikke telle antall treff'. mysqli_error($connect));
                         $rows = mysqli_num_rows($result);
                         $totalrows = mysqli_fetch_array($nbrresult);
                         $nbrofrows = $totalrows['nbr'];
-                        $total_pages = ceil($nbrofrows / $per_page); // Runder av til nærmeste hele sidetallet
 
                         if($rows < 1) {
                             echo "<p style='background: #ffffcc; color: #FF0000; padding: 20px;'>Vi klarte dessverre ikke finne noen bilder på ditt søk! <br> Prøv med et annet søkeord</p>";

@@ -1,6 +1,6 @@
 <form method="get" action="?side=resultat" name="searchfield" id="searchfield">
     <input type="hidden" name="side" value="resultat">
-    <input type="text" name="query" id="search" autofocus="autofocus" placeholder="Søk her..." required/>
+    <input type="text" name="q" id="search" autofocus="autofocus" placeholder="Søk her..." required/>
     <input type="submit" id="submit" style="background: url('img/searchbutton.svg');" value=" "/>
     <br>
     <br>

@@ -4,8 +4,8 @@
     include('inc/functions/dbcon.php');
     define('DEBUG', true);
 
-    error_reporting(E_ALL);
-    ini_set('display_errors', DEBUG ? 'off' : 'Off');
+    //error_reporting(E_ALL);
+    //ini_set('display_errors', DEBUG ? 'off' : 'Off');
     ini_set('default_charset','UTF-8');
     //header('Content-type: text/html; charset=utf-8');
 ?>
