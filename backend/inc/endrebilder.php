@@ -6,6 +6,8 @@
  * Time: 20:29
  */
 
+$id = $_GET['id'];
+if(empty($id)) {
 $page = $_GET['page'];
 if(empty($page) || $page = 0) {
     $page = 1;
@@ -76,18 +78,18 @@ else {
                                 ';
     }
 }
-        // MULIGHET FOR Å SKRIVE INN SIDEN DU ØNKSER Å GÅ TIL !
+// MULIGHET FOR Å SKRIVE INN SIDEN DU ØNKSER Å GÅ TIL !
 ?>
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
+
     <!-- Bibliotek for jquery funksjonalitet-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-    
+
     <script type="text/javascript">
         $('.slideshow_zoom').each(function() { // dialog boks for å åpne bilder i fra tabellen
             var $link = $(this);
@@ -100,7 +102,7 @@ else {
                     height: 500,
                     closeOnEscape: true,
                     dialogClass: 'zoom'
-                }); // Slutt på attributter 
+                }); // Slutt på attributter
             $link.click(function() {
                 $dialog.dialog('open'); // Åpner dialog boksen
                 return false;
@@ -118,4 +120,18 @@ else {
 
 <link rel="stylesheet" href="css/material.min.css"/>
 <link rel="stylesheet" href="css/custom.css"/>
-
+<?php
+}
+else {
+    $sql = "SELECT * FROM images WHERE id = $id;";
+    $query2 = mysqli_query($connect, $sql);
+    if(mysqli_num_rows($query2) < 1) {
+        header("Location: ?side=endrebilder");
+    }
+    else {
+        $row2 = mysqli_fetch_array($query2);
+        $tittel = $row2['tittel'];
+        echo "Tittelen på bilde er: $tittel";
+    }
+}
+?>
