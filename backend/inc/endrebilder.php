@@ -109,6 +109,13 @@ else {
             });
         });
     </script>
+    <script>
+        $('tr').click( function() {
+            window.location = $(this).find('a').attr('href');
+        }).hover( function() {
+            $(this).toggleClass('hover');
+        });
+    </script>
 
 </html>
 
@@ -123,15 +130,53 @@ else {
 <?php
 }
 else {
-    $sql = "SELECT * FROM images WHERE id = $id;";
-    $query2 = mysqli_query($connect, $sql);
-    if(mysqli_num_rows($query2) < 1) {
+    //SQL-spørringer
+    $sqlexitingpicture = "SELECT * FROM images WHERE id = $id;";
+    $sqlrequesttext = "SELECT * FROM request WHERE id = $id";
+    //Slutt på SQL-spørringer
+    $queryforexistingpicturetext = mysqli_query($connect, $sqlexitingpicture);
+    $queryforrequestpicturetext = mysqli_query($connect, $sqlrequesttext);
+    if(mysqli_num_rows($queryforexistingpicturetext) < 1) {
         header("Location: ?side=endrebilder");
     }
     else {
-        $row2 = mysqli_fetch_array($query2);
-        $tittel = $row2['tittel'];
-        echo "Tittelen på bilde er: $tittel";
+        /*IMAGES-tabellen*/
+        $rowforexistingpicture = mysqli_fetch_array($queryforexistingpicturetext);
+        $tittel = $rowforexistingpicture['title'];
+        $picturetext= $rowforexistingpicture['picturetext'];
+        /*IMAGES-tabellen-slutt*/
+
+        /*REQUEST-tabellen*/
+        $rowforrequestpicturetext = mysqli_fetch_array($queryforrequestpicturetext);
+        //$tittelforrequestpicture = $rowforrequestpicturetext['title'];
+        $picturetextformrequest = $rowforrequestpicturetext['requesttext'];
+        /*Slutt på REQUEST-tabellen*/
+
+        echo "
+        <form method='post' action='' name='requestpicturetextchange' id='requestpicturetextchange'>
+       <!-- <input type='text' value='$tittel'> <br>-->
+        <!--<input type='text' value='$picturetext'>-->
+         <h2>Endre bildetekst eller tittel til bilde id: $id</h2>
+        <textarea>$tittel</textarea><br>
+        <textarea style='height: 200px; width: 450px;'>$picturetext</textarea>
+        <h2>Forslag på bilde tekst som er kommet inn av brukeren</h2>
+        <textarea>$tittel</textarea><br>
+        <textarea style='height: 200px; width: 450px;'>$picturetextformrequest</textarea><br>
+        <input type='submit' id='submit' name='submit' value='Utfør endring'/>
+        </form>
+        
+        ";
+
+        if(isset($_POST["submit"])){
+            $updaterows = "UPDATE images SET picturetext = '$picturetextformrequest' WHERE id = $id";
+            echo $updaterows."<br>";
+            mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen, did not work");
+        }
+        else{
+            echo "DidentWork";
+        }
+        //echo "Tittelen på bilde er: $tittel <br>";
+        //echo "Bildetekst til bilde er: $picturetext";
     }
 }
 ?>
