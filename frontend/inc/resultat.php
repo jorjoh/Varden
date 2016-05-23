@@ -14,13 +14,28 @@
                 <?php
 
                     if(!empty($searchtxt)) {
+
+                        if(isset($_GET['news'])) {
+                            echo "Nyheter = CHECK <br>";
+                        }
+                        if(isset($_GET['culture'])) {
+                            echo "Kultur = CHECK <br>";
+                        }
+                        if(isset($_GET['sport'])) {
+                            echo "Sport = CHECK <br>";
+                        }
+                        if(isset($_GET['places'])) {
+                            echo "Steder = CHECK <br>";
+                        }
+
                         $esquery = $es->search([
                            'size' => 50,
                             'body' => [
                                'query' => [
                                    'bool' => [
-                                       'should' => [
-                                           'match' => ['title' => $searchtxt]
+                                       'must' => [
+                                           [ 'match' => ['category' => $searchtxt] ],
+                                           [ 'match' => ['tags' => $searchtxt] ]
                                        ]
                                    ]
                                ]
@@ -36,7 +51,6 @@
                             echo "Ditt søkeord fikk følgende treff: <br>";
                             foreach($esresults as $r) {
                                 echo $r['_source']['title']."<br>";
-                                echo $r['_source']['photographer']."<br>";
                                 ?>
                                 <!-- <img src="<?php //echo $r['_source']['url']; ?>"><br> --><?php
                             }

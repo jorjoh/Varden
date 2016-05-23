@@ -28,7 +28,8 @@
                 'time_taken' => $time_taken,
                 'place' => $place,
                 'width' => $thumb_width,
-                'url' => $thumb_url
+                'url' => $thumb_url,
+                'tags' => []
             ]
         ];
 
