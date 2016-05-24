@@ -35,15 +35,12 @@ for ($r = 1; $r <= $numberofrows; $r++) {  // For-loop som kjører gjennom array
     "
     );
 }
-echo("</table>"); // SLutt på tabell
-?>
-
-<?php
+echo("</table><br/>"); // SLutt på tabell
 
 echo" <form method='post' id='requestpicturetextchange'>
-            <textarea name='editedtext' id='editedtext' rows='10' cols='80'>
+            <textarea name='editedtext' id='editedtext' rows='10' cols='89'>
             </textarea><br>
-            <input type='submit' id='submit' name='submit'>
+            <input type='submit' id='submit' name='submit' value='Lagre endringer' class='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
         </form>";
 
         if(isset($_POST["submit"])){
