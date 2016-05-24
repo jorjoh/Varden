@@ -55,7 +55,9 @@ for ($r = 1; $r <= $antallRader; $r++) {  // For-loop som kjører gjennom arraye
     </tbody>");
 
 }
-echo("</table>"); // SLutt på tabell
+echo("</table>");
+// Slutt på tabell
+
 // Del av spørringen som går på sidepagnering
 $totalrows = mysqli_fetch_array($nbrresult);
 $nbrofrows = $totalrows['nbr'];
@@ -158,20 +160,12 @@ else {
          <h2>Endre bildetekst eller tittel til bilde id: $id</h2>
         <textarea>$tittel</textarea><br>
         <textarea style='height: 200px; width: 450px;' readonly>$picturetext</textarea><br>
-        <input type='submit' id='submit'>
+        <!--<input type='submit' id='submit'>-->
         </form>
         
         ";
 
-        if(isset($_POST["submit"])){
-            $changedtext= $_POST['editor1'];
-            $updaterows = "UPDATE images SET picturetext = '$changedtext' WHERE id = $id";
-            echo $updaterows."<br>";
-            mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen");
-        }
-        else{
-            echo "Returned error<br>";
-        }
+
         //echo "Tittelen på bilde er: $tittel <br>";
         //echo "Bildetekst til bilde er: $picturetext";
     }

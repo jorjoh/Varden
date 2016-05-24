@@ -40,14 +40,25 @@ echo("</table>"); // SLutt på tabell
 
 <?php
 
-echo" <form id='test'>
-            <textarea name='editor1' id='editor1' rows='10' cols='80'>
-            </textarea>
+echo" <form method='post' id='requestpicturetextchange'>
+            <textarea name='editedtext' id='editedtext' rows='10' cols='80'>
+            </textarea><br>
+            <input type='submit' id='submit' name='submit'>
         </form>";
+
+        if(isset($_POST["submit"])){
+            $changedtext= $_POST['editedtext'];
+            $updaterows = "UPDATE images SET picturetext = '$changedtext' WHERE id = $id";
+            $setstatusprossed = "UPDATE request SET processed = 1 WHERE image_id = $id";
+            echo $updaterows."<br>";
+            echo $setstatusprossed."<br>";
+            mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen, bildetekst ikke oppdatert");
+            mysqli_query($connect,$setstatusprossed) or die ("Fikk ikke kontakt med databasen, processed ikke endret ".mysqli_errno($connect));
+        }
 
 ?>
 <script>
     $('#mytable').find('input').click(function() {
-        $('#editor1').text($('input[name=test]:checked').val());
+        $('#editedtext').text($('input[name=test]:checked').val());
     });
 </script>
