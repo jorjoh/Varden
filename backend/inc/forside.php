@@ -36,130 +36,38 @@ else {
     </div>
 </div>
 
+<?php
+    $sql = "SELECT id, image_id, requesttext FROM request WHERE processed = 0 ORDER BY image_id;";
+    $query = mysqli_query($connect, $sql) or die('Kunne ikke hente informasjon fra DB!');
+    $nbr = mysqli_num_rows($query);
+?>
+
 <h2 class="sub-header">Ubehandlede forslag</h2>
+<p>Det er <?php echo $nbr; ?> ubehandlede forslag</p>
 <div class="table-responsive">
 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width:100%" >
     <thead>
     <tr>
         <th class="mdl-data-table__cell--non-numeric">#</th>
-        <th>Bildetittel</th>
-        <th>Innsendt av</th>
-        <th>Klokkeslett</th>
-        <th>Dato</th>
+        <th>Bilde ID</th>
+        <th>Forslag</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">1</td>
-        <td>25</td>
-        <td>$2.90</td>
-        <td>$2.90</td>
-        <td>$2.90</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">2</td>
-        <td>50</td>
-        <td>$1.25</td>
-        <td>$1.25</td>
-        <td>$1.25</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">3</td>
-        <td>10</td>
-        <td>$2.35</td>
-        <td>$2.35</td>
-        <td>$2.35</td>
-    </tr>
-    <td class="mdl-data-table__cell--non-numeric">4</td>
-    <td>libero</td>
-    <td>Sed</td>
-    <td>cursus</td>
-    <td>ante</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">5</td>
-        <td>dapibus</td>
-        <td>diam</td>
-        <td>Sed</td>
-        <td>nisi</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">6</td>
-        <td>Nulla</td>
-        <td>quis</td>
-        <td>sem</td>
-        <td>at</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">7</td>
-        <td>nibh</td>
-        <td>elementum</td>
-        <td>imperdiet</td>
-        <td>Duis</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">8</td>
-        <td>sagittis</td>
-        <td>ipsum</td>
-        <td>Praesent</td>
-        <td>mauris</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">9</td>
-        <td>Fusce</td>
-        <td>nec</td>
-        <td>tellus</td>
-        <td>sed</td>
-    </tr>
-    <tr>
-        <td>10</td>
-        <td>augue</td>
-        <td>semper</td>
-        <td>porta</td>
-        <td>Mauris</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">11</td>
-        <td>massa</td>
-        <td>Vestibulum</td>
-        <td>lacinia</td>
-        <td>arcu</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">12</td>
-        <td>eget</td>
-        <td>nulla</td>
-        <td>Class</td>
-        <td>aptent</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">13</td>
-        <td>taciti</td>
-        <td>sociosqu</td>
-        <td>ad</td>
-        <td>litora</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">14</td>
-        <td>torquent</td>
-        <td>per</td>
-        <td>conubia</td>
-        <td>nostra</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">15</td>
-        <td>per</td>
-        <td>inceptos</td>
-        <td>himenaeos</td>
-        <td>Curabitur</td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">16</td>
-        <td>sodales</td>
-        <td>ligula</td>
-        <td>in</td>
-        <td>libero</td>
-    </tr>
+            <?php
+                while($row = mysqli_fetch_array($query)) {
+                    $id = $row['id'];
+                    $pictureid = $row['image_id'];
+                    $requesttext = $row['requesttext'];
+                    echo "
+                        <tr>
+                            <td>$id</td>
+                            <td>$pictureid</td>
+                            <td>$requesttext</td>
+                        </tr>
+                    ";
+                }
+            ?>
     </tbody>
 </table>
 </div>

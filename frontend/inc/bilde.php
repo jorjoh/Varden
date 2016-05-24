@@ -191,7 +191,7 @@ else {
                     </div>
                     ";
                     if(isset($_POST['submit'])) {
-                        $comment = $_POST['comment'];
+                        $comment = mysqli_real_escape_string($connect, $_POST['comment']);
                         if(empty($comment)) {
                             echo "Det er ikke skrevet noen kommentar";
                         }
