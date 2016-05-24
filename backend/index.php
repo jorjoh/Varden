@@ -97,7 +97,7 @@
                 <li><a href="#">Bildeinformasjon</a></li>
                 <li><a href="?side=lastoppbilder">Last opp bilder</a></li>
                 <li><a href="?side=endrebilder">Endre Bilder</a></li>
-                <li><a href="#">Slett bilder</a></li>
+                <li><a href="?side=slettebilder">Slett bilder</a></li>
                 <li style="text-align: center;"><strong>Forslag</strong></li>
                 <li><a href="#">Behandle innsendte forslag</a></li>
                 <li><a href="#">Se tidligere forslag</a></li>

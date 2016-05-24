@@ -2,9 +2,7 @@
 
 //Tabell over innsendte forsalg til bilde id
 $sqlrequesttable = "SELECT image_id, requesttext, processed FROM request WHERE image_id = $id AND processed = 0;";    // velger alt fra tabellen images
-
 $sqlreqestresult = mysqli_query($connect, $sqlrequesttable) or die ("Ikke mulig å hente data");
-
 $numberofrows = mysqli_num_rows($sqlreqestresult);
 
 echo("<table id='mytable' class=\"mdl-data-table mdl-js-data-table mdl-data-table--mdl-shadow--2dp\" style='width: 200px;'>");   // Material design tabell som brukes til å få en oversikt av bildene i DB
