@@ -70,6 +70,7 @@ else {
         <td>$2.35</td>
         <td>$2.35</td>
     </tr>
+    <tr>
     <td class="mdl-data-table__cell--non-numeric">4</td>
     <td>libero</td>
     <td>Sed</td>

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="css/custom.css"/>
 
 <?php
-$id = $_GET['id'];
+//$id = $_GET['id'];
 if(empty($id)) {
     $page = $_GET['page'];
     if(empty($page) || $page = 0) {
@@ -28,13 +28,14 @@ if(empty($id)) {
     $nbrresult = mysqli_query($connect, $query) or die ('Kunne ikke telle antall treff'. mysqli_error($connect));
     $antallRader = mysqli_num_rows($sqlresultat);
 
-    echo("<table class=\"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp\" style='width: 200px;'>");   // Material design tabell som brukes til å få en oversikt av bildene i DB
+    echo("<table id='tableSelect' class=\"mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp\" style='width: 200px;'>");   // Material design tabell som brukes til å få en oversikt av bildene i DB
     echo("<thead>");
     echo(" <tr>
             <th class=\\'mdl-data-table__cell--non-numeric\\'>Bilder(filename)</th> <!--//Table headers-->
             <th>Beskrivelse</th>
-            <th>URL</th>
+            <th>Thumbnail</th>
             <th style='text-align: right'>Antall ganger vist</th>
+            <th style='text-align: right'>Slett bilde</th>
         </tr>");                                                                    //End of table headers
     for ($r = 1; $r <= $antallRader; $r++) {  // For-loop som kjører gjennom arrayet og skriver ut informasjonen til alle bilder i tabellen
         $rad = mysqli_fetch_array($sqlresultat);
@@ -51,12 +52,34 @@ if(empty($id)) {
         <tr data-mdl-data-table-selectable-name=\"materials[]\" data-mdl-data-table-selectable-value=\"acrylic\">   <!-- fyller op rader med informasjon fra databasen-->
             <td class=\\'mdl-data-table__cell--non-numeric\\'>$filnavn</td>
             <td>$beskrivelse</td>
-            <td><a href='$tumburl' class='slideshow_zoom'>Link til bilde</a> </td>
+            <td><img src='$tumburl' style='height: 60px; width: 60px;'></a></td>
             <td style='text-align: right;'>$count</td>
+            <td><input type='checkbox' name='checkbox[]' id='checkbox'></td>
         </tr>
         </tbody>");
     }
-    echo("</table>");
+    echo("</table><br>");
+    echo ("<form method='post'>
+            <input type='submit' id='slettbilde' name='slettbilde' value='Slett bilder' style='float: right; right: 210px; bottom: 0px; position: relative' /> </input>
+            </form>");
+
+    if(isset($_POST["slettbilde"])){
+
+        if(count($_POST['checkbox']));{
+            echo (count($_POST['checkbox']))." antall markert";
+        }
+
+        /*$changedtext= $_POST['editedtext'];
+        $updaterows = "DELETE FROM images WHERE id=$imagesid";
+
+        echo $updaterows."<br>";
+
+        mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen, bildetekst ikke oppdatert");*/
+
+
+    }
+
+
     // Slutt på tabell
 
     // Del av spørringen som går på sidepagnering
@@ -91,24 +114,17 @@ else {
 }
 
 ?>
-<script type="text/javascript">
+<script>
+    $('#tableSelect tr').click(function() {
+        /*var ele = $(this).find(':checkbox');
+        if ($(':checked').length) {
+            ele.prop('checked', false);
+            $(this).removeClass('admin_checked');
+        } else {
+            ele.prop('checked', true);
+            $(this).addClass('admin_checked');
+        }*/
+       // document.querySelector('.mdl-js-checkbox').MaterialCheckbox.check()
 
-        $('.slideshow_zoom').each(function() { // dialog boks for å åpne bilder i fra tabellen
-            var $link = $(this);
-           var $dialog = $('<img src="' + $link.attr('href') + '" style="height: 70px;!important; width: 150px;!important;"/>') // Tar "anchor-tagen" som img src og vier selve bilde
-               .dialog({   // Attributter til dialogboksen
-                      autoOpen: false,
-                      resizeable: false,
-                      modal: true,
-                      width: 700,
-                      height: 500,
-                      closeOnEscape: true,
-                      dialogClass: 'zoom'
-            }); // Slutt på attributter
-              $link.click(function() {
-                  $dialog.dialog('open'); // Åpner dialog boksen
-                  return false;
-              });
-          });
-
+    })
       </script>
