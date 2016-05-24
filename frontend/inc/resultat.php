@@ -6,7 +6,6 @@
     $per_page = 100; // Antall bilder per side
 ?>
 
-
 <br>
 <div id="subpage-bg">
     <section id="pictures" class="pictures_area">
@@ -15,12 +14,28 @@
                 <?php
 
                     if(!empty($searchtxt)) {
+
+                        if(isset($_GET['news'])) {
+                            echo "Nyheter = CHECK <br>";
+                        }
+                        if(isset($_GET['culture'])) {
+                            echo "Kultur = CHECK <br>";
+                        }
+                        if(isset($_GET['sport'])) {
+                            echo "Sport = CHECK <br>";
+                        }
+                        if(isset($_GET['places'])) {
+                            echo "Steder = CHECK <br>";
+                        }
+
                         $esquery = $es->search([
-                           'body' => [
+                           'size' => 50,
+                            'body' => [
                                'query' => [
                                    'bool' => [
-                                       'should' => [
-                                           'match' => ['title' => $searchtxt]
+                                       'must' => [
+                                           [ 'match' => ['category' => $searchtxt] ],
+                                           [ 'match' => ['tags' => $searchtxt] ]
                                        ]
                                    ]
                                ]
@@ -32,9 +47,12 @@
                         }
 
                         if(isset($esresults)) {
+                            echo count($esresults);
                             echo "Ditt søkeord fikk følgende treff: <br>";
                             foreach($esresults as $r) {
                                 echo $r['_source']['title']."<br>";
+                                ?>
+                                <!-- <img src="<?php //echo $r['_source']['url']; ?>"><br> --><?php
                             }
                         }
                         $sql = "SELECT images.id, images.thumb_url, images.thumb_w, category.name FROM images JOIN category ON images.id = category.id WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT 0, $per_page;";

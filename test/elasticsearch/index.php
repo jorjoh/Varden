@@ -11,8 +11,8 @@
                     'bool' => [
                         'should' => [
                             'match' => ['title' => $q],
-                            'match' => ['body' => $q],
-                            'match' => ['keywords' => $q]
+                            //'match' => ['body' => $q],
+                            //'match' => ['keywords' => $q],
                         ]
                     ]
                 ]

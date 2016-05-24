@@ -9,8 +9,8 @@
             $keywords = explode(', ', $_POST['keywords']);
 
             $indexed = $es->index([
-                'index' => 'articles',
-                'type' => 'article',
+                'index' => 'images',
+                'type' => 'image',
                 'body' => [
                     'title' => $title,
                     'body' => $body,
