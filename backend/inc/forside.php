@@ -43,7 +43,9 @@ $nbr = mysqli_num_rows($query);
 ?>
 
 <h2 class="sub-header">Ubehandlede forslag</h2>
-<p>Det er <?php echo $nbr; ?> ubehandlede forslag</p>
+<!--<p>Det er <?php echo $nbr; ?> ubehandlede forslag</p>-->
+
+<span class="mdl-badge" data-badge="<?php echo $nbr; ?>">Antall ubehandlede forslag</span>
 <div class="table-responsive">
     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width:100%" >
         <thead>
