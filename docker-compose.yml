@@ -8,6 +8,8 @@ webserver:
    - elasticsearch
   volumes:
     - ./uploads:/var/www/html/frontend/uploads
+    - ./dbconnection:/var/www/html/frontend/inc/functions
+    - ./dbconnection:/var/www/html/backend/inc/functions
 mysqldb:
  restart: always
  image: mysql

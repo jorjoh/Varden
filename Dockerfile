@@ -7,7 +7,9 @@
 # Setting the base to php 5.6
 FROM codenvy/php56_apache2
 RUN sudo apt-get update
-RUN sudo apt-get -y install php5-mysql git wget zip php5-curl
+RUN sudo apt-get -y install php5-mysql git wget zip php5-curl libapache2-mod-php5
+RUN sudo a2enmod php5
+RUN sudo a2enmod rewrite
 # ADD /src/index.php /var/www/html/
 ADD dbdump/varden_dump.sql /docker-entrypoint-initdb.d
 
