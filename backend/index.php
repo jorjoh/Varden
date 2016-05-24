@@ -50,6 +50,8 @@
     <script src="js/jquery.min.js"></script>
     <!--CKeditor-->
     <script src="//cdn.ckeditor.com/4.5.9/basic/ckeditor.js"></script>
+    <!-- Jquery-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     
     
     

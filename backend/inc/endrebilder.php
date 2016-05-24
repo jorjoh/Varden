@@ -157,7 +157,8 @@ else {
         <!--<input type='text' value='$picturetext'>-->
          <h2>Endre bildetekst eller tittel til bilde id: $id</h2>
         <textarea>$tittel</textarea><br>
-        <textarea style='height: 200px; width: 450px;' readonly>$picturetext</textarea>
+        <textarea style='height: 200px; width: 450px;' readonly>$picturetext</textarea><br>
+        <input type='submit' id='submit'>
         </form>
         
         ";
@@ -166,10 +167,10 @@ else {
             $changedtext= $_POST['editor1'];
             $updaterows = "UPDATE images SET picturetext = '$changedtext' WHERE id = $id";
             echo $updaterows."<br>";
-            mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen, did not work");
+            mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen");
         }
         else{
-            echo "Error<br>";
+            echo "Returned error<br>";
         }
         //echo "Tittelen på bilde er: $tittel <br>";
         //echo "Bildetekst til bilde er: $picturetext";
@@ -184,5 +185,5 @@ if(mysqli_num_rows($sqlrequestresult) > 0){
     include_once ("forslagbildetekst.php");
 }
 else{
-    echo "Ingen forslag motatt";
+    echo "Ingen forslag motatt!, kom tilbake senere";
 }

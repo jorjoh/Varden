@@ -7,9 +7,10 @@ $sqlreqestresult = mysqli_query($connect, $sqlrequesttable) or die ("Ikke mulig 
 
 $numberofrows = mysqli_num_rows($sqlreqestresult);
 
-echo("<table class=\"mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp\" style='width: 200px;'>");   // Material design tabell som brukes til å få en oversikt av bildene i DB
+echo("<table id='mytable' class=\"mdl-data-table mdl-js-data-table mdl-data-table--mdl-shadow--2dp\" style='width: 200px;'>");   // Material design tabell som brukes til å få en oversikt av bildene i DB
 echo("<thead>");
 echo(" <tr>
+        <th class=\\'mdl-data-table__cell--non-numeric\\'>Velg</th> <!--//Table headers-->
         <th class=\\'mdl-data-table__cell--non-numeric\\'>Bilder(filename)</th> <!--//Table headers-->
         <th>Beskrivelse</th>
         <th>Behandlet</th>
@@ -24,10 +25,42 @@ for ($r = 1; $r <= $numberofrows; $r++) {  // For-loop som kjører gjennom array
     </thead>
     <tbody>
     <tr data-mdl-data-table-selectable-name=\"materials[]\" data-mdl-data-table-selectable-value=\"acrylic\">   <!-- fyller op rader med informasjon fra databasen-->
-        <a href='#'> <td class=\\'mdl-data-table__cell--non-numeric\\'>$imageid</td>
-        <td>$requesttext</td>
+       <td><input type='radio' name='test' value='$requesttext'></td>
+       <a href='#'> <td class=\\'mdl-data-table__cell--non-numeric\\'>$imageid</td>
+        <a href='#'><td>$requesttext </td></a>
+        
         <td style='text-align: right;'>$processed</td> </a>
     </tr>
-    </tbody>");
+    </tbody>
+    "
+    );
 }
 echo("</table>"); // SLutt på tabell
+?>
+
+
+
+<?php
+echo" <form id='test'>
+            <textarea name='editor1' id='editor1' rows='10' cols='80'>
+                       
+            </textarea>
+            <script>
+    // Replace the <textarea id='editor1'> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace( 'editor1' );
+            </script>
+        </form>";
+
+?>
+
+<script>
+
+    /*$('#mytable input').on('change', function() {
+        $('#editor1').text((($('input[name=\"test\"]:checked', '#mytable').val())));
+    });*/
+    $('#mytable input').click(function(){
+        console.log( $('table input[type="radio"]:checked').parent().next().find('name').text() );
+    });
+
+</script>
