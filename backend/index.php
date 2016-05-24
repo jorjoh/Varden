@@ -72,16 +72,6 @@
             </button>
             <a class="navbar-brand" href="#">Online Bildearkiv - Administrator</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Innstillinger</a></li>
-                <li><a href="#">Profil</a></li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Søk i dashboardet...">
-            </form>
-        </div>
     </div>
 </nav>
 

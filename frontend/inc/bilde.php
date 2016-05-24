@@ -168,20 +168,41 @@ else {
                     <p>$picturetext</p>
                     <p>(FOTO: $photographer)</p>
                     <br><br>
-<!--                <p>
+                    <p>
                        <a title=\"send to Facebook\" 
-                          href=\"http://www.facebook.com/sharer.php?s=100&p[title]=tittelenkommerher&p[summary]=etfintbildesomduikkefårtilgangtil&p[url]=erikroed.no&p[images][0]=YOUR_IMAGE_TO_SHARE_OBJECT\"
+                          href=\"http://www.facebook.com/sharer.php?s=100&p[title]=tittelenkommerher&p[summary]=etfintbilde&p[url]=varden.no&p[images][0]=YOUR_IMAGE_TO_SHARE_OBJECT\"
                           target=\"_blank\">
                           <span style='background: #00598c; padding: 20px; color: #FFF; border-radius: 3%;'>
-                            <img width=\"14\" height=\"14\" src=\"'icons/fb.gif\" alt=\"Facebook\" /> Del med venner på Facebook! 
+                            <img width=\"14\" height=\"14\" src=\"'icons/fb.gif\" alt=\"Facebook\" /> Del på Facebook! 
                           </span>
                         </a>
                     </p>
                     <br><br>
                     <p>
-                        <a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-dnt=\"true\">Del på Twitter</a>
-                    </p>-->
+                        <a href=\"https://twitter.com/intent/tweet?text=Se på dette bilde fra Vardens bildegalleri?url=?side=bilde&id=$id\" class=\"twitter-share-button\" data-dnt=\"true\" data-size=\"large\">Del på Twitter</a>
+                    </p>
+                    <br>
+                    <p id='pictureinfo' style='color: #0000FF; text-decoration: underline; cursor:pointer;'>-- Trykk her for å sende inn informasjon om bilde --</p>
+                    <div id='box'>
+                        <form method='post' name='pictureinfoschema' id='pictureinfoschema'>
+                            <textarea name='comment' placeholder='Fyll inn din informasjon om bilde her...' style='width: 100%; height: 80px;'></textarea>
+                            <input type='submit' id='submit' name='submit' value='Send inn ditt forslag'>
+                        </form>
                     </div>
+                    ";
+                    if(isset($_POST['submit'])) {
+                        $comment = mysqli_real_escape_string($connect, $_POST['comment']);
+                        if(empty($comment)) {
+                            echo "Det er ikke skrevet noen kommentar";
+                        }
+                        else {
+                            $sql = "INSERT INTO request(image_id, requesttext) VALUES ($id, '$comment');";
+                            mysqli_query($connect, $sql) or die('Beklager det skjedde en feil! Ta kontakt med webutvikler'.mysqli_error($connect));
+                            echo "<p id='msg' style='background: #f7ecb5; margin-top: 10px; padding: 15px; border: 1px solid black;'>Ditt forslag ble vellykket sendt inn til behandling!</p>";
+                        }
+                    }
+                echo "
+                </div>
                 <br style='clear: both;'>
             </div>
             <br>
@@ -203,4 +224,11 @@ else {
             window.history.back();
         }
     });
+
+    $(document).ready(function() {
+        $('#pictureinfo').click(function () {
+            $('#box').slideToggle('slow', function() {});
+        });
+    });
+
 </script>
