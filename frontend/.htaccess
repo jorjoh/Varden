@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^resultat/([a-zA-Z0-9]+)$ ?side=resultat&q=$1
+RewriteRule ^bilde/([0-9]+)$ ?side=bilde&id=$1

@@ -187,7 +187,7 @@ else {
             <br>
             <br>
             <br>
-            <a href='?side=resultat&query=$searchquery' id='btn' style='padding: 0 20px;'>Tilbake til søkeresultat</a>
+            <a href='?side=resultat&q=$searchquery' id='btn' style='padding: 0 20px;'>Tilbake til søkeresultat</a>
         </div>
     ";
 }

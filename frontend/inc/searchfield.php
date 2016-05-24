@@ -15,6 +15,6 @@
 </form>
 <br>
 <?php
-    //$_SESSION['searchtxt'] = mysqli_real_escape_string($connect, $_GET['query']);
+    $_SESSION['searchtxt'] = mysqli_real_escape_string($connect, $_GET['q']);
     //$_SESSION['page'] = intval($_GET['page']);
 ?>
