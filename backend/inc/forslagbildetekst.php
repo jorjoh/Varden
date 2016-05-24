@@ -38,29 +38,16 @@ for ($r = 1; $r <= $numberofrows; $r++) {  // For-loop som kjører gjennom array
 echo("</table>"); // SLutt på tabell
 ?>
 
-
-
 <?php
+
 echo" <form id='test'>
             <textarea name='editor1' id='editor1' rows='10' cols='80'>
-                       
             </textarea>
-            <script>
-    // Replace the <textarea id='editor1'> with a CKEditor
-    // instance, using default configuration.
-    CKEDITOR.replace( 'editor1' );
-            </script>
         </form>";
 
 ?>
-
 <script>
-
-    /*$('#mytable input').on('change', function() {
-        $('#editor1').text((($('input[name=\"test\"]:checked', '#mytable').val())));
-    });*/
-    $('#mytable input').click(function(){
-        console.log( $('table input[type="radio"]:checked').parent().next().find('name').text() );
+    $('#mytable').find('input').click(function() {
+        $('#editor1').text($('input[name=test]:checked').val());
     });
-
 </script>
