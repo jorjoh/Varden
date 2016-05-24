@@ -1,5 +1,4 @@
-RewriteEngine On
 Options +FollowSymLinks
-RewriteRule ^test\.html http://www.google.com/? [R=301,L]
+RewriteEngine on
 
-vdsoajvnocds
+RewriteRule /side/(.*)/q/(.*) ?side=$1&q=$2
