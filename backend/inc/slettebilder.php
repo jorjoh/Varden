@@ -16,7 +16,7 @@ if(empty($id)) {
     $per_page = 10; // Antall bilder per side
     $start_from = ($page - 1) * $per_page; // Regner ut hvor den skal starte limiten i LIMIT delen i SQL setningen
 
-    echo "<h1> Grensesnitt for å slette bilder </h1>";
+    echo "<h1 class='page-header'> Grensesnitt for å slette bilder </h1>";
 
     //SELECT spørring som henter ut thumb_url, filename, bilbetekst, url og 'count' fra images med en LIMIT
     include("functions/dbcon.php");    // kobler til databasen
