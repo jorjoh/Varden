@@ -2,9 +2,7 @@
 
 //Tabell over innsendte forsalg til bilde id
 $sqlrequesttable = "SELECT image_id, requesttext, processed FROM request WHERE image_id = $id AND processed = 0;";    // velger alt fra tabellen images
-
 $sqlreqestresult = mysqli_query($connect, $sqlrequesttable) or die ("Ikke mulig å hente data");
-
 $numberofrows = mysqli_num_rows($sqlreqestresult);
 
 echo("<table id='mytable' class=\"mdl-data-table mdl-js-data-table mdl-data-table--mdl-shadow--2dp\" style='width: 200px;'>");   // Material design tabell som brukes til å få en oversikt av bildene i DB
@@ -35,15 +33,12 @@ for ($r = 1; $r <= $numberofrows; $r++) {  // For-loop som kjører gjennom array
     "
     );
 }
-echo("</table>"); // SLutt på tabell
-?>
-
-<?php
+echo("</table><br/>"); // SLutt på tabell
 
 echo" <form method='post' id='requestpicturetextchange'>
-            <textarea name='editedtext' id='editedtext' rows='10' cols='80'>
+            <textarea name='editedtext' id='editedtext' rows='10' cols='89'>
             </textarea><br>
-            <input type='submit' id='submit' name='submit'>
+            <input type='submit' id='submit' name='submit' value='Lagre endringer' class='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
         </form>";
 
         if(isset($_POST["submit"])){
