@@ -8,10 +8,9 @@
 //$id = $_GET['id'];
 if(empty($id)) {
     $page = $_GET['page'];
-    if(empty($page) || $page = 0) {
+    if (empty($page) || $page = 0) {
         $page = 1;
-    }
-    else {
+    } else {
         $page = $_GET['page'];
     }
     $per_page = 10; // Antall bilder per side
@@ -25,10 +24,11 @@ if(empty($id)) {
     $sqlsetning = "SELECT thumb_url, thumb_w, filename, picturetext, url, id, count FROM images LIMIT $start_from, $per_page;";    // velger alt fra tabellen images
     $query = "SELECT count(id) AS nbr FROM images;";    // Ny spørring i forhold til side pagnering
     $sqlresultat = mysqli_query($connect, $sqlsetning) or die ("Ikke mulig å hente data");
-    $nbrresult = mysqli_query($connect, $query) or die ('Kunne ikke telle antall treff'. mysqli_error($connect));
+    $nbrresult = mysqli_query($connect, $query) or die ('Kunne ikke telle antall treff' . mysqli_error($connect));
     $antallRader = mysqli_num_rows($sqlresultat);
 
-    echo("<table id='tableSelect' class=\"mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp\" style='width: 200px;'>");   // Material design tabell som brukes til å få en oversikt av bildene i DB
+    echo("<form method='post'>
+            <table id='tableSelect' class=\"mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp\" style='width: 200px;'>");   // Material design tabell som brukes til å få en oversikt av bildene i DB
     echo("<thead>");
     echo(" <tr>
             <th class=\\'mdl-data-table__cell--non-numeric\\'>Bilder(filename)</th> <!--//Table headers-->
@@ -59,24 +59,18 @@ if(empty($id)) {
         </tbody>");
     }
     echo("</table><br>");
-    echo ("<form method='post'>
+    echo("
             <input type='submit' id='slettbilde' name='slettbilde' value='Slett bilder' style='float: right; right: 210px; bottom: 0px; position: relative' /> </input>
             </form>");
 
-    if(isset($_POST["slettbilde"])){
+    if (isset($_POST["slettbilde"])) {
+        if(count($_POST['checkbox']) > 0) {
+            $updaterows = "DELETE FROM images WHERE id=$imagesid";
 
-        if(count($_POST['checkbox']));{
-            echo (count($_POST['checkbox']))." antall markert";
+            echo $updaterows."<br>";
+
+            mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen, bildetekst ikke oppdatert".mysqli_error($connect));
         }
-
-        /*$changedtext= $_POST['editedtext'];
-        $updaterows = "DELETE FROM images WHERE id=$imagesid";
-
-        echo $updaterows."<br>";
-
-        mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen, bildetekst ikke oppdatert");*/
-
-
     }
 
 
@@ -88,31 +82,23 @@ if(empty($id)) {
     $total_pages = ceil($nbrofrows / $per_page);
 
     // Hvis side = 1 og totalt antall sider er mindre en 1 vis kun den enen kanppen til å gå videre
-    if($page == 1 && $total_pages > 1) {
-        echo '<a href="?side=slettebilder&page='.($page + 1).'"><button style="position: absolute; right: 25px; bottom: 5px;" id="paginationbtn"> &gt; </button></a>  
-        Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder<br>';
-    }
-    else if($page == $total_pages && $total_pages > 1) {
-        echo '<a href="?side=slettebilder&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>';
-    }
-    //Er antall sider mer enn en vis knappen som fører deg tilbake til forrige resultat. Altså 2 Knappen :)
+    if ($page == 1 && $total_pages > 1) {
+        echo '<a href="?side=slettebilder&page=' . ($page + 1) . '"><button style="position: absolute; right: 25px; bottom: 5px;" id="paginationbtn"> &gt; </button></a>  
+        Viser resultat: ' . ($start_from + 1) . " - " . $per_page * $page . '  av totalt ' . $nbrofrows . ' bilder<br>';
+    } else if ($page == $total_pages && $total_pages > 1) {
+        echo '<a href="?side=slettebilder&page=' . ($page - 1) . '"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>';
+    } //Er antall sider mer enn en vis knappen som fører deg tilbake til forrige resultat. Altså 2 Knappen :)
     else {
-        if($total_pages > 1) {
-            echo '<a href="?side=slettebilder&page='.($page - 1).'"><button style="position: absolute; left: 400px; bottom: 5px;" id="paginationbtn">&lt;</button></a>  
-            Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder<br>
-                                    <a href="?side=slettebilder&page='.($page + 1).'"><button style="position: absolute; right: 700px; bottom:5px;" id="paginationbtn"> &gt; </button></a>
+        if ($total_pages > 1) {
+            echo '<a href="?side=slettebilder&page=' . ($page - 1) . '"><button style="position: absolute; left: 400px; bottom: 5px;" id="paginationbtn">&lt;</button></a>  
+            Viser resultat: ' . ($start_from + 1) . " - " . $per_page * $page . '  av totalt ' . $nbrofrows . ' bilder<br>
+                                    <a href="?side=slettebilder&page=' . ($page + 1) . '"><button style="position: absolute; right: 700px; bottom:5px;" id="paginationbtn"> &gt; </button></a>
                                     ';
         }
     }
     // MULIGHET FOR Å SKRIVE INN SIDEN DU ØNKSER Å GÅ TIL !
 
-
 }
-
-else {
-    
-}
-
 ?>
 <script>
     $('#tableSelect tr').click(function() {
@@ -127,4 +113,4 @@ else {
        // document.querySelector('.mdl-js-checkbox').MaterialCheckbox.check()
 
     })
-      </script>
+</script>
