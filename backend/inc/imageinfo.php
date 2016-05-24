@@ -27,7 +27,8 @@
         
         <form method='post' action='' name='requestpicturetextchange' id='requestpicturetextchange'>
             <textarea>$tittel</textarea><br>
-            <textarea style='height: 200px; width: 450px;' readonly>$picturetext</textarea><br>
+            <textarea style='height: 200px; width: 450px;' name='forcededit'>$picturetext</textarea><br>
+            <input type='submit' id='submit' name='submit' value='Lagre endringer' class='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>
         </form>
         
         ";
@@ -41,5 +42,19 @@
         include_once ("forslagbildetekst.php");
     }
     else{
-        echo "Ingen forslag motatt!, kom tilbake senere";
+        echo "<h4 style='color: red'>Ingen forslag motatt!, kom tilbake senere</h4>";
+        echo "<h5 style='color: green;'>Hvis du likevel vil endre bildeteksten kan du gjøre dette rett i tekstboksen</h5>";
     }
+
+
+if(isset($_POST["submit"])){
+    $changedtext= $_POST['forcededit'];
+    $updaterows = "UPDATE images SET picturetext = '$changedtext' WHERE id = $id";
+    $setstatusprossed = "UPDATE request SET processed = 1 WHERE image_id = $id";
+    echo $updaterows."<br>";
+    echo $setstatusprossed."<br>";
+    mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen, bildetekst ikke oppdatert");
+    mysqli_query($connect,$setstatusprossed) or die ("Fikk ikke kontakt med databasen, processed ikke endret ".mysqli_errno($connect));
+}
+
+?>
