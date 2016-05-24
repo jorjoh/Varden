@@ -1,11 +1,9 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+<link rel="stylesheet" href="css/material.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
 <?php
-/**
- * Created by PhpStorm.
- * User: Jørgen Johansen
- * Date: 12.04.2016
- * Time: 20:29
- */
-
 $id = $_GET['id'];
 if(empty($id)) {
 $page = $_GET['page'];
@@ -22,7 +20,7 @@ echo "<h1> Oversikt over bilder som er tilgjengelig </h1>";
 
 //SELECT spørring som henter ut thumb_url, filename, bilbetekst, url og 'count' fra images med en LIMIT
 include("functions/dbcon.php");    // kobler til databasen
-$sqlsetning = "SELECT thumb_url, thumb_w, filename, picturetext, url, count FROM images LIMIT $start_from, $per_page;";    // velger alt fra tabellen images
+$sqlsetning = "SELECT thumb_url, thumb_w, filename, picturetext, url, id, count FROM images LIMIT $start_from, $per_page;";    // velger alt fra tabellen images
 $query = "SELECT count(id) AS nbr FROM images;";    // Ny spørring i forhold til side pagnering
 $sqlresultat = mysqli_query($connect, $sqlsetning) or die ("Ikke mulig å hente data");
 $nbrresult = mysqli_query($connect, $query) or die ('Kunne ikke telle antall treff'. mysqli_error($connect));
@@ -38,18 +36,20 @@ echo(" <tr>
     </tr>");                                                                    //End of table headers
 for ($r = 1; $r <= $antallRader; $r++) {  // For-loop som kjører gjennom arrayet og skriver ut informasjonen til alle bilder i tabellen
     $rad = mysqli_fetch_array($sqlresultat);
+
     $filnavn = $rad["filename"];
     $beskrivelse = $rad["picturetext"];
     $tumburl = $rad["thumb_url"];
     $count = $rad["count"];
+    $imagesid = $rad["id"];
 
     echo("
     </thead>
     <tbody>
     <tr data-mdl-data-table-selectable-name=\"materials[]\" data-mdl-data-table-selectable-value=\"acrylic\">   <!-- fyller op rader med informasjon fra databasen-->
-        <a href='#'> <td class=\\'mdl-data-table__cell--non-numeric\\'>$filnavn</td>
+        <a href=''> <td class=\\'mdl-data-table__cell--non-numeric\\'>$filnavn</td>
         <td>$beskrivelse</td>
-        <td><a href='$tumburl' class='slideshow_zoom'>Link til bilde</a> </td>
+        <td><a href='?side=endrebilder&id=$imagesid' class='slideshow_zoom'>Link til bilde</a> </td>
         <td style='text-align: right;'>$count</td> </a>
     </tr>
     </tbody>");
@@ -124,9 +124,9 @@ else {
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
 <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="css/material.min.css"/>
+    <link rel="stylesheet" href="css/custom.css"/>
 
-<link rel="stylesheet" href="css/material.min.css"/>
-<link rel="stylesheet" href="css/custom.css"/>
 <?php
 }
 else {
@@ -148,7 +148,6 @@ else {
 
         /*REQUEST-tabellen*/
         $rowforrequestpicturetext = mysqli_fetch_array($queryforrequestpicturetext);
-        //$tittelforrequestpicture = $rowforrequestpicturetext['title'];
         $picturetextformrequest = $rowforrequestpicturetext['requesttext'];
         /*Slutt på REQUEST-tabellen*/
 
@@ -158,25 +157,32 @@ else {
         <!--<input type='text' value='$picturetext'>-->
          <h2>Endre bildetekst eller tittel til bilde id: $id</h2>
         <textarea>$tittel</textarea><br>
-        <textarea style='height: 200px; width: 450px;'>$picturetext</textarea>
-        <h2>Forslag på bilde tekst som er kommet inn av brukeren</h2>
-        <textarea>$tittel</textarea><br>
-        <textarea style='height: 200px; width: 450px;'>$picturetextformrequest</textarea><br>
-        <input type='submit' id='submit' name='submit' value='Utfør endring'/>
+        <textarea style='height: 200px; width: 450px;' readonly>$picturetext</textarea>
         </form>
         
         ";
 
         if(isset($_POST["submit"])){
-            $updaterows = "UPDATE images SET picturetext = '$picturetextformrequest' WHERE id = $id";
+            $changedtext= $_POST['editor1'];
+            $updaterows = "UPDATE images SET picturetext = '$changedtext' WHERE id = $id";
             echo $updaterows."<br>";
             mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen, did not work");
         }
         else{
-            echo "DidentWork";
+            echo "Error<br>";
         }
         //echo "Tittelen på bilde er: $tittel <br>";
         //echo "Bildetekst til bilde er: $picturetext";
     }
 }
-?>
+$sqlrequesttable = "SELECT image_id, requesttext, processed FROM request WHERE image_id = $id AND processed = 0;";    // velger alt fra tabellen images
+
+$sqlrequestresult = mysqli_query($connect, $sqlrequesttable) or die ("Ikke mulig å hente data");
+
+$numberofrows = mysqli_num_rows($sqlrequestresult);
+if(mysqli_num_rows($sqlrequestresult) > 0){
+    include_once ("forslagbildetekst.php");
+}
+else{
+    echo "Ingen forslag motatt";
+}

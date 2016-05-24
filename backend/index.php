@@ -48,6 +48,11 @@
 
     <!-- jQuery biblioteket -->
     <script src="js/jquery.min.js"></script>
+    <!--CKeditor-->
+    <script src="//cdn.ckeditor.com/4.5.9/basic/ckeditor.js"></script>
+    
+    
+    
 </head>
 
 <body>
