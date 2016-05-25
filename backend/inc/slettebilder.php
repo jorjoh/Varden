@@ -36,7 +36,6 @@ if(empty($id)) {
             <th>Beskrivelse</th>
             <th>Thumbnail</th>
             <th style='text-align: right'>Antall ganger vist</th>
-            <th style='text-align: right'>Slett bilde</th>
            </tr>");                                                                    //End of table headers
     for ($r = 1; $r <= $antallRader; $r++) {  // For-loop som kjører gjennom arrayet og skriver ut informasjonen til alle bilder i tabellen
         $rad = mysqli_fetch_array($sqlresultat);
