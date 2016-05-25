@@ -6,24 +6,38 @@
  * Time: 15.41
  */
 
-require_once('dbcon.php');
-//$per_page = intval($_POST['per_page']);
-$searchtxt = mysqli_real_escape_string($connect, $_POST['searchtxt']);
-$load = htmlentities(strip_tags($_POST['load']));
-$sql = "SELECT images.id, images.thumb_url, images.thumb_w, category.name FROM images JOIN category ON images.id = category.id WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT $load, 50;";
-$result = mysqli_query($connect, $sql) or die('Her skjedde det en feil! '. mysqli_error($connect));
+$nbrofpictures = $_POST['nbrofpictures'];
 
-while($row = mysqli_fetch_array($result)) {
-    $id = $row['id'];
-    $category = $row['name'];
-    $url = $row['thumb_url'];
-    $width = $row['thumb_w'];
-    ?>
-    <a href="?side=bilde&id=<?php echo $id; ?>">
-        <div class="single_pictures <?php echo $category; ?>">
-            <img class="lazy" data-original="<?php echo $url; ?>" width="<?php echo $width; ?>" height="100">
+$es->search([
+    'size' => 50,
+    'from' => $nbrofpictures,
+    'body' => [
+        'query' => [
+            'bool' => [
+                'should' => [
+                    ['match' => ['category' => $searchtxt] ],
+                    ['match' => ['title' => $searchtxt] ],
+                ]
+            ]
+        ]
+    ]
+]);
+
+if($esquery['hits']['total'] >= 1) {
+    $esresults = $esquery['hits']['hits'];
+}
+
+foreach($esresults as $image) {
+    $category = $image['_source']['category'];
+    $url = $image['_source']['url'];
+    $width = $image['_source']['width'];
+    $dbnr = $image['_id'];
+
+    echo '
+    <a href="?side=bilde&id='.$dbnr.'">
+        <div class="single_pictures '. $category .'">
+            <img class="lazy" data-original="'.$url.'" width="'.$width.'" height="100">
         </div>
     </a>
-    <?php
+    ';
 }
-?>
