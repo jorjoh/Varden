@@ -1,10 +1,13 @@
-<h1 class="page-header">Oversikt uke - <?php echo date("W"); ?></h1>
+<h1 class="page-header">Oversikt - Administrator</h1>
 
 <?php
 // SQL setning for å hente forslag som ikke er behandlet
 $sql = "SELECT id, image_id, requesttext FROM request WHERE processed = 0 ORDER BY image_id;";
 $query = mysqli_query($connect, $sql) or die('Kunne ikke hente informasjon fra DB!');
 $nbr = mysqli_num_rows($query);
+
+$sqlmostviewed = "SELECT count FROM images ORDER BY count DESC LIMIT 0, 10";
+$mostviewedquery = mysqli_query($connect, $sqlmostviewed) or die('Kunne ikke hente data fra DB'.mysqli_error($connect));
 
 // SQL Spørring for å hente antall behandlede forslag
 $sqlprocessed = "SELECT processed FROM request WHERE processed = 1;";
@@ -15,12 +18,12 @@ $processed = mysqli_num_rows($processedquery);
 
 <div class="row placeholders">
     <div class="col-xs-5 col-sm-5 placeholder">
-        <canvas id="myChart" width="150" height="150"></canvas>
+        <canvas id="processedsugestions"></canvas>
         <h4>Behandlede forslag</h4>
         <span class="text-muted">Antall forslag behandlet denne uken</span>
     </div>
     <script>
-        var ctx = document.getElementById("myChart");
+        var ctx = document.getElementById("processedsugestions");
         var myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
@@ -40,11 +43,41 @@ $processed = mysqli_num_rows($processedquery);
         });
     </script>
     <div class="col-xs-5 col-sm-5 placeholder">
-        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"
-             height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-        <h4>Mest sett</h4>
-        <span class="text-muted">Mest viste bilde denne uken</span>
+        <canvas id="mostviewed"></canvas>
+        <h4>Mest viste bilde</h4>
+        <span class="text-muted">Totalt de 10 mest viste bildene</span>
     </div>
+    <script>
+        var ctx = document.getElementById("mostviewed");
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Bilde 1", "Bilde 2", "Bilde 3", "Bilde 4", "Bilde 5", "Bilde 6", "Bilde 7", "Bilde 8", "Bilde 9", "Bilde 10"],
+                datasets: [{
+                    label: "Antall ganger sett på",
+                    data: [
+                        <?php
+                            while($viewedrow = mysqli_fetch_array($mostviewedquery)) {
+                                echo $viewedrow['count'].",";
+                            }
+                        ?>
+                    ],
+                    backgroundColor: [
+                        "#FF6384",
+                        "#36A2EB",
+                        "#4BC0C0",
+                        "#FFCE56",
+                        "#FF9933",
+                        "#FF6666",
+                        "#FF99FF",
+                        "#9999FF",
+                        "#66FF99",
+                        "#CCFF33"
+                    ]
+                }]
+            }
+        });
+    </script>
 </div>
 
 <h2 class="sub-header">Ubehandlede forslag</h2>
