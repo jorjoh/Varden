@@ -31,6 +31,7 @@ if(empty($id)) {
             <table id='tableSelect' class=\"mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp\" style='width: 200px;'>");   // Material design tabell som brukes til å få en oversikt av bildene i DB
     echo("<thead>");
     echo(" <tr>
+            <th>ID</th>
             <th class=\\'mdl-data-table__cell--non-numeric\\'>Bilder(filename)</th> <!--//Table headers-->
             <th>Beskrivelse</th>
             <th>Thumbnail</th>
@@ -54,7 +55,7 @@ if(empty($id)) {
             <td>$beskrivelse</td>
             <td><img src='$tumburl' style='height: 60px; width: 60px;'></a></td>
             <td style='text-align: right;'>$count</td>
-            <td><input type='checkbox' name='checkbox[]' id='checkbox'></td>
+            <td><input type='checkbox' name='checkbox[]' id='checkbox' value='$imagesid'></td>
         </tr>
         </tbody>");
     }
@@ -65,10 +66,17 @@ if(empty($id)) {
             </form>");
 
     if (isset($_POST["slettbilde"])) {
-        if(count($_POST['checkbox']) > 0) {
-            $updaterows = "DELETE FROM images WHERE id=$imagesid";
-            echo $updaterows."<br>";
-            mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen, bildetekst ikke oppdatert".mysqli_error($connect));
+        $checkboxer = $_POST['checkbox'];
+        if(count($checkboxer) > 0) {
+            for($i = 0; $i < count($checkboxer); $i++) {
+                $deleterowmetainfo = "DELETE FROM metainfo WHERE id = $checkboxer[$i];";
+                $deleterowrequest = "DELETE FROM request WHERE image_id = $checkboxer[$i];";
+                $deleterowsimage = "DELETE FROM images WHERE id=$checkboxer[$i];";
+                echo $deleterowsimage."<br>";
+                mysqli_query($connect,$deleterowmetainfo) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
+                mysqli_query($connect,$deleterowrequest) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
+                mysqli_query($connect,$deleterowsimage) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
+            }
         }
     }
 
