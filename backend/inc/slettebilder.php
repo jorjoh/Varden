@@ -66,9 +66,7 @@ if(empty($id)) {
     if (isset($_POST["slettbilde"])) {
         if(count($_POST['checkbox']) > 0) {
             $updaterows = "DELETE FROM images WHERE id=$imagesid";
-
             echo $updaterows."<br>";
-
             mysqli_query($connect,$updaterows) or die ("Fikk ikke kontakt med databasen, bildetekst ikke oppdatert".mysqli_error($connect));
         }
     }
