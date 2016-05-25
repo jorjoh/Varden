@@ -111,7 +111,7 @@
                 <li><a href="?side=endrebilder">Behandle innsendte forslag</a></li>
                 <li><a href="?side=slettebilder">Slett bilder</a></li>
                 <li style="text-align: center;"><strong>Forslag</strong></li>
-                <li><a href="#">Se tidligere forslag</a></li>
+                <li><a href="?side=setidligereforslag">Se tidligere forslag</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
