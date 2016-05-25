@@ -1236,14 +1236,14 @@
 
                     <div id=Header-sharing class=Share>
                         <button class=Share-close>Lukk</button>
-                        <iframe class=Share-facebook width=43 height=20
+                        <iframe class=Share-facebook width=50 height=20
                                 src="//www.facebook.com/plugins/share_button.php?href=http://134.213.218.27/&amp;layout=button&amp;appId=260291477395054&amp;locale=nb_NO"
                                 data-src="//www.facebook.com/plugins/share_button.php?href=http://134.213.218.27/&amp;layout=button&amp;appId=260291477395054&amp;locale=nb_NO"
-                                style="border:none; overflow:hidden;"></iframe>
-                        <iframe class=Share-twitter width=55 height=20
+                                style="border:none; overflow:hidden;" scrolling="no"></iframe>
+                        <iframe class=Share-twitter width=60 height=20
                                 src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer=http://134.213.218.27/&related=varden&size=m&text=text&url=http://134.213.218.27/&via=varden"
                                 data-src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer=http://134.213.218.27/&related=varden&size=m&text=tekst&url=http://134.213.218.27/&via=varden"
-                                style="border:none; overflow:hidden;"></iframe>
+                                style="border:none; overflow:hidden;" scrolling="no"></iframe>
                     </div>
                 </li>
 
@@ -1297,7 +1297,6 @@
     <main class="Content">
         <?php include('inc/hoved.php'); ?>
     </main>
-<!--
     <div id="abonnement">
         <div id="text">
             <h2 style="text-align: left; font-family: 'FlamaFont Slab', 'Roboto Slab', georgia, serif; font-weight: 600; font-size: 25pt;">Digital tilgang</h2>
@@ -1306,7 +1305,6 @@
             </p>
         </div>
     </div>
--->
     <footer class="Footer">
         <ul class="Footer-links">
             <li class="Footer-links-item"><a href="/kundesenter">Kundesenter</a></li>

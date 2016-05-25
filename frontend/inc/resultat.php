@@ -68,9 +68,9 @@
                         }
                         else {
                             echo '
-                            <!-- <div style="width: 950px; height: 150px; text-align: center; margin: 0 auto; background: #CCC;"><br><br>Annonse
-                                her som vises uansett om du har adblock eller ikke
-                            </div> -->
+                            <div style="width: 950px; height: 150px; text-align: center; margin: 0 auto; background: #CCC;"><br><br>
+                                Annonse her
+                            </div>
                             <br>
                             <p>Ditt søk etter "'.$searchtxt.'" ga '. $nbrofrows.' resultater </p><br>
                             <div class="category_filter text-uppercase">
