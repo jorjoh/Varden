@@ -16,7 +16,7 @@ if(empty($id)) {
     $per_page = 10; // Antall bilder per side
     $start_from = ($page - 1) * $per_page; // Regner ut hvor den skal starte limiten i LIMIT delen i SQL setningen
 
-    echo "<h1> Grensesnitt for å slette bilder </h1>";
+    echo "<h1 class='page-header'> Grensesnitt for å slette bilder </h1>";
 
     //SELECT spørring som henter ut thumb_url, filename, bilbetekst, url og 'count' fra images med en LIMIT
     include("functions/dbcon.php");    // kobler til databasen
@@ -36,7 +36,7 @@ if(empty($id)) {
             <th>Thumbnail</th>
             <th style='text-align: right'>Antall ganger vist</th>
             <th style='text-align: right'>Slett bilde</th>
-        </tr>");                                                                    //End of table headers
+           </tr>");                                                                    //End of table headers
     for ($r = 1; $r <= $antallRader; $r++) {  // For-loop som kjører gjennom arrayet og skriver ut informasjonen til alle bilder i tabellen
         $rad = mysqli_fetch_array($sqlresultat);
 
@@ -59,6 +59,7 @@ if(empty($id)) {
         </tbody>");
     }
     echo("</table><br>");
+    // Slutt på tabell
     echo("
             <input type='submit' id='slettbilde' name='slettbilde' value='Slett bilder' style='float: right; right: 210px; bottom: 0px; position: relative' /> </input>
             </form>");
@@ -71,9 +72,6 @@ if(empty($id)) {
         }
     }
 
-
-    // Slutt på tabell
-
     // Del av spørringen som går på sidepagnering
     $totalrows = mysqli_fetch_array($nbrresult);
     $nbrofrows = $totalrows['nbr'];
@@ -81,7 +79,7 @@ if(empty($id)) {
 
     // Hvis side = 1 og totalt antall sider er mindre en 1 vis kun den enen kanppen til å gå videre
     if ($page == 1 && $total_pages > 1) {
-        echo '<a href="?side=slettebilder&page=' . ($page + 1) . '"><button style="position: absolute; right: 25px; bottom: 5px;" id="paginationbtn"> &gt; </button></a>  
+        echo '<a href="?side=slettebilder&page=' . ($page + 1) . '"><button style="position: absolute; right: 700px; bottom: 5px;" id="paginationbtn"> &gt; </button></a>  
         Viser resultat: ' . ($start_from + 1) . " - " . $per_page * $page . '  av totalt ' . $nbrofrows . ' bilder<br>';
     } else if ($page == $total_pages && $total_pages > 1) {
         echo '<a href="?side=slettebilder&page=' . ($page - 1) . '"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>';
@@ -95,7 +93,6 @@ if(empty($id)) {
         }
     }
     // MULIGHET FOR Å SKRIVE INN SIDEN DU ØNKSER Å GÅ TIL !
-
 }
 ?>
 <script>

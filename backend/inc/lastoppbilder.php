@@ -1,6 +1,7 @@
 <!-- Innholdet på siden -->
 <h1 class="page-header">Last opp bilder</h1>
-
+<link rel="stylesheet" href="css/material.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
 <pre>
     <form  method="post" action="" class="dropzone" id="myform" name="myform" enctype="multipart/form-data">
         <!-- Drag and drop felt med knapp som henter opp uforsker -->
