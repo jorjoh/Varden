@@ -170,7 +170,7 @@ else {
                     <br><br>
                     <p>
                        <a title=\"send to Facebook\" 
-                          href=\"http://www.facebook.com/sharer.php?s=100&p[title]=tittelenkommerher&p[summary]=etfintbilde&p[url]=varden.no&p[images][0]=YOUR_IMAGE_TO_SHARE_OBJECT\"
+                          href=\"http://www.facebook.com/sharer.php?s=100&p[title]=tittelenkommerher&p[summary]=etfintbilde&p[url]=http%3A//134.213.218.27/frontend/?side=bilde%26id=$id&p[images][0]=YOUR_IMAGE_TO_SHARE_OBJECT\"
                           target=\"_blank\">
                           <span style='background: #00598c; padding: 20px; color: #FFF; border-radius: 3%;'>
                             <img width=\"14\" height=\"14\" src=\"'icons/fb.gif\" alt=\"Facebook\" /> Del på Facebook! 
@@ -179,7 +179,9 @@ else {
                     </p>
                     <br><br>
                     <p>
-                        <a href=\"https://twitter.com/intent/tweet?text=Se på dette bilde fra Vardens bildegalleri?url=?side=bilde&id=$id\" class=\"twitter-share-button\" data-dnt=\"true\" data-size=\"large\">Del på Twitter</a>
+                        <a href='https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.varden.no%2Fmagasin%2Fidyll-pagar-vennligst-ikke-forstyrr-1.1533996&amp;ref_src=twsrc%5Etfw&amp;related=varden&amp;text=Idyll%20p%C3%A5g%C3%A5r%3A%20Vennligst%20ikke%20forstyrr&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fwww.varden.no%2Fmagasin%2Fidyll-pagar-vennligst-ikke-forstyrr-1.1533996&amp;via=varden'>
+			                 <span class=\"button-dropdown-text\">Del på Twitter</span>
+                        </a>
                     </p>
                     <br>
                     <p id='pictureinfo' style='color: #0000FF; text-decoration: underline; cursor:pointer;'>-- Trykk her for å sende inn informasjon om bilde --</p>

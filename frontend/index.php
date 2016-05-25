@@ -1131,13 +1131,13 @@
     <meta property="og:title" content="Online bildearkiv for Varden">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="varden.no">
-    <meta property="og:image" content="http://134.213.218.27/?side=bilde&id=1">
+    <meta property="og:image" content="http://134.213.218.27/">
     <meta property="og:url" content="http://134.213.218.27/">
 
     <meta name="twitter:title" content="Bildearkiv - Varden">
     <meta name="twitter:description" content="Bildearkiv for Varden. Her kan du bla igjennom bildearkivet til Varden">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:image:src" content="http://134.213.218.27/?side=bilde&id=1">
+    <meta name="twitter:image:src" content="http://134.213.218.27/">
     <meta name="twitter:image:width" content="500">
     <meta name="twitter:image:height" content="500">
     <meta name="twitter:site" content="@varden">
@@ -1238,7 +1238,7 @@
                         <button class=Share-close>Lukk</button>
                         <iframe class=Share-facebook width=50 height=20
                                 src="//www.facebook.com/plugins/share_button.php?href=http://134.213.218.27/&amp;layout=button&amp;appId=260291477395054&amp;locale=nb_NO"
-                                data-src="//www.facebook.com/plugins/share_button.php?href=http://134.213.218.27/&amp;layout=button&amp;appId=260291477395054&amp;locale=nb_NO"
+                                data-src="//www.facebook.com/plugins/share_button.php?href=http://134.213.218.27/erikerbest&amp;layout=button&amp;appId=260291477395054&amp;locale=nb_NO"
                                 style="border:none; overflow:hidden;" scrolling="no"></iframe>
                         <iframe class=Share-twitter width=60 height=20
                                 src="//platform.twitter.com/widgets/tweet_button.html#_=1421142444586&count=none&id=twitter-widget-1&lang=no&original_referer=http://134.213.218.27/&related=varden&size=m&text=text&url=http://134.213.218.27/&via=varden"
