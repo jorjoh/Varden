@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -65,6 +66,26 @@
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="nav navbar-nav navbar-right" style="margin: 10px 50px 0 0;">
+    ';
+    if($user) {
+        echo "<p style='color: #fff; margin-right: 5px; display: inline;'>Velkommen $user</p>";
+    }
+    echo '
+    
+    <form method="post" action="" style="display: inline;">
+        <input type="submit" class="btn-danger" style="padding: 5px;" name="logout" value="logg ut">
+    </form>
+    
+    ';
+    if(isset($_POST["logout"])) {
+        @ob_start();
+        session_destroy();
+        header("Location: login.php");
+    }
+
+    echo '
+    </div>
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
