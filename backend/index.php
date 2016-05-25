@@ -106,15 +106,11 @@
             <ul class="nav nav-sidebar">
                 <li style="text-align: center;"><strong>Generell</strong></li>
                 <li><a href="?side=forside">Oversikt <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Rapporter</a></li>
-                <li><a href="#">Analyser</a></li>
                 <li style="text-align: center;"><strong>Verktøy</strong></li>
-                <li><a href="#">Bildeinformasjon</a></li>
                 <li><a href="?side=lastoppbilder">Last opp bilder</a></li>
-                <li><a href="?side=endrebilder">Endre Bilder</a></li>
+                <li><a href="?side=endrebilder">Behandle innsendte forslag</a></li>
                 <li><a href="?side=slettebilder">Slett bilder</a></li>
                 <li style="text-align: center;"><strong>Forslag</strong></li>
-                <li><a href="#">Behandle innsendte forslag</a></li>
                 <li><a href="#">Se tidligere forslag</a></li>
             </ul>
         </div>
