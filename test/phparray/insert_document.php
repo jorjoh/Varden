@@ -21,7 +21,6 @@
             'type' => 'image',
             'id' => $number,
             'body' => [
-                'picture_id' => $bildeid,
                 'title' => $tittel,
                 'category' => $tittel,
                 'photographer' => $photographer,

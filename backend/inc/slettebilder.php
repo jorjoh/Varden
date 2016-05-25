@@ -75,6 +75,14 @@ if(empty($id)) {
                 mysqli_query($connect,$deleterowmetainfo) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
                 mysqli_query($connect,$deleterowrequest) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
                 mysqli_query($connect,$deleterowsimage) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
+
+                $deletedocument = [
+                    'index' => 'images',
+                    'type' => 'image',
+                    'id' => $checkboxer[$i]
+                ];
+
+                $es->delete($deletedocument);
             }
         }
     }

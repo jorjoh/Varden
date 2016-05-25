@@ -3,7 +3,7 @@
     require_once('app/init.php');
     include('searchfield.php');
     $searchtxt = mysqli_real_escape_string($connect, $_GET['q']);
-    $per_page = 100; // Antall bilder per side
+    $per_page = 50; // Antall bilder per side
 ?>
 
 <br>
@@ -29,8 +29,8 @@
 //                        }
 
                         $esquery = $es->search([
-                           'size' => 50,
                             'body' => [
+                                'size' => $per_page,
                                'query' => [
                                    'bool' => [
                                        'should' => [
@@ -46,16 +46,46 @@
                             $esresults = $esquery['hits']['hits'];
                         }
 
+                        echo "
+                            <div class=\"category_filter text-uppercase\">
+                                <ul>
+                                    <li class=\"active\" data-filter=\"*\">Alle</li>
+                                    <li data-filter=\".nyheter\">Nyheter</li>
+                                    <li data-filter=\".kultur\">Kultur</li>
+                                    <li data-filter=\".sport\">Sport</li>
+                                    <li data-filter=\".steder\">Steder</li>
+                                </ul>
+                            </div>
+                        ";
+
+                        echo "
+                            <div class='category_items'>
+                                <div class='grid-sizer'></div>
+                        ";
+
                         if(isset($esresults)) {
-                            echo count($esresults);
-                            echo "Ditt søkeord fikk følgende treff: <br>";
-                            foreach($esresults as $r) {
-                                echo $r['_source']['title']."<br>";
-                                ?>
-                                <!-- <img src="<?php //echo $r['_source']['url']; ?>"><br> --><?php
+                            echo "Ditt søkeord fikk følgende treff: <br><br>";
+                            foreach($esresults as $image) {
+                                $category = $image['_source']['category'];
+                                $url = $image['_source']['url'];
+                                $width = $image['_source']['width'];
+                                $dbnr = $image['_id'];
+
+                                echo "
+                                        <a href='?side=bilde&id=$dbnr' style='text-decoration: none;'>
+                                            <div class='single_pictures $category'>
+                                                <img class='lazy' data-original='$url' width='$width' height='100'>
+                                            </div>
+                                        </a>";
                             }
                         }
-                        $sql = "SELECT images.id, images.thumb_url, images.thumb_w, category.name FROM images JOIN category ON images.id = category.id WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT 0, $per_page;";
+
+                        echo "
+                            </div>
+                        ";
+
+
+                        /*$sql = "SELECT images.id, images.thumb_url, images.thumb_w, category.name FROM images JOIN category ON images.id = category.id WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%' LIMIT 0, $per_page;";
                         $query = "SELECT count(id) AS nbr FROM images WHERE picturetext LIKE '%$searchtxt%' OR filename LIKE '%$searchtxt%';";
                         $result = mysqli_query($connect, $sql) or die("Kunne ikke sende spørring til DB ". mysqli_error($connect));
                         $nbrresult = mysqli_query($connect, $query) or die ('Kunne ikke telle antall treff'. mysqli_error($connect));
@@ -109,7 +139,7 @@
                             ";
                         }
 
-                        ?>
+                        */?>
                         <script>
                             $(document).ready(function() {
                                 var load = 50;
