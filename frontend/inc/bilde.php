@@ -179,7 +179,7 @@ else {
                     </p>
                     <br><br>
                     <p>
-                        <a href='https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.varden.no%2Fmagasin%2Fidyll-pagar-vennligst-ikke-forstyrr-1.1533996&amp;ref_src=twsrc%5Etfw&amp;related=varden&amp;text=Idyll%20p%C3%A5g%C3%A5r%3A%20Vennligst%20ikke%20forstyrr&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fwww.varden.no%2Fmagasin%2Fidyll-pagar-vennligst-ikke-forstyrr-1.1533996&amp;via=varden'>
+                        <a href='https://twitter.com/intent/tweet?original_referer=http%3A%2F%2F134.213.218.27%2Ffrontend%2F?side=bilde%26id=$id&amp;ref_src=twsrc%5Etfw&amp;related=varden&amp;text=Se%20på%20bilde%20jeg%20fant%20i%20arkivet%20til%20varden&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fwww.varden.no%2F?side=bilde%26id=$id&amp;via=varden'>
 			                 <span class=\"button-dropdown-text\">Del på Twitter</span>
                         </a>
                     </p>

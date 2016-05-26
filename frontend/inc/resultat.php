@@ -16,18 +16,18 @@
 
                     if(!empty($searchtxt)) {
 
-//                        if(isset($_GET['news'])) {
-//                            echo "Nyheter = CHECK <br>";
-//                        }
-//                        if(isset($_GET['culture'])) {
-//                            echo "Kultur = CHECK <br>";
-//                        }
-//                        if(isset($_GET['sport'])) {
-//                            echo "Sport = CHECK <br>";
-//                        }
-//                        if(isset($_GET['places'])) {
-//                            echo "Steder = CHECK <br>";
-//                        }
+                        if(isset($_GET['news'])) {
+                            echo "Nyheter = CHECK <br>";
+                        }
+                        if(isset($_GET['culture'])) {
+                            echo "Kultur = CHECK <br>";
+                        }
+                        if(isset($_GET['sport'])) {
+                            echo "Sport = CHECK <br>";
+                        }
+                        if(isset($_GET['places'])) {
+                            echo "Steder = CHECK <br>";
+                        }
 
 
                         $params = [

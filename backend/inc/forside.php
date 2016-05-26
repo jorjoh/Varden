@@ -6,7 +6,7 @@ $sql = "SELECT id, image_id, requesttext FROM request WHERE processed = 0 ORDER 
 $query = mysqli_query($connect, $sql) or die('Kunne ikke hente informasjon fra DB!');
 $nbr = mysqli_num_rows($query);
 
-$sqlmostviewed = "SELECT count FROM images ORDER BY count DESC LIMIT 0, 10";
+$sqlmostviewed = "SELECT id, count FROM images ORDER BY count DESC LIMIT 0, 10";
 $mostviewedquery = mysqli_query($connect, $sqlmostviewed) or die('Kunne ikke hente data fra DB'.mysqli_error($connect));
 
 // SQL Spørring for å hente antall behandlede forslag
@@ -47,20 +47,45 @@ $processed = mysqli_num_rows($processedquery);
         <h4>Mest viste bilde</h4>
         <span class="text-muted">Totalt de 10 mest viste bildene</span>
     </div>
+    <?php
+    $mostviewedcount = array();
+    $mostviewedid = array();
+    for($i = 0; $i < mysqli_num_rows($mostviewedquery); $i++) {
+        $viewedrow = mysqli_fetch_array($mostviewedquery);
+        $mostviewedcount[] = $viewedrow['count'].",";
+        $mostviewedid[] = $viewedrow['id'].",";
+    }
+    ?>
     <script>
         var ctx = document.getElementById("mostviewed");
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["Bilde 1", "Bilde 2", "Bilde 3", "Bilde 4", "Bilde 5", "Bilde 6", "Bilde 7", "Bilde 8", "Bilde 9", "Bilde 10"],
+                labels: [
+                    "Bilde " + <?php echo "$mostviewedid[0] ,"; ?>
+                    "Bilde " + <?php echo "$mostviewedid[1] ,"; ?>
+                    "Bilde " + <?php echo "$mostviewedid[2] ,"; ?>
+                    "Bilde " + <?php echo "$mostviewedid[3] ,"; ?>
+                    "Bilde " + <?php echo "$mostviewedid[4] ,"; ?>
+                    "Bilde " + <?php echo "$mostviewedid[5] ,"; ?>
+                    "Bilde " + <?php echo "$mostviewedid[6] ,"; ?>
+                    "Bilde " + <?php echo "$mostviewedid[7] ,"; ?>
+                    "Bilde " + <?php echo "$mostviewedid[8] ,"; ?>
+                    "Bilde " + <?php echo "$mostviewedid[9] ,"; ?>
+                ],
                 datasets: [{
                     label: "Antall ganger sett på",
                     data: [
-                        <?php
-                            while($viewedrow = mysqli_fetch_array($mostviewedquery)) {
-                                echo $viewedrow['count'].",";
-                            }
-                        ?>
+                        <?php echo "$mostviewedcount[0] ,"; ?>
+                        <?php echo "$mostviewedcount[1] ,"; ?>
+                        <?php echo "$mostviewedcount[2] ,"; ?>
+                        <?php echo "$mostviewedcount[3] ,"; ?>
+                        <?php echo "$mostviewedcount[4] ,"; ?>
+                        <?php echo "$mostviewedcount[5] ,"; ?>
+                        <?php echo "$mostviewedcount[6] ,"; ?>
+                        <?php echo "$mostviewedcount[7] ,"; ?>
+                        <?php echo "$mostviewedcount[8] ,"; ?>
+                        <?php echo "$mostviewedcount[9] "; ?>
                     ],
                     backgroundColor: [
                         "#FF6384",
@@ -72,7 +97,16 @@ $processed = mysqli_num_rows($processedquery);
                         "#FF99FF",
                         "#9999FF",
                         "#66FF99",
-                        "#CCFF33"
+                        "#CCFF33",
+                        "#CCCCFF",
+                        "#654FFC",
+                        "#CCFF66",
+                        "#FF0000",
+                        "#FFEE22",
+                        "#66CCFF",
+                        "#99FFCC",
+                        "#FFCC66",
+                        "#FFCC66"
                     ]
                 }]
             }
