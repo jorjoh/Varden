@@ -16,16 +16,16 @@
 
                     if(!empty($searchtxt)) {
 
-                        if(isset($_GET['news'])) {
+                        if (isset($_GET['news'])) {
                             echo "Nyheter = CHECK <br>";
                         }
-                        if(isset($_GET['culture'])) {
+                        if (isset($_GET['culture'])) {
                             echo "Kultur = CHECK <br>";
                         }
-                        if(isset($_GET['sport'])) {
+                        if (isset($_GET['sport'])) {
                             echo "Sport = CHECK <br>";
                         }
-                        if(isset($_GET['places'])) {
+                        if (isset($_GET['places'])) {
                             echo "Steder = CHECK <br>";
                         }
 
@@ -35,24 +35,22 @@
                                 'size' => $per_page,
                                 'from' => ($per_page * $page),
                                 'query' => [
-                                   'bool' => [
-                                       'should' => [
-                                           [ 'match' => ['category' => $searchtxt] ],
-                                           [ 'match' => ['tags' => $searchtxt] ]
-                                       ]
-                                   ]
-                               ]
-                           ]
+                                    'bool' => [
+                                        'should' => [
+                                            ['match' => ['category' => $searchtxt]],
+                                            ['match' => ['tags' => $searchtxt]]
+                                        ]
+                                    ]
+                                ]
+                            ]
                         ];
 
                         $response = $es->search($params);
 
-                        if($response['hits']['total'] >= 1) {
+                        if ($response['hits']['total'] >= 1) {
                             $results = $response['hits']['hits'];
-                        }
-
-                        echo "
-                            <p>Ditt søk etter $searchtxt ga ".$response['hits']['total']." resultater </p><br>
+                            echo "
+                            <p>Ditt søk etter $searchtxt ga " . $response['hits']['total'] . " resultater </p><br>
                             <div class=\"category_filter text-uppercase\">
                                 <ul>
                                     <li class=\"active\" data-filter=\"*\">Alle</li>
@@ -64,49 +62,52 @@
                             </div>
                         ";
 
-                        echo "
+                            echo "
                             <div class='category_items'>
                                 <div class='grid-sizer'></div>
                         ";
 
-                        foreach($results as $image) {
-                            $category = $image['_source']['category'];
-                            $url = $image['_source']['url'];
-                            $width = $image['_source']['width'];
-                            $dbnr = $image['_id'];
+                            foreach ($results as $image) {
+                                $category = $image['_source']['category'];
+                                $url = $image['_source']['url'];
+                                $width = $image['_source']['width'];
+                                $dbnr = $image['_id'];
 
-                            echo "
+                                echo "
                                 <a href='?side=bilde&id=$dbnr' style='text-decoration: none;'>
                                     <div class='single_pictures $category'>
                                         <img class='lazy' data-original='$url' width='$width' height='100'>
                                     </div>
                                 </a>";
-                        }
+                            }
 
-                        echo "
+                            echo "
                             </div>
+                        
+                                </div>
+                            </section>
+                            <br style='clear: both;'>
+                            <br>";
+                            if ($page < 1) {
+                                echo "<a href='?side=resultat&q=$searchtxt&page=" . ($page + 1) . "' id='btn' style='padding: 0 50px;'>Se flere</a>";
+                            } else {
+                                echo "
+                                        <a href='?side=resultat&q=$searchtxt&page=" . ($page - 1) . "' id='btn' style='padding: 0 50px;'>Gå tilbake</a>
+                                        <a href='?side=resultat&q=$searchtxt&page=" . ($page + 1) . "' id='btn' style='padding: 0 50px;'>Se flere</a>
+                                    ";
+                            }
+                            echo "
+                            </div>
+                        </div>
                         ";
+                        } else {
+                            echo "<p style='background: #fff59d; color: #FF0000; border: 1px solid red; padding: 50px;'>
+                                Beklager, men vi kunne ikke finne noen bilder på ditt søk! <br> 
+                                Prøv igjen eller <a href='?side=forside'>trykk her for å gå til forsiden</a>
+                            </p>";
+                        }
                     }
                 ?>
-        </div>
-    </section>
-    <br style="clear: both;">
-    <br>
-    <div class='loader'>
-        <?php
-            if($page < 1) {
-                echo "<a href='?side=resultat&q=$searchtxt&page=".($page + 1)."' id='btn' style='padding: 0 50px;'>Se flere</a>";
-            }
-            else {
-                echo"
-                    <a href='?side=resultat&q=$searchtxt&page=".($page - 1)."' id='btn' style='padding: 0 50px;'>Gå tilbake</a>
-                    <a href='?side=resultat&q=$searchtxt&page=".($page + 1)."' id='btn' style='padding: 0 50px;'>Se flere</a>
-                ";
-            }
-        ?>
-    </div>
-    <p class="messages"></p>
-</div>
 
 <script>
     $(window).keydown(function(e) {
