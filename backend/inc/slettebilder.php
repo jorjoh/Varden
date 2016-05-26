@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="css/custom.css"/>
 
 <?php
+require_once('app/init.php');
 //$id = $_GET['id'];
 if(empty($id)) {
     $page = $_GET['page'];
@@ -45,6 +46,7 @@ if(empty($id)) {
         $tumburl = $rad["thumb_url"];
         $count = $rad["count"];
         $imagesid = $rad["id"];
+        $url = $rad['url'];
 
         echo("
         </thead>
@@ -72,6 +74,10 @@ if(empty($id)) {
                 $deleterowrequest = "DELETE FROM request WHERE image_id = $checkboxer[$i];";
                 $deleterowsimage = "DELETE FROM images WHERE id=$checkboxer[$i];";
                 echo $deleterowsimage."<br>";
+
+                unlink($tumburl) or die('Kunne ikke fjerne bilde fra serveren'); // Fjerner thumbnailen
+                unlink($url) or die('Kunne ikke fjerne bilde fra serveren'); // Fjerner orginalbilde
+
                 mysqli_query($connect,$deleterowmetainfo) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
                 mysqli_query($connect,$deleterowrequest) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
                 mysqli_query($connect,$deleterowsimage) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
@@ -82,7 +88,7 @@ if(empty($id)) {
                     'id' => $checkboxer[$i]
                 ];
 
-                $es->delete($deletedocument);
+                $es->delete($deletedocument); // Fjerner dokumentet / indekseringen i elasticsearch
             }
         }
     }

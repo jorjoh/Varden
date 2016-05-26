@@ -1,14 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: roed
- * Date: 10.03.2016
- * Time: 10.35
- */
-include ("dbcon.php");
-function select($dbconnect, $table, $columnsArray) {
 
-}
+include ("dbcon.php");
 
 function insert($dbconnect, $table, $insertData) { //Dynamisk insert funksjon - setter inn med hensyn på hvilken tabell og verdi som skal inn i databasen
     $columns = implode(", ",array_keys($insertData));
@@ -20,13 +12,4 @@ function insert($dbconnect, $table, $insertData) { //Dynamisk insert funksjon - 
     echo "<br/> Vellykket <br/>";
 
 }
-
-function update($dbconnect, $table, $columnsArray) {
-
-}
-
-function delete($dbconnect, $table, $columnsArray) {
-
-}
-
 ?>

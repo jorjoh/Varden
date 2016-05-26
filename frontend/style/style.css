@@ -191,6 +191,34 @@ input[type=checkbox]:checked + label:before {
     -moz-transition: opacity .25s ease;
     z-index: 1;
 }
+
+span.magnifier {
+    opacity: 0;
+    -webkit-transition: opacity .25s ease;
+    -moz-transition: opacity .25s ease;
+    transition: opacity .25s ease;
+    background: url('../img/ic_zoom_in_white_24dp_2x.png') center center no-repeat;
+    cursor: pointer;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+}
+
+span.magnifier:hover {
+    opacity: 1;
+    -webkit-transition: opacity .25s ease;
+    -moz-transition: opacity .25s ease;
+    transition: opacity .25s ease;
+    -webkit-box-shadow: 0 0 4px #FFF;
+    -moz-box-shadow: 0 0 4px #FFF;
+    box-shadow: 0 0 4px #FFF;
+}
+
+.magnifier:hover {
+    display: block;
+}
+
 /* -- ISOTOPE AREA END -- */
 
 

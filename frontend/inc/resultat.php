@@ -79,6 +79,7 @@
                                 echo "
                                 <a href='?side=bilde&id=$dbnr' style='text-decoration: none;'>
                                     <div class='single_pictures $category'>
+                                        <span class='magnifier'></span>
                                         <img class='lazy' data-original='$url' width='$width' height='100'>
                                     </div>
                                 </a>";
