@@ -163,6 +163,7 @@ else {
             <div id='details'>
                 <img class='lazy' id='picture' data-original='$url'>
                 <div id='bildeinfo'>
+                    <p id='pictureinfo' style='color: #0000FF; float: right; margin-right: 20px; text-decoration: underline; cursor:pointer;'>[bilde her]</p>
                     <h2>$title</h2>
                     <br>
                     <p>$picturetext</p>
@@ -172,40 +173,84 @@ else {
                        <a title=\"send to Facebook\" 
                           href=\"http://www.facebook.com/sharer.php?s=100&p[title]=tittelenkommerher&p[summary]=etfintbilde&p[url]=http%3A//134.213.218.27/frontend/?side=bilde%26id=$id&p[images][0]=YOUR_IMAGE_TO_SHARE_OBJECT\"
                           target=\"_blank\">
-                          <span style='background: #00598c; padding: 20px; color: #FFF; border-radius: 3%;'>
-                            <img width=\"14\" height=\"14\" src=\"'icons/fb.gif\" alt=\"Facebook\" /> Del på Facebook! 
+                          <span style='background: #00598c; padding: 20px 95px 20px 20px; color: #FFF; border-radius: 3%;'>
+                            <img src=\"img/facebook-logo.png\" alt=\"Facebook\" /> &nbsp; Del med venner på Facebook 
                           </span>
                         </a>
                     </p>
-                    <br><br>
-                    <p>
-                        <a href='https://twitter.com/intent/tweet?original_referer=http%3A%2F%2F134.213.218.27%2Ffrontend%2F?side=bilde%26id=$id&amp;ref_src=twsrc%5Etfw&amp;related=varden&amp;text=Se%20på%20bilde%20jeg%20fant%20i%20arkivet%20til%20varden&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fwww.varden.no%2F?side=bilde%26id=$id&amp;via=varden'>
-			                 <span class=\"button-dropdown-text\">Del på Twitter</span>
+                    <br>
+                    <p style='margin-top: 30px;'>
+                        <a style='color: #fff; text-decoration: none;' href='https://twitter.com/intent/tweet?original_referer=http%3A%2F%2F134.213.218.27%2Ffrontend%2F?side=bilde%26id=$id&amp;ref_src=twsrc%5Etfw&amp;related=varden&amp;text=Se%20på%20bilde%20jeg%20fant%20i%20arkivet%20til%20varden&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fwww.varden.no%2F?side=bilde%26id=$id&amp;via=varden'>
+			                 <span class=\"button-dropdown-text\" style='background: #15abff; padding: 20px 180px 20px 20px; border-radius: 3%;'>
+			                 <img src='img/twitter-logo.png' alt='twitter' /> &nbsp; Del på Twitter</span>
                         </a>
                     </p>
                     <br>
-                    <p id='pictureinfo' style='color: #0000FF; text-decoration: underline; cursor:pointer;'>-- Trykk her for å sende inn informasjon om bilde --</p>
-                    <div id='box'>
-                        <form method='post' name='pictureinfoschema' id='pictureinfoschema'>
-                            <textarea name='comment' placeholder='Fyll inn din informasjon om bilde her...' style='width: 100%; height: 80px;'></textarea>
-                            <input type='submit' id='submitrequest' name='submitrequest' value='Send inn ditt forslag'>
-                        </form>
+                    <div style='background-color: #ccc; width: 96%; padding: 10px; margin-top: 10px; text-align: left;'>
+                        <strong>Nøkkelord</strong>
+                        <p>Sted: $place</p>
+                        <p>Bilde ble tatt: $date</p>
+                        <p>Bilde ble tatt av: $photographer</p>
                     </div>
-                    ";
-                    if(isset($_POST['submitrequest'])) {
-                        $comment = mysqli_real_escape_string($connect, $_POST['comment']);
-                        if(empty($comment)) {
-                            echo "Det er ikke skrevet noen kommentar";
-                        }
-                        else {
-                            $sql = "INSERT INTO request(image_id, requesttext) VALUES ($id, '$comment');";
-                            mysqli_query($connect, $sql) or die('Beklager det skjedde en feil! Ta kontakt med webutvikler'.mysqli_error($connect));
-                            echo "<p id='msg' style='background: #f7ecb5; margin-top: 10px; padding: 15px; border: 1px solid black;'>Ditt forslag ble vellykket sendt inn til behandling!</p>";
-                        }
-                    }
-                echo "
                 </div>
                 <br style='clear: both;'>
+                <div id='box'>
+                <div style='float: left;'>
+                    <strong>Exif-info</strong> <br>
+                        <table>
+                            <tr>
+                                <td>Bredde: </td>
+                                <td>$w_original</td>
+                            </tr>
+                            <tr>
+                                <td>Høyde: </td>
+                                <td>$h_original</td>
+                            </tr>
+                            <tr>
+                                <td>Filformat: </td>
+                                <td>$imagetype</td>
+                            </tr>
+                            <tr>
+                                <td>Oppløsning:</td>
+                                <td>$resolution</td>
+                            </tr>
+                            <tr>
+                                <td>Bit: </td>
+                                <td>$bit_depth</td>
+                            </tr>
+                            <tr>
+                                <td>Eksponeringstid: </td>
+                                <td>$exposure_time</td>
+                            </tr>
+                            <tr>
+                                <td>Hvitbalanse: </td>
+                                <td>$white_balance</td>
+                            </tr>
+                            <tr>
+                                <td>Retning: </td>
+                                <td>$orientation</td>
+                            </tr>
+                            <tr>
+                                <td>ISO verdi: </td>
+                                <td>$iso_speed</td>
+                            </tr>
+                            <tr>
+                                <td>Blits: </td>
+                                <td>$flashtext</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style='float: right; width: 36.6%; margin-right: 1%;'>
+                        <strong>Kontakt oss</strong>
+                        <p>Benytt feltet under for å sende oss din informasjon om bilde</p>
+                        <form method='post' name='pictureinfoschema' id='pictureinfoschema'>
+                            <textarea name='comment' placeholder='Fyll inn din informasjon om bilde her...' style='width: 100%; height: 150px;'></textarea>
+                            <br>
+                            <input type='submit' style='clear: right; float: left;' id='submitrequest' name='submitrequest' value='Send inn ditt forslag'>
+                        </form>
+                    </div>
+                    <br style='clear: both;'>
+                </div>
             </div>
             <br>
             <br>
@@ -213,6 +258,18 @@ else {
             <a href='?side=resultat&q=$searchquery' id='btn' style='padding: 0 20px;'>Tilbake til søkeresultat</a>
         </div>
     ";
+
+    if(isset($_POST['submitrequest'])) {
+        $comment = mysqli_real_escape_string($connect, $_POST['comment']);
+        if(empty($comment)) {
+            echo "Det er ikke skrevet noen kommentar";
+        }
+        else {
+            $sql = "INSERT INTO request(image_id, requesttext) VALUES ($id, '$comment');";
+            mysqli_query($connect, $sql) or die('Beklager det skjedde en feil! Ta kontakt med webutvikler'.mysqli_error($connect));
+            echo "<p id='msg' style='background: #f7ecb5; margin-top: 10px; padding: 15px; border: 1px solid black;'>Ditt forslag ble vellykket sendt inn til behandling!</p>";
+        }
+    }
 }
 
 ?>
