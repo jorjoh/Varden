@@ -114,11 +114,16 @@ $processed = mysqli_num_rows($processedquery);
     </script>
 </div>
 
-<h2 class="sub-header">Ubehandlede forslag</h2>
+<h2 class="sub-header">Ubehandlede forslag<span class="mdl-badge" data-badge="<?php echo $nbr; ?>"></span></h2>
 <!--<p>Det er <?php echo $nbr; ?> ubehandlede forslag</p>-->
 
-<span class="mdl-badge" data-badge="<?php echo $nbr; ?>">Antall ubehandlede forslag</span>
-<div class="table-responsive">
+
+<?php
+if ($nbr <= 0){
+    echo "<p style='font-size: 16pt; text-align: center; padding: 20px; background-color: #c0c0c0; border-radius: 5px;'> Det finnes ingen ubehandlede forslag </p>";
+}
+else{
+echo '<div class="table-responsive">
     <table class="mdl-data-table mdl-js-data-table mdl-data-table-- mdl-shadow--2dp" style="width:100%" >
         <thead>
         <tr>
@@ -128,7 +133,7 @@ $processed = mysqli_num_rows($processedquery);
         </tr>
         </thead>
         <tbody>
-        <?php
+        ';
         while($row = mysqli_fetch_array($query)) {
             $id = $row['id'];
             $pictureid = $row['image_id'];
@@ -141,10 +146,13 @@ $processed = mysqli_num_rows($processedquery);
                         </tr>
                     ";
         }
-        ?>
-        </tbody>
-    </table>
-</div>
+    echo '
+</tbody>
+</table>
+</div>';
+}
+?>
+
 
 <link rel="stylesheet" href="css/material.min.css"/>
 <link rel="stylesheet" href="css/custom.css"/>
