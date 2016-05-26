@@ -163,7 +163,10 @@ else {
             <div id='details'>
                 <img class='lazy' id='picture' data-original='$url'>
                 <div id='bildeinfo'>
-                    <p id='pictureinfo' style='color: #0000FF; float: right; margin-right: 20px; text-decoration: underline; cursor:pointer;'>[bilde her]</p>
+                    <div style='float: right; margin-right: 20px;' id='pictureinfo' class='tooltip'>
+                        <img class='tooltip' src='img/ic_note_add_black_24dp_1x.png' alt='send-forslag'>
+                        <span class='tooltiptext'>Send inn dine forslag til forbedringer</span>
+                    </div>
                     <h2>$title</h2>
                     <br>
                     <p>$picturetext</p>
@@ -194,61 +197,62 @@ else {
                     </div>
                 </div>
                 <br style='clear: both;'>
+                <br>
                 <div id='box'>
-                <div style='float: left;'>
-                    <strong>Exif-info</strong> <br>
-                        <table>
-                            <tr>
-                                <td>Bredde: </td>
-                                <td>$w_original</td>
-                            </tr>
-                            <tr>
-                                <td>Høyde: </td>
-                                <td>$h_original</td>
-                            </tr>
-                            <tr>
-                                <td>Filformat: </td>
-                                <td>$imagetype</td>
-                            </tr>
-                            <tr>
-                                <td>Oppløsning:</td>
-                                <td>$resolution</td>
-                            </tr>
-                            <tr>
-                                <td>Bit: </td>
-                                <td>$bit_depth</td>
-                            </tr>
-                            <tr>
-                                <td>Eksponeringstid: </td>
-                                <td>$exposure_time</td>
-                            </tr>
-                            <tr>
-                                <td>Hvitbalanse: </td>
-                                <td>$white_balance</td>
-                            </tr>
-                            <tr>
-                                <td>Retning: </td>
-                                <td>$orientation</td>
-                            </tr>
-                            <tr>
-                                <td>ISO verdi: </td>
-                                <td>$iso_speed</td>
-                            </tr>
-                            <tr>
-                                <td>Blits: </td>
-                                <td>$flashtext</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div style='float: right; width: 36.6%; margin-right: 1%;'>
-                        <strong>Kontakt oss</strong>
-                        <p>Benytt feltet under for å sende oss din informasjon om bilde</p>
-                        <form method='post' name='pictureinfoschema' id='pictureinfoschema'>
-                            <textarea name='comment' placeholder='Fyll inn din informasjon om bilde her...' style='width: 100%; height: 150px;'></textarea>
-                            <br>
-                            <input type='submit' style='clear: right; float: left;' id='submitrequest' name='submitrequest' value='Send inn ditt forslag'>
-                        </form>
-                    </div>
+                    <div style='float: left;'>
+                        <strong>Exif-info</strong> <br>
+                            <table>
+                                <tr>
+                                    <td>Bredde: </td>
+                                    <td>$w_original</td>
+                                </tr>
+                                <tr>
+                                    <td>Høyde: </td>
+                                    <td>$h_original</td>
+                                </tr>
+                                <tr>
+                                    <td>Filformat: </td>
+                                    <td>$imagetype</td>
+                                </tr>
+                                <tr>
+                                    <td>Oppløsning:</td>
+                                    <td>$resolution</td>
+                                </tr>
+                                <tr>
+                                    <td>Bit: </td>
+                                    <td>$bit_depth</td>
+                                </tr>
+                                <tr>
+                                    <td>Eksponeringstid: </td>
+                                    <td>$exposure_time</td>
+                                </tr>
+                                <tr>
+                                    <td>Hvitbalanse: </td>
+                                    <td>$white_balance</td>
+                                </tr>
+                                <tr>
+                                    <td>Retning: </td>
+                                    <td>$orientation</td>
+                                </tr>
+                                <tr>
+                                    <td>ISO verdi: </td>
+                                    <td>$iso_speed</td>
+                                </tr>
+                                <tr>
+                                    <td>Blits: </td>
+                                    <td>$flashtext</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style='float: right; width: 36.6%; margin-right: 1%;'>
+                            <strong>Kontakt oss</strong>
+                            <p>Benytt feltet under for å sende oss din informasjon om bilde</p>
+                            <form method='post' name='pictureinfoschema' id='pictureinfoschema'>
+                                <textarea name='comment' placeholder='Fyll inn din informasjon om bilde her...' style='width: 100%; height: 150px;'></textarea>
+                                <br>
+                                <input type='submit' class='mdl-button mdl-button--raised mdl-button--colored' style='clear: right; float: left;' id='submitrequest' name='submitrequest' value='Send inn ditt forslag'>
+                            </form>
+                        </div>
                     <br style='clear: both;'>
                 </div>
             </div>
