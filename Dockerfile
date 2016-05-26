@@ -22,6 +22,7 @@ WORKDIR "/src"
 
 # RUN sudo git clone https://github.com/jorjoh/Varden.git 
 COPY ./ /var/www/html/
+ADD dbconnection/dbcon.php /var/html/www/frontend/inc/functions
 RUN sudo wget http://jorgenjohansen.no/vardenbilder/uploads.zip
 # ADD uploads.zip /var/html/www/frontend/
 RUN sudo unzip uploads.zip -d /var/www/html/frontend/
