@@ -139,14 +139,14 @@ else {
     $nextpicture = mysqli_fetch_array($resultnext);
     $next = $nextpicture['id'];
 
-    echo "<div style='padding-top: 7%;'";
+    echo "<div style='padding-top: 7%;'>";
     include('searchfield.php');
     echo "<br>
         <div id='subpage-bg' style='padding-top: 40px;'>
-             <!-- <div style='width: 950px; height: 150px; text-align: center; margin: 0 auto; background: #CCC; color: #666666;'>
+             <div style='width: 950px; height: 150px; text-align: center; margin: 0 auto; background: #CCC; color: #666666;'>
                 <br><br><br>
                 Banner 950x150
-            </div> -->
+            </div>
             <br>
             <!-- start paginering -->
             <a onclick='window.history.back()'>
@@ -188,11 +188,11 @@ else {
                     <div id='box'>
                         <form method='post' name='pictureinfoschema' id='pictureinfoschema'>
                             <textarea name='comment' placeholder='Fyll inn din informasjon om bilde her...' style='width: 100%; height: 80px;'></textarea>
-                            <input type='submit' id='submit' name='submit' value='Send inn ditt forslag'>
+                            <input type='submit' id='submitrequest' name='submitrequest' value='Send inn ditt forslag'>
                         </form>
                     </div>
                     ";
-                    if(isset($_POST['submit'])) {
+                    if(isset($_POST['submitrequest'])) {
                         $comment = mysqli_real_escape_string($connect, $_POST['comment']);
                         if(empty($comment)) {
                             echo "Det er ikke skrevet noen kommentar";
