@@ -4,24 +4,14 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
     $uploaddir = '../../frontend/uploads/';
     $uploadfile = $uploaddir . basename($_FILES['file']['name']);
 
-    if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-        echo "File is valid, and was successfully uploaded.\n";
-    } else {
-        echo "Possible file uploads attack!\n";
+    if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {}
+    else {
+        echo "Her skjedde det en feil! Kunne ikke flytte filen!\n";
     }
 
-    echo "<pre>RECEIVED ON SERVER: \n";
-    echo "FILES: \n";
-    print_r($_FILES);
-    echo "</pre><br><pre>";
-    echo "\$_POST: fra php filen \n";
-    print_r($_POST);
-    echo "</pre>";
     $cur_image = $uploadfile;
 }
 include("exif-infofrompicture.php");
-
-//echo "Dette er bilde som er i uploads.php:".$cur_image;
 
 //Viser url-stien til det aktuelle bilde
 $urlforimage = "varden/" . $uploadfile;
@@ -140,7 +130,7 @@ insert($connect, "images", $insDataToImages);
 insert($connect, "photographers", $insdatattophotographers);
 insert($connect, "metainfo", $insdatatometainfo);
 insert($connect, "physicallocation", $insdatatophysicallocation);
-insert($connect, "log", $insdatalog);
+//insert($connect, "log", $insdatalog); // Kan brukes for å loggføre det som blir gjort
 
 $idsql = "SELECT id FROM images ORDER BY id DESC LIMIT 1;";
 echo $idsql;

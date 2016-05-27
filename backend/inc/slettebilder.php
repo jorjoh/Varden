@@ -32,7 +32,6 @@ if(empty($id)) {
             <table id='tableSelect' class=\"mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp\" style='width: 200px;'>");   // Material design tabell som brukes til å få en oversikt av bildene i DB
     echo("<thead>");
     echo(" <tr>
-            <th>ID</th>
             <th class=\\'mdl-data-table__cell--non-numeric\\'>Bilder(filename)</th> <!--//Table headers-->
             <th>Beskrivelse</th>
             <th>Thumbnail</th>
@@ -74,9 +73,6 @@ if(empty($id)) {
                 $deleterowrequest = "DELETE FROM request WHERE image_id = $checkboxer[$i];";
                 $deleterowsimage = "DELETE FROM images WHERE id=$checkboxer[$i];";
                 echo $deleterowsimage."<br>";
-
-                unlink($tumburl) or die('Kunne ikke fjerne bilde fra serveren'); // Fjerner thumbnailen
-                unlink($url) or die('Kunne ikke fjerne bilde fra serveren'); // Fjerner orginalbilde
 
                 mysqli_query($connect,$deleterowmetainfo) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
                 mysqli_query($connect,$deleterowrequest) or die ("Kunne ikke slette fra database ".mysqli_error($connect));
