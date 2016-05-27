@@ -6,10 +6,10 @@
  * Time: 10:26
  */
 
-$host = "localhost";
+$host = "mysqldb";
 $db = "varden";
 $user = "root";
-$password = "0DfTAZ";
+$password = "password";
 
 $connect = mysqli_connect($host,$user,$password,$db) or die("Fikk ikke tilkobling til databasen!!");
 
