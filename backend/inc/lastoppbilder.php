@@ -31,7 +31,8 @@
         </div>
         <strong class="error text-danger" data-dz-errormessage></strong>
         <br style="clear: both;">
-        <input type="text" name="photographer" id="photographer" value="Varden">
+        <input type="text" name="title" id="title" value="Varden">
+        <input type="text" name="category" id="category" value="Sport">
         <textarea name="beskrivelse" id="beskrivelse">Beskrivelse her</textarea>
     </div>
 </div>
@@ -57,7 +58,8 @@
 </div>
 
 <p id="txt"></p>
-<p id="fotograf"></p>
+<p id="title"></p>
+<p id="category"></p>
 
 <script>
     // Deklarerer variabel som plukker opp div-taggen template som skal brukes i visning av opplastende filer
@@ -94,10 +96,12 @@
     //Registrerer knappentrykk og kjører kode
     $('#upload').click(function () {
         myDropzone.on("sending", function(file, xhr, formData) {
-            var photographer = file.previewElement.querySelector("#photographer").value;
+            var title = file.previewElement.querySelector("#title").value;
             var beskrivelse = file.previewElement.querySelector("#beskrivelse").value;
-            formData.append("photographer", photographer);
+            var category = file.previewElement.querySelector("#category").value;
+            formData.append("title", title);
             formData.append("beskrivelse", beskrivelse);
+            formData.append("category", category);
         });
         //Prosesserer køen
         myDropzone.processQueue();

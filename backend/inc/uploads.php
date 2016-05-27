@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Jørgen Johansen
- * Date: 09.02.2016
- * Time: 12:24
- */
-
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
     $uploaddir = '../../frontend/uploads/';
@@ -24,9 +17,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
     echo "\$_POST: fra php filen \n";
     print_r($_POST);
     echo "</pre>";
-
     $cur_image = $uploadfile;
-
 }
 include("exif-infofrompicture.php");
 
@@ -36,22 +27,15 @@ include("exif-infofrompicture.php");
 $urlforimage = "varden/" . $uploadfile;
 
 $beskrivelse = $_POST['beskrivelse'];
-$photographer = explode(" ", $_POST['photographer']);
+$title = $_POST['title'];
+$category = $_POST['category'];
 $filename = basename($_FILES['file']['name']);
 $curtime = new DateTime();
-$size = exif_thumbnail($cur_image, $thumb_w, $thumb_h, $type);
 
-echo("Fotograf er: " . $photographer[0] . "<br/>");
+echo("Tittel er: " . $title . "<br/>");
 echo("Beskrivelse er: " . $beskrivelse . "<br/>");
+echo("Kategori er: " . $category . "<br/>");
 echo("URL for bilde er: <a href = '$urlforimage'> Trykk her for å se bilde </a><br/>");
-echo("<pre>
-        Dette er en test: <br>
-        Width: = $thumb_w <br>
-        Height = $thumb_h <br>
-    </pre>
-");
-
-
 
 /*------informasjon som skal inni arrayer i databasen*/
 
@@ -64,7 +48,7 @@ print_r($insdatatocamera);
 echo "<br/>   array uploads ".$insdatatocamera['cameramodel']."<br/>";*/
 
 $insdatatocategory = array(
-    'name' => "Valgt kategori", // her kan vi har noen checkbokser vel? er ikke så lett å putte checkbokser inni her. Er nok bedre å ha dem på siden! :)
+    'name' => $category, // her kan vi har noen checkbokser vel? er ikke så lett å putte checkbokser inni her. Er nok bedre å ha dem på siden! :)
 );
 
 $insdatatoimagedesgin = array(  //Motiv
@@ -73,11 +57,46 @@ $insdatatoimagedesgin = array(  //Motiv
 
 $insDataToImages = array(
     'filename' => $filename,
+    'title' => $title,
     'picturetext' => $beskrivelse,
-    'thumb_w' => $thumb_w,
-    'thumb_h' => $thumb_h,
+    'thumb_w' => 150,
+    'thumb_h' => 150,
     'url' => $urlforimage
 );
+
+if(empty($exif['DateTimeOriginal'])) {
+    $exif['DateTimeOriginal'] = "1970-01-01 13:37:00";
+}
+if(empty($exif['COMPUTED']['Width'])) {
+    $exif['COMPUTED']['Width'] = 150;
+}
+if(empty($exif['COMPUTED']['Height'])) {
+    $exif['COMPUTED']['Height'] = 150;
+}
+if(empty($exif['MimeType'])) {
+    $exif['MimeType'] = 'image/jpeg';
+}
+if(empty($exif['XResolution'])) {
+    $exif['XResolution'] = 0;
+}
+if(empty($ezif['ExposureTime'])) {
+    $exif['ExposureTime'] = 0;
+}
+if(empty($exif['FocalLength'])) {
+    $exif['FocalLength'] = 'null';
+}
+if(empty($exif['WhiteBalance'])) {
+    $exif['WhiteBalance'] = 'null';
+}
+if(empty($exif['Orientation'])) {
+    $exif['Orientation'] = 'null';
+}
+if(empty($exif['ISOSpeedRatings'])) {
+    $exif['ISOSpeedRatings'] = 0;
+}
+if(empty($exif['Flash'])) {
+    $exif['Flash'] = 0;
+}
 
 $insdatatometainfo = array(
     "capturedate" => $exif["DateTimeOriginal"],
@@ -93,13 +112,13 @@ $insdatatometainfo = array(
 	"orientation" => $exif['Orientation'],
 	"iso_speed" => $exif['ISOSpeedRatings'],
 	"flash_state" => $exif['Flash'],
-	"tags" => "illustrasjonsbilde",
+	"tags" => "Sport, Varden, Bilder, Kultur, Arkiv",
 );
 print_r($insdatatometainfo);
 
 $insdatattophotographers = array(
-    "firstname" => $photographer[0],
-    "lastname" =>$photographer[1], //Her burde vi legge tilrette for etternavn, og etternavn er tilrettelagt her, men ikke i input boksene
+    "firstname" => 'Varden',
+    "lastname" => 'null', //Her burde vi legge tilrette for etternavn, og etternavn er tilrettelagt her, men ikke i input boksene
 );
 print_r($insdatattophotographers);
 $insdatatophysicallocation = array(
@@ -122,3 +141,33 @@ insert($connect, "photographers", $insdatattophotographers);
 insert($connect, "metainfo", $insdatatometainfo);
 insert($connect, "physicallocation", $insdatatophysicallocation);
 insert($connect, "log", $insdatalog);
+
+$idsql = "SELECT id FROM images ORDER BY id DESC LIMIT 1;";
+echo $idsql;
+$idquery = mysqli_query($connect, $idsql) or die();
+$idrow = mysqli_fetch_array($idquery);
+$latestid = $idrow['id'];
+
+$newid = ($latestid + 1);
+
+require_once('app/init.php');
+
+$indexed = $es->index([
+    'index' => 'images',
+    'type' => 'image',
+    'id' => $newid,
+    'body' => [
+        'title' => $title,
+        'category' => $category,
+        'photographer' => 'Varden',
+        'time_taken' => $exif["DateTimeOriginal"],
+        'place' => 'Porsgrunn',
+        'width' => 150,
+        'url' => $urlforimage,
+        'tags' => ['Sport', 'Varden', 'Bildearkiv', 'Avis']
+    ]
+]);
+
+if($indexed) {
+    print_r($indexed);
+}
