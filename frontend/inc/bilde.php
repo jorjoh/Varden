@@ -42,6 +42,7 @@
 </style>
 
 <?php
+echo "<div style='padding-top: 7%;'>";
 $searchquery = $_SESSION['searchtxt'];
 $id = intval($_GET['id']); // Variabel som fanger opp ID nummeret til bilde og brukes i SQL spørringen - Må være et tall
 // SQL spørring som henter all relevant informasjonen til bilde i databasen fra respektive tabeller
@@ -69,13 +70,15 @@ $rows = mysqli_num_rows($result); // Teller antall rader som returneres fra resu
 // Hvis ikke ID'en er definert i URL eller det ikke finnes noen bilder med ID'en som er definert i URL'en
 if(empty($id) || $rows < 1) {
     echo "
-        <p style='background: #ffffcc; position: relative; top: 200px; color: #FF0000; padding: 20px;'>
-            Kunne ikke finne ønsket bilde. Vennligst prøv igjen
+        <div style='padding-top: 5%;'></div>
+        <p style='background: #ffffcc; position: relative; color: #FF0000; padding: 50px;'>
+            Vi kunne desverre ikke finne bilde med valgte kriterier. 
             <br>
-            Du vil bli sendt tilbake i løpet av 3 sekunder eller <a href='?side=forside'>trykk her for å gå til forsiden</a>!
+            Du vil bli sendt tilbake i løpet av 5 sekunder eller <a href='?side=forside'>trykk her for å gå til forsiden</a>
         </p>
+        <br style='clear: both;'>
     ";
-    header("Refresh: 3; url=?side=forside");
+    header("Refresh: 5; url=?side=forside");
 }
 else {
     $row = mysqli_fetch_array($result); // Henter kolonnene inn i egne array
@@ -139,10 +142,10 @@ else {
     $nextpicture = mysqli_fetch_array($resultnext);
     $next = $nextpicture['id'];
 
-    echo "<div style='padding-top: 7%;'>";
     include('searchfield.php');
-    echo "<br>
+    echo "
         <div id='subpage-bg' style='padding-top: 40px;'>
+            <br>
              <div style='width: 950px; height: 150px; text-align: center; margin: 0 auto; background: #CCC; color: #666666;'>
                 <br><br><br>
                 Banner 950x150
