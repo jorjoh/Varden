@@ -85,7 +85,7 @@ else {
     $count = $row['count']; // Henter antall visninger bilde har
     $url = $row['url']; // Henter URL'en til bilde
     $filename = $row['filename']; // Henter bildenavnet til filen
-    $title = $row['titlename']; // Henter tittelen til bilde
+    $title = $row['title']; // Henter tittelen til bilde
     $picturetext = $row['picturetext']; // Henter bildeteksten
     $place = ucfirst($row['name']); // Henter stedsnavnet bilde er tatt
     $date = $row['capturedate']; // Henter datoen bilde er tatt

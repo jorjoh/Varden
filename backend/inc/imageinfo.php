@@ -1,6 +1,6 @@
 <?php
-    $sqlexitingpicture = "SELECT * FROM images WHERE id = $id;";
-    $sqlrequesttext = "SELECT * FROM request WHERE id = $id";
+    $sqlexitingpicture = "SELECT title, picturetext FROM images WHERE id = $id;";
+    $sqlrequesttext = "SELECT requesttext FROM request WHERE id = $id";
     //Slutt på SQL-spørringer
     $queryforexistingpicturetext = mysqli_query($connect, $sqlexitingpicture);
     $queryforrequestpicturetext = mysqli_query($connect, $sqlrequesttext);

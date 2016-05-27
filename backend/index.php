@@ -20,7 +20,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Sett inn favicon her -->
-    <link rel="icon" href="#">
+    <link rel="icon" type="image/png" href="../frontend/img/VA-fav-icon-152.png">
 
     <title>Online Bildearkiv - Varden - Dashboard</title>
 
