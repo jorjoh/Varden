@@ -63,7 +63,7 @@ if(empty($id)) {
     echo("</table><br>");
     // Slutt på tabell
     echo("
-            <input type='submit' id='slettbilde' name='slettbilde' value='Slett bilder' style='float: right; right: 210px; bottom: 0px; position: relative' /> </input>
+            <input type='submit' id='slettbilde' class='mdl-button mdl-button--raised mdl-button--accent' name='slettbilde' value='Slett bilder' style='position: relative; float: right; background: #FF0000; color: #FFFFFF; right: 80px;' /> </input>
             </form>");
 
     if (isset($_POST["slettbilde"])) {
@@ -99,18 +99,26 @@ if(empty($id)) {
     $total_pages = ceil($nbrofrows / $per_page);
 
     // Hvis side = 1 og totalt antall sider er mindre en 1 vis kun den enen kanppen til å gå videre
-    if ($page == 1 && $total_pages > 1) {
-        echo '<a href="?side=slettebilder&page=' . ($page + 1) . '"><button style="position: absolute; right: 700px; bottom: 5px;" id="paginationbtn"> &gt; </button></a>  
-        Viser resultat: ' . ($start_from + 1) . " - " . $per_page * $page . '  av totalt ' . $nbrofrows . ' bilder<br>';
-    } else if ($page == $total_pages && $total_pages > 1) {
-        echo '<a href="?side=slettebilder&page=' . ($page - 1) . '"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>';
-    } //Er antall sider mer enn en vis knappen som fører deg tilbake til forrige resultat. Altså 2 Knappen :)
+    if($page == 1 && $total_pages > 1) {
+        echo '<br><p style="text-align: center;">Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder
+        <a href="?side=slettebilder&page='.($page + 1).'"><button style="position: relative;"> &gt; </button></a></p><br>';
+    }
+    else if($page == $total_pages && $total_pages > 1) {
+        echo '<br><p style="text-align: center;">
+            <a href="?side=slettebilder&page='.($page - 1).'"><button style="position: relative;"> &lt; </button></a>
+            Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder
+        </p>';
+    }
+    //Er antall sider mer enn en vis knappen som fører deg tilbake til forrige resultat. Altså 2 Knappen :)
     else {
-        if ($total_pages > 1) {
-            echo '<a href="?side=slettebilder&page=' . ($page - 1) . '"><button style="position: absolute; left: 400px; bottom: 5px;" id="paginationbtn">&lt;</button></a>  
-            Viser resultat: ' . ($start_from + 1) . " - " . $per_page * $page . '  av totalt ' . $nbrofrows . ' bilder<br>
-                                    <a href="?side=slettebilder&page=' . ($page + 1) . '"><button style="position: absolute; right: 700px; bottom:5px;" id="paginationbtn"> &gt; </button></a>
-                                    ';
+        if($total_pages > 1) {
+            echo '<br>
+                <p style="text-align: center;">
+                <a href="?side=slettebilder&page='.($page - 1).'"><button style="position: relative;">&lt;</button></a>  
+                Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder 
+                <a href="?side=slettebilder&page='.($page + 1).'"><button style="position: relative;"> &gt; </button></a>
+                </p>
+            ';
         }
     }
     // MULIGHET FOR Å SKRIVE INN SIDEN DU ØNKSER Å GÅ TIL !

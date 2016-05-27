@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/material.min.css"/>
 <link rel="stylesheet" href="css/custom.css"/>
 <?php
-echo ("<h1>Oversikt over all innkommende forslag</h1>");
+echo ("<h1>Oversikt over alle innkommende forslag</h1>");
 
 $id = $_GET['id'];
 if(empty($id)) {

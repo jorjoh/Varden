@@ -115,7 +115,6 @@ $processed = mysqli_num_rows($processedquery);
 </div>
 
 <h2 class="sub-header">Ubehandlede forslag<span class="mdl-badge" data-badge="<?php echo $nbr; ?>"></span></h2>
-<!--<p>Det er <?php echo $nbr; ?> ubehandlede forslag</p>-->
 
 
 <?php

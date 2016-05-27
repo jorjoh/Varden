@@ -66,19 +66,25 @@
 
     // Hvis side = 1 og totalt antall sider er mindre en 1 vis kun den enen kanppen til å gå videre
     if($page == 1 && $total_pages > 1) {
-        echo '<a href="?side=endrebilder&page='.($page + 1).'"><button style="position: absolute; right: 25px; bottom: 5px;" id="paginationbtn"> &gt; </button></a>  
-        Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder<br>';
+        echo '<br><p style="text-align: center;">Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder
+        <a href="?side=endrebilder&page='.($page + 1).'"><button style="position: relative;"> &gt; </button></a></p><br>';
     }
     else if($page == $total_pages && $total_pages > 1) {
-        echo '<a href="?side=endrebilder&page='.($page - 1).'"><button style="position: absolute; left: 25px; top: 40%;" id="paginationbtn">&lt;</button></a>';
+        echo '<br><p style="text-align: center;">
+            <a href="?side=endrebilder&page='.($page - 1).'"><button style="position: relative;"> &lt; </button></a>
+            Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder
+        </p>';
     }
     //Er antall sider mer enn en vis knappen som fører deg tilbake til forrige resultat. Altså 2 Knappen :)
     else {
         if($total_pages > 1) {
-            echo '<a href="?side=endrebilder&page='.($page - 1).'"><button style="position: absolute; left: 400px; bottom: 5px;" id="paginationbtn">&lt;</button></a>  
-            Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder<br>
-                                    <a href="?side=endrebilder&page='.($page + 1).'"><button style="position: absolute; right: 700px; bottom:5px;" id="paginationbtn"> &gt; </button></a>
-                                    ';
+            echo '<br>
+                <p style="text-align: center;">
+                <a href="?side=endrebilder&page='.($page - 1).'"><button style="position: relative;">&lt;</button></a>  
+                Viser resultat: '.($start_from + 1). " - ".$per_page * $page.'  av totalt '. $nbrofrows .' bilder 
+                <a href="?side=endrebilder&page='.($page + 1).'"><button style="position: relative;"> &gt; </button></a>
+                </p>
+            ';
         }
     }
         // MULIGHET FOR Å SKRIVE INN SIDEN DU ØNKSER Å GÅ TIL !
