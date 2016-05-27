@@ -67,35 +67,13 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="nav navbar-nav navbar-right" style="margin: 10px 50px 0 0;">
-    ';
-    if($user) {
-        echo "<p style='color: #fff; margin-right: 5px; display: inline;'>Velkommen $user</p>";
-    }
-    echo '
-    
-    <form method="post" action="" style="display: inline;">
-        <input type="submit" class="btn-danger" style="padding: 5px;" name="logout" value="logg ut">
-    </form>
-    
-    ';
-    if(isset($_POST["logout"])) {
-        @ob_start();
-        session_destroy();
-        header("Location: login.php");
-    }
-
-    echo '
     </div>
     <div class="container-fluid">
+        <form method="post" action="" style="float: right;">
+            <input type="submit" class="btn-danger" style="padding: 5px 10px;" name="logout" value="logg ut">
+        </form>
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Online Bildearkiv - Administrator</a>
+            <a class="navbar-brand" href="#">Bildearkiv - Administrator</a>
         </div>
     </div>
 </nav>
@@ -136,5 +114,10 @@
 </html>
 
         ';
+    }
+    if(isset($_POST["logout"])) {
+        @ob_start();
+        session_destroy();
+        header("Location: login.php");
     }
 ?>
