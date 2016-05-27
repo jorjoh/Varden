@@ -120,7 +120,7 @@ $processed = mysqli_num_rows($processedquery);
 
 <?php
 if ($nbr <= 0){
-    echo "<p style='font-size: 16pt; text-align: center; padding: 20px; background-color: #c0c0c0; border-radius: 5px;'> Det finnes ingen ubehandlede forslag </p>";
+    echo "<p style='font-size: 16pt; text-align: center; padding: 20px; background: #c0c0c0; border-radius: 5px;'> Det finnes ingen ubehandlede forslag </p>";
 }
 else{
 echo '<div class="table-responsive">

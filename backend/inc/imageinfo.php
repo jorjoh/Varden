@@ -42,8 +42,7 @@
         include_once ("forslagbildetekst.php");
     }
     else{
-        echo "<h4 style='color: red'>Ingen forslag motatt!, kom tilbake senere</h4>";
-        echo "<h5 style='color: green;'>Hvis du likevel vil endre bildeteksten kan du gjøre dette rett i tekstboksen</h5>";
+        echo "<br><div style='background: #c0c0c0; padding: 20px; border-radius: 5px; width: 500px; height: 60px; font-size: 16pt; text-align: center;'>Ingen forslag til dette bilde!<br></div>";
     }
 
 

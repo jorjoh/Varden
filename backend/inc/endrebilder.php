@@ -40,7 +40,7 @@
         $rad = mysqli_fetch_array($sqlresultat);
 
         $filnavn = $rad["filename"];
-        $beskrivelse = $rad["picturetext"];
+        $beskrivelse = substr($rad["picturetext"], 0, 47)."...";
         $tumburl = $rad["thumb_url"];
         $count = $rad["count"];
         $imagesid = $rad["id"];
