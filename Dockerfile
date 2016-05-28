@@ -11,7 +11,7 @@ RUN sudo apt-get -y install php5-mysql git wget zip php5-curl libapache2-mod-php
 RUN sudo a2enmod php5
 RUN sudo a2enmod rewrite
 # ADD /src/index.php /var/www/html/
-ADD dbdump/varden_dump.sql /docker-entrypoint-initdb.d
+ADD dbdump/varden_dbdump.sql /docker-entrypoint-initdb.d
 
 # Maintainer
 MAINTAINER Jørgen Johansen
