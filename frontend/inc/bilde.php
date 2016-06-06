@@ -260,25 +260,25 @@ else {
                 </div>
             </div>
             <br>
+            ";
+            if(isset($_POST['submitrequest'])) {
+                $comment = mysqli_real_escape_string($connect, $_POST['comment']);
+                if(empty($comment)) {
+                    echo "Det er ikke skrevet noen kommentar";
+                }
+                else {
+                    $sql = "INSERT INTO request(image_id, processed_by, requesttext) VALUES ($id, 'Admin', '$comment');";
+                    mysqli_query($connect, $sql) or die('Beklager det skjedde en feil! Ta kontakt med webutvikler'.mysqli_error($connect));
+                    echo "<p id='msg' style='background: #f7ecb5; margin-top: 10px; padding: 15px; border: 1px solid black;'>Ditt forslag ble vellykket sendt inn til behandling!</p>";
+                }
+            }
+            echo "
             <br>
             <br>
             <a href='?side=resultat&q=$searchquery' id='btn' style='padding: 0 20px;'>Tilbake til søkeresultat</a>
         </div>
     ";
-
-    if(isset($_POST['submitrequest'])) {
-        $comment = mysqli_real_escape_string($connect, $_POST['comment']);
-        if(empty($comment)) {
-            echo "Det er ikke skrevet noen kommentar";
-        }
-        else {
-            $sql = "INSERT INTO request(image_id, requesttext) VALUES ($id, '$comment');";
-            mysqli_query($connect, $sql) or die('Beklager det skjedde en feil! Ta kontakt med webutvikler'.mysqli_error($connect));
-            echo "<p id='msg' style='background: #f7ecb5; margin-top: 10px; padding: 15px; border: 1px solid black;'>Ditt forslag ble vellykket sendt inn til behandling!</p>";
-        }
-    }
 }
-
 ?>
 
 <script>

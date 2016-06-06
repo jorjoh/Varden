@@ -37,9 +37,9 @@
                                 'query' => [
                                     'bool' => [
                                         'should' => [
+                                            ['match' => ['tags' => $searchtxt]],
                                             ['match' => ['title' => $searchtxt]],
                                             ['match' => ['category' => $searchtxt]],
-                                            ['match' => ['tags' => $searchtxt]],
                                             ['match' => ['place' => $searchtxt]],
                                             ['match' => ['photographer' => $searchtxt]]
                                         ]
