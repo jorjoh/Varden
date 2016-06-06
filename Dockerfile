@@ -12,6 +12,7 @@ RUN sudo a2enmod php5
 RUN sudo a2enmod rewrite
 # ADD /src/index.php /var/www/html/
 ADD dbdump/varden_dbdump.sql /docker-entrypoint-initdb.d
+RUN sudo sed -i -e "s/^upload_max_filesize\s*=\s*2M/upload_max_filesize = 15M/" /etc/php5/apache2/php.ini
 
 # Maintainer
 MAINTAINER Jørgen Johansen
