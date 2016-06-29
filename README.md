@@ -14,3 +14,6 @@ Pull image:
 
 # Build image and run
 <pre> docker-compose build && docker-compose up -d </pre>
+
+#Lisens
+<a href=https://github.com/jorjoh/Varden/blob/master/License.md> MIT </a>
